@@ -478,7 +478,7 @@ function array_to_rank ($ar, $qtt) { ?>
 		if (++$i == $qtt) break;
 		?>
 		<li>
-			<?php echo $key. " : ".$value; ?>
+			<?php echo $i.". ".$key. " : ".$value; ?>
 		</li>
 	<?php } ?>
 	</ul>

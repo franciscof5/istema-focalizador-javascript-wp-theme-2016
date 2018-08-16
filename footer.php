@@ -201,6 +201,7 @@ jQuery( document ).ready(function() {
 		resizing = min_width_percentage + ((((qtddpomo/ranking_footer_first_qtddpomo)/10)*2)*100);
 		//alert(res);
 		jQuery( this ).width( (resizing) + "%" );
+		jQuery( this ).find('a').width( (resizing-15) + "%" );
 	});
 	jQuery(".ul-ranking-footer li:nth-child(1)").css({
 			"background":"#FFF379",
