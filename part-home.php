@@ -166,7 +166,8 @@
 			<div class="col-md-3">
 				<h3 class="forte">Buy to support our free services</h3>
 				<?php echo do_shortcode('[product id="5160"]'); ?>
-				<?php echo do_shortcode('[rpwe limit="100" tag="579" ]'); ?>
+				<?php show_recent_posts_georefer(); ?>
+				<?php #echo do_shortcode('[rpwe limit="100" tag="579" ]'); ?>
 				<?php #echo do_shortcode('[rpwe limit="10" thumb="true" ]'); ?>
 
 				<?php /*the_widget('Recent_Posts_Widget_Extended', array(
