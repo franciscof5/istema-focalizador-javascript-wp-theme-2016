@@ -25,7 +25,7 @@
 						"preset" => "custom",
 						#"template" => "%gravatar_32% %firstname% %lastname% (%nrofposts%)",
 						"template" => '<li><a href="/colegas/%username%">%gravatar_18%  %firstname% %lastname% (%nrofposts%) </a>  </li>',
-						"before_list" => "<ul class='ul-ranking-footer ta-gravatar-list-count'>",
+						"before_list" => "<ul class='ul-ranking-footer ul-ranking-li ta-gravatar-list-count'>",
 						"after_list" => "</ul>",
 						"custom_id" => "",
 						"archive_specific" => false); 
@@ -68,7 +68,7 @@
 			</div>
 			
 			<div class="row">
-				<div class="col-sm-12" style="text-align: right;">
+				<div class="col-xs-12" style="text-align: right;">
 					<?php show_lang_options(false); ?>
 				</div>
 			</div>
@@ -83,7 +83,7 @@
 				
 				
 			<div  class="row white-link">
-				<div class="col-sm-6">
+				<div class="col-xs-6">
 					<p>Developed by <a href="https://www.franciscomat.com">Francisco Mat</a>
 					<?php /*, Fork us <a href="https://github.com/franciscof5/sistema-focalizador-javascript">on GitHub</a> */ ?>
 					</p>
@@ -91,8 +91,8 @@
 				<?php
 				/*<br /> Hosted by <a href="https://www.f5sites.com/pomodoros">F5 Sites</a>*/
 				?>
-				<div class="col-sm-6">
-					<p style="text-align: right;">Watch <a href="<?php bloginfo('url'); ?>/projeto/pomodoros-2"> Pomodoros project</a> in real time</p>
+				<div class="col-xs-6">
+					<p style="text-align: right;">Project <a href="<?php bloginfo('url'); ?>/projeto/pomodoros-2"> Pomodoros</a></p>
 				</div>
 			</div>
 			<?php do_action( 'bp_footer' ) ?>
@@ -100,95 +100,12 @@
 <script type="text/javascript">
 
 jQuery( document ).ready(function() {
-	largura = 800;
-	//primeiro = jQuery("li:nth-child(2)").find('span').text();
 	var regExpGetValueInParentisi = /\(([^)]+)\)/;
-	
-	//alert(primeiro);
-	//jQuery( ".top-authors-widget").find( "li" ).each(function(i) {
-	
-	if(jQuery( ".ta-preset li").length) {
-		primeiro = jQuery(".ta-preset li:nth-child(1)").text();
-	//var matches = parseInt(regExpGetValueInParentisi.exec());
-	var matches = regExpGetValueInParentisi.exec(primeiro);
-	var primeiro = parseInt(matches[1]);
-		jQuery( ".ta-preset li").each(function(i, b) {
-			//alert(b);
-			//jQuery( "li" ).each(function(i) {
-			/*alert( jQuery(this).find('span').text() );
-			jQuery( this ).width( jQuery(this).find('span').text() );/
-			*/
-			//alert(i);
-
-			jQuery(this).prepend("<span class=pos>"+(i+1)+"</span>");
-			qtddpomo_parentisis = (jQuery(this).text());
-			//alert(qtddpomo_parentisis);
-			//var patt = /\((\d)\)/;
-			
-			//var qtddpomo = qtddpomo_parentisis.match(patt)[0].replace("(", "").replace(")","");
-			
-			
-			
-			var matches = regExpGetValueInParentisi.exec(qtddpomo_parentisis);
-
-			//matches[1] contains the value between the parentheses
-			//console.log(matches[1]);
-
-			qtddpomo= parseInt(matches[1]);
-			//res = 25 + ((((qtddpomo/primeiro)/4)*3)*100);
-			//res = 50 + ((((qtddpomo/primeiro)/2)*1)*100);
-			
-			res = 80 + ((((qtddpomo/primeiro)/10)*2)*100);
-			//alert(res);
-			jQuery( this ).width( (res) + "%" );
-			//jQuery( this ).css('backgroundColor', "CCC");
-			
-
-
-			/*if(i>0) {
-				jQuery( this ).before( '<span style="float: left;font-family: Lilita One, cursive;width: 30px;font-size: 20px;line-height: 30px;text-align: center;background: #009933;color: #FFF;border-radius: 50px;padding: 0;margin: 20px 10px;">'+i+"</span" );
-			}*/
-		});
-		jQuery(".ta-preset li:nth-child(1)").css({
-				"background":"#FFF379",
-				"color": "#9B7529",
-		});
-		jQuery(".ta-preset li:nth-child(1) .pos").css({
-			"color": "#9B7529",
-			"font-size": "30px"
-		});
-		jQuery(".ta-preset li:nth-child(1) a").css("color", "#9B7529");
-
-
-		jQuery(".ta-preset li:nth-child(2)").css({
-				"background":"#98969B",
-				"color": "#D0D8D7"
-		});
-		jQuery(".ta-preset li:nth-child(2) .pos").css({
-			"color": "#D0D8D7",
-			"font-size": "26px"
-		});
-		jQuery(".ta-preset li:nth-child(2) a").css("color", "#D0D8D7");
-
-
-		jQuery(".ta-preset li:nth-child(3)").css({
-				"background":"#F1AB66",
-				"color": "#50352F"
-		});
-		jQuery(".ta-preset li:nth-child(3) .pos").css({
-			"color": "#50352F",
-			"font-size": "22px"
-		});
-		jQuery(".ta-preset li:nth-child(3) a").css("color", "#50352F");
-	}
-	
-
-	///******************************GAMB****************FAST CLONE*/************
-
 	ranking_footer_first_text = jQuery(".ul-ranking-footer li:nth-child(1)").text();
 	var matches2 = regExpGetValueInParentisi.exec(ranking_footer_first_text);
 	var ranking_footer_first_qtddpomo = parseInt(matches2[1]);
 	var min_width_percentage = 70;
+	var min_width_percentage_negative = 100 - min_width_percentage;
 	//
 	jQuery( ".ul-ranking-footer li").each(function(i, b) {
 		jQuery(this).prepend("<span class=pos>"+(i+1)+"</span>");
@@ -196,9 +113,12 @@ jQuery( document ).ready(function() {
 		inner_text_li_footer = (jQuery(this).text());
 		//alert(inner_text_li_footer);
 		var matches = regExpGetValueInParentisi.exec(inner_text_li_footer);
-		qtddpomo = parseInt(matches[1]);
+		qtddpomo= parseInt(matches[1]);
+		percentage_in_relation_to_first = (qtddpomo/ranking_footer_first_qtddpomo);
+		
+		resizing = min_width_percentage + (percentage_in_relation_to_first*min_width_percentage_negative);
 		//alert(qtddpomo);
-		resizing = min_width_percentage + ((((qtddpomo/ranking_footer_first_qtddpomo)/10)*2)*100);
+		//resizing = min_width_percentage + ((((qtddpomo/ranking_footer_first_qtddpomo)/10)*2)*100);
 		//alert(res);
 		jQuery( this ).width( (resizing) + "%" );
 		jQuery( this ).find('a').width( (resizing-15) + "%" );
