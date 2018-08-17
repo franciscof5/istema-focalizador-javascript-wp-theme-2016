@@ -8,6 +8,7 @@ get_header();
 		<div class="row">
 	
 			<div class="padder col-md-9">
+			<?php show_lang_options(false); ?>
 			<?php if(is_home()) { ?>
 				<div id="blog-welcomeDISABLED">
 				<!--h3 style="font-family: Forte;"><script>document.write(txt_blog_header)</script></h3>
