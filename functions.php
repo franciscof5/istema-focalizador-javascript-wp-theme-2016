@@ -244,7 +244,7 @@ function smart_set_user_language() {
 		}
 	} else {*/
 	$user_prefered_language = $user_location_georefered;
-
+	session_start();
 	if(!isset($_SESSION["user_prefered_language"]))
 	$_SESSION["user_prefered_language"]=$user_prefered_language;
 	
@@ -325,10 +325,10 @@ function load_scritps() {
 
 	
 	global $user_prefered_language;
-	if(isset($_SESSION["user_prefered_language"])
+	if(isset($_SESSION["user_prefered_language"]) {
 		$user_prefered_language==$_SESSION["user_prefered_language"];
-	else {
-		if($user_prefered_language=="")
+	} else {
+		if($user_prefered_language=="" || $user_prefered_language)
 			$user_prefered_language=="en_US";
 	}
 	$filelang = $user_prefered_language.".js";
