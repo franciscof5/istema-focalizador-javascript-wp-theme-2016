@@ -325,7 +325,7 @@ function load_scritps() {
 
 	
 	global $user_prefered_language;
-	if(isset($_SESSION["user_prefered_language"]) {
+	if(isset($_SESSION["user_prefered_language"])) {
 		$user_prefered_language==$_SESSION["user_prefered_language"];
 	} else {
 		if($user_prefered_language=="" || $user_prefered_language)
