@@ -2,7 +2,7 @@
 	<style type="text/css">
 		.navbar {margin-bottom: -10px;}
 	</style>
-	
+	<?php show_welcome_message(); ?>
 	<?php
 	global $user_prefered_language;
 	#force_database_aditional_tables_share(false);
@@ -18,8 +18,8 @@
 		<div class="row">
 
 			<div class="padder col-md-9">
+			
 			<?php show_lang_options(false); ?>
-			<?php show_welcome_message(); ?>
 			<!--hr /-->
 				
 			<?php do_action( 'bp_before_blog_home' ) ?>
@@ -112,9 +112,12 @@
 		</div><!-- .padder -->
 
 			<div class="col-md-3">
+				
 				<h3 class="forte">Buy to support our free services</h3>
-				<?php echo do_shortcode('[product id="5160"]'); ?>
+				<?php #echo do_shortcode('[product id="5160"]'); ?>
+
 				<?php show_recent_posts_georefer(); ?>
+				<?php show_lang_options(true); ?>
 				<?php #echo do_shortcode('[rpwe limit="100" tag="579" ]'); ?>
 				<?php #echo do_shortcode('[rpwe limit="10" thumb="true" ]'); ?>
 

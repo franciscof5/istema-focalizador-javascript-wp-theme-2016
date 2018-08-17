@@ -100,6 +100,16 @@
 <script type="text/javascript">
 
 jQuery( document ).ready(function() {
+	jQuery(".contem-icone " ).mouseenter(function() {
+		jQuery( ".icone-legenda" ).hide(100);
+		if(!jQuery(this).find( ".icone-legenda" ).is(":animated"))
+		jQuery(this).find( ".icone-legenda" ).show(400);
+		/*$(this).*/
+	});
+	jQuery( ".contem-icone" ).mouseout(function() {
+		jQuery( ".icone-legenda" ).hide(100);
+	});
+	//RANKING
 	var regExpGetValueInParentisi = /\(([^)]+)\)/;
 	ranking_footer_first_text = jQuery(".ul-ranking-footer li:nth-child(1)").text();
 	var matches2 = regExpGetValueInParentisi.exec(ranking_footer_first_text);

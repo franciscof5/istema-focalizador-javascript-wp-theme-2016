@@ -147,7 +147,7 @@
 			      		<a title="Open Ticket" id="settingsbutton" class="btn btn-link" href="<?php bloginfo('url'); ?>/ticket" style="padding-top: 10px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <span class="hidden-sm hidden-md"><script>document.write(txt_support)</script></span></a>
 			      </li>
 			      <li>
-			      	<a title="Desconectar-se" class="btn btn-link" href="<?php echo wp_logout_url(); ?>" style="padding-top: 10px;"><script>document.write(txt_logout)</script></a>
+			      	<a title="Desconectar-se" class="btn btn-link" href="<?php echo wp_logout_url(); ?>" style="padding-top: 10px;"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <span class="hidden-sm hidden-md"><script>document.write(txt_logout)</script></span></a>
 			      </li>
 			      <?php } ?>
 			    </ul>

@@ -1,81 +1,15 @@
 <?php 
 get_header(); 
 # echo do_shortcode('[rev_slider alias="pomo1"]'); ?>
-	<style type="text/css">
+<?php show_welcome_message(); ?>
+	<!--style type="text/css">
 		.navbar {margin-bottom: 0px;}
-	</style>
+	</style-->
 	<div id="content" class="content_default col col-xs-12 ">
 		<div class="row">
-	
-			<div class="padder col-md-9">
-			<?php show_lang_options(false); ?>
-			<?php if(is_home()) { ?>
-				<div id="blog-welcomeDISABLED">
-				<!--h3 style="font-family: Forte;"><script>document.write(txt_blog_header)</script></h3>
-				<p><script>document.write(txt_blog_desc)</script></p-->
-				<?php show_lang_options(false); ?>
-				<?php if(is_user_logged_in()) { ?>
-					<?php $current_user = wp_get_current_user(); ?>
-					<?php 
-					$args = array(
-			              'post_type' => 'projectimer_focus',
-			              'post_status' => 'draft',
-			              'author'   => get_current_user_id(),
+				<div class="padder col-md-9">
+			<?php #show_lang_options(false); ?>
 
-			              'posts_per_page' => 1,
-			            );
-					$recent = get_posts($args);
-					if( $recent ){
-					  $title = ", sua tarefa mais recente é <i>".get_the_title($recent[0]->ID)."</i>";
-					}else{
-					  $title = ", você ainda não começou nenhuma tarefa"; //No published posts
-					} ?>
-					
-					<?php 
-					$msg_saudacao = "Olá ".$current_user->display_name." ".$title.", <a href=/focar>acessar aplicativo online e focar</a>";
-
-					
-					?>
-				<?php } else {
-					$msg_saudacao = "Caro visitante, <a href=/register>crie sua conta GRÁTIS</a> para acessar o aplicativo online";
-					$msg_saudacao2 = "Se já possui um usuário, <a id=testes href=# class=abrir_login>acesse sua conta</a>";
-				} 
-				
-				echo "<script type='text/javascript'>alertify.log('".$msg_saudacao."');</script>";
-				if(isset($msg_saudacao2))
-				echo "<script type='text/javascript'>alertify.log('".$msg_saudacao2."');</script>";
-				/*
-				?>
-				<script type="text/javascript">
-					artyom = new Artyom();
-					//
-				    artyom.fatality();// use this to stop any of
-				    //
-				    //alert(data_from_php.php_locale);
-				    //if(data_from_php.php_locale=="pt_BR")
-				    artyom_lang = <?php global $locale; echo $locale; ?>;
-				    //else
-				    	//artyom_lang = "en-US";
-				    //
-				    setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
-				         artyom.initialize({
-				            lang:artyom_lang,// A lot of languages are supported. Read the docs !
-				            continuous:true,// Artyom will listen forever
-				            listen:true, // Start recognizing
-				            debug:true, // Show everything in the console
-				            speed:1, // talk normally
-				            //name: "pomodoro",
-				        }).then(function(){
-				            console.log("Ready to work !");
-				        });
-					});
-					artyom.say('<?php echo $msg_saudacao; ?>');
-				</script>*/
-				?>
-				</div>
-				<!--hr /-->
-			<?php } ?>
-			
 			<?php do_action( 'bp_before_blog_home' ) ?>
 
 			<div class="page" id="blog-latest">
@@ -86,7 +20,7 @@ get_header();
 				       		}
 
 					 while (have_posts()) : the_post(); ?>
-						<?php if(!has_tag("english")){ ?>
+						<?php #if(!has_tag("english")){ ?>
 						<?php do_action( 'bp_before_blog_post' ) ?>
 
 						<div class="post" id="post-<?php the_ID(); ?>">
@@ -130,7 +64,7 @@ get_header();
 
 						<?php do_action( 'bp_after_blog_post' ) ?>
 						<?php edit_post_link( __( 'Edit this entry.', 'buddypress' ), '<p>', '</p>'); ?>
-						<?php } ?>
+						<?php #} ?>
 					<?php endwhile; ?>
 
 					<?php 
@@ -148,7 +82,8 @@ get_header();
 
 			<div class="col-md-3 semi-transparent">
 				<h3 style="font-family: Forte;">Compre para ajudar a manter o serviço grátis</h3>
-				<?php echo do_shortcode('[product id="5160"]'); ?>
+				<?php show_lang_options(true); ?>
+				<?php #echo do_shortcode('[product id="5160"]'); ?>
 				<?php show_recent_posts_georefer(); ?>
 				<?php #echo do_shortcode('[product id="5432"]'); ?>
 				<?php #echo do_shortcode('[product id="5434"]'); ?>

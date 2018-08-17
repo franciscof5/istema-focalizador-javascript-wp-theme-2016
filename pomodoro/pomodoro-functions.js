@@ -50,15 +50,7 @@ function startTest() {
 
 jQuery(document).ready(function ($) {
 	//
-	jQuery(".contem-icone " ).mouseenter(function() {
-		jQuery( ".icone-legenda" ).hide(100);
-		if(!jQuery(this).find( ".icone-legenda" ).is(":animated"))
-		jQuery(this).find( ".icone-legenda" ).show(400);
-		/*$(this).*/
-	});
-	jQuery( ".contem-icone" ).mouseout(function() {
-		jQuery( ".icone-legenda" ).hide(100);
-	});
+	
 	//
 	jQuery("#action_button_id").click(function(e) {
 		e.preventDefault();
