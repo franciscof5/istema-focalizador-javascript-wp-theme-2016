@@ -82,9 +82,12 @@ add_action('init', 'smart_set_user_language');
 //
 #function custom_disable_redirect_canonical( $redirect_url, $requested_url ) {
 function custom_disable_redirect_canonical( $redirect_url ) {
+	#var_dump($redirect_url);die;
 	if ( preg_match("/ranking/",$redirect_url) ) {
 		return FALSE;
 	} elseif ( preg_match("/calendar/",$redirect_url) ) {
+		return FALSE;
+	} elseif ( preg_match("/product/",$redirect_url) ) {
 		return FALSE;
 	} else {
 		return $redirect_url;
@@ -216,6 +219,8 @@ function smart_set_user_language() {
 	if(class_exists("WC_Geolocation")) {
 		$wclocation = WC_Geolocation::geolocate_ip();
 		$user_location_georefered = $wclocation['country'];
+		if($user_location_georefered=="BR")
+			$user_location_georefered="pr_BR";
 	}
 	if(!$user_location_georefered) {
 		if(function_exists("locale_accept_from_http"))
