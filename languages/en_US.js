@@ -8,6 +8,7 @@ var txt_icon_rank = "Ranking";
 var txt_icon_cal = "Calendar";
 
 //Blog
+var txt_index_title = "Pomodoros Global & USA - English";
 var txt_blog_header = "Pomodoros Blog";
 var txt_blog_desc = "News and history of project, online since 2010.";
 

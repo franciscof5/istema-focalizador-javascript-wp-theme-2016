@@ -1,12 +1,10 @@
-<script language="javascript">
-    document.title = "Pomodoros Global & USA - Blog";
-</script>
 	<?php echo do_shortcode('[rev_slider alias="pomo1"]'); ?>
 	<style type="text/css">
 		.navbar {margin-bottom: -10px;}
 	</style>
 	
 	<?php
+	global $user_prefered_language;
 	#force_database_aditional_tables_share(false);
 	#echo do_shortcode('[product id="5160"]');  
 	#echo do_shortcode('[products ids="4530,5160" ]');
@@ -20,73 +18,10 @@
 		<div class="row">
 
 			<div class="padder col-md-9">
-			<?php if(is_home()) { ?>
-				<div id="blog-welcomeDISABLED">
-				<!--h3 class="forte"><script>document.write(txt_blog_header)</script></h3>
-				<p><script>document.write(txt_blog_desc)</script></p-->
-				<?php show_lang_options(false); ?>
-				<?php if(is_user_logged_in()) { ?>
-					<?php $current_user = wp_get_current_user(); ?>
-					<?php 
-					$args = array(
-			              'post_type' => 'projectimer_focus',
-			              'post_status' => 'draft',
-			              'author'   => get_current_user_id(),
-
-			              'posts_per_page' => 1,
-			            );
-					$recent = get_posts($args);
-					if( $recent ){
-					  $title = ", you most recent task is <i>".get_the_title($recent[0]->ID)."</i>";
-					}else{
-					  $title = ", you did not started a task yet"; //No published posts
-					} ?>
-					
-					<?php 
-					$msg_saudacao = "Hello ".$current_user->display_name." ".$title.", <a href=/focar>go to online app and start focus</a>";
-
-					
-					?>
-				<?php } else {
-					$msg_saudacao = "Dear visitor, <a href=/register>create your free user</a> and start focus right now";
-					$msg_saudacao2 = "If you already have an account, <a id=testes href=# class=abrir_login>login</a>";
-				} 
+			<?php show_lang_options(false); ?>
+			<?php show_welcome_message(); ?>
+			<!--hr /-->
 				
-				echo "<script type='text/javascript'>alertify.log('".$msg_saudacao."');</script>";
-				if(isset($msg_saudacao2))
-				echo "<script type='text/javascript'>alertify.log('".$msg_saudacao2."');</script>";
-				/*
-				?>
-				<script type="text/javascript">
-					artyom = new Artyom();
-					//
-				    artyom.fatality();// use this to stop any of
-				    //
-				    //alert(data_from_php.php_locale);
-				    //if(data_from_php.php_locale=="pt_BR")
-				    artyom_lang = <?php global $locale; echo $locale; ?>;
-				    //else
-				    	//artyom_lang = "en-US";
-				    //
-				    setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
-				         artyom.initialize({
-				            lang:artyom_lang,// A lot of languages are supported. Read the docs !
-				            continuous:true,// Artyom will listen forever
-				            listen:true, // Start recognizing
-				            debug:true, // Show everything in the console
-				            speed:1, // talk normally
-				            //name: "pomodoro",
-				        }).then(function(){
-				            console.log("Ready to work !");
-				        });
-					});
-					artyom.say('<?php echo $msg_saudacao; ?>');
-				</script>*/
-				?>
-				</div>
-				<!--hr /-->
-			<?php } ?>
-			
 			<?php do_action( 'bp_before_blog_home' ) ?>
 
 			<div class="page" id="blog-latest">
@@ -95,11 +30,24 @@
 				if(function_exists('set_shared_database_schema')) {
 				       			set_shared_database_schema();
 				       		}
-
+				global $wp_query;
+				$original_query = $wp_query;
+				$wp_query = null;
+				#reset_wp_query();
+				#wp_reset_query();
+				#$wp_query-> set('tag' ,'lang-fr');
+				$user_prefered_language_prefix = substr($user_prefered_language, 0,2);
+				$args = array(
+					"post_type" => "post",
+					'tag' => "lang-".$user_prefered_language_prefix,
+				);
+				#var_dump("lang-".$user_prefered_language_prefix);die;
+				$wp_query = new WP_Query( $args );
+				#var_dump($wp_query);die;
 				if ( have_posts() ) : ?>
 
 					<?php while (have_posts()) : the_post(); ?>
-						<?php if(has_tag("english")){ ?>
+						<?php #if(has_tag("english")){ ?>
 						<?php do_action( 'bp_before_blog_post' ) ?>
 
 						<div class="post" id="post-<?php the_ID(); ?>">
@@ -142,7 +90,7 @@
 						</div>
 
 						<?php do_action( 'bp_after_blog_post' ) ?>
-						<?php } ?>
+						<?php #} ?>
 					<?php endwhile; ?>
 					<?php the_posts_pagination(); ?>
 					<?php 

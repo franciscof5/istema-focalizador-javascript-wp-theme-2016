@@ -77,7 +77,7 @@ add_action('wp_logout','go_home');
 add_action('init', 'create_post_type' );
 add_action('wp_enqueue_scripts', 'load_scritps');
 add_action('init', 'custom_rewrite_basic');
-
+add_action('init', 'smart_set_user_language');
 
 //
 #function custom_disable_redirect_canonical( $redirect_url, $requested_url ) {
@@ -210,46 +210,64 @@ function default_page() {
   return '/focar';
 }
 
-
-global $locale;
-if(class_exists("WC_Geolocation")) {
-	$location = WC_Geolocation::geolocate_ip();
-	$local = $location['country'];
-}
-if(!$local) {
-	if(function_exists("locale_accept_from_http"))
-		$locale = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-	else
-		$locale = "en_US";
-}
-
-//echo $locale;die;
-if($locale=="" || $locale=="en")
-	$locale=="en_US";
-
-
-#$user_lang_pref = get_user_meta(get_current_user_id(), "pomodoros_lang", true);
-#if($user_lang_pref=="")
-#	$user_lang_pref="en_US";
-/*if($user_lang_pref) {
-	if($_GET["lang"]=="pt" || $_GET["lang"]=="pt_BR") {
-		echo update_user_meta( get_current_user_id(), "pomodoros_lang", "pt_BR" );
-	} elseif($_GET["lang"]=="en" || $_GET["lang"]=="en_US") {
-		echo update_user_meta( get_current_user_id(), "pomodoros_lang", "en_US" );
+function smart_set_user_language() {
+	global $user_prefered_language;
+	
+	if(class_exists("WC_Geolocation")) {
+		$wclocation = WC_Geolocation::geolocate_ip();
+		$user_location_georefered = $wclocation['country'];
 	}
-} else {*/
-if($_GET && isset($_GET["lang"])) {
-	if($_GET["lang"]=="pt" || $_GET["lang"]=="pt_BR") {	
-		$user_lang_pref="pt_BR";
-		#update_user_meta( get_current_user_id(), "pomodoros_lang", $user_lang_pref );
-	} elseif($_GET["lang"]=="en" || $_GET["lang"]=="en_US") {
-		$user_lang_pref="en_US";
-		#update_user_meta( get_current_user_id(), "pomodoros_lang", $user_lang_pref );
+	if(!$user_location_georefered) {
+		if(function_exists("locale_accept_from_http"))
+			$user_location_georefered = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+		else
+			$user_location_georefered = "en_US";
 	}
-	if($user_lang_pref!=$locale) {
-		$locale=$user_lang_pref;
+	#$user_prefered_language = $user_location_georefered;
+	#var_dump($user_location_georefered);
+	
+
+	#$user_lang_pref = get_user_meta(get_current_user_id(), "pomodoros_lang", true);
+	#if($user_lang_pref=="")
+	#	$user_lang_pref="en_US";
+	/*if($user_lang_pref) {
+		if($_GET["lang"]=="pt" || $_GET["lang"]=="pt_BR") {
+			echo update_user_meta( get_current_user_id(), "pomodoros_lang", "pt_BR" );
+		} elseif($_GET["lang"]=="en" || $_GET["lang"]=="en_US") {
+			echo update_user_meta( get_current_user_id(), "pomodoros_lang", "en_US" );
+		}
+	} else {*/
+	$user_prefered_language = $user_location_georefered;
+
+	if(!isset($_SESSION["user_prefered_language"]))
+	$_SESSION["user_prefered_language"]=$user_prefered_language;
+	if($_GET && isset($_GET["lang"])) {
+		/*if($_GET["lang"]=="pt" || $_GET["lang"]=="pt_BR") {	
+			$user_lang_on_url="pt_BR";
+			#update_user_meta( get_current_user_id(), "pomodoros_lang", $user_lang_on_url );
+		} elseif($_GET["lang"]=="en" || $_GET["lang"]=="en_US") {
+			$user_lang_on_url="en_US";
+			#update_user_meta( get_current_user_id(), "pomodoros_lang", $user_lang_on_url );
+		}*/
+
+		#if($user_lang_on_url!=$user_prefered_language) {
+			#$user_prefered_language=$user_lang_on_url;
+			$user_prefered_language=$_GET["lang"];
+			$_SESSION["user_prefered_language"]=$user_prefered_language;
+		#}
 	}
+
+	if(isset($_SESSION["user_prefered_language"])) {
+		$user_prefered_language=$_SESSION["user_prefered_language"];
+	} else {
+		$_SESSION["user_prefered_language"]=$user_prefered_language;
+	}
+	if($user_prefered_language=="" || $user_prefered_language=="en")
+		$user_prefered_language=="en_US";
+	#var_dump($_SESSION["user_prefered_language"]);
+	return $user_prefered_language;
 }
+
 
 function load_scritps() {	
 	//THEME CSS FOR IMPROVE SPEED
@@ -299,8 +317,8 @@ function load_scritps() {
 	
 
 	
-	global $locale;
-	$filelang = $locale.".js";
+	global $user_prefered_language;
+	$filelang = $user_prefered_language.".js";
 	
 	//if(qtranxf_getLanguage() == "en")
 		//$filelang="en.js";
@@ -319,7 +337,7 @@ function load_scritps() {
 
 	// Localize the script with new data
 	$translation_array = array(
-		'php_locale' => $locale,
+		'php_locale' => $user_prefered_language,
 	);
 	
 	wp_localize_script( 'pomodoros-js', 'data_from_php', $translation_array );
@@ -338,25 +356,72 @@ function load_scritps() {
 	
 }
 
-function show_lang_options($showtitle) {
-	global $locale;
-	
-	if($locale!="en" && $locale!="en_US") { ?>
-		<?php if($showtitle) { ?>
+function show_lang_options($showtitle_in_h3, $current_location="") {
+	global $user_prefered_language;
+	if($current_location=="") {
+		if($user_prefered_language!="")
+			$current_location = $user_prefered_language;
+		else
+			$current_location = "notset";
+	} ?>
+
+		<?php if($showtitle_in_h3) { ?>
 			<h3 class="widget-title">Change Language</h3>
 		<?php } else { ?>
 			<strong>Change Language:</strong>
 		<?php } ?>
-		<a href="<?php echo get_bloginfo('url'); ?>/?lang=en_US"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/us.png" alt="Language Flag"> English</a>
+
+	<?php
+	#var_dump($user_prefered_language);
+	#var_dump($current_location);die;
+	switch ($current_location) {
+		case 'notset' :
+		case 'en' :
+		case 'en_US' :
+			generate_flag_links_except("en");
+			break;
+		
+		case 'pt' :
+		case 'pt_BR' :
+			generate_flag_links_except("pt");
+			break;
+
+		case 'fr' :
+		case 'fr_FR' :
+			generate_flag_links_except("fr");
+			break;
+
+		default:
+			generate_flag_links_except("en");
+			break;
+	}
+	/*
+	if($current_location!="en" && $current_location!="en_US") { ?>
+		<?php if($showtitle_in_h3) { ?>
+			<h3 class="widget-title">Change Language</h3>
+		<?php } else { ?>
+			<strong>Change Language:</strong>
+		<?php } ?>
+		<a href="<?php echo get_bloginfo('url'); ?>/?lang=en_US"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/us.png" alt="Language Flag"> English</a>
 	<?php } else { ?>
-		<?php if($showtitle) { ?>
+		<?php if($showtitle_in_h3) { ?>
 			<h3 class="widget-title">Mudar Idioma</h3>
 		<?php } else { ?>
 			<strong>Mudar Idioma:</strong>
 		<?php } ?>
-		<a href="<?php echo get_bloginfo('url'); ?>/?lang=pt_BR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/br.png" alt="Bandeira de Idioma"> Português</a>
-	<?php }
+		<a href="<?php echo get_bloginfo('url'); ?>/?lang=pt_BR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/br.png" alt="Bandeira de Idioma"> Português</a>
+	<?php }*/
 }
+
+function generate_flag_links_except($except) { ?>
+	<?php if($except!="en" && $except!="en_US") { ?>
+		<a href="<?php echo get_bloginfo('url'); ?>/?lang=en_US"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/us.png" alt="Language Flag"> English</a>
+	<?php } if($except!="fr" && $except!="fr_FR") { ?>
+		<a href="<?php echo get_bloginfo('url'); ?>/?lang=fr_FR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/fr.png" alt="Language Flag"> Français</a>
+	<?php } if($except!="pt" && $except!="pt_BR") { ?>
+		<a href="<?php echo get_bloginfo('url'); ?>/?lang=pt_BR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/br.png" alt="Bandeira de Idioma"> Português</a>
+	<?php } ?>
+<?php }
 
 function show_most_recent_task() {
 	echo '<h3 class="widget-title">Tarefa recente</h3>';
@@ -424,17 +489,21 @@ function show_recent_posts_georefer() {
 			if(function_exists('set_shared_database_schema'))set_shared_database_schema();
 			
 			$idObj = get_category_by_slug("www.pomodoros.com.br"); 
+
+			global $user_prefered_language;
+			$user_prefered_language_prefix = substr($user_prefered_language, 0,2);
+			
 			$arro = array(
 				'cat' => $idObj->term_id,
-				'posts_per_page' => 6
-				);
+				'posts_per_page' => 6,
+				'tag' => "lang-".$user_prefered_language_prefix,
+			);
 			
-			global $locale;
-			if($locale=="en" || $locale=="en_US")
+			/*if($user_prefered_language=="en" || $user_prefered_language=="en_US")
 				#$args[] = array("tag"=>"english");
 				$arro["tag"] = "english";
 			else 
-				$arro["tag__not_in"] = 579;
+				$arro["tag__not_in"] = 579;*/
 			wp_reset_query();
 			$catquery = new WP_Query( $arro );
 			while($catquery->have_posts()) : $catquery->the_post();
@@ -449,6 +518,41 @@ function show_recent_posts_georefer() {
 		</ul>
 	</div>
 	<?php
+}
+
+function show_welcome_message() {
+	/*
+	<?php if(is_home()) { ?>
+		<div id="blog-welcomeDISABLED">
+		<!--h3 class="forte"><script>document.write(txt_blog_header)</script></h3>
+		<p><script>document.write(txt_blog_desc)</script></p-->
+		<?php show_lang_options(false); ?>
+		*/
+	if(is_user_logged_in()) {
+		$current_user = wp_get_current_user();
+		$args = array(
+	              'post_type' => 'projectimer_focus',
+	              'post_status' => 'draft',
+	              'author'   => get_current_user_id(),
+
+	              'posts_per_page' => 1,
+	            );
+		$recent = get_posts($args);
+		if( $recent ) {
+			$title = ", you most recent task is <i>".get_the_title($recent[0]->ID)."</i>";
+		} else{
+			$title = ", you did not started a task yet"; //No published posts
+		} 
+		
+		$msg_saudacao = "Hello ".$current_user->display_name." ".$title.", <a href=/focar>go to online app and start focus</a>";
+	} else {
+		$msg_saudacao = "Dear visitor, <a href=/register>create your free user</a> and start focus right now";
+		$msg_saudacao2 = "If you already have an account, <a id=testes href=# class=abrir_login>login</a>";
+	} 
+		
+	echo "<script type='text/javascript'>alertify.log('".$msg_saudacao."');</script>";
+	if(isset($msg_saudacao2))
+	echo "<script type='text/javascript'>alertify.log('".$msg_saudacao2."');</script>";
 }
 ####
 function get_meta_values( $meta_key,  $post_type = 'post' ) {
@@ -531,6 +635,7 @@ function get_projectimer_tags_COPY($excludeTags=NULL) {
 #
 function add_lost_password_link() {
     return '<a href="/wp-login.php?action=lostpassword">Forgot password (esqueci a senha)</a>';
+    #
 }
 
 function go_home(){
@@ -1094,7 +1199,7 @@ function save_or_delete_model () {
 	}
 }
 
-register_sidebar( array(
+/*register_sidebar( array(
 	'name' => __( 'blog'),
 	'id' => 'blog',
 	'description' => __( 'blog sidebar'),

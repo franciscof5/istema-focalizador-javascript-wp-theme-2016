@@ -8,6 +8,7 @@ var txt_icon_rank = "Ranking";
 var txt_icon_cal = "Calendário";
 
 //Blog
+var txt_index_title = "Pomodoros Brasil - Português";
 var txt_blog_header = "Blog do pomodoros";
 var txt_blog_desc = "Novidades e histórico do projeto, no ar desde 2010.";
 

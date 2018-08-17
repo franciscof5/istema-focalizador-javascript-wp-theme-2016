@@ -18,16 +18,17 @@ if(dirname($uri_parts[0])!="/") {
 #echo $page;die;
 $pages = array("focar", "calendar", "ranking", "produtividade", "inicio", "stats", "csv", "metas", "premios", "game", "1invite", "ticket", "product");
 #var_dump($uri_parts);die;
-global $locale;
-if($locale=="" || $locale=="en")
-$locale=="en_US";
-#var_dump($locale);die;
+#global $user_prefered_language;
+#var_dump($user_prefered_language);die;
+#if($user_prefered_language=="" || $user_prefered_language=="en")
+#$user_prefered_language=="en_US";
+#var_dump($user_prefered_language);die;
 if(!in_array($page, $pages)) {
 	
-	if($locale=="pt_BR" || $locale=="pt")
-		$page = "inicio";
-	else
-		$page = "home";
+	#if($user_prefered_language=="pt_BR" || $user_prefered_language=="pt")
+		#$page = "inicio";
+	#else
+		$page = "index";
 } else {
 	if (!is_user_logged_in()) {
 		if($page!="plugins-br" && $page!="product")
