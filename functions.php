@@ -75,10 +75,9 @@ add_action('wp_ajax_nopriv_save_or_delete_model', 'save_or_delete_model');
 add_action('admin_menu', 'my_remove_menu_pages' );
 add_action('wp_logout','go_home');
 add_action('init', 'create_post_type' );
-add_action('wp_enqueue_scripts', 'load_scritps');
 add_action('init', 'custom_rewrite_basic');
 add_action('init', 'smart_set_user_language');
-
+add_action('wp_enqueue_scripts', 'load_scritps');
 //
 #function custom_disable_redirect_canonical( $redirect_url, $requested_url ) {
 function custom_disable_redirect_canonical( $redirect_url ) {
@@ -219,8 +218,7 @@ function smart_set_user_language() {
 	if(class_exists("WC_Geolocation")) {
 		$wclocation = WC_Geolocation::geolocate_ip();
 		$user_location_georefered = $wclocation['country'];
-		if($user_location_georefered=="BR")
-			$user_location_georefered="pr_BR";
+
 	}
 	if(!$user_location_georefered) {
 		if(function_exists("locale_accept_from_http"))
@@ -228,6 +226,9 @@ function smart_set_user_language() {
 		else
 			$user_location_georefered = "en_US";
 	}
+	if($user_location_georefered=="BR")
+		$user_location_georefered="pr_BR";
+
 	#$user_prefered_language = $user_location_georefered;
 	#var_dump($user_location_georefered);
 	
@@ -246,6 +247,7 @@ function smart_set_user_language() {
 
 	if(!isset($_SESSION["user_prefered_language"]))
 	$_SESSION["user_prefered_language"]=$user_prefered_language;
+	
 	if($_GET && isset($_GET["lang"])) {
 		/*if($_GET["lang"]=="pt" || $_GET["lang"]=="pt_BR") {	
 			$user_lang_on_url="pt_BR";
@@ -267,7 +269,7 @@ function smart_set_user_language() {
 	} else {
 		$_SESSION["user_prefered_language"]=$user_prefered_language;
 	}
-	if($user_prefered_language=="" || $user_prefered_language=="en")
+	if($user_prefered_language=="")
 		$user_prefered_language=="en_US";
 	#var_dump($_SESSION["user_prefered_language"]);
 	return $user_prefered_language;

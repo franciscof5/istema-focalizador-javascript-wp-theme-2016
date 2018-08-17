@@ -22,7 +22,7 @@ $pages = array("focar", "calendar", "ranking", "produtividade", "inicio", "stats
 #var_dump($user_prefered_language);die;
 #if($user_prefered_language=="" || $user_prefered_language=="en")
 #$user_prefered_language=="en_US";
-#var_dump($user_prefered_language);die;
+var_dump($user_prefered_language);die;
 if(!in_array($page, $pages)) {
 	
 	#if($user_prefered_language=="pt_BR" || $user_prefered_language=="pt")
