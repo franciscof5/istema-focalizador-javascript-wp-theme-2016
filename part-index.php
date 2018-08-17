@@ -95,7 +95,7 @@
 					<?php the_posts_pagination(); ?>
 					<?php 
 					#plugin: f5sites-shared-posts-tables-and-uploads-folder
-					if(function_exists("print_blog_nav_links") && !is_home()) print_blog_nav_links($post); ?>
+					if(function_exists("print_blog_nav_links") && !is_home()) print_blog_nav_links($post, "lang-".$user_prefered_language_prefix); ?>
 
 				<?php else : ?>
 

@@ -148,6 +148,7 @@ get_header();
 			<div class="col-md-3 semi-transparent">
 				<h3 style="font-family: Forte;">Compre para ajudar a manter o serviço grátis</h3>
 				<?php echo do_shortcode('[product id="5160"]'); ?>
+				<?php show_recent_posts_georefer(); ?>
 				<?php #echo do_shortcode('[product id="5432"]'); ?>
 				<?php #echo do_shortcode('[product id="5434"]'); ?>
 				<?php #echo do_shortcode('[product id="5157"]'); ?>
