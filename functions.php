@@ -332,7 +332,7 @@ function load_scritps() {
 			$user_prefered_language=="en_US";
 	}
 	$filelang = $user_prefered_language.".js";
-	var_dump($filelang);die;
+	#var_dump($filelang);die;
 	//if(qtranxf_getLanguage() == "en")
 		//$filelang="en.js";
 	   //else if(qtranxf_getLanguage() == "pt")
