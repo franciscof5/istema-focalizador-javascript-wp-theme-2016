@@ -227,7 +227,7 @@ function smart_set_user_language() {
 			$user_location_georefered = "en_US";
 	}
 	if($user_location_georefered=="BR")
-		$user_location_georefered="pr_BR";
+		$user_location_georefered="pt_BR";
 
 	#$user_prefered_language = $user_location_georefered;
 	#var_dump($user_location_georefered);
