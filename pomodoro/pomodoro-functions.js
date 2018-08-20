@@ -115,7 +115,7 @@ jQuery(document).ready(function ($) {
 		load_initial_data();
 	},15000);
 
-	document.title = txt_index_title;
+	//document.title = txt_index_title;
 });
 
 function load_initial_data() {

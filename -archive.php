@@ -59,6 +59,4 @@
 		</div><!-- .padder -->
 	</div><!-- #content -->
 
-	<?php locate_template( array( 'sidebar-blog.php' ), true );#get_sidebar("s-blog"); ?>
-
 <?php get_footer(); ?>

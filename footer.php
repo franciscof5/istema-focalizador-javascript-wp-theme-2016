@@ -11,7 +11,9 @@
 		<div id="footer" class="container-fluid">
 			<div id="footer-content" class="row">
 				<div class="col-sm-3 contem_last_pomodoros">
-					<?php show_recent_pomodoros(); ?>
+					<?php 
+					if(function_exists("show_recent_pomodoros"))
+					show_recent_pomodoros(); ?>
 				</div>
 
 				<div class="col-sm-3">
@@ -33,19 +35,22 @@
 					?>
 					<!--small><script>document.write(txt_foot_naoc)</script></small-->
 					<?php
-					$array_top_cities = get_meta_values( "post_location_city", "projectimer_focus" );
-					#$array_top_cities = get_meta_values( "post_location_city", "projectimer_focus" );
-					$array_top_countries = get_meta_values( "post_location_country", "projectimer_focus" );
-					?>
-					<h3>Top 3 Cities</h3>
-					<?php array_to_rank($array_top_cities, 3); ?>
-					<h3>Top 3 Countries</h3>
-					<?php array_to_rank($array_top_countries, 3); ?>
-					
+					if(function_exists("get_meta_values")) {
+						$array_top_cities = get_meta_values( "post_location_city", "projectimer_focus" );
+						#$array_top_cities = get_meta_values( "post_location_city", "projectimer_focus" );
+						$array_top_countries = get_meta_values( "post_location_country", "projectimer_focus" );
+						?>
+						<h3>Top 3 Cities</h3>
+						<?php array_to_rank($array_top_cities, 4); ?>
+						<h3>Top 3 Countries</h3>
+						<?php array_to_rank($array_top_countries, 4); ?>
+					<?php } ?>
 				</div>
 
 				<div class="col-sm-3">
-					<?php show_recent_posts_georefer(); ?>
+					<?php 
+					if(function_exists("show_recent_posts_georefer"))
+					show_recent_posts_georefer(); ?>
 				</div>
 
 				<div id="footer-contact-form" class="col-sm-3">
@@ -69,7 +74,9 @@
 			
 			<div class="row">
 				<div class="col-xs-12" style="text-align: right;">
-					<?php show_lang_options(false); ?>
+					<?php 
+					if(function_exists("show_lang_options"))
+					show_lang_options(false); ?>
 				</div>
 			</div>
 

@@ -1,7 +1,8 @@
 <?php 
 get_header(); 
 # echo do_shortcode('[rev_slider alias="pomo1"]'); ?>
-<?php show_welcome_message(); ?>
+<?php if(function_exists("show_welcome_message")) show_welcome_message(); ?>
+
 	<!--style type="text/css">
 		.navbar {margin-bottom: 0px;}
 	</style-->
@@ -20,6 +21,7 @@ get_header();
 				       		}
 
 					 while (have_posts()) : the_post(); ?>
+					 	<?php if(function_exists("check_language_user_and_content"))check_language_user_and_content(get_the_tags()); ?>
 						<?php #if(!has_tag("english")){ ?>
 						<?php do_action( 'bp_before_blog_post' ) ?>
 
@@ -79,19 +81,10 @@ get_header();
 			<?php do_action( 'bp_after_blog_home' ); ?>
 
 			</div><!-- .padder -->
-
-			<div class="col-md-3 semi-transparent">
-				<h3 style="font-family: Forte;">Compre para ajudar a manter o serviço grátis</h3>
-				<?php show_lang_options(true); ?>
-				<?php #echo do_shortcode('[product id="5160"]'); ?>
-				<?php show_recent_posts_georefer(); ?>
-				<?php #echo do_shortcode('[product id="5432"]'); ?>
-				<?php #echo do_shortcode('[product id="5434"]'); ?>
-				<?php #echo do_shortcode('[product id="5157"]'); ?>
-			</div>
+			<?php locate_template( array( 'sidebar-index.php' ), true ); ?>
+			
 		</div>
 	</div><!-- #content -->
 
-<?php #locate_template( array( 'sidebar-blog.php' ), true ) 
-get_footer();
+<?php get_footer(); ?>
 

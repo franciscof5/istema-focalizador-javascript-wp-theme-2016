@@ -164,5 +164,3 @@
 			</div>
 		</div>
 	</div><!-- #content -->
-
-	<?php #locate_template( array( 'sidebar-blog.php' ), true ) ?>

@@ -3,35 +3,23 @@ get_header();
 
 //$page = strtok(basename($_SERVER["REQUEST_URI"]),'?');
 $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
-#var_dump(dirname($uri_parts[0]));die;
+//
 if(dirname($uri_parts[0])!="/") {
 	$page = explode("/", dirname($uri_parts[0]));
 	$page = $page[1];
 } else {
 	$page = basename($uri_parts[0]);
 }
-#var_dump($uri_parts);die;
-#$urlParts = explode("/", $_SERVER['REQUEST_URI']);
-#$rpage = explode("/", $page);
-#if(isset($rpage[0]))
-#$page = $rpage[0];
-#echo $page;die;
-$pages = array("focar", "calendar", "ranking", "produtividade", "inicio", "stats", "csv", "metas", "premios", "game", "1invite", "ticket", "product");
-#var_dump($uri_parts);die;
-#global $user_prefered_language;
-#var_dump($user_prefered_language);die;
-#if($user_prefered_language=="" || $user_prefered_language=="en")
-#$user_prefered_language=="en_US";
-#var_dump($user_prefered_language);die;
+#var_dump($page);die;
+//
+$pages = array("focar", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "ticket", "product");
+//
+$pages_open = array("plugins-br", "product", "br", "carrinho");
 if(!in_array($page, $pages)) {
-	
-	#if($user_prefered_language=="pt_BR" || $user_prefered_language=="pt")
-		#$page = "inicio";
-	#else
-		$page = "index";
+	$page = "index";
 } else {
 	if (!is_user_logged_in()) {
-		if($page!="plugins-br" && $page!="product")
+		if(!in_array($page, $pages_open))
 		$page = "closed";
 	} else {
 		if($page=="focar") {
@@ -43,7 +31,6 @@ if(!in_array($page, $pages)) {
 	}
 }
 
-#echo "INDEX p".$page;die;
 locate_template( "part-".$page.".php", true );
 
 get_footer();

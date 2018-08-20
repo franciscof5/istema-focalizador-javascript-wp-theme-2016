@@ -427,14 +427,31 @@ function show_lang_options($showtitle_in_h3, $current_location="") {
 }
 
 function generate_flag_links_except($except) { ?>
+	<?php $base_link = $_SERVER['REQUEST_URI']; ?>
 	<?php if($except!="en" && $except!="en_US") { ?>
-		<a href="<?php echo get_bloginfo('url'); ?>/?lang=en_US"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/us.png" alt="Language Flag"> English</a>
+		<a href="<?php echo $base_link; ?>?lang=en_US"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/us.png" alt="Language Flag"> English</a>
 	<?php } if($except!="fr" && $except!="fr_FR") { ?>
-		<a href="<?php echo get_bloginfo('url'); ?>/?lang=fr_FR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/fr.png" alt="Language Flag"> Français</a>
+		<a href="<?php echo $base_link; ?>?lang=fr_FR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/fr.png" alt="Language Flag"> Français</a>
 	<?php } if($except!="pt" && $except!="pt_BR") { ?>
-		<a href="<?php echo get_bloginfo('url'); ?>/?lang=pt_BR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/br.png" alt="Bandeira de Idioma"> Português</a>
+		<a href="<?php echo $base_link; ?>?lang=pt_BR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/br.png" alt="Bandeira de Idioma"> Português</a>
 	<?php } ?>
 <?php }
+
+function check_language_user_and_content($tags) {
+	global $user_prefered_language;
+	$user_prefered_language_prefix = substr($user_prefered_language,0,2);
+	if($tags) {
+		foreach ($tags as $tag) {
+			# code...
+			if(substr($tag->slug, 0, 5)=="lang-") {
+				$content_lang = substr($tag->slug, 5, 7);
+				if($user_prefered_language_prefix!=$content_lang)
+					echo "These content is not avaiable in your language";	
+			}
+		}
+	}
+	#var_dump($user_prefered_language_prefix);die;
+}
 
 function show_most_recent_task() {
 	echo '<h3 class="widget-title">Tarefa recente</h3>';

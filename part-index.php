@@ -14,12 +14,14 @@
 	#echo do_shortcode('[product_category limit="4" columns="4" orderby="popularity" product_cat="www.pomodoros.com.br"]');  
 	#revert_database_schema();#4530#5160
 	?>
+	<br>
+	<?php #show_lang_options(false); ?>
 	<div id="content" class="content_default col col-xs-12 ">
 		<div class="row">
 
-			<div class="padder col-md-9">
+			<div class="padder col-md-8">
 			
-			<?php show_lang_options(false); ?>
+			
 			<!--hr /-->
 				
 			<?php do_action( 'bp_before_blog_home' ) ?>
@@ -111,25 +113,6 @@
 
 		</div><!-- .padder -->
 
-			<div class="col-md-3">
-				
-				<h3 class="forte">Buy to support our free services</h3>
-				<?php #echo do_shortcode('[product id="5160"]'); ?>
-
-				<?php show_recent_posts_georefer(); ?>
-				<?php show_lang_options(true); ?>
-				<?php #echo do_shortcode('[rpwe limit="100" tag="579" ]'); ?>
-				<?php #echo do_shortcode('[rpwe limit="10" thumb="true" ]'); ?>
-
-				<?php /*the_widget('Recent_Posts_Widget_Extended', array(
-					"title" => "Recent Posts",
-					"tag" => "english"))*/ ?>
-				<?php #echo do_shortcode('[product id="5432"]'); ?>
-				<?php #echo do_shortcode('[product id="5434"]'); ?>
-				<?php #echo do_shortcode('[product id="5157"]'); ?>
-				
-			</div>
+			<?php locate_template( array( 'sidebar-index.php' ), true ); ?>
 		</div>
 	</div><!-- #content -->
-
-	<?php #locate_template( array( 'sidebar-blog.php' ), true ) ?>
