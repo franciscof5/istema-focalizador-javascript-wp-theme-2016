@@ -41,10 +41,10 @@
 		<input type="text" disabled="disabled" id="secondsRemaining_box">
 		
 		<ul id="pomolist">
-			<li class="pomoindi" id="pomoindi1">&nbsp;</li>		
-			<li class="pomoindi" id="pomoindi2">&nbsp;</li>
-			<li class="pomoindi" id="pomoindi3">&nbsp;</li>
-			<li class="pomoindi" id="pomoindi4">&nbsp;</li>
+			<li class="pomoindi" id="pomoindi1">1</li>		
+			<li class="pomoindi" id="pomoindi2">2</li>
+			<li class="pomoindi" id="pomoindi3">3</li>
+			<li class="pomoindi" id="pomoindi4">4</li>
 		</ul>
 		
 		<button onclick="reset_pomodoro_session()" style="margin: 8px 0 0 12px;padding: 0 2px;"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
@@ -149,6 +149,12 @@
 			            $(this).after(newClone);
 			            $(this).height($(this).height+20);
 			        }*/
+			        drop: function(event, ui) {
+			        	alert("sal");
+			        },
+			        out: function(event, ui) {
+			        	alert("sal2");
+			        }
 			    });
 				/*jQuery( ".sidebar li" ).sortable({});*/
 				jQuery( "#contem-ciclo" ).sortable({
@@ -178,8 +184,11 @@
 			});
 		</script>
 		<h3 class="widget-title"><script>document.write("Automatic cycle")</script></h3>
+		<p><small>Drop tasks below:</small></p>
 		<ul id="contem-ciclo" style="">
-			<li>Drop tasks here</li>
+			<?php
+			echo get_user_meta(get_current_user_id(), "pomodoroAtivo", true);
+			?>
   			<!--li id="draggable" class="ui-state-highlight">Drag me down</li-->
 		</ul>
 		<h3 class="widget-title"><script>document.write(txt_write_task_model)</script></h3>

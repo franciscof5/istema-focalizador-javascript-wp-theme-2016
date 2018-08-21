@@ -4,9 +4,7 @@
 				<li>
 				<h3>Buy to support our free services</h3>
 				<?php 
-				
 				echo do_shortcode('[product id="5912"]'); 
-
 				?>
 				</li>
 

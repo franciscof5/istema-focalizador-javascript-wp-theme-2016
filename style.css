@@ -579,9 +579,7 @@ border-radius: 5px;
 	text-align:center;
 	margin:10px 0 0 0;
 }
-#contem-ciclo .delete-task-model {
-	display: none;
-}
+
 .google-visualization-table {
 	width: 100%;
 }
@@ -872,7 +870,7 @@ margin: 0 auto;
 	line-height: 40px;
 	float: left;
 	border-radius: 10px;
-	background: #2a2a2a;
+	background: rgba(255,255,255,0.08);
 	/*padding-right: 10px;
 	margin:8px 5px 0 0;*/
 	padding: 0 4px;
@@ -881,6 +879,7 @@ margin: 0 auto;
 }
 .navbar-inverse {
 	border:0 !important;
+	background-color: #0F0F0F;
 }
 #pomodoros-topo {float:left; /*width:205px;*/ height:40px;}
 .icone-legenda {
@@ -2960,19 +2959,7 @@ h3.forte {
 /*#sidebar-pomodoro-right_padder {
 	margin-top: 
 }*/
-#contem-ciclo {
-	min-height: 40px;
-	background-color: #CCC;
-}
-#contem-ciclo li {
-	background-color: #FFF;
-	
-	height: 30px;
-    margin-bottom: 5px;
-    overflow: hidden;
-    padding: 5px 10px;
-	width: 300px;
-}
+
 
 /*****************/
 .material-switch > input[type="checkbox"] {
@@ -3018,4 +3005,24 @@ h3.forte {
 .material-switch > input[type="checkbox"]:checked + label::after {
     background: inherit;
     left: 20px;
+}
+
+/****************** DRAGGABLE DROPABLE ******************/
+#contem-ciclo {
+	min-height: 40px;
+	background-color: #CCC;
+}
+#contem-ciclo li {
+	background-color: #FFF;
+	height: 30px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding: 5px 10px;
+	width: 320px;
+}
+#contem-ciclo .delete-task-model {
+	display: none;
+}
+.model-container {
+	cursor: move;
 }

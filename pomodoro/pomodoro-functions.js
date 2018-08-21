@@ -458,9 +458,11 @@ function change_status(txt, stts) {
 //Function to change button text and color
 function change_button (valueset, colorset) {
 	var button = jQuery("#action_button_id");
+	var banner = jQuery(".navbar");
 	//var button = document.getElementById("action_button_id");
 	button.val(valueset);
 	button.animate({'background-color': colorset}, 2000);
+	banner.animate({'background-color': colorset}, 2000);
 	//button.set('morph', {duration: 2000});
 	//button.morph({/*'border': '2px solid #F00',*/'background-color': colorset});
 }
