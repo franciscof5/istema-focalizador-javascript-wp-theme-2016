@@ -1,20 +1,27 @@
 			<div class="sidebar col-md-4">
 				
 				<ul>
+				<li>
+				<h3>Buy to support our free services</h3>
 				<?php 
-				#<h3 class="forte">Buy to support our free services</h3>
-				#echo do_shortcode('[product id="5160"]'); 
+				
+				echo do_shortcode('[product id="5912"]'); 
+
 				?>
+				</li>
+
 				<li>
 				<?php 
 				if(function_exists("show_recent_posts_georefer"))
 				show_recent_posts_georefer(); ?>
 				</li>
+
 				<li>
 				<?php 
 				if(function_exists("show_lang_options"))
 				show_lang_options(true); ?>
 				</li>
+				
 				<li>
 				<?php 
 				if(function_exists("show_most_recent_task"))
