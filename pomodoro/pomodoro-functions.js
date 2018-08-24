@@ -779,12 +779,14 @@ function cycle_list_update(clean_) {
 
 function cycle_list_play() {
 	if(autoCycle) {
-		
+		//
 		autoCycle=true;
 		//jQuery("#pomopainel").hide(2000);
 		change_status(auto_cycle_disabled);
 		//
 		cycle_list_load_model();
+			jQuery("#cycle_start").css("background-color", "#222");
+	jQuery("#cycle_start").css("color", "#FFF");
 
 	} else {
 		autoCycle=false;
@@ -793,12 +795,13 @@ function cycle_list_play() {
 		change_status(auto_cycle_enabled);
 		jQuery("#cycle_start").css("background-color", "#FFF");
 		jQuery("#cycle_start").css("color", "#222");
+		//
+		cycle_list_load_model();
 	}
 	//jQuery("#contem-ciclo")
 }
 function cycle_list_load_model() {
-	jQuery("#cycle_start").css("background-color", "#222");
-	jQuery("#cycle_start").css("color", "#FFF");
+
 	current_model_id = jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").find("div").data("modelid");
 	//jQuery("#contem-ciclo li").each("li").animate({'background-color': "#FFF"}, 2000);
 	jQuery("#contem-ciclo li").each(function(i){
