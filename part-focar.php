@@ -151,8 +151,11 @@
 		</script>
 		<h3 class="widget-title"><script>document.write("Automatic cycle")</script></h3>
 		<p style="float: right; margin-top: -14px;">
-		<button class="btn btn-danger" id="cycle_empty"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button> &nbsp; 
-		<button class="btn btn-success" id="cycle_start"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+		<button class="btn btn-small" id="cycle_prev"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button> &nbsp; 
+		<button class="btn btn-small" id="cycle_empty"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button> &nbsp; 
+		<button class="btn btn-small" id="cycle_start"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+		&nbsp; 
+		<button class="btn btn-small" id="cycle_next"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
 		</p>
 	
 		<p>

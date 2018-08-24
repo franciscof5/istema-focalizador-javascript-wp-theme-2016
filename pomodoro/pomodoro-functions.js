@@ -41,6 +41,7 @@
 	var autoAction=false; //if true dont need to click
 	var autoCycle=false;
 	var autoCycleCurrent=1;
+	var qtdd_tasks;
 }
 function startTest() {
 	pomodoroTime = 15;restTime = 30;bigRestTime = 180;intervalMiliseconds = 10;
@@ -92,9 +93,18 @@ jQuery(document).ready(function ($) {
 	});
 	jQuery("#cycle_start").click(function(e) {
 		e.preventDefault();
-		cycle_list_start();
+		cycle_list_play();
 	});
-
+	jQuery("#cycle_prev").click(function(e) {
+		e.preventDefault();
+		cycle_list_prev();
+	});
+	jQuery("#cycle_next").click(function(e) {
+		e.preventDefault();
+		cycle_list_next();
+	});
+	//
+	qtdd_tasks = jQuery('ul#contem-ciclo li').length;
 	//
 	jQuery('input[type="range"]').rangeslider();
 	//Voice recon and speech JS
@@ -462,7 +472,7 @@ function complete() {
 		}
 		//
 		if(autoCycle) {
-			autoCycleCurrent++;
+			cycle_list_next();
 		}
 	} else {
 		//rest finished
@@ -767,10 +777,10 @@ function cycle_list_update(clean_) {
 	});
 }
 
-function cycle_list_start() {
+function cycle_list_play() {
 	if(autoCycle) {
 		autoCycle=false;
-		jQuery("#pomopainel").show(2000);
+		//jQuery("#pomopainel").show(2000);
 		
 		change_status(auto_cycle_enabled);
 		jQuery("#cycle_start").css("background-color", "#FFF");
@@ -778,24 +788,43 @@ function cycle_list_start() {
 
 	} else {
 		autoCycle=true;
-		jQuery("#pomopainel").hide(2000);
+		//jQuery("#pomopainel").hide(2000);
 		change_status(auto_cycle_disabled);
-		jQuery("#cycle_start").css("background-color", "#222");
-		jQuery("#cycle_start").css("color", "#FFF");
-		current_model_id = jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").find("div").data("modelid");
-		//jQuery("#contem-ciclo li").each("li").animate({'background-color': "#FFF"}, 2000);
-		jQuery("#contem-ciclo li").each(function(i){
-			jQuery(this).animate({'background-color': "#FFF"}, 2000);
-		});
-		jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'background-color': "#5cb85c"}, 2000);
-		//autoCyclePrevious = autoCycleCurrent-1;
-		//jQuery("#contem-ciclo li:nth-child("+autoCyclePrevious+")").animate({'background-color': "#FFF"}, 2000);
-		//autoCycleCurrent 
-		load_model(current_model_id);
+		//
+		cycle_list_load_model();
 	}
 	//jQuery("#contem-ciclo")
 }
-
+function cycle_list_load_model() {
+	jQuery("#cycle_start").css("background-color", "#222");
+	jQuery("#cycle_start").css("color", "#FFF");
+	current_model_id = jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").find("div").data("modelid");
+	//jQuery("#contem-ciclo li").each("li").animate({'background-color': "#FFF"}, 2000);
+	jQuery("#contem-ciclo li").each(function(i){
+		jQuery(this).animate({'background-color': "#FFF"}, 2000);
+	});
+	jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'background-color': "#5cb85c"}, 2000);
+	//autoCyclePrevious = autoCycleCurrent-1;
+	//jQuery("#contem-ciclo li:nth-child("+autoCyclePrevious+")").animate({'background-color': "#FFF"}, 2000);
+	//autoCycleCurrent 
+	load_model(current_model_id);
+}
+function cycle_list_next() {
+	qtdd_tasks = jQuery('ul#contem-ciclo li').length;
+	if(qtdd_tasks==autoCycleCurrent)
+		autoCycleCurrent=1;
+	else
+		autoCycleCurrent++;
+	cycle_list_load_model();
+}
+function cycle_list_prev() {
+	qtdd_tasks = jQuery('ul#contem-ciclo li').length;
+	if(autoCycleCurrent<=1)
+		autoCycleCurrent=qtdd_tasks;
+	else
+		autoCycleCurrent--;
+	cycle_list_load_model();
+}
 //Load e Save model function
 function save_model() {
 	change_status(txt_salving_model);
