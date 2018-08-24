@@ -1,21 +1,24 @@
 <?php get_header( 'buddypress' ); ?>
 
-	<div id="content_register">
+	<div id="register_page" class="col-md-8 col-md-offset-2">
 		<div class="padder">
 
 		<?php do_action( 'bp_before_register_page' ); ?>
 
-		<div class="page" id="register-page">
+		<div class="row">
 			<div class="register_div_box" id="rbox1">
-				<h2>Registre-se com um clique usando o Facebook</h2>
+				<h2>Registre-se com um clique usando</h2>
 				<br />
-				<center>
+				<div class="row">
 				<?php /*do_shortcode("[fb_login size='xlarge' login_text='Conectar' logout_text='Logout']");*/ ?>
-				<?php if ( function_exists(jfb_output_facebook_btn)){jfb_output_facebook_btn();} ?>
-				</center>
+				<?php #if ( function_exists(jfb_output_facebook_btn)){jfb_output_facebook_btn();} 
+				do_action( 'bp_before_account_details_fields' );
+				?>
+				</div>
 			</div>
-			<div class="register_div_box" id="rbox2">
 			
+			<div class="register_div_box" id="rbox2">
+
 			<form action="" name="signup_form" id="signup_form" class="standard-form" method="post" enctype="multipart/form-data">
 
 			<?php if ( 'registration-disabled' == bp_get_current_signup_step() ) : ?>
@@ -35,7 +38,7 @@
 
 				<p><?php _e( 'Registering for this site is easy, just fill in the fields below and we\'ll get a new account set up for you in no time.', 'buddypress' ); ?></p>
 
-				<?php do_action( 'bp_before_account_details_fields' ); ?>
+				<?php #do_action( 'bp_before_account_details_fields' ); ?>
 
 				<div class="register-section" id="basic-details-section">
 
@@ -247,7 +250,7 @@
 				<?php do_action( 'bp_before_registration_submit_buttons' ); ?>
 
 				<div class="submit">
-					<input type="submit" name="signup_submit" id="signup_submit" value="<?php _e( 'Complete Sign Up', 'buddypress' ); ?>" />
+					<input type="submit" name="signup_submit" id="signup_submit" value="<?php _e( 'Complete Sign Up', 'buddypress' ); ?>" class="btn btn-lg btn-primary" />
 				</div>
 
 				<?php do_action( 'bp_after_registration_submit_buttons' ); ?>

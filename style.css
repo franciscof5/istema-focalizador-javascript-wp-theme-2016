@@ -117,7 +117,9 @@ img.avatar {
 .register_div_box {padding:10px 15px;margin:10px auto;min-height:110px;}
 .register_div_box:hover {background:#EEE;}
 .register_div_box h3{color:#333; text-align:center;}
-
+.register_div_box h2 {
+	text-align: center;
+}
 #div_status {
 	border:3px solid #000;
 	width:180px;
@@ -548,7 +550,7 @@ filter:alpha(opacity=85); /* For IE8 and earlier */
 	/*font-weight: bold;*/
 }
 .circulo ul li {list-style-type: square;}
-#content_register {
+/*#content_register {
 	width: 800px;
 	margin: 0 auto 60px auto;
 	background: #FFF;
@@ -557,7 +559,16 @@ filter:alpha(opacity=85); /* For IE8 and earlier */
 	position: relative;
 	border-radius: 20px;
 	opacity: 0.9;
-	filter:alpha(opacity=90); /* For IE8 and earlier */
+	filter:alpha(opacity=90); /* For IE8 and earlier *
+}*/
+#register_page {
+	background: #FFF;
+	border: solid 2px #DDD;
+	border-radius: 20px;
+}
+#register_page .wp-social-login-widget {
+	margin:0 auto;
+	width: 90px;
 }
 .editfield {float:left !important;}
 .field-visibility-settings, .field-visibility-settings-notoggle, .field-visibility-settings-toggle {display:none;}
@@ -2911,7 +2922,7 @@ h3.rpwe-title a {
 	}*/
 
 /*****/
-.wp-social-login-widget {
+#loginlogbox .wp-social-login-widget {
 	float: right;
 	padding: 0;
 	margin-top: -10px;
