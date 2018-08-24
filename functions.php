@@ -72,6 +72,11 @@ add_action('wp_ajax_update_session', 'update_session');
 add_action('wp_ajax_nopriv_update_session', 'update_session');
 add_action('wp_ajax_save_or_delete_model', 'save_or_delete_model');
 add_action('wp_ajax_nopriv_save_or_delete_model', 'save_or_delete_model');
+add_action('wp_ajax_update_cycle_list', 'update_cycle_list');
+add_action('wp_ajax_nopriv_update_cycle_list', 'update_cycle_list');
+#add_action('wp_ajax_update_cycle_list', 'load_cycle_list');
+#add_action('wp_ajax_nopriv_update_cycle_list', 'load_cycle_list');
+
 add_action('admin_menu', 'my_remove_menu_pages' );
 add_action('wp_logout','go_home');
 add_action('init', 'create_post_type' );
@@ -279,8 +284,8 @@ function smart_set_user_language() {
 function load_scritps() {	
 	//THEME CSS FOR IMPROVE SPEED
 	wp_enqueue_style('theme-css', get_bloginfo("stylesheet_directory")."/style.css", __FILE__, time());
-	wp_enqueue_style('pomodoro-css', get_bloginfo("stylesheet_directory")."/pomodoro/pomodoro.css", __FILE__, time());
-	wp_enqueue_style('fonts-css', get_bloginfo("stylesheet_directory")."/assets/fonts/stylesheet.css", __FILE__);
+	#wp_enqueue_style('pomodoro-css', get_bloginfo("stylesheet_directory")."/pomodoro/pomodoro.css", __FILE__, time());
+	wp_register_style('fonts-css', get_bloginfo("stylesheet_directory")."/assets/fonts/stylesheet.css", __FILE__);
 
 
 	//jquery colors
@@ -315,7 +320,7 @@ function load_scritps() {
 	wp_enqueue_script("nosleep-js", get_bloginfo("stylesheet_directory")."/assets/NoSleep.min.js");
 
 	//
-	wp_enqueue_script("artyom-js", get_bloginfo("stylesheet_directory")."/assets/artyom.window.min.js");
+	wp_register_script("artyom-js", get_bloginfo("stylesheet_directory")."/assets/artyom.window.min.js");
 	#wp_enqueue_script("speakW-js", get_bloginfo("stylesheet_directory")."/assets/speakWorker.js");
 	
 	#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
@@ -1229,6 +1234,23 @@ function save_or_delete_model () {
 	}
 }
 
+function update_cycle_list() {
+	checkLogin();
+	if(function_exists("revert_database_schema"))revert_database_schema();
+	//
+	if(isset($_POST["clean"])) {
+		$ok = update_user_meta(get_current_user_id(), "cycle_list", "");
+		echo $ok;
+	} else {
+		if(isset($_POST['list'])) {
+			$ok = update_user_meta(get_current_user_id(), "cycle_list", $_POST["list"]);
+			echo $ok;
+		} else {
+			echo false;
+		}	
+	}
+	
+}
 /*register_sidebar( array(
 	'name' => __( 'blog'),
 	'id' => 'blog',

@@ -55,6 +55,8 @@ var txt_session_reseted = "Sessão reiniciada";
 var txt_write_task_save = "Salvar Tarefa";
 var auto_action_enabled = "Passador automático habilitado";
 var auto_action_disabled = "Passador automático desabilitado";
+var auto_cycle_enabled = "Ciclo automático habilitado";
+var auto_cycle_disabled = "Ciclo automático desabilitado";
 
 //titles
 var txt_title_done = "Pomodoro completado!";

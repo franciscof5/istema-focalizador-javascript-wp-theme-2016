@@ -47,50 +47,53 @@
 			<li class="pomoindi" id="pomoindi4">4</li>
 		</ul>
 		
-		<button onclick="reset_pomodoro_session()" style="margin: 8px 0 0 12px;padding: 0 2px;"><span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span></button>
-		<button onclick="set_continuous_session()" style="margin: 8px 0 0 4px;padding: 0 2px;" id="resetter_btn"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+		<button onclick="reset_pomodoro_session()" style="margin: 8px 0 0 12px;padding: 0 2px;"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button>
+		<button onclick="set_continuous_session()" style="margin: 8px 0 0 4px;padding: 0 2px;" id="resetter_btn"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
 		</div><!--fecha pomodoros painel-->
 		<br />
 		
-		<div id="div_status"><script>document.write(txt_mat_introducing)</script></div>
-		<img src="<?php bloginfo('stylesheet_directory'); ?>/images/mascote_foca.png" />
+		<div id="mascote_float">
+			<div id="div_status"><script>document.write(txt_mat_introducing)</script></div>
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/mascote_foca.png" />
+		</div>
+		
 		<br />
 		<br />
 		
-
-		<form name="pomopainel" id="pomopainel">
-			<div class="form-group">
-				<div class="row">
-					<div class="col-xs-4">
-						<label><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Volume</label><br />
-					</div>
-					<div class="col-xs-4">
-                        <div class="material-switch pull-right" style="float: right;">
-                            <input id="sound-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
-                            <label for="sound-switcher" class="label-success"></label>
-                        </div>
-                        <label style="float:right"><!--span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span--> FX &nbsp; </label>
-					</div>
-					<div class="col-xs-4">
-                        <div class="material-switch pull-right" style="float: right;">
-                            <input id="voice-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
-                            <label for="voice-switcher" class="label-success"></label>
-                        </div>
-                        <label style="float:right"><!--span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span--> Voice &nbsp; </label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-1">
-						<span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
-					</div>
-					<div class="col-xs-9">
-						<input type="range" id="rangeVolume">
-					</div>
-					<div class="col-xs-1">
-						<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
-					</div>
-				</div>			
+		<div class="row">
+			<div class="col-xs-4">
+				<label><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Volume</label><br />
 			</div>
+			<div class="col-xs-4">
+                <div class="material-switch pull-right" style="float: right;">
+                    <input id="sound-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
+                    <label for="sound-switcher" class="label-success"></label>
+                </div>
+                <label style="float:right"><!--span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span--> FX &nbsp; </label>
+			</div>
+			<div class="col-xs-4">
+                <div class="material-switch pull-right" style="float: right;">
+                    <input id="voice-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
+                    <label for="voice-switcher" class="label-success"></label>
+                </div>
+                <label style="float:right"><!--span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span--> Voice &nbsp; </label>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-1">
+				<span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
+			</div>
+			<div class="col-xs-9">
+				<input type="range" id="rangeVolume">
+			</div>
+			<div class="col-xs-1">
+				<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+			</div>
+		</div>	
+		
+		<form name="pomopainel" id="pomopainel">
+			
 			
 		 	<div class="form-group">
 				<label><span class="glyphicon glyphicon-paste" aria-hidden="true"></span> <script>document.write(txt_write_task_title)</script></label><br />
@@ -115,7 +118,7 @@
 					<input type="hidden" id="post_id_box">
 					<input type="hidden" id="pomodoroAtivoBox" value='<?php echo get_user_meta(get_current_user_id(), "pomodoroAtivo", true); ?>'>
 					
-					<br />
+					<br />a
 					<label><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> <script>document.write(txt_write_task_category)</script></label><br />
 					<ul>
 						<li><input type="radio" name="cat_vl" value="26"><script>document.write(txt_write_task_category_study)</script></li>
@@ -129,7 +132,7 @@
 					</ul>
 				</div>
 			</div>
-			<a href="#" class="button btn btn-dark" id="botao-salvar-modelo"> <script>document.write(txt_write_task_save)</script> </a>
+			<a href="#" class="button btn btn-dark" id="botao-salvar-modelo"> <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <script>document.write(txt_write_task_save)</script> </a>
 		</form>
 
 		
@@ -141,60 +144,30 @@
 		<script>
 			jQuery( function() {
 				
-				jQuery( "#contem-ciclo" ).droppable({
-			        /*activeClass: "ui-state-default",
-			        hoverClass: "ui-state-hover",
-			        drop: function(event, ui) {
-			            var newClone = $(ui.helper).clone();
-			            $(this).after(newClone);
-			            $(this).height($(this).height+20);
-			        }*/
-			        drop: function(event, ui) {
-			        	alert("sal");
-			        },
-			        out: function(event, ui) {
-			        	alert("sal2");
-			        }
-			    });
+				//jQuery( "#contem-ciclo" )
 				/*jQuery( ".sidebar li" ).sortable({});*/
-				jQuery( "#contem-ciclo" ).sortable({
-				  revert: true,
-				  	over: function() {
-				      removeIntent = false;
-				    }, //Remove function
-				    out: function() {
-				      removeIntent = true;
-				    },
-				    beforeStop: function(event, ui) {
-				      if (removeIntent == true) {
-				        ui.item.remove();
-				      }
-					}
-				});
-
-				jQuery( "#contem-modelos li" ).draggable({
-					connectToSortable: "#contem-ciclo",
-					snap: "#contem-ciclo",
-					snapMode: "outer",
-					helper: "clone",
-					revert: "invalid",
-					cursor: "move",
-				});
-				jQuery( "ul, li" ).disableSelection();
+				
 			});
 		</script>
 		<h3 class="widget-title"><script>document.write("Automatic cycle")</script></h3>
-		<p><small>Drop tasks below:</small></p>
+		<p style="float: right; margin-top: -14px;">
+		<button class="btn btn-danger" id="cycle_empty"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button> &nbsp; 
+		<button class="btn btn-success" id="cycle_start"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+		</p>
+	
+		<p>
+		<small>Drop tasks below:</small>
+			</p>
 		<ul id="contem-ciclo" style="">
 			<?php
-			echo get_user_meta(get_current_user_id(), "pomodoroAtivo", true);
+			echo get_user_meta(get_current_user_id(), "cycle_list", true);
 			?>
-  			<!--li id="draggable" class="ui-state-highlight">Drag me down</li-->
 		</ul>
+		<!--li id="draggable" class="ui-state-highlight">Drag me down</li-->
 		<h3 class="widget-title"><script>document.write(txt_write_task_model)</script></h3>
 		<!--p><script>document.write(txt_write_task_model_desc)</script></p-->
 		
-		<!--p><button style="float: right; margin-top: -14px;" onclick="alert('teste');"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button></p-->
+		
 
 		
 		<ul id="contem-modelos" class="row">
@@ -213,8 +186,10 @@
 			
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 				$counter = $post->ID;
-				#echo '<li id="modelo-carregado-'.$counter.'" class="row">';
-				echo '<li id="modelo-carregado-'.$counter.'">';
+				#echo '<li id="modelo-carregado-'.$counter.'" class="row">'; ?>
+				<li id="modelo-carregado-<?php echo $counter; ?>">
+				
+				<?php
 				$taglist = "";
 				$posttags = get_the_tags();
 				  if ($posttags) {
@@ -224,24 +199,14 @@
 				}
 				?>
 				
-				<!--div class='col-xs-10'-->
-				<div style="width: 90%;float: left;" class="model-container" data-modelid="<?php echo $counter ?>">
+				<div class="model-container" data-modelid="<?php echo $counter ?>">
 				<?php 
 					echo "<strong id=bxtag$counter>".$taglist."</strong>";
 					echo "<span id=bxtitle$counter>".get_the_title()."</span>";
 					echo "<p><span id=bxcontent$counter>".get_the_content()."</span></p>"; ?>
-				</div>
-				<!--a href="#" onclick='load_model(<?php echo $counter ?>)'>
-				LO
-				</a-->
-				<!--div class='col-xs-2'-->
-				<div class="delete-task-model" style="float: right;">
 					<a href='#' class='btn btn-xs btn-danger delete-task-model-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-trash"></span></a>
-					<?php 
-					#onclick='delete_model(<?php echo $counter ?)' 
-					#echo "<input type='button' class='btn btn-xs btn-primary' value='carregar' onclick='load_model($counter)'><br /> <br /><input type='button' class='btn btn-xs btn-success' value='concluir' onclick='delete_model($counter)'>"; ?>
 				</div>
-				
+
 				</li>
 				
 			<?php 
@@ -249,6 +214,20 @@
 			// Reset Post Data
 			wp_reset_postdata();
 			?>
+			<?php 
+					/*
+					style="width: 90%;float: left;" 
+
+					<div class="delete-task-model" style="float: right;"></div>
+
+					<!--div class='col-xs-10'-->
+					<!--a href="#" onclick='load_model(<?php echo $counter ?>)'>
+				LO
+				</a-->
+				<!--div class='col-xs-2'-->
+				*/
+					#onclick='delete_model(<?php echo $counter ?)' 
+					#echo "<input type='button' class='btn btn-xs btn-primary' value='carregar' onclick='load_model($counter)'><br /> <br /><input type='button' class='btn btn-xs btn-success' value='concluir' onclick='delete_model($counter)'>"; ?>
 		</ul>
 		<div class="row"></div>
 	</div>

@@ -53,7 +53,8 @@ var txt_session_reseted = "Session reseted";
 var txt_write_task_save = "Save Task";
 var auto_action_enabled = "Automatic click enabled";
 var auto_action_disabled = "Automatic click disabled";
-
+var auto_cycle_enabled = "Automatic cicle enabled";
+var auto_cycle_disabled = "Automatic cicle disabled";
 //titles
 var txt_title_done = "Pomodoro done!";
 var txt_title_rest = "Rest Time";

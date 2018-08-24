@@ -16,6 +16,7 @@ $pages = array("focar", "calendar", "ranking", "produtividade", "stats", "csv", 
 //
 $pages_open = array("plugins-br", "product", "br", "carrinho");
 if(!in_array($page, $pages)) {
+	wp_enqueue_style('fonts-css');
 	$page = "index";
 } else {
 	if (!is_user_logged_in()) {
@@ -27,6 +28,7 @@ if(!in_array($page, $pages)) {
 			wp_enqueue_script("pomodoros-js");
 			#wp_enqueue_script("projectimer-pomodoros-shared-parts-js");
 			wp_enqueue_script("rangeslider-js");
+			wp_enqueue_script("artyom-js");
 		}
 	}
 }

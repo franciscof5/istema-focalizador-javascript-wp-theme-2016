@@ -39,6 +39,8 @@
 	var active_sound;
 	var session_reseted_sound;
 	var autoAction=false; //if true dont need to click
+	var autoCycle=false;
+	var autoCycleCurrent=1;
 }
 function startTest() {
 	pomodoroTime = 15;restTime = 30;bigRestTime = 180;intervalMiliseconds = 10;
@@ -54,7 +56,10 @@ jQuery(document).ready(function ($) {
 	//
 	jQuery("#action_button_id").click(function(e) {
 		e.preventDefault();
-		//alert();
+		action_button()
+	});
+	jQuery("#relogio").click(function(e) {
+		e.preventDefault();
 		action_button()
 	});
 	jQuery("#botao-salvar-modelo").click(function(e) {
@@ -69,10 +74,10 @@ jQuery(document).ready(function ($) {
 		e.preventDefault();
 		load_model(jQuery(this).data('modelid'));
 	});
-	jQuery(".delete-task-model-btn").click(function(e) {
+	/*jQuery(".delete-task-model-btn").click(function(e) {
 		e.preventDefault();
 		delete_model(jQuery(this).data('modelid'));
-	});
+	});*/
 	jQuery("#session-reset-btn").click(function(e) {
 		e.preventDefault();
 		reset_pomodoro_session();
@@ -81,7 +86,15 @@ jQuery(document).ready(function ($) {
 		e.preventDefault();
 		set_continuous_session();
 	});
-	
+	jQuery("#cycle_empty").click(function(e) {
+		e.preventDefault();
+		cycle_list_update(true);
+	});
+	jQuery("#cycle_start").click(function(e) {
+		e.preventDefault();
+		cycle_list_start();
+	});
+
 	//
 	jQuery('input[type="range"]').rangeslider();
 	//Voice recon and speech JS
@@ -104,8 +117,7 @@ jQuery(document).ready(function ($) {
 	});
 	
 	//
-	jQuery("#action_button_id").val(textPomodoro);
-	jQuery("#action_button_id").prop('disabled', false);
+	
 
 	//
 	
@@ -116,6 +128,47 @@ jQuery(document).ready(function ($) {
 	},15000);
 
 	//document.title = txt_index_title;
+	jQuery( "#contem-ciclo" ).sortable({
+	  revert: true,
+	  	over: function() {
+	      removeIntent = false;
+	    }, //Remove function
+	    out: function() {
+	      removeIntent = true;
+	    },
+	    beforeStop: function(event, ui) {
+	      if (removeIntent == true) {
+	        ui.item.remove();
+	      }
+		},
+		receive: function (event, ui) {      
+            cycle_list_update();
+        }
+	}).droppable({
+        /*activeClass: "ui-state-default",
+        hoverClass: "ui-state-hover",
+        drop: function(event, ui) {
+            var newClone = $(ui.helper).clone();
+            $(this).after(newClone);
+            $(this).height($(this).height+20);
+        }
+        drop: function(event, ui) {
+        	update_cycle_list();
+        },*/
+        out: function(event, ui) {
+        	update_cycle_list();
+        }
+    });
+
+	jQuery( "#contem-modelos li" ).draggable({
+		connectToSortable: "#contem-ciclo",
+		snap: "#contem-ciclo",
+		snapMode: "outer",
+		helper: "clone",
+		revert: "invalid",
+		cursor: "move",
+	});
+	jQuery( "ul, li" ).disableSelection();
 });
 
 function load_initial_data() {
@@ -243,6 +296,8 @@ function load_initial_data() {
 				artyom_voice.initialize({volume:volumeLevel/100});
 			//artyom_voice.volume = volumeLevel/100;
 		}
+		jQuery("#action_button_id").val(textPomodoro);
+		jQuery("#action_button_id").prop('disabled', false);
 		//Functions to make the effect of flip on countdown_clock
 		//change_status(response);
 		//alert(secundosRemainingFromPHP);
@@ -405,7 +460,12 @@ function complete() {
 			secondsRemaining=restTime;
 			changeTitle(txt_title_rest);
 		}
+		//
+		if(autoCycle) {
+			autoCycleCurrent++;
+		}
 	} else {
+		//rest finished
 		change_button(textPomodoro, "#0F0F0F");
 		change_status(txt_completed_rest, "er");
 		is_pomodoro=true;
@@ -459,6 +519,8 @@ function change_status(txt, stts) {
 function change_button (valueset, colorset) {
 	var button = jQuery("#action_button_id");
 	var banner = jQuery(".navbar");
+	//var banner = jQuery("#contem-tudo");
+	
 	//var button = document.getElementById("action_button_id");
 	button.val(valueset);
 	button.animate({'background-color': colorset}, 2000);
@@ -677,6 +739,61 @@ function savepomo() {
 		if(response[0]=="1")
 		jQuery("#points_completed").append('<li>'+data+" -> "+description.value+'</li>');*/
 	});
+}
+
+//Load e save user cycle
+function cycle_list_update(clean_) {
+	content = jQuery( "#contem-ciclo" ).html();
+	var data = {
+		action: 'update_cycle_list',
+		list: content,
+		clean: clean_,
+	}
+	if(clean_) {
+		alertify.log("Cleaning list...");
+	}
+	jQuery.post(ajaxurl, data, function(response) {
+		if(clean_) {
+			if(response) {
+				alertify.log("Cycle list cleared");
+				jQuery( "#contem-ciclo" ).html("");
+			}
+		} else {
+			if(response)
+				alertify.log("updating cycle list");
+			else
+				alertify.error("Not updated cycle list");	
+		}
+	});
+}
+
+function cycle_list_start() {
+	if(autoCycle) {
+		autoCycle=false;
+		jQuery("#pomopainel").show(2000);
+		
+		change_status(auto_cycle_enabled);
+		jQuery("#cycle_start").css("background-color", "#FFF");
+		jQuery("#cycle_start").css("color", "#222");
+
+	} else {
+		autoCycle=true;
+		jQuery("#pomopainel").hide(2000);
+		change_status(auto_cycle_disabled);
+		jQuery("#cycle_start").css("background-color", "#222");
+		jQuery("#cycle_start").css("color", "#FFF");
+		current_model_id = jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").find("div").data("modelid");
+		//jQuery("#contem-ciclo li").each("li").animate({'background-color': "#FFF"}, 2000);
+		jQuery("#contem-ciclo li").each(function(i){
+			jQuery(this).animate({'background-color': "#FFF"}, 2000);
+		});
+		jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'background-color': "#5cb85c"}, 2000);
+		//autoCyclePrevious = autoCycleCurrent-1;
+		//jQuery("#contem-ciclo li:nth-child("+autoCyclePrevious+")").animate({'background-color': "#FFF"}, 2000);
+		//autoCycleCurrent 
+		load_model(current_model_id);
+	}
+	//jQuery("#contem-ciclo")
 }
 
 //Load e Save model function

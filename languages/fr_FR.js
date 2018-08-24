@@ -53,6 +53,8 @@ var txt_session_reseted = "Session réinitialisée";
 var txt_write_task_save = "Enregistrer la tâche";
 var auto_action_enabled = "Clic automatique activé";
 var auto_action_disabled = "clic automatique désactivé";
+var auto_cycle_enabled = "Cicl automatique activé";
+var auto_cycle_disabled = "Cicl automatique désactivé";
 
 //titles
 var txt_title_done = "Pomodoro fait!"

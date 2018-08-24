@@ -50,7 +50,7 @@
 
 <?php do_action( 'bp_before_header' ) ?>
 <span id='linha-fundo'></span>
-<div id="" class="container-fluid content">
+<div id="contem-tudo" class="container-fluid content">
 	<nav class="navbar navbar-inverse ">
 		<div class="container-fluid">
 			<div class="navbar-header" style="margin-top: 5px">
