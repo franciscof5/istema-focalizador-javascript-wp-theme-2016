@@ -779,19 +779,20 @@ function cycle_list_update(clean_) {
 
 function cycle_list_play() {
 	if(autoCycle) {
+		
+		autoCycle=true;
+		//jQuery("#pomopainel").hide(2000);
+		change_status(auto_cycle_disabled);
+		//
+		cycle_list_load_model();
+
+	} else {
 		autoCycle=false;
 		//jQuery("#pomopainel").show(2000);
 		
 		change_status(auto_cycle_enabled);
 		jQuery("#cycle_start").css("background-color", "#FFF");
 		jQuery("#cycle_start").css("color", "#222");
-
-	} else {
-		autoCycle=true;
-		//jQuery("#pomopainel").hide(2000);
-		change_status(auto_cycle_disabled);
-		//
-		cycle_list_load_model();
 	}
 	//jQuery("#contem-ciclo")
 }
