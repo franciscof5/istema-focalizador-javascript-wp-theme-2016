@@ -6,7 +6,7 @@
 		<?php do_action( 'bp_before_register_page' ); ?>
 
 		<div class="row">
-			<div class="register_div_box" id="rbox1">
+			<div class="register_div_box row" id="rbox1">
 				<h2>Registre-se com um clique usando</h2>
 				<br />
 				<div class="row">
@@ -17,9 +17,9 @@
 				</div>
 			</div>
 			
-			<div class="register_div_box" id="rbox2">
+			<div class="register_div_box row" id="rbox2">
 
-			<form action="" name="signup_form" id="signup_form" class="standard-form" method="post" enctype="multipart/form-data">
+			<form action="" name="signup_form" id="signup_form" class="standard-form col-md-12" method="post" enctype="multipart/form-data">
 
 			<?php if ( 'registration-disabled' == bp_get_current_signup_step() ) : ?>
 				<?php do_action( 'template_notices' ); ?>
@@ -40,7 +40,7 @@
 
 				<?php #do_action( 'bp_before_account_details_fields' ); ?>
 
-				<div class="register-section" id="basic-details-section">
+				<div class="col-xs-12 col-sm-6" id="">
 
 					<?php /***** Basic Account Details ******/ ?>
 
@@ -72,7 +72,7 @@
 
 					<?php do_action( 'bp_before_signup_profile_fields' ); ?>
 
-					<div class="register-section" id="profile-details-section">
+					<div class="col-xs-12 col-sm-6" id="">
 
 						<h4><?php _e( 'Profile Details', 'buddypress' ); ?></h4>
 
@@ -81,7 +81,7 @@
 
 						<?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
 
-							<div class="editfield">
+							<!--div class="editfield"-->
 
 								<?php if ( 'textbox' == bp_get_the_profile_field_type() ) : ?>
 
@@ -192,7 +192,7 @@
 
 								<p class="description"><?php bp_the_profile_field_description(); ?></p>
 
-							</div>
+							<!--/div-->
 
 						<?php endwhile; ?>
 
@@ -212,7 +212,7 @@
 
 					<?php /***** Blog Creation Details ******/ ?>
 
-					<div class="register-section" id="blog-details-section">
+					<div class="register-section2" id="blog-details-section">
 
 						<h4><?php _e( 'Blog Details', 'buddypress' ); ?></h4>
 
@@ -289,7 +289,7 @@
 
 	<?php /*get_sidebar( 'buddypress' );*/ ?>
 
-	<script type="text/javascript">
+	<!--script type="text/javascript">
 		jQuery(document).ready( function() {
 			if ( jQuery('div#blog-details').length && !jQuery('div#blog-details').hasClass('show') )
 				jQuery('div#blog-details').toggle();
@@ -298,6 +298,6 @@
 				jQuery('div#blog-details').fadeOut().toggle();
 			});
 		});
-	</script>
+	</script-->
 
 <?php get_footer( 'buddypress' ); ?>

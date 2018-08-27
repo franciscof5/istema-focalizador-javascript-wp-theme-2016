@@ -114,8 +114,14 @@ img.avatar {
 	border-radius: 50px;
 }
 /*f5sites*/
-.register_div_box {padding:10px 15px;margin:10px auto;min-height:110px;}
-.register_div_box:hover {background:#EEE;}
+.register_div_box {
+	padding:10px 35px;
+	margin:10px auto;
+	min-height:110px;
+}
+.register_div_box:hover {
+	background:#CCC;
+}
 .register_div_box h3{color:#333; text-align:center;}
 .register_div_box h2 {
 	text-align: center;
@@ -130,7 +136,7 @@ img.avatar {
 }
 
 #sidebar-user-pass {width:148px;}
-#rbox2 {height:480px;}
+/*#rbox2 {height:480px;}
 /*.content {width: 90%;}*/
 .content_default {
 	float: right;

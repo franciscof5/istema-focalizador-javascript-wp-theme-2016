@@ -1,6 +1,5 @@
 <?php 
 get_header(); 
-
 //$page = strtok(basename($_SERVER["REQUEST_URI"]),'?');
 $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 //

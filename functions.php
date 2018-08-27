@@ -1380,3 +1380,20 @@ function custom_rewrite_basic()
 {
   add_rewrite_rule('^shop/?$', 'index.php?page_id=3487', 'top');
 }
+
+add_action('login_init', 'wpse187831_redir_loggedin');
+function wpse187831_redir_loggedin()
+{
+    global $action;
+
+    if ('logout' === $action || !is_user_logged_in()) {
+        return;
+    }
+
+    wp_redirect(apply_filters(
+        'wpse187831_loggedin_redirect',
+        current_user_can('administrator') ? admin_url() : home_url(),
+        wp_get_current_user()
+    ), 302);
+    exit;
+}
