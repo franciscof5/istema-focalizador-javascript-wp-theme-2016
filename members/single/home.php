@@ -28,7 +28,8 @@ get_header( 'buddypress' ); ?>
 				//all_posts = $wpdb->query('SELECT * FROM `wp_posts` WHERE `post_author` = '.$user_id.' GROUP BY DATE (`post_date`)');
 				//$all_posts = query_posts('author=1');
 				//$all_posts = $wpdb->query('SELECT `ID` FROM `wp_posts` WHERE `post_author` = '.$user_id.'');
-				get_author_post_tags_wpa78489(bp_displayed_user_id());
+				//get_author_post_tags_wpa78489(bp_displayed_user_id());
+				get_projectimer_project_tags(bp_displayed_user_id());
 				#global $wpdb;
 				#$all_posts = $wpdb->get_results('SELECT `ID` FROM `pomodoros_posts` WHERE `post_author` = '.bp_displayed_user_id().'');
 				//var_dump($wpdb);die;

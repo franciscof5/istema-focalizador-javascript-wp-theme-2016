@@ -101,7 +101,7 @@
 		</li>
 		<li>
 			<h3 class="widget-title"><script>document.write(txt_sidebar_projects)</script></h3>
-			<p><?php get_author_post_tags_wpa78489(get_current_user_id());	?></p>
+			<p><?php get_projectimer_project_tags(get_current_user_id());	?></p>
 		</li>
 
 		<!--li>

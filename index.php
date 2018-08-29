@@ -1,6 +1,8 @@
 <?php 
 get_header(); 
 //$page = strtok(basename($_SERVER["REQUEST_URI"]),'?');
+#global $pagenow;
+#var_dump($pagenow);die;
 $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 //
 if(dirname($uri_parts[0])!="/") {
@@ -11,7 +13,7 @@ if(dirname($uri_parts[0])!="/") {
 }
 #var_dump($page);die;
 //
-$pages = array("focar", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "ticket", "product");
+$pages = array("focar", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "ticket", "product", "tag");
 //
 $pages_open = array("plugins-br", "product", "br", "carrinho");
 if(!in_array($page, $pages)) {

@@ -92,10 +92,23 @@
 		<li>
 			<?php the_widget("BP_Core_Recently_Active_Widget", "",  'before_title=<h3 class="widget-title">&after_title=</h3>'); ?>
 		</li>
+		<?php
+		/*<li>
+			<h3 class="widget-title">Projetos da Comunidade</h3>
+			
+			get_projectimer_project_tags(get_current_user_id()*-1);
+			
+		</li>*/?>
 		<li>
+			<h3 class="widget-title">Projetos da Comunidade</h3>
 			<?php if(function_exists("revert_database_schema"))
 				revert_database_schema();
-			the_widget( 'WP_Widget_Tag_Cloud', "title=Projetos da Comunidade", 'before_title=<h3 class="widget-title">&after_title=</h3>' ); ?>
+				$args = array(
+        			'exclude' => "261,13,533", #fsites=14, itapemapa=13,mestrado=261, cttfase2=533, franciscomat=553
+        		);
+        		wp_tag_cloud($args);
+				#the_widget( 'WP_Widget_Tag_Cloud', "title=Projetos da Comunidade", 'before_title=<h3 class="widget-title">&after_title=</h3>', $args );
+			 ?>
 		</li>
 		
 	<?php

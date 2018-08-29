@@ -196,10 +196,13 @@ img.avatar {
 .sidebar li {
 	background-color: #fff;
     clear: both;
-    display: table;
+    /*display: table;*/
     margin-bottom: 16px;
     padding: 2px 4px 10px;
     width: 100%;
+    max-height: 600px;
+    overflow-y: auto;
+    display: inline-block;
 }
 .sidebar h3 {
 	/*background: rgba(255,255,255, 0.5);
@@ -3050,7 +3053,7 @@ h3.forte {
     padding: 5px 10px;
 	width: 320px;
 }
-#contem-ciclo .delete-task-model {
+#contem-ciclo .delete-task-model-btn {
 	display: none;
 }
 .model-container {

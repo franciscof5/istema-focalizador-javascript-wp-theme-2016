@@ -6,6 +6,9 @@ if(function_exists("set_shared_database_schema")) {
 	add_action("wp_trash_post", "force_revert_f5sites_shared", 10, 2);
 	#add_action("admin-init", "set_shared_database_schema", 10, 2);
 	add_action('pre_get_posts', 'force_revert_f5sites_shared', 10, 2);
+	#add_action('template_redirect', 'force_revert_f5sites_shared', 10, 2);
+
+	revert_database_schema();
 	#add_action('init', 'force_database_aditional_tables_share');
 }
 /*add_action( 'after_setup_theme', 'yourtheme_setup' );
@@ -96,6 +99,54 @@ function custom_disable_redirect_canonical( $redirect_url ) {
 	} else {
 		return $redirect_url;
 	}
+}
+//
+function get_projectimer_project_tags($author_id,$taxonomy = 'post_tag'){
+    //get author's posts
+    if($author_id>0)
+    	$exclude_adm=="";
+    else {
+    	$exclude_adm=", -2";
+    	if($author_id==2)//unless it is admin
+    		$exclude_adm=="";
+    }
+    
+    	
+    $posts = get_posts(array(
+    	'post_type' => "projectimer_focus",
+        'author' => $author_id.$exclude_adm,
+        'posts_per_page' => -1,
+        'fields' => 'ids'
+        )
+    );
+
+    $ts = array();
+
+    //loop over the post and count the tags
+    foreach ((array)$posts as $p_id) {
+        $tags = wp_get_post_terms( $p_id, $taxonomy);
+        foreach ((array)$tags as $tag) {
+        	#var_dump(isset($tags[$tag->term_id]));
+            if (isset($ts[$tag->term_id])){ //if its already set just increment the count
+                $ts[$tag->term_id]['count'] = $ts[$tag->term_id]['count']  + 1;
+            }else{ //set the term name start the count
+                $ts[$tag->term_id] = array('count' => 1, 'name' => $tag->name, 'slug' => $tag->slug);
+            }
+        }
+    }
+    #var_dump($posts);die;
+    //so now $ts holds a list of arrays which each hold the name and the count of posts 
+    arsort($ts);
+    //that author have in that term/tag, so we just need to display it
+    $url = get_author_posts_url($author_id);
+    #echo '<ul>';
+    foreach ($ts as $term_id => $term_args) {
+        echo '<a href="/tag/'.$term_args['slug'].'">'.$term_args['name'].'</a>'.' <span class="count">'.$term_args['count'].'</span>'.', ';
+    }
+    /*foreach ($ts as $term_id => $term_args) {
+        echo '<a href="'.add_query_arg('tag',$term_args['slug'],$url).'">'.$term_args['name'].'</a>'.' <span class="count">'.$term_args['count'].'</span>'.', ';
+    }*/
+    #echo '</ul>';
 }
 //
 function get_author_post_tags_wpa78489($author_id,$taxonomy = 'post_tag'){
@@ -1297,7 +1348,7 @@ function create_post_type() {
 
 function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
 	
-	if ( ! post_type_exists( "projectimer_focus" ) ) {
+	#if ( ! post_type_exists( "projectimer_focus" ) ) {
 		$labelFocus = array(
 			'name'  => __( 'Focus',' projectimer-plugin' ), 
 			'singular_name' => __( 'Focus',    ' projectimer-plugin' ),
@@ -1325,14 +1376,15 @@ function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
 			'can_export' => true,
 			'hierarchical'    => false,
 			'capability_type' => 'post',
-			'rewrite' => array( 'slug' => 'cycle', 'with_front' => false ),
+			'rewrite' => array( 'slug' => 'done'),//, 'with_front' => false ),
+			'has_archive' => true,
 			'query_var'  => true,
 			'taxonomies' => array('post_tag'),
 			'supports'   => array( 'title', 'content', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' )
 		);
 
 		register_post_type("projectimer_focus", $postTypeFocusParams);
-	}
+	#}
 }
 
 /*function get_user_subscription($user_id, $domain) {
