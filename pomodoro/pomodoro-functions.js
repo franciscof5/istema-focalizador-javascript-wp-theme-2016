@@ -135,7 +135,7 @@ jQuery(document).ready(function ($) {
 	listen_changes_on_task_form = setInterval(function() {
 		if(!jQuery("#title_box").is(":focus") && !jQuery("#tags_box").data('select2').isOpen() && !jQuery("#description_box").is(":focus"))
 		load_initial_data();
-	},1500);
+	},15000);
 
 	//document.title = txt_index_title;
 	jQuery( "#contem-ciclo" ).sortable({
