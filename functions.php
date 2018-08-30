@@ -96,6 +96,8 @@ function custom_disable_redirect_canonical( $redirect_url ) {
 		return FALSE;
 	} elseif ( preg_match("/product/",$redirect_url) ) {
 		return FALSE;
+	} elseif ( preg_match("/register/",$redirect_url) ) {
+		return FALSE;
 	} else {
 		return $redirect_url;
 	}
