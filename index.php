@@ -15,10 +15,10 @@ if(dirname($uri_parts[0])!="/") {
 //
 $pages = array("focar", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "ticket", "product", "tag");
 //
-$pages_open = array("plugins-br", "product", "br", "carrinho");
+$pages_open = array("register", "product", "br", "carrinho");
 if(!in_array($page, $pages)) {
-	wp_enqueue_style('fonts-css');
-	$page = "index";
+	if(!in_array($page, $pages_open))
+		$page = "index";
 } else {
 	if (!is_user_logged_in()) {
 		if(!in_array($page, $pages_open))
@@ -33,7 +33,7 @@ if(!in_array($page, $pages)) {
 		}
 	}
 }
-
+wp_enqueue_style('fonts-css');
 locate_template( "part-".$page.".php", true );
 
 get_footer();
