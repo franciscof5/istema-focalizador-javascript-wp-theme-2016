@@ -16,7 +16,7 @@ var txt_blog_desc = "News and history of project, online since 2010.";
 var textPomodoro = "FOCUS";
 var textRest = "REST";
 var textBigRest = "BIR REST";
-var textInterruptFocus = "INTERRUPT";
+var textInterruptFocus = "INTERRUPT FOCUS";
 var textInterruptRest = "STOP REST";
 
 //Mat status

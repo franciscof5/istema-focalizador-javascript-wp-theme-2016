@@ -1,31 +1,31 @@
 <?php 
-//NEW index.php, old is 404.php
+//OLD index.php
 get_header(); 
 //$page = strtok(basename($_SERVER["REQUEST_URI"]),'?');
 #global $pagenow;
 #var_dump($pagenow);die;
 $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 //
-#if(dirname($uri_parts[0])!="/") {
-	#$page = explode("/", dirname($uri_parts[0]));
-	#$page = $page[1];
-#} else {
-	#$page = basename($uri_parts[0]);
-#}
+if(dirname($uri_parts[0])!="/") {
+	$page = explode("/", dirname($uri_parts[0]));
+	$page = $page[1];
+} else {
+	$page = basename($uri_parts[0]);
+}
 #var_dump($page);die;
 //
-#$pages = array("focus", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "ticket", "product", "tag");
+$pages = array("focus", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "ticket", "product", "tag");
 //
-#$pages_open = array("register", "product", "br", "carrinho");
-#if(!in_array($page, $pages)) {
-#	if(!in_array($page, $pages_open))
+$pages_open = array("register", "product", "br", "carrinho");
+if(!in_array($page, $pages)) {
+	if(!in_array($page, $pages_open))
 		$page = "index";
-/*} else {
+} else {
 	if (!is_user_logged_in()) {
 		if(!in_array($page, $pages_open))
 		$page = "closed";
 	} else {
-		if($page=="focar") {
+		if($page=="focus") {
 			wp_enqueue_script("sound-js");
 			wp_enqueue_script("pomodoros-js");
 			#wp_enqueue_script("projectimer-pomodoros-shared-parts-js");
@@ -33,7 +33,7 @@ $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 			wp_enqueue_script("artyom-js");
 		}
 	}
-}*/
+}
 wp_enqueue_style('fonts-css');
 locate_template( "part-".$page.".php", true );
 

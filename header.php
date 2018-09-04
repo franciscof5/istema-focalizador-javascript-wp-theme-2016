@@ -76,7 +76,7 @@
 			      <?php if ( is_user_logged_in() ) { ?> 
 			      <li>
 			      	<div class="contem-icone ">
-			      		<a title="Focar" href="<?php bloginfo('url'); ?>/focar/" alt="Focalizador">
+			      		<a title="Focar" href="<?php bloginfo('url'); ?>/focus/" alt="Focalizador">
 			      			<div href="" id="icone-foc"><span class="icone-legenda hidden-lg"><script>document.write(txt_icon_focus)</script></span></div>
 			      		<span class="hidden-sm hidden-md"><script>document.write(txt_icon_focus)</script></span>
 			      		</a>
@@ -84,7 +84,7 @@
 			       </li>
 			       <li>
 			       	<div class="contem-icone ">
-			       		<a title="Fator produtividade" href="<?php bloginfo('url'); ?>/colegas/<?php  $current_user = wp_get_current_user(); echo $current_user->user_login  ?>">
+			       		<a title="Fator produtividade" href="<?php bloginfo('url'); ?>/members/<?php  $current_user = wp_get_current_user(); echo $current_user->user_login  ?>">
 			       			<div href="" id="icone-gauge">
 			       				<span class="icone-legenda hidden-lg"><script>document.write(txt_icon_prod)</script></span>
 			       			</div>
@@ -94,7 +94,7 @@
 			       </li>
 			      <li>
 			      	<div class="contem-icone ">
-				      	<a title="Encontrar colegas" href="<?php bloginfo('url'); ?>/colegas/" alt="Amigos">
+				      	<a title="Encontrar colegas" href="<?php bloginfo('url'); ?>/members/" alt="Amigos">
 				      		<div href="" id="icone-amigo">
 				      			<span class="icone-legenda hidden-lg"><script>document.write(txt_icon_col)</script></span>
 				      		</div>

@@ -16,7 +16,7 @@ var txt_blog_desc = "Nouvelles et historique du projet, en ligne depuis 2010";
 var textPomodoro = "FOCUS";
 var textRest = "REST";
 var textBigRest = "REST BIR";
-var textInterruptFocus = "INTERRUPT";
+var textInterruptFocus = "INTERRUPT FOCUS";
 var textInterruptRest = "STOP REST";
 
 // Statut du tapis

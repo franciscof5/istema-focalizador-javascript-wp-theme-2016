@@ -8,25 +8,29 @@ if(function_exists("set_shared_database_schema")) {
 	add_action('pre_get_posts', 'force_revert_f5sites_shared', 10, 2);
 	#add_action('template_redirect', 'force_revert_f5sites_shared', 10, 2);
 
-	revert_database_schema();
+	#revert_database_schema();
 	#add_action('init', 'force_database_aditional_tables_share');
 }
 /*add_action( 'after_setup_theme', 'yourtheme_setup' );
  
 function yourtheme_setup() {
-add_theme_support( 'wc-product-gallery-zoom' );
-add_theme_support( 'wc-product-gallery-lightbox' );
-add_theme_support( 'wc-product-gallery-slider' );
+	add_theme_support( 'buddypress' );
+#add_theme_support( 'wc-product-gallery-zoom' );
+#add_theme_support( 'wc-product-gallery-lightbox' );
+#add_theme_support( 'wc-product-gallery-slider' );
 }*/
 function my_function($args) {
 	if($args) {
 		$is_trashing = substr($args,0,10);
 		$id = substr($args,11);
 		if($is_trashing) {
-			revert_database_schema();
-			$foi = wp_trash_post($id);
-			if($foi)
-				wp_redirect("/wp-admin/edit.php?post_type=projectimer_focus");
+			if(function_exists("revert_database_schema")) {
+				revert_database_schema();
+				$foi = wp_trash_post($id);
+				if($foi)
+					wp_redirect("/wp-admin/edit.php?post_type=projectimer_focus");	
+			}
+			
 		}
 	}
 }
@@ -89,12 +93,15 @@ add_action('wp_enqueue_scripts', 'load_scritps');
 //
 #function custom_disable_redirect_canonical( $redirect_url, $requested_url ) {
 function custom_disable_redirect_canonical( $redirect_url ) {
+	#global $pagenow;
 	#var_dump($redirect_url);die;
 	if ( preg_match("/ranking/",$redirect_url) ) {
 		return FALSE;
 	} elseif ( preg_match("/calendar/",$redirect_url) ) {
 		return FALSE;
 	} elseif ( preg_match("/product/",$redirect_url) ) {
+		return FALSE;
+	} elseif ( preg_match("/focar/",$redirect_url) ) {
 		return FALSE;
 	} /*elseif ( preg_match("/register/",$redirect_url) ) {
 		return FALSE;

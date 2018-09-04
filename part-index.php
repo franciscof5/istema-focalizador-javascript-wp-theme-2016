@@ -1,7 +1,5 @@
 	<?php echo do_shortcode('[rev_slider alias="pomo1"]'); ?>
-	<style type="text/css">
-		.navbar {margin-bottom: -10px;}
-	</style>
+	
 	<?php show_welcome_message(); ?>
 	<?php
 	global $user_prefered_language;

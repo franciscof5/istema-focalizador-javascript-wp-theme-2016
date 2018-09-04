@@ -16,7 +16,7 @@ var txt_blog_desc = "Novidades e histórico do projeto, no ar desde 2010.";
 var textPomodoro = "FOCAR!";
 var textRest = "DESCANSAR!";
 var textBigRest = "GRANDE DESCANSO";
-var textInterruptFocus = "INTERROMPER";
+var textInterruptFocus = "INTERROMPER FOCO";
 var textInterruptRest = "PARAR DESCANSO";
 
 //Frases de status do Mate
