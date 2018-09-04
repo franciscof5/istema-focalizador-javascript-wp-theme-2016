@@ -12,7 +12,7 @@ if(dirname($uri_parts[0])!="/") {
 } else {
 	$page = basename($uri_parts[0]);
 }
-var_dump($page);die;
+#var_dump($page);die;
 //
 $pages = array("focus", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "ticket", "product", "tag");
 //
