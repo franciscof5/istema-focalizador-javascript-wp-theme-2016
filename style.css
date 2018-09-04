@@ -571,12 +571,13 @@ filter:alpha(opacity=85); /* For IE8 and earlier */
 	opacity: 0.9;
 	filter:alpha(opacity=90); /* For IE8 and earlier *
 }*/
-#register_page {
+#center_layout {
 	background: #FFF;
 	border: solid 2px #DDD;
 	border-radius: 20px;
+	padding: 10px 50px;
 }
-#register_page .wp-social-login-widget {
+#center_layout .wp-social-login-widget {
 	margin:0 auto;
 	width: 90px;
 }

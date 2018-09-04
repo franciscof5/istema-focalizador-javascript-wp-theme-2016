@@ -1,7 +1,7 @@
 	<div id="content" class="content_default col col-xs-12">
 
 		<div class="page" id="blog-latest">
-
+aaaaaaaaaaaaaaaaaaaaa
 			<?php 
 			#global $wp_query;
 			#var_dump($wp_query);

@@ -101,7 +101,7 @@ function custom_disable_redirect_canonical( $redirect_url ) {
 		return FALSE;
 	} elseif ( preg_match("/product/",$redirect_url) ) {
 		return FALSE;
-	} elseif ( preg_match("/focar/",$redirect_url) ) {
+	} elseif ( preg_match("/members/",$redirect_url) ) {
 		return FALSE;
 	} /*elseif ( preg_match("/register/",$redirect_url) ) {
 		return FALSE;
@@ -672,14 +672,18 @@ function get_meta_values( $meta_key,  $post_type = 'post' ) {
 function array_to_rank ($ar, $qtt) { ?>
 	<ul>
 	<?php 
-	$i = 0;
+	arsort($ar);
+	$i = 1;
 	foreach ($ar as $key => $value) { 
-		if (++$i == $qtt) break;
+		if($key) {
 		?>
 		<li>
 			<?php echo $i.". ".$key. " : ".$value; ?>
 		</li>
-	<?php } ?>
+	<?php 
+	if (++$i == $qtt) break;
+	} 
+	}?>
 	</ul>
 <?php }
 

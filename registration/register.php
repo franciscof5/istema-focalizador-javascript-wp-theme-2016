@@ -1,6 +1,6 @@
 <?php get_header( 'buddypress' ); ?>
 
-	<div id="register_page" class="col-md-8 col-md-offset-2">
+	<div id="center_layout" class="col-md-8 col-md-offset-2">
 		<div class="padder">
 
 		<?php do_action( 'bp_before_register_page' ); ?>

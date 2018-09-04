@@ -40,8 +40,8 @@
 						#$array_top_cities = get_meta_values( "post_location_city", "projectimer_focus" );
 						$array_top_countries = get_meta_values( "post_location_country", "projectimer_focus" );
 						?>
-						<h3>Top 3 Cities</h3>
-						<?php array_to_rank($array_top_cities, 4); ?>
+						<h3>Top 5 Cities</h3>
+						<?php array_to_rank($array_top_cities, 6); ?>
 						<h3>Top 3 Countries</h3>
 						<?php array_to_rank($array_top_countries, 4); ?>
 					<?php } ?>
