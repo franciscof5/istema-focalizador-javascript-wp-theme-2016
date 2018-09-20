@@ -4,11 +4,11 @@
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
 		<?php
-		global $locale;
-		if($locale=="pt_BR" || $locale=="pt")
+		global $user_prefered_language;
+		if($user_prefered_language=="pt_BR" || $user_prefered_language=="pt")
 			$apendix = "Brasil";
 		else
-			$apendix = "USA";
+			$apendix = "Global";
 		?>
 		<title>Pomodoros <?php echo $apendix;wp_title(); 
 		#bp_page_title() ?></title>
@@ -67,7 +67,7 @@
 					</a>
 		      	</div-->
 
-				<a class="" title="Blog do Pomodoros" href="<?php bloginfo('url'); ?>">
+				<a class="" title="<?php _e("Go to Pomodoros Blog", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>">
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pomodoro-logo-topo.png" id="pomodoros-topo">
 				</a>
 			</div>
@@ -165,7 +165,9 @@
 			</div>
 		</div>
 	</div>
-	
+	<?php 
+	#var_dump(get_locale());
+	#_e('Hello test', 'sis-foca-js'); ?>
 	<?php do_action( 'bp_header' ) ?>
 
 

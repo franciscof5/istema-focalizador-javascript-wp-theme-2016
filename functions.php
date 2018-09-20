@@ -274,7 +274,7 @@ function force_revert_f5sites_shared() {
 }
 
 function default_page() {
-  return '/focar';
+  return '/focus';
 }
 
 function smart_set_user_language() {
@@ -337,11 +337,16 @@ function smart_set_user_language() {
 	if($user_prefered_language=="")
 		$user_prefered_language=="en_US";
 	#var_dump($_SESSION["user_prefered_language"]);
+	#var_dump($user_prefered_language);
+	switch_to_locale($user_prefered_language);
 	return $user_prefered_language;
 }
 
 
 function load_scritps() {	
+	//Theme language, need to be there
+	load_theme_textdomain( 'sis-foca-js', get_template_directory() . '/languages' );
+
 	//THEME CSS FOR IMPROVE SPEED
 	wp_enqueue_style('theme-css', get_bloginfo("stylesheet_directory")."/style.css", __FILE__, time());
 	#wp_enqueue_style('pomodoro-css', get_bloginfo("stylesheet_directory")."/pomodoro/pomodoro.css", __FILE__, time());
@@ -397,7 +402,7 @@ function load_scritps() {
 			$user_prefered_language=="en_US";
 	}
 	$filelang = $user_prefered_language.".js";
-	#var_dump($filelang);die;
+	//var_dump($filelang);die;
 	//if(qtranxf_getLanguage() == "en")
 		//$filelang="en.js";
 	   //else if(qtranxf_getLanguage() == "pt")
@@ -407,8 +412,8 @@ function load_scritps() {
 		//$filelang="pt-br.js";
 	//}
 	
-	wp_enqueue_script("pomodoros-language", get_bloginfo("stylesheet_directory")."/languages/".$filelang, __FILE__);
-
+	wp_enqueue_script("pomodoros-language", get_bloginfo("stylesheet_directory")."/languages/js/".$filelang, __FILE__, time());
+	#var_dump(get_bloginfo("stylesheet_directory")."/languages/".$filelang);die;
 	// Register the script
 	//wp_register_script( 'some_handle', 'path/to/myscript.js' );
 	wp_register_script("pomodoros-js", get_bloginfo("stylesheet_directory")."/pomodoro/pomodoro-functions.js", __FILE__, time());
@@ -469,6 +474,16 @@ function show_lang_options($showtitle_in_h3, $current_location="") {
 			generate_flag_links_except("fr");
 			break;
 
+		case 'es' :
+		case 'es_ES' :
+			generate_flag_links_except("es");
+			break;
+
+		case 'zh' :
+		case 'zh_CN' :
+			generate_flag_links_except("zh");
+			break;
+
 		default:
 			generate_flag_links_except("en");
 			break;
@@ -492,13 +507,24 @@ function show_lang_options($showtitle_in_h3, $current_location="") {
 }
 
 function generate_flag_links_except($except) { ?>
-	<?php $base_link = $_SERVER['REQUEST_URI']; ?>
+	<?php 
+	$base_link = $_SERVER['REQUEST_URI']; 
+	$base_link = preg_replace('/\?.*/', '', $base_link);
+	?>
 	<?php if($except!="en" && $except!="en_US") { ?>
 		<a href="<?php echo $base_link; ?>?lang=en_US"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/us.png" alt="Language Flag"> English</a>
-	<?php } if($except!="fr" && $except!="fr_FR") { ?>
-		<a href="<?php echo $base_link; ?>?lang=fr_FR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/fr.png" alt="Language Flag"> Français</a>
-	<?php } if($except!="pt" && $except!="pt_BR") { ?>
+	<?php } ?>
+	<?php if($except!="fr" && $except!="fr_FR") { ?>
+		<a href="<?php echo $base_link; ?>?lang=fr_FR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/fr.png" alt="Drapeau de langue"> Français</a>
+	<?php } ?>
+	<?php if($except!="pt" && $except!="pt_BR") { ?>
 		<a href="<?php echo $base_link; ?>?lang=pt_BR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/br.png" alt="Bandeira de Idioma"> Português</a>
+	<?php } ?>
+	<?php if($except!="es" && $except!="es_ES") { ?>
+		<a href="<?php echo $base_link; ?>?lang=es_ES"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/es.png" alt="Bandera de Idioma"> Spañol</a>
+	<?php } ?>
+	<?php if($except!="zh" && $except!="zh_CN") { ?>
+		<a href="<?php echo $base_link; ?>?lang=zh_CN"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/cn.png" alt="语言标志"> 中文</a>
 	<?php } ?>
 <?php }
 
@@ -510,8 +536,14 @@ function check_language_user_and_content($tags) {
 			# code...
 			if(substr($tag->slug, 0, 5)=="lang-") {
 				$content_lang = substr($tag->slug, 5, 7);
-				if($user_prefered_language_prefix!=$content_lang)
-					echo "These content is not avaiable in your language";	
+				if($user_prefered_language_prefix!=$content_lang) { ?>
+					<div class="alert alert-warning">
+					<strong><?php _e("Warning!", "sis-foca-js"); ?></strong> 
+					<?php _e("These content is not avaiable in your language. Original content language is: ", "sis-foca-js");
+					echo "<strong>".$content_lang."</strong>";
+					#echo "These content is not avaiable in your language";	] ?>
+					</div>
+				<?php }
 			}
 		}
 	}

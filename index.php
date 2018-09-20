@@ -19,7 +19,11 @@ $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 #$pages_open = array("register", "product", "br", "carrinho");
 #if(!in_array($page, $pages)) {
 #	if(!in_array($page, $pages_open))
-		$page = "index";
+		
+
+		#$page = "index";
+
+
 /*} else {
 	if (!is_user_logged_in()) {
 		if(!in_array($page, $pages_open))
@@ -35,6 +39,7 @@ $uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 	}
 }*/
 wp_enqueue_style('fonts-css');
-locate_template( "part-".$page.".php", true );
+locate_template( "part-index.php", true );
+#locate_template( "part-".$page.".php", true );
 
 get_footer();

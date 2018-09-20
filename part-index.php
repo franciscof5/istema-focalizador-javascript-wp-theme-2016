@@ -13,12 +13,13 @@
 	#revert_database_schema();#4530#5160
 	?>
 	<br>
-	<?php #show_lang_options(false); ?>
+	
 	<div id="content" class="content_default col col-xs-12 ">
 		<div class="row">
-
-			<div class="padder col-md-8">
 			
+			<div class="padder col-md-8">
+			<?php if(function_exists("show_lang_options"))
+		show_lang_options(false); ?>
 			
 			<!--hr /-->
 				
