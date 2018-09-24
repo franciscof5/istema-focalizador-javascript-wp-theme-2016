@@ -91,6 +91,56 @@ add_action('init', 'custom_rewrite_basic');
 add_action('init', 'smart_set_user_language');
 add_action('wp_enqueue_scripts', 'load_scritps');
 //
+function show_sponsor() {
+	global $user_prefered_language;
+	#echo $user_prefered_language;
+	switch ($user_prefered_language) {
+		case 'notset' :
+		case 'en' :
+		case 'en_US' :
+			$post_id = 5985;
+			break;
+		
+		case 'pt' :
+		case 'pt_BR' :
+			$post_id = 5980;
+			break;
+
+		case 'fr' :
+		case 'fr_FR' :
+			$post_id = 5987;
+			break;
+
+		case 'es' :
+		case 'es_ES' :
+			$post_id = 5986;
+			break;
+
+		case 'zh' :
+		case 'zh_CN' :
+			$post_id = 5988;
+			break;
+
+		default:
+			$post_id = 5985;
+			break;
+	}
+	#echo $post_id;
+	set_shared_database_schema();
+	$post_object = get_post( $post_id );
+	#setup_postdata( $post_object );
+	 ?>
+	<a href="<?php echo get_permalink($post_id) ?>" rel="bookmark">
+	<?php 
+	echo get_the_post_thumbnail($post_id, 'large', array( 'class' => 'img-responsive' ));
+	echo $post_object->post_title.": ";
+	#the_post_thumbnail(array(50,50)); ?>
+	</a>
+	<?php 
+	echo substr($post_object->post_content, 0, 96)."...";
+	revert_database_schema();
+}
+
 #function custom_disable_redirect_canonical( $redirect_url, $requested_url ) {
 function custom_disable_redirect_canonical( $redirect_url ) {
 	#global $pagenow;
@@ -530,6 +580,7 @@ function generate_flag_links_except($except) { ?>
 
 function check_language_user_and_content($tags) {
 	global $user_prefered_language;
+	#global $user_prefered_language_prefix;
 	$user_prefered_language_prefix = substr($user_prefered_language,0,2);
 	if($tags) {
 		foreach ($tags as $tag) {

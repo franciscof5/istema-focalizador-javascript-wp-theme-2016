@@ -1,10 +1,20 @@
 			<div class="sidebar col-md-4">
 				
 				<ul>
+
+				<li>
+				<h3>Sponsored by</h3>
+				<?php 
+				show_sponsor();
+				?>
+				</li>
+
 				<li>
 				<h3>Buy to support our free services</h3>
 				<?php 
+				set_shared_database_schema();
 				echo do_shortcode('[product id="5912"]'); 
+				revert_database_schema();
 				?>
 				</li>
 

@@ -10,6 +10,7 @@ if(dirname($uri_parts[0])!="/") {
 }
 
 ?>
+
 	<!--div id="content" class="content_default"-->
 
 	<div class="content_nosidebar col-xs-12">

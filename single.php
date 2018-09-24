@@ -1,5 +1,9 @@
 <?php 
 get_header(); 
+global $user_prefered_language;
+$user_prefered_language_prefix = substr($user_prefered_language,0,2);
+#echo "lang-".$user_prefered_language_prefix;
+
 # echo do_shortcode('[rev_slider alias="pomo1"]'); ?>
 <?php if(function_exists("show_welcome_message")) show_welcome_message(); ?>
 
@@ -70,8 +74,9 @@ get_header();
 					<?php endwhile; ?>
 
 					<?php 
+
 					#plugin: f5sites-shared-posts-tables-and-uploads-folder
-					if(function_exists("print_blog_nav_links") && !is_home()) print_blog_nav_links($post); ?>
+					if(function_exists("print_blog_nav_links") && !is_home()) print_blog_nav_links($post, "lang-".$user_prefered_language_prefix); ?>
 					<?php
 					if(function_exists("revert_database_schema"))
 						revert_database_schema();

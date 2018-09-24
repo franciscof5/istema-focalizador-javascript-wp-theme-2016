@@ -6,6 +6,14 @@
 	<!--button data-toggle="collapse" data-target="#default_sidebar_in" class="collapse_button collapse_right" ><span class="glyphicon glyphicon-resize-horizontal"></span></button-->
 
 	<div class="padder width collapse in" id="sidebar_pomodoro_padder">
+
+		<li>
+		<h3>Sponsored by</h3>
+		<?php 
+		show_sponsor();
+		?>
+		</li>
+
 		<li>
 			<?php 
 			force_database_aditional_tables_share(false);

@@ -4,7 +4,8 @@ get_header();
 //$page = strtok(basename($_SERVER["REQUEST_URI"]),'?');
 #global $pagenow;
 #var_dump($pagenow);die;
-$uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
+
+#$uri_parts = explode('?', $_SERVER['REQUEST_URI'], 2);
 //
 #if(dirname($uri_parts[0])!="/") {
 	#$page = explode("/", dirname($uri_parts[0]));

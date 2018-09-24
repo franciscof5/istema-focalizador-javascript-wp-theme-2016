@@ -2332,7 +2332,12 @@ div#new-topic-post {
 
 /* > WordPress Blog Styles
 -------------------------------------------------------------- */
-
+.post-content li {
+	list-style: square;
+}
+.post-content ul {
+	padding-left: 20px; 
+}
 div.post {
 	/*margin: 0 0 60px 0;*/
 }
@@ -2952,7 +2957,7 @@ h3.rpwe-title a {
 	display: none;
 }
 */
-h3.forte {
+.forte {
 	font-family: Forte;
 	/*padding: 0px 40px;*/
 }
