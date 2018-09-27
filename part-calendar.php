@@ -1,5 +1,5 @@
 <script language="javascript">
-    document.title = "Pomodoros - Calendar";
+	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' » ';_e('Calendar', 'sis-foca-js'); ?>";
 </script>
 <script type="text/javascript">
 	if(window.jQuery) {

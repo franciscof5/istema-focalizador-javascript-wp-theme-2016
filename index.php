@@ -39,7 +39,7 @@ get_header();
 		}
 	}
 }*/
-wp_enqueue_style('fonts-css');
+//wp_enqueue_style('fonts-css');
 locate_template( "part-index.php", true );
 #locate_template( "part-".$page.".php", true );
 

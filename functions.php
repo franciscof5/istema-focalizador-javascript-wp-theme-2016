@@ -155,7 +155,9 @@ function custom_disable_redirect_canonical( $redirect_url ) {
 		return FALSE;
 	} /*elseif ( preg_match("/register/",$redirect_url) ) {
 		return FALSE;
-	}*/ else {
+	} elseif ( preg_match("register",$redirect_url) ) {
+		return FALSE;
+	} */else {
 		return $redirect_url;
 	}
 }
@@ -291,6 +293,67 @@ function user_object_productivity ($user_id) {
 	return $new_object_productivity;
 }
 
+function user_object_productivity_human_time_diff ($user_id) {
+	//echo "<script>alert($user_id);</script>";
+	$user_id = (empty($user_id)) ? get_current_user_id() : $user_id;
+	//$SEMPRE = $TRINTADIAS = $MES = $SETEDIAS = $SEMANA = $HOJE = array ();
+	//$SEMPRE = $TRINTADIAS = $MES = $SETEDIAS = $SEMANA = $HOJE = array ();
+	//variaveis assistentes
+	$data_registro_do_usuario = strtotime(date("Y-m-d", strtotime(get_userdata($user_id)->user_registered)));
+	$now = time();
+	global $wpdb;
+	$datediff = $now - $data_registro_do_usuario;//must exist, MUST!
+
+	/*It must be splitted because it uses itself values, and it cant be accessed in real time*/
+	$totalDias = floor($datediff/(60*60*24));
+	
+	$totalDias_human = human_time_diff( $data_registro_do_usuario, current_time('timestamp') );
+
+	$diasTrabalhados = $wpdb->query('SELECT * FROM `pomodoros_posts` WHERE `post_author` = '.$user_id.' GROUP BY DATE (`post_date_gmt`)');
+
+	$diasTrabalhados_human = human_time_diff( strtotime("+".$diasTrabalhados." days"), current_time('timestamp') );
+	
+	$diasFolga = $totalDias - $diasTrabalhados;
+	$diasFolga_human = human_time_diff( strtotime("+".$diasFolga." days"), current_time('timestamp') );
+	
+	$SEMPRE['totalDias'] = $totalDias;
+	$SEMPRE['totalDias_human'] = $totalDias_human;
+	$SEMPRE['diasTrabalhados'] = $diasTrabalhados;
+	$SEMPRE['diasFolga'] = $diasFolga;
+	$SEMPRE['fatorProdutividade'] = round($diasTrabalhados/$totalDias, 2);
+	
+	$TRINTADIAS['totalDias'] = 30;
+	$TRINTADIAS['diasTrabalhados'] = $wpdb->query('SELECT * FROM `pomodoros_posts` WHERE `post_author` = '.$user_id.' AND post_date_gmt > DATE_SUB(NOW(), INTERVAL 30 DAY) GROUP BY DATE (`post_date_gmt`)');
+	$TRINTADIAS['diasFolga'] = $TRINTADIAS['totalDias'] - $TRINTADIAS['diasTrabalhados'];
+	$TRINTADIAS['fatorProdutividade'] = round($TRINTADIAS['diasTrabalhados']/$TRINTADIAS['totalDias'], 2);
+
+	$MES['totalDias'] = date("j");
+	$MES['diasTrabalhados'] = $wpdb->query("SELECT * FROM `pomodoros_posts` WHERE `post_author` = ".$user_id." AND post_date_gmt > DATE_SUB(NOW(), INTERVAL ".$MES['totalDias']." DAY) GROUP BY DATE (`post_date_gmt`)");
+	$MES['diasFolga'] = $MES['totalDias'] - $MES['diasTrabalhados'];
+	$MES['fatorProdutividade'] = round($MES['diasTrabalhados']/$MES['totalDias'], 2);
+
+	$SETEDIAS['totalDias'] = 6;
+	$SETEDIAS['diasTrabalhados'] = $wpdb->query("SELECT * FROM `pomodoros_posts` WHERE `post_author` = ".$user_id." AND post_date_gmt > DATE_SUB(NOW(), INTERVAL ".$SETEDIAS['totalDias']." DAY) GROUP BY DATE (`post_date_gmt`)");
+	$SETEDIAS ['diasFolga'] = $SETEDIAS['totalDias'] - $SETEDIAS['diasTrabalhados'] +1;
+	$SETEDIAS ['fatorProdutividade'] = round($SETEDIAS['diasTrabalhados']/($SETEDIAS['totalDias']+1), 2);
+	
+	$SEMANA['totalDias'] = date('w') + 1;
+	$SEMANA['diasTrabalhados'] = $wpdb->query("SELECT * FROM `pomodoros_posts` WHERE `post_author` = ".$user_id." AND post_date_gmt > DATE_SUB(NOW(), INTERVAL ".($SEMANA['totalDias']-1)." DAY) GROUP BY DATE (`post_date_gmt`)");
+	//Its to prevent a very intersting bug, when there are 2 posts with less than 24 hours of difference but are published at 2 differents days, it will result in a 2 posts for 1 day, grouped by date, because there are 2 differente days
+	($SEMANA['diasTrabalhados']>$SEMANA['totalDias']) ? $SEMANA['diasTrabalhados'] = $SEMANA['totalDias'] : $SEMANA['diasTrabalhados'];
+	$SEMANA['diasFolga'] = $SEMANA['totalDias'] - $SEMANA['diasTrabalhados'];
+	$SEMANA['fatorProdutividade'] = round($SEMANA['diasTrabalhados']/$SEMANA['totalDias'], 2);
+
+	$new_object_productivity = array(
+		"sempre" => $SEMPRE,
+		"trintadias" => $TRINTADIAS,
+		"mes" => $MES,
+		"setedias" => $SETEDIAS,
+		"semana" => $SEMANA
+	);
+	return $new_object_productivity;
+}
+
 if ( function_exists( 'add_theme_support' ) ) { 
 	add_theme_support( 'post-thumbnails' ); 
 }
@@ -389,9 +452,42 @@ function smart_set_user_language() {
 	#var_dump($_SESSION["user_prefered_language"]);
 	#var_dump($user_prefered_language);
 	switch_to_locale($user_prefered_language);
+	define_title_apendix($user_prefered_language);
 	return $user_prefered_language;
 }
 
+function define_title_apendix($lang) {
+	global $title_apendix;
+	switch ($lang) {
+		case 'notset' :
+		case 'en' :
+		case 'en_US' :
+			$title_apendix = "USA/UK";
+			break;
+		case 'pt' :
+		case 'pt_BR' :
+			$title_apendix = "Brasil";
+			break;
+
+		case 'fr' :
+		case 'fr_FR' :
+			$title_apendix = "France";
+			break;
+
+		case 'es' :
+		case 'es_ES' :
+			$title_apendix = "Espanã/AL";
+			break;
+
+		case 'zh' :
+		case 'zh_CN' :
+			$title_apendix = "中国";
+			break;
+		default:
+			$title_apendix = "Global";
+			break;
+	}
+}
 
 function load_scritps() {	
 	//Theme language, need to be there
@@ -400,7 +496,7 @@ function load_scritps() {
 	//THEME CSS FOR IMPROVE SPEED
 	wp_enqueue_style('theme-css', get_bloginfo("stylesheet_directory")."/style.css", __FILE__, time());
 	#wp_enqueue_style('pomodoro-css', get_bloginfo("stylesheet_directory")."/pomodoro/pomodoro.css", __FILE__, time());
-	wp_register_style('fonts-css', get_bloginfo("stylesheet_directory")."/assets/fonts/stylesheet.css", __FILE__);
+	wp_enqueue_style('fonts-css', get_bloginfo("stylesheet_directory")."/assets/fonts/stylesheet.css", __FILE__);
 
 
 	//jquery colors
@@ -489,7 +585,7 @@ function load_scritps() {
 	
 }
 
-function show_lang_options($showtitle_in_h3, $current_location="") {
+function show_lang_options($hide_title, $current_location="") {
 	global $user_prefered_language;
 	if($current_location=="") {
 		if($user_prefered_language!="")
@@ -498,11 +594,15 @@ function show_lang_options($showtitle_in_h3, $current_location="") {
 			$current_location = "notset";
 	} ?>
 
-		<?php if($showtitle_in_h3) { ?>
+		<?php 
+		if(!$hide_title) { ?>
+			<strong>Change Language:</strong>
+		<?php }
+		/*if($showtitle_in_h3) { ?>
 			<h3 class="widget-title">Change Language</h3>
 		<?php } else { ?>
 			<strong>Change Language:</strong>
-		<?php } ?>
+		<?php } */ ?>
 
 	<?php
 	#var_dump($user_prefered_language);
@@ -601,8 +701,8 @@ function check_language_user_and_content($tags) {
 	#var_dump($user_prefered_language_prefix);die;
 }
 
-function show_most_recent_task() {
-	echo '<h3 class="widget-title">Tarefa recente</h3>';
+/*function show_most_recent_taskDISABLED() {
+	#echo '<h3 class="widget-title">Tarefa recente</h3>';
 	if(is_user_logged_in()) {
 		$current_user = wp_get_current_user(); 
 		$args = array(
@@ -614,25 +714,26 @@ function show_most_recent_task() {
 		            );
 		$recent = get_posts($args);
 		if( $recent ){
-		  $title = ", sua tarefa mais recente é <i>".get_the_title($recent[0]->ID)."</i>";
+		  $title = ", ".__("you most recent task is", "sis-foca-js")." <i>".get_the_title($recent[0]->ID)."</i>";#sua tarefa mais recente é
 		}else{
-		  $title = ", você ainda não começou nenhuma tarefa"; //No published posts
+		  $title = ", ".__("you never started a task", "sis-foca-js"); #você ainda não começou nenhuma tarefa //No published posts
 		} 
-		$msg_saudacao = "Olá ".$current_user->display_name." ".$title.", <a href=/focar>acessar aplicativo online e focar</a>";
+		$msg_saudacao = __("Hello", "buddypress")." ".$current_user->display_name.$title.", <a href=/focar>".__("go to online app and start focus", "sis-foca-js")."</a>";#acessar aplicativo online e focar
 	} else {
-		$msg_saudacao = "Caro visitante, <a href=/register>crie sua conta GRÁTIS</a> para acessar o aplicativo online";
-		$msg_saudacao2 = "Se já possui um usuário, <a id=testes href=# class=abrir_login>acesse sua conta</a>";
+		#$msg_saudacao = "Caro visitante, <a href=/register>crie sua conta GRÁTIS</a> para acessar o aplicativo online";
+		#$msg_saudacao2 = "Se já possui um usuário, <a id=testes href=# class=abrir_login>acesse sua conta</a>";
+		echo show_welcome_message();
 	} 
 			
 	echo $msg_saudacao;
 	if(isset($msg_saudacao2))
 	echo $msg_saudacao2;
 	#die();
-}
+}*/
 
 function show_recent_pomodoros() {
+	#<h3><script>document.write(txt_foot_last)</script></h3>
 	?>
-	<h3><script>document.write(txt_foot_last)</script></h3>
 		<ul>
 			<?php 
 			$args = array( 'post_type' => 'projectimer_focus', 'posts_per_page' => 11, 'post_status' => 'publish' ); 
@@ -658,8 +759,8 @@ function show_recent_pomodoros() {
 }
 
 function show_recent_posts_georefer() {
+	#<h3><script>document.write(txt_foot_blog)</script></h3>
 	?>
-	<h3><script>document.write(txt_foot_blog)</script></h3>
 	<div class="widget widget_recent_entries">
 		<ul>
 		
@@ -698,14 +799,7 @@ function show_recent_posts_georefer() {
 	<?php
 }
 
-function show_welcome_message() {
-	/*
-	<?php if(is_home()) { ?>
-		<div id="blog-welcomeDISABLED">
-		<!--h3 class="forte"><script>document.write(txt_blog_header)</script></h3>
-		<p><script>document.write(txt_blog_desc)</script></p-->
-		<?php show_lang_options(false); ?>
-		*/
+function show_welcome_message($alertify=false) {
 	if(is_user_logged_in()) {
 		$current_user = wp_get_current_user();
 		$args = array(
@@ -716,21 +810,34 @@ function show_welcome_message() {
 	              'posts_per_page' => 1,
 	            );
 		$recent = get_posts($args);
-		if( $recent ) {
+		/*if( $recent ) {
 			$title = ", you most recent task is <i>".get_the_title($recent[0]->ID)."</i>";
 		} else{
 			$title = ", you did not started a task yet"; //No published posts
 		} 
 		
-		$msg_saudacao = "Hello ".$current_user->display_name." ".$title.", <a href=/focar>go to online app and start focus</a>";
+		$msg_saudacao = "Hello ".$current_user->display_name." ".$title.", <a href=/focar>go to online app and start focus</a>";*/
+		if( $recent ){
+		  $title = ", ".__("you most recent task is", "sis-foca-js")." <i>".get_the_title($recent[0]->ID)."</i>";#sua tarefa mais recente é
+		}else{
+		  $title = ", ".__("you never started a task", "sis-foca-js"); #você ainda não começou nenhuma tarefa //No published posts
+		} 
+		$msg_saudacao = __("Hello", "buddypress")." ".$current_user->display_name.$title.", <a href=/focar>".__("go to online app and start focus", "sis-foca-js")."</a>";#acessar aplicativo online e focar
 	} else {
-		$msg_saudacao = "Dear visitor, <a href=/register>create your free user</a> and start focus right now";
-		$msg_saudacao2 = "If you already have an account, <a id=testes href=# class=abrir_login>login</a>";
+		$msg_saudacao = __("Dear visitor", "sis-foca-js").", <a href=/register>".__("create your free user", "sis-foca-js")."</a> ".__("and start focus right now", "sis-foca-js");
+		$msg_saudacao2 = __("If you already have an account", "sis-foca-js").", <a id=testes href=# class=abrir_login>".__("login", "sis-foca-js")."</a>";
 	} 
-		
-	echo "<script type='text/javascript'>alertify.log('".$msg_saudacao."');</script>";
-	if(isset($msg_saudacao2))
-	echo "<script type='text/javascript'>alertify.log('".$msg_saudacao2."');</script>";
+	if($alertify) {
+		echo "<script type='text/javascript'>alertify.log('".$msg_saudacao."');</script>";
+		if(isset($msg_saudacao2))
+		echo "<script type='text/javascript'>alertify.log('".$msg_saudacao2."');</script>";	
+	} else {
+		if(isset($msg_saudacao2))
+			echo $msg_saudacao.". ".$msg_saudacao2;
+		else
+			echo $msg_saudacao;
+	}
+	
 }
 ####
 function get_meta_values( $meta_key,  $post_type = 'post' ) {
@@ -1444,7 +1551,7 @@ function create_post_type() {
 
 function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
 	
-	#if ( ! post_type_exists( "projectimer_focus" ) ) {
+	if ( ! post_type_exists( "projectimer_focus" ) ) {
 		$labelFocus = array(
 			'name'  => __( 'Focus',' projectimer-plugin' ), 
 			'singular_name' => __( 'Focus',    ' projectimer-plugin' ),
@@ -1466,7 +1573,7 @@ function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
 			'singular_label'  => __( 'Focus', ' projectimer-plugin' ),
 			'public'  => true,
 			//'show_ui' => true,
-			'menu_icon' => WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)) . '/images/projectimer-focus-icon.png',
+			'menu_icon' => get_bloginfo('stylesheet_directory').'/images/projectimer_post_type_icon.png',
 			'description' => 'Post type for Projectimer Plugin',
 			'menu_position'   => 20,
 			'can_export' => true,
@@ -1475,14 +1582,18 @@ function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
 			'rewrite' => array( 'slug' => 'done'),//, 'with_front' => false ),
 			'has_archive' => true,
 			'query_var'  => true,
-			'taxonomies' => array('post_tag'),
+			'taxonomies' => array('post_tag', 'category'),
 			'supports'   => array( 'title', 'content', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' )
 		);
 
 		register_post_type("projectimer_focus", $postTypeFocusParams);
-	#}
+	}
 }
-
+function add_tags_categories() {
+	register_taxonomy_for_object_type('category', 'projectimer_focus');
+	register_taxonomy_for_object_type('post_tag', 'projectimer_focus');
+}
+add_action('init', 'add_tags_categories');
 /*function get_user_subscription($user_id, $domain) {
 	$user_id = (!isset($user_id)) ? get_current_user_id() : $user_id;
 	$sql = "SELECT * FROM f5sites_posts WHERE post_type='subscription' AND post_author=".$user_id;
@@ -1545,3 +1656,22 @@ function wpse187831_redir_loggedin()
     ), 302);
     exit;
 }
+/*
+function fbp($d) {
+	
+	global $field;
+	return ".adas".$d.$field->id; 
+	#return $field->id;
+	#return apply_filters( 'bp_get_the_profile_field_input_name', 'field_' . $field->id ); 
+	#return apply_filters( 'bp_get_the_profile_field_input_name', 'field_' . $field->id ); 
+}
+add_filter("bp_the_profile_field_input_name", "fbp", 10, 1);
+/*
+function filter_bp_get_the_profile_field_input_name( $bp_dtheme_add_brackets_to_multiselectbox_attributes ) { 
+    // make filter magic happen here... 
+    //return "a".$bp_dtheme_add_brackets_to_multiselectbox_attributes; 
+    #return apply_filters( 'bp_get_the_profile_field_input_name', 'field_' . $field->id ); 
+    die;
+} 
+         
+add_filter( 'bp_get_the_profile_field_input_name', 'filter_bp_get_the_profile_field_input_name', 10, 1 );

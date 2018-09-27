@@ -2,7 +2,7 @@
 
 get_header(); 
 
-if(function_exists("show_welcome_message")) show_welcome_message(); ?>
+if(function_exists("show_welcome_message")) show_welcome_message(true); ?>
 
 	<div id="center_layout" class="content_default col  col-md-8 col-md-offset-2">
 		<div class="row">

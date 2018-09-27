@@ -59,6 +59,7 @@ jQuery(document).ready(function ($) {
 		e.preventDefault();
 		action_button()
 	});
+	jQuery("#action_button_id").prop("disabled", true);
 	jQuery("#relogio").click(function(e) {
 		e.preventDefault();
 		action_button()
@@ -126,18 +127,12 @@ jQuery(document).ready(function ($) {
 		update_pomodoro_clipboard();
 	});
 	
-	//
-	
-
-	//
-	
 	//Check updates on task every 15s (if not on focus)
 	listen_changes_on_task_form = setInterval(function() {
 		if(!jQuery("#title_box").is(":focus") && !jQuery("#tags_box").data('select2').isOpen() && !jQuery("#description_box").is(":focus"))
 		load_initial_data();
 	},15000);
 
-	//document.title = txt_index_title;
 	jQuery( "#contem-ciclo" ).sortable({
 	  revert: true,
 	  	over: function() {
@@ -306,8 +301,12 @@ function load_initial_data() {
 				artyom_voice.initialize({volume:volumeLevel/100});
 			//artyom_voice.volume = volumeLevel/100;
 		}
-		jQuery("#action_button_id").val(textPomodoro);
-		jQuery("#action_button_id").prop('disabled', false);
+		//
+		if(jQuery("#action_button_id").is(':disabled')) {
+			jQuery("#action_button_id").val(textPomodoro);
+			jQuery("#action_button_id").prop("disabled", false);	
+		}
+		
 		//Functions to make the effect of flip on countdown_clock
 		//change_status(response);
 		//alert(secundosRemainingFromPHP);
@@ -441,6 +440,8 @@ function countdown_clock (){
 
 //This is the reason of all the code, the time when user complete a pomodoro, these satisfaction!
 function complete() {
+	//console.log("complete()");
+	//alert("complete(), is_pomodoro: "+is_pomodoro+", pomodoro_actual:"+pomodoro_actual);
 	//is_interrupt_button = false;
 	pomodoro_completed_sound.stop();
 	if(jQuery("#sound-switcher").is(":checked"))
@@ -451,6 +452,7 @@ function complete() {
 	stop_clock();	
 	//changeTitle(txt_title_done);
 	if(is_pomodoro) {
+		//console.log("is_pomodoro: "+is_pomodoro+", pomodoro_actual:"+pomodoro_actual);
 		turn_on_pomodoro_indicator(pomodoro_actual);
 		savepomo();
 		is_pomodoro = false;
@@ -476,12 +478,15 @@ function complete() {
 		}
 	} else {
 		//rest finished
+		//alert("rest finished")
 		change_button(textPomodoro, "#0F0F0F");
 		change_status(txt_completed_rest, "er");
 		is_pomodoro=true;
 		secondsRemaining=pomodoroTime;
 		changeTitle(txt_title_done);
 	}
+	convertSeconds(secondsRemaining);
+	flip_number();
 	if(autoAction)
 		action_button();
 }
@@ -507,7 +512,7 @@ function stop_clock() {
 
 //Function to show status warnings at bottom of the clock
 function change_status(txt, stts) {
-	console.log("change_status: " + txt);
+	//console.log("change_status: " + txt);
 	if(artyom_voice) {
 		artyom_voice.shutUp();
 		//artyom_voice.initialize({volume:0.1});
@@ -879,7 +884,7 @@ function delete_model(task_model_id) {
 }
 
 function load_model(task_model_id) {
-	//alert(jQuery("#bxtitle"+task_model_id).text());
+	//console.log(jQuery("#bxtitle"+task_model_id).text());
 	change_status(txt_loading_model);
 	jQuery("#title_box").val(jQuery("#bxtitle"+task_model_id).text());
 	jQuery("#description_box").val(jQuery("#bxcontent"+task_model_id).text());

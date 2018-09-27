@@ -4,8 +4,9 @@ global $user_prefered_language;
 $user_prefered_language_prefix = substr($user_prefered_language,0,2);
 #echo "lang-".$user_prefered_language_prefix;
 
-# echo do_shortcode('[rev_slider alias="pomo1"]'); ?>
-<?php if(function_exists("show_welcome_message")) show_welcome_message(); ?>
+# echo do_shortcode('[rev_slider alias="pomo1"]'); 
+?>
+<?php if(function_exists("show_welcome_message")) show_welcome_message(true); ?>
 
 	<!--style type="text/css">
 		.navbar {margin-bottom: 0px;}

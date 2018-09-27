@@ -8,7 +8,7 @@
 	*/ ?>
 	<ul class="padder width collapse in" id="sidebar22_padder">
 		<li>
-			<h3 class="widget-title">Sua Conta</h3>
+			<h3 class="widget-title"><?php _e("Your Account", "sis-foca-js"); ?></h3>
 			<?php do_action( 'bp_inside_before_sidebar' ); ?>
 
 			<?php if ( is_user_logged_in() ) : ?>
@@ -77,6 +77,7 @@
 		<?php endif; ?>
 		
 		<li>
+			<h3 class="widget-title">Change Language</h3>
 			<?php show_lang_options(true); ?>
 		</li>
 		
@@ -100,7 +101,7 @@
 			
 		</li>*/?>
 		<li>
-			<h3 class="widget-title">Projetos da Comunidade</h3>
+			<h3 class="widget-title"><?php _e("Projects from Community", "sis-foca-js"); ?></h3>
 			<?php if(function_exists("revert_database_schema"))
 				revert_database_schema();
 				$args = array(

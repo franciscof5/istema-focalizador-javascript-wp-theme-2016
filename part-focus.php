@@ -1,5 +1,5 @@
 <script language="javascript">
-    document.title = "Pomodoros Brasil - Focar";
+	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' >> ';_e('Focus', 'sis-foca-js'); ?>";
 </script>
 <?php locate_template( array( 'sidebar-pomodoro-left.php' ), true ); ?>
 
@@ -8,7 +8,7 @@
 	<div id="pomodoro-painel">		
 			
 		<div id="pomodoro-relogio">							
-		<form><input type="button" value="loading..." id="action_button_id" tabindex="1" disabled="disabled" /></form>
+		<form><input type="button" value="loading..." id="action_button_id" tabindex="1" disabled="true" /></form>
 
 		<div id="relogio">
 
@@ -53,7 +53,7 @@
 		<br />
 		
 		<div id="mascote_float">
-			<div id="div_status"><script>document.write(txt_mat_introducing)</script></div>
+			<div id="div_status"><?php _e("Hello, welcome", "sis-foca-js"); ?></div>
 			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/mascote_foca.png" />
 		</div>
 		
@@ -62,7 +62,7 @@
 		
 		<div class="row">
 			<div class="col-xs-4">
-				<label><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Volume</label><br />
+				<label><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> <?php _e("Volume", "sis-foca-js"); ?></label><br />
 			</div>
 			<div class="col-xs-4">
                 <div class="material-switch pull-right" style="float: right;">
@@ -76,7 +76,7 @@
                     <input id="voice-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
                     <label for="voice-switcher" class="label-success"></label>
                 </div>
-                <label style="float:right"><!--span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span--> Voice &nbsp; </label>
+                <label style="float:right"><!--span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span--> <?php _e("Voice", "sis-foca-js"); ?> &nbsp; </label>
 			</div>
 		</div>
 
@@ -96,20 +96,20 @@
 			
 			
 		 	<div class="form-group">
-				<label><span class="glyphicon glyphicon-paste" aria-hidden="true"></span> <script>document.write(txt_write_task_title)</script></label><br />
+				<label><span class="glyphicon glyphicon-paste" aria-hidden="true"></span> <?php _e("Task", "sis-foca-js"); ?></label><br />
 				<input type="text" id="title_box" maxlength="70" tabindex="2" name="ti33" class="form-control">
 				</input>
 			</div>
 			<div class="form-group">
-				<label><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> <script>document.write(txt_write_task_tags)</script></label>
+				<label><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> <?php _e("Project tags", "sis-foca-js"); ?></label>
 				<select id="tags_box" class="js-example-tags " tabindex="3" multiple="multiple" placeholder="Does not work, use data-placeholder with js trick"  data-placeholder="projeto1, projeto2"></select>
 			</div>
-			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><strong>EXTRA</strong></button>
-			<div class="collapse" id="collapseExample">
+			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExtra" aria-expanded="false" aria-controls="collapseExtra"><strong style="text-transform: uppercase;"><?php _e("Extra", "sis-foca-js"); ?></strong></button>
+			<div class="collapse" id="collapseExtra">
   				<div class="well">
 					
 					<div class="form-group">
-						<label><span class="glyphicon glyphicon-text-background" aria-hidden="true"></span> <script>document.write(txt_write_task_desc)</script></label>
+						<label><span class="glyphicon glyphicon-text-background" aria-hidden="true"></span> <?php _e("Notes", "sis-foca-js"); ?></label>
 						<textarea rows="4" cols="34" id="description_box" tabindex="4" class="form-control"></textarea>
 					</div>
 					
@@ -118,61 +118,42 @@
 					<input type="hidden" id="post_id_box">
 					<input type="hidden" id="pomodoroAtivoBox" value='<?php echo get_user_meta(get_current_user_id(), "pomodoroAtivo", true); ?>'>
 					
-					<br />a
-					<label><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> <script>document.write(txt_write_task_category)</script></label><br />
+					<br />
+					<label><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span> <?php _e("What kind of taks is that?", "sis-foca-js"); ?></label><br />
 					<ul>
-						<li><input type="radio" name="cat_vl" value="26"><script>document.write(txt_write_task_category_study)</script></li>
-						<li><input type="radio" name="cat_vl" value="27"><script>document.write(txt_write_task_category_work)</script></li>
-						<li><input type="radio" name="cat_vl" value="28"><script>document.write(txt_write_task_category_personal)</script></li>
+						<li><input type="radio" name="cat_vl" value="26"> <?php _e("Study", "sis-foca-js"); ?></li>
+						<li><input type="radio" name="cat_vl" value="27"> <?php _e("Work", "sis-foca-js"); ?></li>
+						<li><input type="radio" name="cat_vl" value="28"> <?php _e("Personal", "sis-foca-js"); ?></li>
 					</ul>
-					<label><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <script>document.write(txt_write_task_privacy)</script></label><br />
+					<label><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <?php _e("Privacy", "sis-foca-js"); ?></label><br />
 					<ul>
-						<li><input type="radio" name="priv_vl" value="publish" CHECKED><script>document.write(txt_write_task_privacy_pub)</script></li>
-						<li><input type="radio" name="priv_vl" value="private" ><script>document.write(txt_write_task_privacy_pri)</script></li>
+						<li><input type="radio" name="priv_vl" value="publish" CHECKED> <?php _e("Public - everyone can see", "sis-foca-js"); ?></li>
+						<li><input type="radio" name="priv_vl" value="private"> <?php _e("Private - only you can see", "sis-foca-js"); ?></li>
 					</ul>
 				</div>
 			</div>
-			<a href="#" class="button btn btn-dark" id="botao-salvar-modelo"> <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <script>document.write(txt_write_task_save)</script> </a>
+			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseCyle" aria-expanded="false" aria-controls="collapseCyle"><strong style="text-transform: uppercase;"><?php _e("TODO", "sis-foca-js"); ?></strong></button>
 		</form>
 
 		
-
+		<?php /*
 		<style>
 			/*ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
-			li { margin: 5px; padding: 5px; width: 150px; }*/
+			li { margin: 5px; padding: 5px; width: 150px; }/
 		</style>
 		<script>
 			jQuery( function() {
 				
 				//jQuery( "#contem-ciclo" )
-				/*jQuery( ".sidebar li" ).sortable({});*/
+				/*jQuery( ".sidebar li" ).sortable({});/
 				
 			});
-		</script>
-		<h3 class="widget-title"><script>document.write("Automatic cycle")</script></h3>
-		<p style="float: right; margin-top: -14px;">
-		<button class="btn btn-small" id="cycle_prev"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button> &nbsp; 
-		<button class="btn btn-small" id="cycle_empty"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button> &nbsp; 
-		<button class="btn btn-small" id="cycle_start"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
-		&nbsp; 
-		<button class="btn btn-small" id="cycle_next"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
-		</p>
-	
-		<p>
-		<small>Drop tasks below:</small>
-			</p>
-		<ul id="contem-ciclo" style="">
-			<?php
-			echo get_user_meta(get_current_user_id(), "cycle_list", true);
-			?>
-		</ul>
-		<!--li id="draggable" class="ui-state-highlight">Drag me down</li-->
-		<h3 class="widget-title"><script>document.write(txt_write_task_model)</script></h3>
-		<!--p><script>document.write(txt_write_task_model_desc)</script></p-->
-		
-		
-
-		
+		</script> */ ?>
+		<div class="collapse" id="collapseCyle">
+		<h3 class="widget-title"><?php _e("TODO list", "sis-foca-js"); ?></h3>
+		<a href="#" class="button btn btn-dark" id="botao-salvar-modelo"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <?php _e("Save Task", "sis-foca-js"); ?></a>
+		<br />
+		<br />
 		<ul id="contem-modelos" class="row">
 			<?php
 			if(function_exists("revert_database_schema"))revert_database_schema();
@@ -232,6 +213,29 @@
 					#onclick='delete_model(<?php echo $counter ?)' 
 					#echo "<input type='button' class='btn btn-xs btn-primary' value='carregar' onclick='load_model($counter)'><br /> <br /><input type='button' class='btn btn-xs btn-success' value='concluir' onclick='delete_model($counter)'>"; ?>
 		</ul>
+
+		<h3 class="widget-title"><?php _e("Automatic cycle", "sis-foca-js"); ?></h3>
+		<p style="float: right; margin-top: -14px;">
+		<button class="btn btn-small" id="cycle_prev"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button> &nbsp; 
+		<button class="btn btn-small" id="cycle_empty"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button> &nbsp; 
+		<button class="btn btn-small" id="cycle_start"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+		&nbsp; 
+		<button class="btn btn-small" id="cycle_next"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
+		</p>
+	
+		<p>
+		<small><?php _e("Volume", "sis-foca-js"); ?><?php _e("Drop tasks below", "sis-foca-js"); ?></small>
+			</p>
+		<ul id="contem-ciclo" style="">
+			<?php
+			echo get_user_meta(get_current_user_id(), "cycle_list", true);
+			?>
+		</ul>
+		<!--li id="draggable" class="ui-state-highlight">Drag me down</li-->
+		
+		<?php //<p><?php _e("You can save your tasks for later", "sis-foca-js"); </p> ?>
+
+		</div>
 		<div class="row"></div>
 	</div>
 	

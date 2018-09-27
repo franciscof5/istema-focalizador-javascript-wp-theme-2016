@@ -3,9 +3,11 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>  ?>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>*/ ?>
+
 <script language="javascript">
-    document.title = "Pomodoros - Project Tag";
+	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' » ';_e('Project Tag', 'sis-foca-js'); ?>";
 </script>
+
 <script type='text/javascript' src='https://www.google.com/jsapi'></script>
 
 		
@@ -182,27 +184,91 @@
 		//die;
 		?>
 		<div class="row">
-			<h1>Projeto: <?php echo $projetoNome; ?></h1>
-			<h3>Líder do projeto: </h3>
+			<h2 class="forte"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> <?php _e("Project Tag", "sis-foca-js"); ?>: <?php echo $projetoNome; ?></h2>
+			<!--h3><?php _e("Project leader", "sis-foca-js"); ?>: </h3-->
 		</div>
 		<div class="row">
 			<div class="col-sm-6">
-				<p>Tempo de trabalho: <strong><?php echo $projetoHorasTrabalhadas; ?>h</strong></p>
-				<p>Total de pomodoros completados neste projeto: <strong><?php echo $projetoTotalPomodoros; ?></strong></p>
-				<p>Quantidades de colaboradores: <strong><?php echo $projetoColaboradores; ?> pessoas</strong></p>
-				<p>Duração do projeto: <strong><?php echo $projetoDuracao; ?> dias</strong></p>
-				<p>Dias trabalhados neste projeto: <strong><?php echo $projetoDiasTrabalhados; ?> dias</strong></p>
-				<p>Fator produtividade do projeto: <strong><?php echo $fatorProdutividadeProjeto = round($projetoDiasTrabalhados/$projetoDuracao*100) ?></strong></p>
-				<p>Data do primeiro pomodoro: <strong><?php echo $projetoInicio; ?></strong></p>
-				<p>Data do último pomodoro: <strong><?php echo $projetoFinal; ?></strong></p>
+				<h3><?php _e("Project Details", "sis-foca-js"); ?></h3>
+				<div class="table-responsive">
+					<table class="table table-striped table-responsive table-condensed">
+						<thead>
+							<tr>
+								<th><?php _e("Details", "sis-foca-js"); ?></th>
+								<th><?php _e("Info", "sis-foca-js"); ?></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><?php _e("Pomodoros done", "sis-foca-js"); ?></td>
+								<td><strong><?php echo $projetoTotalPomodoros; ?></strong></td>
+							</tr>
+							<tr>
+								<td><?php _e("Work time", "sis-foca-js"); ?></td>
+								<td><strong><?php echo $projetoHorasTrabalhadas; ?>h</strong></td>
+							</tr>
+							<tr>
+								<td><?php _e("Collaborators total", "sis-foca-js"); ?></td>
+								<td><strong><?php echo $projetoColaboradores; ?></strong></td>
+							</tr>
+							<tr>
+								<td><?php _e("Duration in days", "sis-foca-js"); ?></td>
+								<td><strong><?php echo $projetoDuracao; ?></strong></td>
+							</tr>
+							<tr>
+								<td><?php _e("Days of work", "sis-foca-js"); ?></td>
+								<td><strong><?php echo $projetoDiasTrabalhados; ?></strong></td>
+							</tr>
+							<tr>
+								<td><?php _e("Project productivity factor", "sis-foca-js"); ?></td>
+								<td><strong><?php echo $fatorProdutividadeProjeto = round($projetoDiasTrabalhados/$projetoDuracao*100) ?></strong></td>
+							</tr>
+							<tr>
+								<td><?php _e("First pomodoro", "sis-foca-js"); ?></td>
+								<td><strong><?php echo $projetoInicio; ?></strong></td>
+							</tr>
+							<tr>
+								<td><?php _e("Last pomodoro", "sis-foca-js"); ?></td>
+								<td><strong><?php echo $projetoFinal; ?></strong></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 			<div class="col-sm-6">
-				<h3>Stats</h3>
-				<p>Média de pomodoros/total de dias: <strong><?php echo round($projetoTotalPomodoros/$projetoDuracao, 2); ?> pomodoros</strong></p>
-				<p>Média de horas de trabalho/total de dias: <strong><?php echo round($projetoHorasTrabalhadas/$projetoDuracao, 2); ?>h</strong></p>
-				<p>Média de pomodoros/dias trabalhados: <strong><?php echo round($projetoTotalPomodoros/$projetoDiasTrabalhados, 2); ?> pomodoros</strong></p>
-				<p>Média de horas de trabalho/dias trabalhados: <strong><?php echo round($projetoHorasTrabalhadas/$projetoDiasTrabalhados, 2); ?>h</strong></p>
-				<h3>Fator produtividade do projeto</h3>
+				<h3><?php _e("Project Statistics", "sis-foca-js"); ?></h3>
+				<div class="table-responsive">
+					<table class="table table-striped table-responsive table-condensed">
+						<thead>
+							<tr>
+								<th><?php _e("Details", "sis-foca-js"); ?></th>
+								<th><?php _e("Info", "sis-foca-js"); ?></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><?php _e("Mean of pomodoros / total days", "sis-foca-js"); ?></td>
+								<td><strong><?php echo round($projetoTotalPomodoros/$projetoDuracao, 2); ?></strong></td>
+							</tr>
+							<tr>
+								<td><?php _e("Average working hours / total days", "sis-foca-js"); ?></td>
+								<td><strong><?php echo round($projetoHorasTrabalhadas/$projetoDuracao, 2); ?>h</strong></td>
+							</tr>
+							<tr>
+								<td><?php _e("Average pomodoros / days worked", "sis-foca-js"); ?></td>
+								<td><strong><?php echo round($projetoTotalPomodoros/$projetoDiasTrabalhados, 2); ?></strong></td>
+							</tr>
+							<tr>
+								<td><?php _e("Average hours worked / days worked", "sis-foca-js"); ?></td>
+								<td><strong><?php echo round($projetoHorasTrabalhadas/$projetoDiasTrabalhados, 2); ?>h</strong></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div id='projeto_produtividade_div'></div>

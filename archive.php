@@ -7,7 +7,7 @@
 
 		<div class="page" id="blog-archives" role="main">
 
-			<h3 class="pagetitle"><?php _e("<!--:en-->You are browsing the archive for <!--:--><!--:pt-->Filtro:<!--:-->"); printf( __( '%1$s', 'buddypress' ), wp_title( false, false ) ); ?></h3>
+			<h3 class="pagetitle"><?php _e("You are browsing the archive for", "buddypress"); printf( __( '%1$s', 'buddypress' ), wp_title( false, false ) ); ?></h3>
 
 			<?php if ( have_posts() ) : ?>
 

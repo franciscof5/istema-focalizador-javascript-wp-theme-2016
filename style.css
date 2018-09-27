@@ -936,6 +936,7 @@ margin: 0 auto;
 	display: none;
 	color: #FFF;
 	font-weight: 600;
+	white-space: nowrap;
 }
 .contem-icone {position: relative;
 }
@@ -3201,3 +3202,6 @@ h3.rpwe-title a {
 	width:64px;
 }
 	
+.table > tbody > tr > td {
+     vertical-align: middle !important;
+}

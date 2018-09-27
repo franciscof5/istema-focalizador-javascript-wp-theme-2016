@@ -11,13 +11,14 @@
 		<div id="footer" class="container-fluid">
 			<div id="footer-content" class="row">
 				<div class="col-sm-3 contem_last_pomodoros">
+					<h3><?php _e("Last pomodoros", "sis-foca-js"); ?></h3>
 					<?php 
 					if(function_exists("show_recent_pomodoros"))
 					show_recent_pomodoros(); ?>
 				</div>
 
 				<div class="col-sm-3">
-					<h3>Top 7 Users</h3>
+					<h3><?php _e("Top 7 Users", "sis-foca-js"); ?></h3>
 					<?php
 					$instance = array(
 						"title" => "",
@@ -26,37 +27,39 @@
 						"include_post_types" => array("projectimer_focus"),
 						"preset" => "custom",
 						#"template" => "%gravatar_32% %firstname% %lastname% (%nrofposts%)",
-						"template" => '<li><a href="/colegas/%username%">%gravatar_18%  %firstname% %lastname% (%nrofposts%) </a>  </li>',
+						"template" => '<li><a href="/members/%username%">%gravatar_18%  %firstname% %lastname% (%nrofposts%) </a>  </li>',
 						"before_list" => "<ul class='ul-ranking-footer ul-ranking-li ta-gravatar-list-count'>",
 						"after_list" => "</ul>",
 						"custom_id" => "",
 						"archive_specific" => false); 
 					the_widget("Top_Authors_Widget", $instance, "");
 					?>
-					<!--small><script>document.write(txt_foot_naoc)</script></small-->
+					<?php #<small _e("Doesn't count private pomodoros.", "sis-foca-js"); </small> ?>
 					<?php
 					if(function_exists("get_meta_values")) {
 						$array_top_cities = get_meta_values( "post_location_city", "projectimer_focus" );
 						#$array_top_cities = get_meta_values( "post_location_city", "projectimer_focus" );
 						$array_top_countries = get_meta_values( "post_location_country", "projectimer_focus" );
 						?>
-						<h3>Top 5 Cities</h3>
+						<h3><h3><?php _e("Top 5 Cities", "sis-foca-js"); ?></h3></h3>
 						<?php array_to_rank($array_top_cities, 6); ?>
-						<h3>Top 3 Countries</h3>
+						<h3><h3><?php _e("Top 3 Countries", "sis-foca-js"); ?></h3></h3>
 						<?php array_to_rank($array_top_countries, 4); ?>
 					<?php } ?>
 				</div>
 
 				<div class="col-sm-3">
+					<h3><?php _e("Our blog", "sis-foca-js"); ?></h3>
 					<?php 
 					if(function_exists("show_recent_posts_georefer"))
 					show_recent_posts_georefer(); ?>
 				</div>
 
 				<div id="footer-contact-form" class="col-sm-3">
-					<h3><script>document.write(txt_foot_fale)</script></h3>
+					<h3><?php _e("Contact Us", "sis-foca-js"); ?></h3>
 					<?php if(!is_user_logged_in()) { ?>
-						<p class="bg-danger"><script>document.write(txt_foot_logi)</script></p>
+						<p class="bg-danger">
+							<a href="#" class="abrir_login"><?php _e("Login", "sis-foca-js"); ?></a> <?php _e("now to use contact form", "sis-foca-js"); ?></p></p>
 					<?php } else { ?>
 						
 						<?php 

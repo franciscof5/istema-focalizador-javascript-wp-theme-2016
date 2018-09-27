@@ -1,6 +1,7 @@
 	<?php echo do_shortcode('[rev_slider alias="pomo1"]'); ?>
 	
-	<?php show_welcome_message(); ?>
+	<?php if(function_exists("show_welcome_message")) show_welcome_message(true); ?>
+
 	<?php
 	global $user_prefered_language;
 	#force_database_aditional_tables_share(false);
@@ -19,7 +20,7 @@
 			
 			<div class="padder col-md-8">
 			<?php if(function_exists("show_lang_options"))
-		show_lang_options(false); ?>
+			show_lang_options(false); ?>
 			
 			<!--hr /-->
 				
@@ -29,8 +30,8 @@
 
 				<?php 
 				if(function_exists('set_shared_database_schema')) {
-				       			set_shared_database_schema();
-				       		}
+				    set_shared_database_schema();
+				}
 				global $wp_query;
 				$original_query = $wp_query;
 				$wp_query = null;
@@ -80,7 +81,7 @@
 								<div class="entry">
 									<?php 
 									if(!is_single())
-									the_excerpt("... keep reading.");
+									the_excerpt();
 									else
 									the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
 								</div>

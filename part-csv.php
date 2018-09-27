@@ -1,3 +1,6 @@
+<script language="javascript">
+	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' » ';_e('CSV', 'sis-foca-js'); ?>";
+</script>
 <div id="content" class="content_default  col-xs-12">
 <div class="padder">
 <h1>Exportar CSV</h1>

@@ -1,16 +1,16 @@
 //English
 
 //icons
-var txt_icon_focus = "Focus";
-var txt_icon_prod = "Productivity";
-var txt_icon_col = "Colleagues";
-var txt_icon_rank = "Ranking";
-var txt_icon_cal = "Calendar";
+//var txt_icon_focus = "Focus";
+//var txt_icon_prod = "Productivity";
+//var txt_icon_col = "Colleagues";
+//var txt_icon_rank = "Ranking";
+//var txt_icon_cal = "Calendar";
 
 //Blog
-var txt_index_title = "Pomodoros Global & USA - English";
-var txt_blog_header = "Pomodoros Blog";
-var txt_blog_desc = "News and history of project, online since 2010.";
+//var txt_index_title = "Pomodoros Global & USA - English";
+//var txt_blog_header = "Pomodoros Blog";
+//var txt_blog_desc = "News and history of project, online since 2010.";
 
 //Action button
 var textPomodoro = "FOCUS";
@@ -20,8 +20,8 @@ var textInterruptFocus = "INTERRUPT FOCUS";
 var textInterruptRest = "STOP REST";
 
 //Mat status
-var txt_mat_introducing = "Hello, my name is Foca, and I am here to help, write down the task you are working on and click on FOCAR!";
-var txt_loading_initial_data = "Welcome Pomodoros.com.br";
+//var txt_mat_introducing = "Hello, my name is Foca, and I am here to help, write down the task you are working on and click on FOCAR!";
+var txt_loading_initial_data = "Welcome Pomodoros, my name is Foca, and I am here to help, write down the task you are working on and click on FOCUS!";
 var txt_mat_load_return = "I loaded the last activity from your, just hit FOCUS button and start to work. Last session was ";
 var txt_started_countdown = "Start task ";
 var txt_salving_pomodoros = "Saving progress...";
@@ -50,7 +50,6 @@ var txt_hours_ago = " hours ago";
 var txt_time_found = "Time recovered, setting ";
 var txt_minutes = " minutes";
 var txt_session_reseted = "Session reseted";
-var txt_write_task_save = "Save Task";
 var auto_action_enabled = "Automatic click enabled";
 var auto_action_disabled = "Automatic click disabled";
 var auto_cycle_enabled = "Automatic cicle enabled";
@@ -59,46 +58,48 @@ var auto_cycle_disabled = "Automatic cicle disabled";
 var txt_title_done = "Pomodoro done!";
 var txt_title_rest = "Rest Time";
 var txt_title_big_rest = "BIG REST";
-var txt_write_task_category_study = "Study";
-var txt_write_task_category_work = "Work";
-var txt_write_task_category_personal = "Personal";
-var txt_write_task_privacy_pub = "Public - everyone can see";
-var txt_write_task_privacy_pri = "Private - only you can see";
-var txt_write_task_model = "TODO list";
-var txt_write_task_model_desc = "You can save your tasks for later";
 
-//Frases da interface do painel
-var txt_write_task_title = "Task";
-var txt_write_task_desc = "Notes";
-var txt_write_task_tags = "Project tags";
-var txt_write_task_category = "What kind of taks is that?";
-var txt_write_task_privacy = "Privacy";
-var txt_last_pomodoros_heading = "20 last pomodoros:";
-var txt_last_pomodoros_of_community = "Last pomodoros";
-var txt_total_pomodoros_of_community = "Completed pomodoros";
-
-//Sidebar
-var txt_sidebar_stats = "Statistics from";
-var txt_sidebar_projects = "Your projects";
-
-//Buttons
-var txt_register = "Register";
-var txt_login = "Login";
-var txt_logout = "Logout";
 var txt_in_use = "In Use";
 var txt_available = "Available";
-var txt_myaccount = "My Account";
-var txt_support = "Support";
+
+//Frases da interface do painel
+//var txt_write_task_title = "Task";
+//var txt_write_task_tags = "Project tags";
+//var txt_write_task_desc = "Notes";
+//var txt_write_task_category = "What kind of taks is that?";
+//var txt_write_task_category_study = "Study";
+//var txt_write_task_category_work = "Work";
+//var txt_write_task_category_personal = "Personal";
+//var txt_write_task_privacy_pub = "Public - everyone can see";
+//var txt_write_task_privacy_pri = "Private - only you can see";
+//var txt_write_task_save = "Save Task";
+//var txt_write_task_model = "TODO list";
+//var txt_write_task_model_desc = "You can save your tasks for later";
+//var txt_write_task_privacy = "Privacy";
+//var txt_last_pomodoros_heading = "20 last pomodoros:";
+//var txt_last_pomodoros_of_community = "Last pomodoros";
+//var txt_total_pomodoros_of_community = "Completed pomodoros";
+
+//Sidebar
+//var txt_sidebar_stats = "Statistics from";
+//var txt_sidebar_projects = "Your projects";
+
+//Buttons
+//var txt_register = "Register";
+//var txt_login = "Login";
+//var txt_logout = "Logout";
+//var txt_myaccount = "My Account";
+//var txt_support = "Support";
 
 
 //Registration
-var txt_register_heading = "Use your facebook or create a free account";
-var txt_register_option1 = "Option 1 - User your facebook";
-var txt_register_option2 = "Option 2 - Create a free account";
-txt_register_username = "Username (required)";
-txt_register_email = "Email (required)";
-txt_register_pass = "Choose a Password (required)";
-txt_register_pass_confirm = "Confirm Password (required)";
+//var txt_register_heading = "Use your facebook or create a free account";
+//var txt_register_option1 = "Option 1 - User your facebook";
+//var txt_register_option2 = "Option 2 - Create a free account";
+//var txt_register_username = "Username (required)";
+//var txt_register_email = "Email (required)";
+//var txt_register_pass = "Choose a Password (required)";
+//var txt_register_pass_confirm = "Confirm Password (required)";
 
 //Productivity Tips
 var txt_tips_button = "Go to tip ";
@@ -118,8 +119,8 @@ var txt_tips_last = "<b>That's all</b><br />Parabéns por chegar até aqui! Tenh
 
 //Welcome visitor
 /*var txt_visitor_welcome = "<h1>Welcome visitor!</h1><p>We want to help you focus, practice your productivity and reach goals!</p><p><a href='pomodoros.com.br/register/'>You can create a free account</a></p>";*/
-var txt_foot_last = "Last pomodoros";
-var txt_foot_blog = "Our blog";
-var txt_foot_naoc = "Doesn't count private pomodoros.";
-var txt_foot_fale = "Contact Us";
-var txt_foot_logi = '<a href="#" class="abrir_login">Login now</a> to use contact form</p>';
+//var txt_foot_last = "Last pomodoros";
+//var txt_foot_blog = "Our blog";
+//var txt_foot_naoc = "Doesn't count private pomodoros.";
+//var txt_foot_fale = "Contact Us";
+//var txt_foot_logi = '<a href="#" class="abrir_login">Login now</a> to use contact form</p>';

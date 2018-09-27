@@ -1,3 +1,6 @@
+<?php 
+#when f5sites-shared-posts is active, the bp-page ignores it and load pages that are previous setted, if changes breaks everything, todo: solve it
+#options bp-pages a:4:{s:7:"members";i:38737;s:8:"activity";i:38739;s:8:"register";i:38745;s:8:"activate";i:38747;} ?>
 <?php get_header( 'buddypress' ); ?>
 
 	<div id="center_layout" class="col-md-8 col-md-offset-2">
@@ -7,7 +10,7 @@
 
 		<div class="row">
 			<div class="register_div_box row" id="rbox1">
-				<h2>Registre-se com um clique usando</h2>
+				<h2><?php _e("One click registration", "sis-foca-js"); #Registre-se com um clique usando ?></h2>
 				<br />
 				<div class="row">
 				<?php /*do_shortcode("[fb_login size='xlarge' login_text='Conectar' logout_text='Logout']");*/ ?>
@@ -85,7 +88,15 @@
 
 								<?php if ( 'textbox' == bp_get_the_profile_field_type() ) : ?>
 
-									<label for="<?php bp_the_profile_field_input_name(); ?>"><?php bp_the_profile_field_name(); ?> <?php if ( bp_get_the_profile_field_is_required() ) : ?><?php _e( '(required)', 'buddypress' ); ?><?php endif; ?></label>
+
+									<?php if(bp_get_the_profile_field_input_name()=="field_1") { ?>
+										<label for="<?php bp_the_profile_field_input_name(); ?>"><?php _e("Name", "sis-foca-js"); ?> <?php if ( bp_get_the_profile_field_is_required() ) : ?><?php _e( '(required)', 'buddypress' ); ?><?php endif; ?></label>
+									<?php } elseif(bp_get_the_profile_field_input_name()=="field_2") { ?>
+										<label for="<?php bp_the_profile_field_input_name(); ?>"><?php _e("Address", "sis-foca-js"); ?> <?php if ( bp_get_the_profile_field_is_required() ) : ?><?php _e( '(required)', 'buddypress' ); ?><?php endif; ?></label>
+									<?php } else { ?>
+										<label for="<?php bp_the_profile_field_input_name(); ?>"><?php bp_the_profile_field_name(); ?> <?php if ( bp_get_the_profile_field_is_required() ) : ?><?php _e( '(required)', 'buddypress' ); ?><?php endif; ?></label>
+									<?php } ?>
+
 									<?php do_action( 'bp_' . bp_get_the_profile_field_input_name() . '_errors' ); ?>
 									<input type="text" name="<?php bp_the_profile_field_input_name(); ?>" id="<?php bp_the_profile_field_input_name(); ?>" value="<?php bp_the_profile_field_edit_value(); ?>" />
 
@@ -148,8 +159,12 @@
 								<?php if ( 'datebox' == bp_get_the_profile_field_type() ) : ?>
 
 									<div class="datebox">
+										<?php if(bp_get_the_profile_field_input_name()=="field_3") { ?>
+										<label for="<?php bp_the_profile_field_input_name(); ?>"><?php _e("Birthday", "sis-foca-js"); ?> <?php if ( bp_get_the_profile_field_is_required() ) : ?><?php _e( '(required)', 'buddypress' ); ?><?php endif; ?></label>
+									<?php } else { ?>
 										<label for="<?php bp_the_profile_field_input_name(); ?>_day"><?php bp_the_profile_field_name(); ?> <?php if ( bp_get_the_profile_field_is_required() ) : ?><?php _e( '(required)', 'buddypress' ); ?><?php endif; ?></label>
 										<?php do_action( 'bp_' . bp_get_the_profile_field_input_name() . '_errors' ); ?>
+									<?php } ?>
 
 										<select name="<?php bp_the_profile_field_input_name(); ?>_day" id="<?php bp_the_profile_field_input_name(); ?>_day">
 											<?php bp_the_profile_field_options( 'type=day' ); ?>

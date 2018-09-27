@@ -8,107 +8,114 @@
 	<div class="padder width collapse in" id="sidebar_pomodoro_padder">
 
 		<li>
-		<h3>Sponsored by</h3>
+		<h3><?php _e("Sponsored by", "sis-foca-js"); ?></h3>
 		<?php 
 		show_sponsor();
 		?>
 		</li>
 
 		<li>
+			<h3><?php _e("Buy to support our free services", "sis-foca-js"); ?></h3>
 			<?php 
-			force_database_aditional_tables_share(false);
-			echo do_shortcode('[product id="5160"]');  
+			set_shared_database_schema();
+			echo do_shortcode('[product id="5912"]'); 
 			revert_database_schema();
-			#echo do_shortcode("[woocommerce_my_account]");
-
+			#echo do_shortcode("[woocommerce_my_account]"); ?>
+		</li>
+		
+		<li>
+			<?php 
 			global $current_user;
 			wp_get_current_user(); 
 			?>
-			<h3 class="widget-title"><script>document.write(txt_sidebar_stats)</script> <?php echo $current_user->display_name; ?> </h3>
-			<?php 
-			$produtividade_usuario = user_object_productivity(bp_displayed_user_id());
+			<h3 class="widget-title"><?php _e("Statistics from", "sis-foca-js"); echo " ".$current_user->display_name; ?></h3>
+			
+			<?php
+			$produtividade_usuario = user_object_productivity_human_time_diff(bp_displayed_user_id());
 			?>
-			<!--p>Registro</p-->
+			<div class="table-responsive">
+			<table class="table table-striped table-responsive table-condensed">
+				<thead>
+					<tr>
+						<th>Period</th>
+						<th>Time</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><?php _e("Time from register", "sis-foca-js"); ?></td>
+						<td><?php echo $produtividade_usuario["sempre"]['totalDias_human']; ?></td>
+					</tr>
+					<tr>
+						<td><?php _e("Work time", "sis-foca-js"); ?></td>
+						<td><?php echo $produtividade_usuario["sempre"]['diasTrabalhados']; ?> <?php _e("days", "sis-foca-js"); ?></td>
+					</tr>
+					<tr>
+						<td><?php _e("Not work time", "sis-foca-js"); ?></td>
+						<td><?php echo $produtividade_usuario["sempre"]['diasFolga']; ?> <?php _e("days", "sis-foca-js"); ?></td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="table table-striped table-responsive table-condensed">
+				<thead>
+					<tr>
+						<th>Period</th>
+						<th>Days</th>
+						<th>%</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><?php _e("Last 7 days", "sis-foca-js"); ?></td>
+						<td><?php echo $produtividade_usuario["setedias"]['diasTrabalhados']."/7"; ?></td>
+						<td><?php echo ($produtividade_usuario["setedias"]['fatorProdutividade']*100)."%"; ?></td>
+					</tr>
+					<tr>
+						<td><?php _e("Current month", "sis-foca-js"); ?></td>
+						<td><?php echo $produtividade_usuario["mes"]['diasTrabalhados']."/".$produtividade_usuario["mes"]['totalDias']; ?></td>
+						<td><?php echo ($produtividade_usuario["mes"]['fatorProdutividade']*100)."%"; ?></td>
+					</tr>
+					<tr>
+						<td><?php _e("Since beggining", "sis-foca-js"); ?></td>
+						<td><?php echo $produtividade_usuario["sempre"]['diasTrabalhados']."/".$produtividade_usuario["sempre"]['totalDias']; ?></td>
+						<td><?php echo ($produtividade_usuario["sempre"]['fatorProdutividade']*100)."%"; ?></td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+			<?php /*
 			<p>
-				<span>Membro há <?php echo $produtividade_usuario["sempre"]['totalDias']; ?> dias</span>
+				<span><?php _e("Time from register", "sis-foca-js"); ?>: <?php echo $produtividade_usuario["sempre"]['totalDias']; ?></span>
 				<br>
-				<span>Dias de trabalho: <?php echo $produtividade_usuario["sempre"]['diasTrabalhados']; ?> </span>
+				<span><?php _e("Work time", "sis-foca-js"); ?>: <?php echo $produtividade_usuario["sempre"]['diasTrabalhados']; ?> </span>
 				<br>
-				<span>Dias sem trabalho: <?php echo $produtividade_usuario["sempre"]['diasFolga']; ?> </span>
+				<span><?php _e("Not work time", "sis-foca-js"); ?>: <?php echo $produtividade_usuario["sempre"]['diasFolga']; ?> </span>
 			</p>
 			<!--p>Produtividade</p-->
 			<!--p>Dia trabalhados/total dias no período, fator desempenho (%)</p-->
 			<p>
 				<!--li>Hoje :<?php echo $produtividade_usuario["semana"]['totalDias']; ?> </li-->
-				<span>Ultimos sete dias: <?php echo $produtividade_usuario["setedias"]['diasTrabalhados']."/7".", ".($produtividade_usuario["setedias"]['fatorProdutividade']*100)."%"; ?> </span>
+				<span><?php _e("Last 7 days", "sis-foca-js"); ?>: <?php echo $produtividade_usuario["setedias"]['diasTrabalhados']."/7".", ".($produtividade_usuario["setedias"]['fatorProdutividade']*100)."%"; ?> </span>
 				<br>
-				<span>Mes atual: <?php echo $produtividade_usuario["mes"]['diasTrabalhados']."/".$produtividade_usuario["mes"]['totalDias'].", ".($produtividade_usuario["mes"]['fatorProdutividade']*100)."%"; ?> </span>
+				<span><?php _e("Current month", "sis-foca-js"); ?>: <?php echo $produtividade_usuario["mes"]['diasTrabalhados']."/".$produtividade_usuario["mes"]['totalDias'].", ".($produtividade_usuario["mes"]['fatorProdutividade']*100)."%"; ?> </span>
 				<br>
-				<span>Desde o comeco: <?php echo $produtividade_usuario["sempre"]['diasTrabalhados']."/".$produtividade_usuario["sempre"]['totalDias'].", ".($produtividade_usuario["sempre"]['fatorProdutividade']*100)."%"; ?> </span>
-			</p>
-			<?php
-			/*
-			<h4>Comunidade</h4>
-			<p>Pomodoros/dia</p>
-			<ul>
-			<li>Hoje :<?php echo  ?> </li>
-			<li>Ultima semana :<?php echo  ?> </li>
-			<li>Ultimo mes :<?php echo  ?> </li>
-			<li>Ultimo ano :<?php echo  ?> </li>
-			<li>Desde o comeco :<?php echo  ?> </li>
-			</ul>
-			$author_query = array('posts_per_page' => '-1','author' => $current_user->ID);
-			$author_posts = new WP_Query($author_query);
-			while($author_posts->have_posts()) : $author_posts->the_post();
-			?>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>       
-			
-			<?php           
-			endwhile;
-			?>	
-			<p><?php the_author_posts(); ?> pomodoros </p>
-			<?php
-			//get all posts for an author, then collect all categories
-			//for those posts, then display those categories
-			/*$cat_array = array();			
-			$author_posts = new WP_Query( 'author="'.get_current_user_id().'"&post_status=any&nopaging=true' );
-			// The Loop
-			if ( $author_posts->have_posts() ) {
-			       /* while ( $author_posts->have_posts() ) {
-					$author_posts->the_post();
-				}*
-				//echo $author_posts->post_count;
-			} else {
-				echo  "Você ainda não completou nenhum pomodoro";
-			}
-			/* Restore original Post Data *
-			wp_reset_postdata();*/
-			/*if( $author_posts ) {
-				echo count($author_posts);
-				/*  foreach ($author_posts as $author_post ) {
-				    foreach(get_the_category($author_post->ID) as $category) {
-				      $cat_array[$category->term_id] =  $category->term_id;
-				    }
-			  }
-			} else {
-				echo  "Você ainda não completou nenhum pomodoro";
-			}*/
-			//$cat_ids = implode(',', $cat_array);
-			//wp_list_categories('include='.$cat_ids.'&title_li=Author Categories');
+				<span><?php _e("Since beggining", "sis-foca-js"); ?>: <?php echo $produtividade_usuario["sempre"]['diasTrabalhados']."/".$produtividade_usuario["sempre"]['totalDias'].", ".($produtividade_usuario["sempre"]['fatorProdutividade']*100)."%"; ?> </span>
+			</p>*/
 			?>
 		</li>
+
 		<li>
-			<h3 class="widget-title">Exportar Calendário</h3>
-			<p>Veja seus pomodoros nos calendários da Google, Apple, Microsoft e outros.</p>
-			<p><a href="/calendar" class="btn btn-xs">EXPORTAR CALENDÁRIO</a></p>
+			<h3 class="widget-title"><?php _e("Export Calendar", "sis-foca-js"); ?> (iCal)</h3>
+			<p><?php _e("See your pomodoros in the calendars of Google, Apple, Microsoft and others.", "sis-foca-js"); #Veja seus pomodoros nos calendários da Google, Apple, Microsoft e outros. ?></p>
+			<p><a href="/calendar" class="btn btn-primary btn-xs" style="text-transform: uppercase;"><?php _e("Export Calendar", "sis-foca-js"); ?></a></p>
 		</li>
 		<li>
-			<h3 class="widget-title">Exportar Planilha</h3>
-			<p>Tenha controle sobre seus dados, visualize seus pomodoros no Microsoft Excel, LibreOffice Calc e outros.</p>
-			<p><a href="/csv" class="btn btn-xs">EXPORTAR PLANILHA</a></p>
+			<h3 class="widget-title"><?php _e("Export Worksheet", "sis-foca-js"); #Exportar Planilha ?></h3>
+			<p><?php _e("Have control over your data, view your pomodoros in Microsoft Excel, LibreOffice Calc and others", "sis-foca-js"); #Tenha controle sobre seus dados, visualize seus pomodoros no Microsoft Excel, LibreOffice Calc e outros ?></p>
+			<p><a href="/csv" class="btn btn-primary btn-xs" style="text-transform: uppercase;"><?php _e("Export Worksheet", "sis-foca-js"); ?></a></p>
 		</li>
 		<li>
-			<h3 class="widget-title"><script>document.write(txt_sidebar_projects)</script></h3>
+			<h3 class="widget-title"><?php _e("Your projects", "sis-foca-js"); ?></h3>
 			<p><?php get_projectimer_project_tags(get_current_user_id());	?></p>
 		</li>
 

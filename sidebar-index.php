@@ -3,14 +3,14 @@
 				<ul>
 
 				<li>
-				<h3>Sponsored by</h3>
+				<h3><?php _e("Sponsored by", "sis-foca-js"); ?></h3>
 				<?php 
 				show_sponsor();
 				?>
 				</li>
 
 				<li>
-				<h3>Buy to support our free services</h3>
+				<h3><?php _e("Buy to support our free services", "sis-foca-js"); ?></h3>
 				<?php 
 				set_shared_database_schema();
 				echo do_shortcode('[product id="5912"]'); 
@@ -19,21 +19,24 @@
 				</li>
 
 				<li>
+				<h3><?php _e("Our blog", "sis-foca-js"); ?></h3>
 				<?php 
 				if(function_exists("show_recent_posts_georefer"))
 				show_recent_posts_georefer(); ?>
 				</li>
 
 				<li>
+				<h3 class="widget-title">Change Language</h3>
 				<?php 
 				if(function_exists("show_lang_options"))
 				show_lang_options(true); ?>
 				</li>
 				
 				<li>
+				<h3 class="widget-title"><?php _e("Most recent task", "sis-foca-js"); ?></h3>
 				<?php 
-				if(function_exists("show_most_recent_task"))
-				show_most_recent_task(); ?>
+				if(function_exists("show_welcome_message"))
+				show_welcome_message(); ?>
 				</li>
 
 				<?php #echo do_shortcode('[rpwe limit="100" tag="579" ]'); ?>
