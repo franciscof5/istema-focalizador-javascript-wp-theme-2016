@@ -90,8 +90,8 @@ add_action('init', 'create_post_type' );
 add_action('init', 'custom_rewrite_basic');
 add_action('init', 'smart_set_user_language');
 add_action('wp_enqueue_scripts', 'load_scritps');
-//
-function show_sponsor($onlythumb=false) {
+//box-float
+function show_sponsor($type_of="excerpt", $hide_title="false") {
 	global $user_prefered_language;
 	#echo $user_prefered_language;
 	switch ($user_prefered_language) {
@@ -129,11 +129,34 @@ function show_sponsor($onlythumb=false) {
 	set_shared_database_schema();
 	$post_object = get_post( $post_id );
 	#setup_postdata( $post_object );
-	$ctt = "<a href=".get_permalink($post_id)." rel='bookmark'>".get_the_post_thumbnail($post_id, 'large', array( 'class' => 'img-responsive' )).$post_object->post_title.": </a>";
-	if(!$onlythumb) {
+	$ctt="";
+	if($type_of=="box-float-right" || $type_of=="box-float-left" )
+		$ctt .= '<div style="border: 1px solid #aaa; margin: 0 10px; padding: 10px; text-align:center;  max-width: 250px;';
+	
+	if($type_of=="box-float-right")
+		$ctt .= 'float: right;">';
+	
+	if($type_of=="box-float-left")
+		$ctt .= 'float: left;">';
+	//if($type_of=="box-float-right")
+	//	$ctt .= '<div style="border: 1px solid #aaa; float: right; margin: 0 10px; padding: 10px; text-align:center;  max-width: 250px;">';
+		
+
+
+	$ctt .= "<a href=".get_permalink($post_id)." rel='bookmark'>".get_the_post_thumbnail($post_id, 'large', array( 'class' => 'img-responsive' ));
+
+	if(!$hide_title)
+	$ctt .= $post_object->post_title;
+
+	$ctt .= "</a>";
+	
+	if($type_of=="excerpt") {
 		$ctt .= substr($post_object->post_content, 0, 96)."...";	
 	}
 	
+	if($type_of=="box-float-right" || $type_of=="box-float-left" )
+		$ctt .= '</div>';
+
 	revert_database_schema();
 	return $ctt;
 }

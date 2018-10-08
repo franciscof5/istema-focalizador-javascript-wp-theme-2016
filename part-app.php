@@ -4,7 +4,7 @@
 
 <div id="center_layout" class="col-md-8 col-md-offset-2">
 	
-
+REDIRECT TO FOCUS
 	<h2 class="forte"><?php _e("Pomodoros Mobile", "sis-foca-js"); ?></h2>
 	<p class="bg-dangerD"><?php _e("Login to access app", "sis-foca-js"); ?></p>
 
@@ -25,6 +25,6 @@
 	</p>
 
 	<center>		
-		<?php echo show_sponsor(true); ?>
+		<?php echo show_sponsor("onlythumb"); ?>
 	</center>
 </div>

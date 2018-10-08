@@ -14,6 +14,13 @@ if(dirname($uri_parts[0])!="/") {
 }
 #var_dump($page);die;
 //
+$isWebView = false;
+if((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) :
+    $isWebView = true;
+elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) :
+    $isWebView = true;
+endif;
+//
 $pages = array("focus", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "help", "product", "tag");
 //
 $pages_open = array("register", "product", "br", "carrinho", "app");
@@ -26,11 +33,14 @@ if(!in_array($page, $pages)) {
 		$page = "closed";
 	} else {
 		if($page=="focus") {
-			wp_enqueue_script("sound-js");
+			
 			wp_enqueue_script("pomodoros-js");
 			#wp_enqueue_script("projectimer-pomodoros-shared-parts-js");
 			wp_enqueue_script("rangeslider-js");
-			wp_enqueue_script("artyom-js");
+			if(!$isWebView) {
+				wp_enqueue_script("artyom-js");
+				wp_enqueue_script("sound-js");
+			}
 		}
 	}
 }

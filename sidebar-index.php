@@ -5,7 +5,7 @@
 				<li>
 				<h3><?php _e("Sponsored by", "sis-foca-js"); ?></h3>
 				<?php 
-				echo show_sponsor();
+				echo show_sponsor("excerpt");
 				?>
 				</li>
 
