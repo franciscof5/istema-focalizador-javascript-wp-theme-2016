@@ -24,6 +24,7 @@ endif;
 if($_SERVER['HTTP_X_REQUESTED_WITH'] == "com.f5sites.pomodoros") {
     $isWebView = true;
 }
+echo $_SERVER['HTTP_X_REQUESTED_WITH'];
 if(!$isWebView)
 echo "webv: NOT";
 else
