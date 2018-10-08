@@ -145,7 +145,7 @@
 			      		<a title="<?php _e("View your account", "sis-foca-js"); ?>" id="settingsbutton" class="btn btn-link" href="<?php bloginfo('url'); ?>/my-account" style="padding-top: 10px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="hidden-sm hidden-md"><?php _e("My Acount", "sis-foca-js"); ?></span></a>
 			      </li>
 			      <li>
-			      		<a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" id="settingsbutton" class="btn btn-link" href="<?php bloginfo('url'); ?>/ticket" style="padding-top: 10px;"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> <span class="hidden-sm hidden-md"><?php _e("Support", "sis-foca-js"); ?></span></a>
+			      		<a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" id="settingsbutton" class="btn btn-link" href="<?php bloginfo('url'); ?>/help" style="padding-top: 10px;"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <span class="hidden-sm hidden-md"><?php _e("Support", "sis-foca-js"); ?></span></a>
 			      </li>
 			      <li>
 			      	<a title="<?php _e("Logout", "sis-foca-js"); ?>" class="btn btn-link" href="<?php echo wp_logout_url(); ?>" style="padding-top: 10px;"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <span class="hidden-sm hidden-md"><?php _e("Logout", "sis-foca-js"); ?></span></a>

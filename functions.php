@@ -65,7 +65,7 @@ add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );
 add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' ); 
 add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
 //
-#add_action( 'init', 'blockusers_from_wp_admin' );
+#add_action( 'init', 'blockusers_from_wp_admin' ); //BLOCO ADMIN ALSO
 add_action( 'login_form_middle', 'add_lost_password_link' );
 #add_action( 'admin_menu', 'edit_admin_menus' ); 
 #add_action('init', 'myStartSession', 1);
@@ -83,7 +83,7 @@ add_action('wp_ajax_update_cycle_list', 'update_cycle_list');
 add_action('wp_ajax_nopriv_update_cycle_list', 'update_cycle_list');
 #add_action('wp_ajax_update_cycle_list', 'load_cycle_list');
 #add_action('wp_ajax_nopriv_update_cycle_list', 'load_cycle_list');
-
+add_action('login_init', 'wpse187831_redir_loggedin');
 add_action('admin_menu', 'my_remove_menu_pages' );
 add_action('wp_logout','go_home');
 add_action('init', 'create_post_type' );
@@ -91,7 +91,7 @@ add_action('init', 'custom_rewrite_basic');
 add_action('init', 'smart_set_user_language');
 add_action('wp_enqueue_scripts', 'load_scritps');
 //
-function show_sponsor() {
+function show_sponsor($onlythumb=false) {
 	global $user_prefered_language;
 	#echo $user_prefered_language;
 	switch ($user_prefered_language) {
@@ -129,18 +129,15 @@ function show_sponsor() {
 	set_shared_database_schema();
 	$post_object = get_post( $post_id );
 	#setup_postdata( $post_object );
-	 ?>
-	<a href="<?php echo get_permalink($post_id) ?>" rel="bookmark">
-	<?php 
-	echo get_the_post_thumbnail($post_id, 'large', array( 'class' => 'img-responsive' ));
-	echo $post_object->post_title.": ";
-	#the_post_thumbnail(array(50,50)); ?>
-	</a>
-	<?php 
-	echo substr($post_object->post_content, 0, 96)."...";
+	$ctt = "<a href=".get_permalink($post_id)." rel='bookmark'>".get_the_post_thumbnail($post_id, 'large', array( 'class' => 'img-responsive' )).$post_object->post_title.": </a>";
+	if(!$onlythumb) {
+		$ctt .= substr($post_object->post_content, 0, 96)."...";	
+	}
+	
 	revert_database_schema();
+	return $ctt;
 }
-
+add_shortcode( 'show_sponsor_geo', 'show_sponsor' );
 #function custom_disable_redirect_canonical( $redirect_url, $requested_url ) {
 function custom_disable_redirect_canonical( $redirect_url ) {
 	#global $pagenow;
@@ -585,7 +582,7 @@ function load_scritps() {
 	
 }
 
-function show_lang_options($hide_title, $current_location="") {
+function show_lang_options($hide_title=false, $current_location="") {
 	global $user_prefered_language;
 	if($current_location=="") {
 		if($user_prefered_language!="")
@@ -692,6 +689,8 @@ function check_language_user_and_content($tags) {
 					<strong><?php _e("Warning!", "sis-foca-js"); ?></strong> 
 					<?php _e("These content is not avaiable in your language. Original content language is: ", "sis-foca-js");
 					echo "<strong>".$content_lang."</strong>";
+					echo "<br>";
+					echo "<a href='/'>".__("Go to blog homepage", "sis-foca-js")."</a>";
 					#echo "These content is not avaiable in your language";	] ?>
 					</div>
 				<?php }
@@ -1640,7 +1639,7 @@ function custom_rewrite_basic()
   add_rewrite_rule('^shop/?$', 'index.php?page_id=3487', 'top');
 }
 
-add_action('login_init', 'wpse187831_redir_loggedin');
+
 function wpse187831_redir_loggedin()
 {
     global $action;

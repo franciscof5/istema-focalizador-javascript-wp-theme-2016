@@ -14,9 +14,9 @@ if(dirname($uri_parts[0])!="/") {
 }
 #var_dump($page);die;
 //
-$pages = array("focus", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "ticket", "product", "tag");
+$pages = array("focus", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "help", "product", "tag");
 //
-$pages_open = array("register", "product", "br", "carrinho");
+$pages_open = array("register", "product", "br", "carrinho", "app");
 if(!in_array($page, $pages)) {
 	if(!in_array($page, $pages_open))
 		$page = "index";
