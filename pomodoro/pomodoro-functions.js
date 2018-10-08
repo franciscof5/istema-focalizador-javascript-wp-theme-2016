@@ -975,46 +975,48 @@ var groupSwith = [{
 
 // This function activates artyom and will listen all that you say forever (requires https conection, otherwise a dialog will request if you allow the use of the microphone)
 function startContinuousArtyom(){
-	artyom_voice = new Artyom();
-	//
-    artyom_voice.fatality();// use this to stop any of
-    //
-    //alert(data_from_php.php_locale);
-    if(data_from_php.php_locale=="pt_BR")
-    	artyom_lang = "pt-PT";
-    else
-    	artyom_lang = "en-US";
-    //
-    setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
-         artyom_voice.initialize({
-            lang:artyom_lang,// A lot of languages are supported. Read the docs !
-            continuous:true,// Artyom will listen forever
-            listen:true, // Start recognizing
-            debug:true, // Show everything in the console
-            speed:1, // talk normally
-            //volume: volumeLevel/100,
-            //volume: 0,
-            //name: "pomodoro",
-        }).then(function(){
-            console.log("Ready to work !");
-        });
-    },250);
-    //
-    if(data_from_php.php_locale=="pt_BR")
-    	artyom_voice.addCommands(grupoDeComandos);
-    else
-    	artyom_voice.addCommands(groupOfCommands);
+	if (typeof Artyom === 'function') {
+		artyom_voice = new Artyom();
+		//
+	    artyom_voice.fatality();// use this to stop any of
+	    //
+	    //alert(data_from_php.php_locale);
+	    if(data_from_php.php_locale=="pt_BR")
+	    	artyom_lang = "pt-PT";
+	    else
+	    	artyom_lang = "en-US";
+	    //
+	    setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
+	         artyom_voice.initialize({
+	            lang:artyom_lang,// A lot of languages are supported. Read the docs !
+	            continuous:true,// Artyom will listen forever
+	            listen:true, // Start recognizing
+	            debug:true, // Show everything in the console
+	            speed:1, // talk normally
+	            //volume: volumeLevel/100,
+	            //volume: 0,
+	            //name: "pomodoro",
+	        }).then(function(){
+	            console.log("Ready to work !");
+	        });
+	    },250);
+	    //
+	    if(data_from_php.php_locale=="pt_BR")
+	    	artyom_voice.addCommands(grupoDeComandos);
+	    else
+	    	artyom_voice.addCommands(groupOfCommands);
 
-    artyom_voice.addCommands(groupSwith);
+	    artyom_voice.addCommands(groupSwith);
 
-    /*artyom_voice.when("COMMAND_RECOGNITION_END",function(status){
-	          startContinuousArtyom();
-	   
-	});
-	artyom_voice.when("SPEECH_SYNTHESIS_END",function(){
-	          startContinuousArtyom();
-	    
-	});*/
+	    /*artyom_voice.when("COMMAND_RECOGNITION_END",function(status){
+		          startContinuousArtyom();
+		   
+		});
+		artyom_voice.when("SPEECH_SYNTHESIS_END",function(){
+		          startContinuousArtyom();
+		    
+		});*/
+	}	
 }
 
 function startNoSleepWakeLock() {
