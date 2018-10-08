@@ -54,6 +54,8 @@ if(!in_array($page, $pages)) {
 	}
 }
 wp_enqueue_style('fonts-css');
+
+echo "webv:".$isWebView;
 locate_template( "part-".$page.".php", true );
 
 get_footer();
