@@ -20,6 +20,10 @@ if((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVE
 elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) :
     $isWebView = true;
 endif;
+if(!$isWebView)
+echo "webv: NOT";
+else
+echo "webv: SI";
 //
 $pages = array("focus", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "help", "product", "tag");
 //
@@ -55,7 +59,7 @@ if(!in_array($page, $pages)) {
 }
 wp_enqueue_style('fonts-css');
 
-echo "webv:".$isWebView;
+
 locate_template( "part-".$page.".php", true );
 
 get_footer();
