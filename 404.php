@@ -22,7 +22,7 @@ elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) :
 endif;
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'wv') !== false)
 	$isWebView = true;
-
+echo $_SERVER['HTTP_USER_AGENT'];
 if(!$isWebView)
 echo "webv: NOT";
 else
