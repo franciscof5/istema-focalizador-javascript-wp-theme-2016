@@ -20,11 +20,9 @@ if((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVE
 elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH'])) :
     $isWebView = true;
 endif;
+if (strpos($_SERVER['HTTP_USER_AGENT'], 'wv') !== false)
+	$isWebView = true;
 
-if($_SERVER['HTTP_X_REQUESTED_WITH'] == "com.f5sites.pomodoros") {
-    $isWebView = true;
-}
-echo $_SERVER['HTTP_X_REQUESTED_WITH'];
 if(!$isWebView)
 echo "webv: NOT";
 else
