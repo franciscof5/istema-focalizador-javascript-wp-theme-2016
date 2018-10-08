@@ -535,20 +535,20 @@ function load_scritps() {
 	wp_enqueue_style('bootstrap-css', get_bloginfo("stylesheet_directory")."/assets/bootstrap.min.css", __FILE__);
 	
 	//select2
-	wp_enqueue_script("select2-js", get_bloginfo("stylesheet_directory")."/assets/select2/select2.full.min.js");
-	wp_enqueue_script("select2-jsbr", get_bloginfo("stylesheet_directory")."/assets/select2/select2_locale_pt-BR.js");
-	wp_enqueue_style('select2-css', get_bloginfo("stylesheet_directory")."/assets/select2/select2.min.css", __FILE__);
+	wp_register_script("select2-js", get_bloginfo("stylesheet_directory")."/assets/select2/select2.full.min.js");
+	wp_register_script("select2-jsbr", get_bloginfo("stylesheet_directory")."/assets/select2/select2_locale_pt-BR.js");
+	wp_register_style('select2-css', get_bloginfo("stylesheet_directory")."/assets/select2/select2.min.css", __FILE__);
 
 	//jquery-ui
-	wp_enqueue_script("jquery-ui-js", get_bloginfo("stylesheet_directory")."/assets/jquery-ui/jquery-ui.min.js");
-	wp_enqueue_style('jquery-ui-css', get_bloginfo("stylesheet_directory")."/assets/jquery-ui/jquery-ui.min.css", __FILE__);
-	wp_enqueue_style('jquery-ui-theme-css', get_bloginfo("stylesheet_directory")."/assets/jquery-ui/jquery-ui.theme.min.css", __FILE__);
+	wp_register_script("jquery-ui-js", get_bloginfo("stylesheet_directory")."/assets/jquery-ui/jquery-ui.min.js");
+	wp_register_style('jquery-ui-css', get_bloginfo("stylesheet_directory")."/assets/jquery-ui/jquery-ui.min.css", __FILE__);
+	wp_register_style('jquery-ui-theme-css', get_bloginfo("stylesheet_directory")."/assets/jquery-ui/jquery-ui.theme.min.css", __FILE__);
 
 	//jquery-ui touchable
-	wp_enqueue_script("jquery-ui-touhc-js", get_bloginfo("stylesheet_directory")."/assets/jquery.ui.touch-punch.min.js");
+	wp_register_script("jquery-ui-touhc-js", get_bloginfo("stylesheet_directory")."/assets/jquery.ui.touch-punch.min.js");
 
 	//no sleep
-	wp_enqueue_script("nosleep-js", get_bloginfo("stylesheet_directory")."/assets/NoSleep.min.js");
+	wp_register_script("nosleep-js", get_bloginfo("stylesheet_directory")."/assets/NoSleep.min.js");
 
 	//
 	wp_register_script("artyom-js", get_bloginfo("stylesheet_directory")."/assets/artyom.window.min.js");
