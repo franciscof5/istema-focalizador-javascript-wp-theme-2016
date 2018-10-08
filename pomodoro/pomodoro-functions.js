@@ -975,7 +975,7 @@ var groupSwith = [{
 
 // This function activates artyom and will listen all that you say forever (requires https conection, otherwise a dialog will request if you allow the use of the microphone)
 function startContinuousArtyom(){
-	if (typeof Artyom === 'function') {
+	if (typeof Artyom != "undefined") {
 		artyom_voice = new Artyom();
 		//
 	    artyom_voice.fatality();// use this to stop any of
