@@ -101,7 +101,7 @@ AAAAAAAAAAAAAAa
 			}
 		</script>
 
-<!--style type="text/css">
+<!--style>
 	ul.item-list li.activity-item {width: 16% !important;}
 </style>
 

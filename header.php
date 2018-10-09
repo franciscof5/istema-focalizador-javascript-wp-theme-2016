@@ -1,12 +1,8 @@
-
-<!DOCTYPE html>
-
-	<head profile="">
+<?php global $user_prefered_language; ?>
+<!DOCTYPE html lang="<?php echo $user_prefered_language; ?>">
+	<head>
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
-		<?php global $user_prefered_language; ?>
-
-		 <meta http-equiv="content-language" content="<?php echo $user_prefered_language; ?>">
 		<?php
 		/*global $user_prefered_language;
 		if($user_prefered_language=="pt_BR" || $user_prefered_language=="pt")
