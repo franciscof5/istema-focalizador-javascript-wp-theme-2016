@@ -8,7 +8,7 @@ $user_prefered_language_prefix = substr($user_prefered_language,0,2);
 ?>
 <?php if(function_exists("show_welcome_message")) show_welcome_message(true); ?>
 
-	<!--style type="text/css">
+	<!--style>
 		.navbar {margin-bottom: 0px;}
 	</style-->
 	<div id="content" class="content_default col col-xs-12 ">

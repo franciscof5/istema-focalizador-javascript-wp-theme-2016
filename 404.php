@@ -44,18 +44,20 @@ if(!in_array($page, $pages)) {
 			wp_enqueue_script("pomodoros-js");
 			#wp_enqueue_script("projectimer-pomodoros-shared-parts-js");
 			wp_enqueue_script("rangeslider-js");
-			//if(!$isWebView) {
-				//wp_enqueue_script("artyom-js");
-				wp_enqueue_script("sound-js");
-				wp_enqueue_script("jquery-color", get_bloginfo("stylesheet_directory")."/assets/jquery.color-2.1.2.min.js");
-				wp_enqueue_script("select2-js", get_bloginfo("stylesheet_directory")."/assets/select2/select2.full.min.js");
-				wp_enqueue_script("select2-jsbr");
-				wp_enqueue_style('select2-css');
-				wp_enqueue_script("jquery-ui-js");
-				wp_enqueue_style('jquery-ui-css');
-				wp_enqueue_style('jquery-ui-theme-css');
-				wp_enqueue_script("jquery-ui-touhc-js");
-				wp_enqueue_script("nosleep-js");
+			wp_enqueue_script("sound-js");
+			wp_enqueue_script("jquery-color");
+			wp_enqueue_script("select2-js");
+			wp_enqueue_script("select2-jsbr");
+			wp_enqueue_style("select2-css");
+			wp_enqueue_script("jquery-ui-js");
+			wp_enqueue_style("jquery-ui-css");
+			wp_enqueue_style("jquery-ui-theme-css");
+			wp_enqueue_script("jquery-ui-touhc-js");
+			wp_enqueue_script("nosleep-js");
+			
+			if(!$isWebView) {
+				wp_enqueue_script("artyom-js");
+			}
 			//}
 		}
 	}

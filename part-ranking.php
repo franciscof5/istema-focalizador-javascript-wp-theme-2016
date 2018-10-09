@@ -1,4 +1,4 @@
-<script language="javascript">
+<script>
 	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' » ';_e('Ranking', 'sis-foca-js'); ?>";
 </script>
 <div class="content_nosidebar col-xs-12">
@@ -21,7 +21,7 @@
 	#echo "<hr />";
 	echo "Ranking gerado em: ".get_the_time('j \d\e F \d\e Y').", via www.pomodoros.com.br/ranking. Usuário: ".$current_user->display_name.", ".$current_user->user_email;
 	?>
-<script type="text/javascript">
+<script>
 jQuery( document ).ready(function() {
 	var regExpGetValueInParentisi = /\(([^)]+)\)/;
 	var min_width_percentage = 50;

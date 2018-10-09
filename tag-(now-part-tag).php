@@ -1,13 +1,13 @@
 <?php get_header();
 /*
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type='text/javascript' src='https://www.google.com/jsapi'></script>  ?>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>*/ ?>
+<script src="https://www.google.com/jsapi"></script>
+<script src='https://www.google.com/jsapi'></script>  ?>
+<script src="https://www.gstatic.com/charts/loader.js"></script>*/ ?>
 AAAAAAAAAAAAAAa
-<script type='text/javascript' src='https://www.google.com/jsapi'></script>
+<script src='https://www.google.com/jsapi'></script>
 
 		
-    <!--script type="text/javascript">
+    <!--script>
      
      google.load("visualization", "1.1", {packages:["calendar"]});
      google.setOnLoadCallback(drawChart);
@@ -44,7 +44,7 @@ AAAAAAAAAAAAAAa
        chart.draw(dataTable, options);
    }
     </script-->
-    <script type="text/javascript">
+    <script>
       //google.charts.load("current", {packages:[]});
       //google.charts.setOnLoadCallback(drawChart);
 
@@ -206,8 +206,8 @@ AAAAAAAAAAAAAAa
 		<div id='projeto_produtividade_div'></div>
 		<h2>Lista de tarefas</h2>
 		<p>Todas as tarefas feitas nesse projeto, organizadas por data:</p>
-		<!--script type="text/javascript" src="https://www.google.com/jsapi"></script-->
-		<script type="text/javascript">
+		<!--script src="https://www.google.com/jsapi"></script-->
+		<script>
 			google.load("visualization", "1", {packages:["corechart"]});
 			google.setOnLoadCallback(drawChart);
 			function drawChart() {
@@ -229,8 +229,8 @@ AAAAAAAAAAAAAAa
 		</script>
 		<div id="donutchart" style="width: 100%; height: 600px;"></div>
 
-		<!--script type='text/javascript' src='https://www.google.com/jsapi'></script-->
-		<script type='text/javascript'>
+		<!--script src='https://www.google.com/jsapi'></script-->
+		<script>
 			google.load('visualization', '1', {packages:['table']});
 			google.setOnLoadCallback(drawTable);
 			function drawTable() {
@@ -264,8 +264,8 @@ AAAAAAAAAAAAAAa
 		</ul>
 		<h2>Membros</h2>
 		<p>Quem trabalhou nesse projeto (ordenado por horas dedicas ao projeto):</p>
-		<script type='text/javascript' src='https://www.google.com/jsapi'></script>
-		<script type='text/javascript'>
+		<script src='https://www.google.com/jsapi'></script>
+		<script>
 			google.load('visualization', '1', {packages:['table']});
 			google.setOnLoadCallback(drawTable);
 			function drawTable() {

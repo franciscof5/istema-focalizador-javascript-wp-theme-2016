@@ -107,7 +107,7 @@
 			</div>
 			<?php do_action( 'bp_footer' ) ?>
 		</div><!-- #footer -->
-<script type="text/javascript">
+<script>
 
 jQuery( document ).ready(function() {
 	jQuery(".contem-icone " ).mouseenter(function() {

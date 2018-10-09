@@ -1,4 +1,4 @@
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://www.google.com/jsapi"></script>
 
 <?php
 
@@ -7,7 +7,7 @@ $produtividade_usuario = user_object_productivity(bp_displayed_user_id());
 
 //var_dump($produtividade_usuario);
 
-echo "<script type='text/javascript'>
+echo "<script>
 	google.load('visualization', '1', {packages:['gauge']});
   	google.setOnLoadCallback(drawChart);
   	function drawChart() {

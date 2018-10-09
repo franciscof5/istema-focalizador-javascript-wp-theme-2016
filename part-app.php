@@ -1,4 +1,4 @@
-<script language="javascript">
+<script>
 	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' » ';_e('Mobile', 'sis-foca-js'); ?>";
 </script>
 
@@ -6,7 +6,7 @@
 	
 	<?php 
 	if(is_user_logged_in()) { ?>
-		<script type="text/javascript">
+		<script>
 			window.location = "https://www.pomodoros.com.br/focus";
 		</script>
 	<?php }	?>

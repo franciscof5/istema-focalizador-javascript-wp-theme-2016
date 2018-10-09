@@ -1,4 +1,4 @@
-<script language="javascript">
+<script>
 	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' » ';_e('Exclusive Content', 'sis-foca-js'); ?>";
 </script>
 <div class="content_nosidebar col-xs-12 col-sm-6" style="width: 104%;left: -2%;" >

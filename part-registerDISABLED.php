@@ -289,7 +289,7 @@
 
 	<?php /*get_sidebar( 'buddypress' );*/ ?>
 
-	<!--script type="text/javascript">
+	<!--script>
 		jQuery(document).ready( function() {
 			if ( jQuery('div#blog-details').length && !jQuery('div#blog-details').hasClass('show') )
 				jQuery('div#blog-details').toggle();

@@ -850,9 +850,9 @@ function show_welcome_message($alertify=false) {
 		$msg_saudacao2 = __("If you already have an account", "sis-foca-js").", <a id=testes href=# class=abrir_login>".__("login", "sis-foca-js")."</a>";
 	} 
 	if($alertify) {
-		echo "<script type='text/javascript'>alertify.log('".$msg_saudacao."');</script>";
+		echo "<script>alertify.log('".$msg_saudacao."');</script>";
 		if(isset($msg_saudacao2))
-		echo "<script type='text/javascript'>alertify.log('".$msg_saudacao2."');</script>";	
+		echo "<script>alertify.log('".$msg_saudacao2."');</script>";	
 	} else {
 		if(isset($msg_saudacao2))
 			echo $msg_saudacao.". ".$msg_saudacao2;

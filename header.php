@@ -1,8 +1,12 @@
+
 <!DOCTYPE html>
 
-	<head profile="http://gmpg.org/xfn/11">
+	<head profile="">
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
+		<?php global $user_prefered_language; ?>
+
+		 <meta http-equiv="content-language" content="<?php echo $user_prefered_language; ?>">
 		<?php
 		/*global $user_prefered_language;
 		if($user_prefered_language=="pt_BR" || $user_prefered_language=="pt")
@@ -18,7 +22,7 @@
 		
 		<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
 		
-		<!--link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" /-->
+		<!--link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" media="screen" /-->
 
 		<?php if ( function_exists( 'bp_sitewide_activity_feed_link' ) ) : ?>
 			<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> | <?php _e('Site Wide Activity RSS Feed', 'buddypress' ) ?>" href="<?php bp_sitewide_activity_feed_link() ?>" />
@@ -38,7 +42,7 @@
 		
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 		
-		<!--link href='http://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet' type='text/css'-->
+		<!--link href='http://fonts.googleapis.com/css?family=Lilita+One' rel='stylesheet'-->
 		<?php wp_head(); ?>
 
 		<meta name="viewport" content="width=device-width, user-scalable=no">

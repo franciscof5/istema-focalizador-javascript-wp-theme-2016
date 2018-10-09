@@ -1,4 +1,4 @@
-<script language="javascript">
+<script>
 	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' >> ';_e('Focus', 'sis-foca-js'); ?>";
 </script>
 <?php locate_template( array( 'sidebar-pomodoro-left.php' ), true ); ?>

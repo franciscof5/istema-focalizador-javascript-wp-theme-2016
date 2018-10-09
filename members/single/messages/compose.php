@@ -31,7 +31,7 @@
 	<?php wp_nonce_field( 'messages_send_message' ); ?>
 </form>
 
-<script type="text/javascript">
+<script>
 	document.getElementById("send-to-input").focus();
 </script>
 

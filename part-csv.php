@@ -1,4 +1,4 @@
-<script language="javascript">
+<script>
 	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' » ';_e('CSV', 'sis-foca-js'); ?>";
 </script>
 <div id="content" class="content_default  col-xs-12">
