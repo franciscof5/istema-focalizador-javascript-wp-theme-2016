@@ -705,7 +705,7 @@ function generate_flag_links_except($except) { ?>
 
 function check_language_user_and_content($tags) {
 	global $user_prefered_language;
-	#global $user_prefered_language_prefix;
+	global $user_prefered_language_prefix;
 	$user_prefered_language_prefix = substr($user_prefered_language,0,2);
 	if($tags) {
 		foreach ($tags as $tag) {

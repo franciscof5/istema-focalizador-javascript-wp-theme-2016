@@ -41,9 +41,9 @@
 						#$array_top_cities = get_meta_values( "post_location_city", "projectimer_focus" );
 						$array_top_countries = get_meta_values( "post_location_country", "projectimer_focus" );
 						?>
-						<h3><h3><?php _e("Top 5 Cities", "sis-foca-js"); ?></h3></h3>
+						<h3><?php _e("Top 5 Cities", "sis-foca-js"); ?></h3>
 						<?php array_to_rank($array_top_cities, 6); ?>
-						<h3><h3><?php _e("Top 3 Countries", "sis-foca-js"); ?></h3></h3>
+						<h3><?php _e("Top 3 Countries", "sis-foca-js"); ?></h3>
 						<?php array_to_rank($array_top_countries, 4); ?>
 					<?php } ?>
 				</div>
@@ -59,7 +59,7 @@
 					<h3><?php _e("Contact Us", "sis-foca-js"); ?></h3>
 					<?php if(!is_user_logged_in()) { ?>
 						<p class="bg-danger">
-							<a href="#" class="abrir_login"><?php _e("Login", "sis-foca-js"); ?></a> <?php _e("now to use contact form", "sis-foca-js"); ?></p></p>
+							<a href="#" class="abrir_login"><?php _e("Login", "sis-foca-js"); ?></a> <?php _e("now to use contact form", "sis-foca-js"); ?></p>
 					<?php } else { ?>
 						
 						<?php 

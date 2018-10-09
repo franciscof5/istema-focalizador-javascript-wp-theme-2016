@@ -1,4 +1,4 @@
-<?php global $user_prefered_language; ?>
+<?php global $user_prefered_language_prefix; ?>
 <!DOCTYPE html>
 	<head lang="<?php echo $user_prefered_language; ?>">
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
@@ -69,7 +69,7 @@
 		      	</div-->
 
 				<a class="" title="<?php _e("Go to Pomodoros Blog", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>">
-					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pomodoro-logo-topo.png" id="pomodoros-topo">
+					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pomodoro-logo-topo.png" id="pomodoros-topo" alt="Pomodoros">
 				</a>
 			</div>
 
@@ -126,10 +126,11 @@
 			      	</div>
 			      </li>
 			     <?php } ?>
+			    <li>
 			    <ul class="nav navbar-nav navbar-right">
 			      <?php if ( !is_user_logged_in() ) { ?> 
 			      <li>
-			      	<a title="<?php _e("Login", "sis-foca-js"); ?>" class="btn btn-link abrir_login" id="login_login" tabindex="1" style="padding-top: 10px;" /><?php _e("Login", "sis-foca-js"); ?></a>
+			      	<a title="<?php _e("Login", "sis-foca-js"); ?>" class="btn btn-link abrir_login" id="login_login" tabindex="1" style="padding-top: 10px;"><?php _e("Login", "sis-foca-js"); ?></a>
 			      </li>
 			      <li>
 			      	<a href="/register" class="btn btn-link" role="button" aria-pressed="true" title="<?php _e("Create your free pomodoros.com.br account", "sis-foca-js"); ?>" style="padding-top: 10px;" ><?php _e("Register", "sis-foca-js"); ?></a>
@@ -152,6 +153,7 @@
 			      </li>
 			      <?php } ?>
 			    </ul>
+			    </li>
 			</ul>
 		</div>
 	</nav>
