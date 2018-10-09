@@ -604,7 +604,12 @@ function load_scritps() {
 	wp_register_script("rangeslider-js", get_bloginfo("stylesheet_directory")."/assets/rangeslider.min.js", __FILE__);
 	
 }
+add_filter('style_loader_tag', 'myplugin_remove_type_attr', 10, 2);
+add_filter('script_loader_tag', 'myplugin_remove_type_attr', 10, 2);
 
+function myplugin_remove_type_attr($tag, $handle) {
+    return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
+}
 function show_lang_options($hide_title=false, $current_location="") {
 	global $user_prefered_language;
 	if($current_location=="") {
