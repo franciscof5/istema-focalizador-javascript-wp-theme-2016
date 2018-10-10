@@ -126,7 +126,7 @@
 			      	</div>
 			      </li>
 			     <?php } ?>
-			    <li>
+			    
 			    <ul class="nav navbar-nav navbar-right">
 			      <?php if ( !is_user_logged_in() ) { ?> 
 			      <li>
@@ -153,7 +153,7 @@
 			      </li>
 			      <?php } ?>
 			    </ul>
-			    </li>
+			    
 			</ul>
 		</div>
 	</nav>
