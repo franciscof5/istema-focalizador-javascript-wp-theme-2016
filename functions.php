@@ -83,7 +83,7 @@ add_action('wp_ajax_update_cycle_list', 'update_cycle_list');
 add_action('wp_ajax_nopriv_update_cycle_list', 'update_cycle_list');
 #add_action('wp_ajax_update_cycle_list', 'load_cycle_list');
 #add_action('wp_ajax_nopriv_update_cycle_list', 'load_cycle_list');
-add_action('login_init', 'wpse187831_redir_loggedin');
+//add_action('login_init', 'wpse187831_redir_loggedin'); //is redirecting admin to admin area (?)
 add_action('admin_menu', 'my_remove_menu_pages' );
 add_action('wp_logout','go_home');
 add_action('init', 'create_post_type' );
