@@ -42,6 +42,11 @@
 	var autoCycle=false;
 	var autoCycleCurrent=1;
 	var qtdd_tasks;
+
+	//
+	var color_default = "#0F0F0F";
+	var color_focus = "#006633";
+	var color_rest = "#990000";
 }
 function startTest() {
 	pomodoroTime = 15;restTime = 30;bigRestTime = 180;intervalMiliseconds = 10;
@@ -402,12 +407,12 @@ function start_clock() {
 
 	//is_pomodoros is when using 25min for focusing
 	if(is_pomodoro) {
-		change_button(textInterruptFocus, "#006633");//Chage button to "interrupt"
+		change_button(textInterruptFocus, color_focus);//Chage button to "interrupt"
 		//update_pomodoro_clipboard("pending");
 		tagsv = jQuery("#tags_box").val().toString().replace(/,/g, ', ');
 		change_status(txt_started_countdown + jQuery("#title_box").val() + ", tags " + tagsv);
 	} else {
-		change_button(textInterruptRest, "#990000");//Chage button to "interrupt"
+		change_button(textInterruptRest, color_rest);//Chage button to "interrupt"
 		change_status(txt_rest_started);
 	}
 	if(is_pomodoro)
@@ -459,7 +464,7 @@ function complete() {
 		if(pomodoro_actual==pomodoros_to_big_rest) {
 			//big rest
 			pomodoro_actual=1;
-			change_button(textBigRest, "#0F0F0F");
+			change_button(textBigRest, color_default);
 			change_status(txt_bigrest_countdown);
 			secondsRemaining=bigRestTime;
 			changeTitle(txt_title_big_rest);
@@ -467,7 +472,7 @@ function complete() {
 		} else {
 			//normal rest
 			pomodoro_actual++;
-			change_button(textRest, "#0F0F0F");
+			change_button(textRest, color_default);
 			change_status(txt_normalrest_countdown);
 			secondsRemaining=restTime;
 			changeTitle(txt_title_rest);
@@ -479,7 +484,7 @@ function complete() {
 	} else {
 		//rest finished
 		//alert("rest finished")
-		change_button(textPomodoro, "#0F0F0F");
+		change_button(textPomodoro, color_default);
 		change_status(txt_completed_rest, "er");
 		is_pomodoro=true;
 		secondsRemaining=pomodoroTime;
@@ -563,7 +568,7 @@ function interrupt() {
 	change_status(txt_interrupted_countdowns, "er");
 	//convertSeconds(0);
 	//flip_number();
-	change_button(textPomodoro, "#0F0F0F");
+	change_button(textPomodoro, color_default);
 	//update_pomodoro_clipboard("trash");
 	//
 	stop_clock();
