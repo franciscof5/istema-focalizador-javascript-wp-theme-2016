@@ -55,6 +55,17 @@
 					show_recent_posts_georefer(); ?>
 				</div>
 
+				<div class="col-sm-3">
+					<h3><?php _e("Get it on", "sis-foca-js"); ?></h3>
+					<p><?php echo google_play_link(); ?></p>
+					<h3><?php _e("Sponsored by", "sis-foca-js"); ?></h3>
+					<p><?php echo show_sponsor("box-float-right", true); ?></p>
+					<p>&nbsp;</p>
+					<h3><?php _e("Support", "sis-foca-js"); ?></h3>
+					<p><a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" id="settingsbutton" class="btn btn-link" href="<?php bloginfo('url'); ?>/help" style="padding-top: 10px;"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <?php _e("Open support ticket", "sis-foca-js"); ?></a></p>
+				</div>
+				<?php /*
+				JA ELVIS
 				<div id="footer-contact-form" class="col-sm-3">
 					<h3><?php _e("Contact Us", "sis-foca-js"); ?></h3>
 					<?php if(!is_user_logged_in()) { ?>
@@ -71,8 +82,7 @@
 						?>
 					<?php } ?>
 				</div>
-		
-				
+				*/ ?>
 			</div>
 			
 			<div class="row">

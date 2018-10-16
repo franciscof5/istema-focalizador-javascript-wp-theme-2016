@@ -246,6 +246,7 @@ img.avatar {
     box-shadow: none;
     margin: 0px 10px 2px 0;
     padding: 3px;
+    min-height: 50px; /*distorts images*/
 }
 .widget_recent_entries a {
     font-size: 12px;
@@ -2546,7 +2547,8 @@ ol.commentlist li {
 		#footer-content h3 {
 			color:#FFF;
 			/*font-family: 'Lilita One',cursive;*/
-			font-size: 20px;
+			font-size: 18px !important;
+			font-family: "forte" !important;
 		}
 		/*#footer-content #footer-contact-form {
 			float:right;

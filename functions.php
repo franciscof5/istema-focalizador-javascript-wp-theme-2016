@@ -60,7 +60,7 @@ function remove_img_attr ($html)
 show_admin_bar( false );
 
 //
-add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );
+#add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );
 #add_filter('login_redirect', 'default_page');
 add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' ); 
 add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
@@ -90,6 +90,14 @@ add_action('init', 'create_post_type' );
 add_action('init', 'custom_rewrite_basic');
 add_action('init', 'smart_set_user_language');
 add_action('wp_enqueue_scripts', 'load_scritps');
+add_action('init', 'add_tags_categories');
+
+add_filter('style_loader_tag', 'myplugin_remove_type_attr', 10, 2);
+add_filter('script_loader_tag', 'myplugin_remove_type_attr', 10, 2);
+
+
+add_shortcode( 'show_sponsor_geo', 'show_sponsor' );
+
 //box-float
 function show_sponsor($type_of="excerpt", $hide_title="false") {
 	global $user_prefered_language;
@@ -160,7 +168,13 @@ function show_sponsor($type_of="excerpt", $hide_title="false") {
 	revert_database_schema();
 	return $ctt;
 }
-add_shortcode( 'show_sponsor_geo', 'show_sponsor' );
+
+function google_play_link() {
+	?>
+	<a href="https://play.google.com/store/apps/details?id=com.f5sites.pomodoros" target="_blank"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/google-play-badge.png" alt="Google Play Badge" class="img-responsive"></a>
+	<?php
+}
+
 #function custom_disable_redirect_canonical( $redirect_url, $requested_url ) {
 function custom_disable_redirect_canonical( $redirect_url ) {
 	#global $pagenow;
@@ -604,8 +618,6 @@ function load_scritps() {
 	wp_register_script("rangeslider-js", get_bloginfo("stylesheet_directory")."/assets/rangeslider.min.js", __FILE__);
 	
 }
-add_filter('style_loader_tag', 'myplugin_remove_type_attr', 10, 2);
-add_filter('script_loader_tag', 'myplugin_remove_type_attr', 10, 2);
 
 function myplugin_remove_type_attr($tag, $handle) {
     return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
@@ -1620,7 +1632,7 @@ function add_tags_categories() {
 	register_taxonomy_for_object_type('category', 'projectimer_focus');
 	register_taxonomy_for_object_type('post_tag', 'projectimer_focus');
 }
-add_action('init', 'add_tags_categories');
+
 /*function get_user_subscription($user_id, $domain) {
 	$user_id = (!isset($user_id)) ? get_current_user_id() : $user_id;
 	$sql = "SELECT * FROM f5sites_posts WHERE post_type='subscription' AND post_author=".$user_id;
@@ -1662,14 +1674,12 @@ function modified_views_so_15799171( $views ) {
     return $views;
 }
 
-function custom_rewrite_basic() 
-{
+function custom_rewrite_basic() {
   add_rewrite_rule('^shop/?$', 'index.php?page_id=3487', 'top');
 }
 
 
-function wpse187831_redir_loggedin()
-{
+function wpse187831_redir_loggedin() {
     global $action;
 
     if ('logout' === $action || !is_user_logged_in()) {

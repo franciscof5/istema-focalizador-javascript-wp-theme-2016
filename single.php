@@ -14,6 +14,8 @@ $user_prefered_language_prefix = substr($user_prefered_language,0,2);
 	<div id="content" class="content_default col col-xs-12 ">
 		<div class="row">
 				<div class="padder col-md-8">
+				<?php if(function_exists("show_lang_options"))
+			show_lang_options(false); ?>
 			<?php #show_lang_options(false); ?>
 
 			<?php do_action( 'bp_before_blog_home' ) ?>
