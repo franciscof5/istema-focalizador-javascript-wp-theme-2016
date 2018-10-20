@@ -60,7 +60,7 @@ function remove_img_attr ($html)
 show_admin_bar( false );
 
 //
-add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );
+add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );//nunca desativar
 #add_filter('login_redirect', 'default_page');
 add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' ); 
 add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
