@@ -52,7 +52,7 @@
       //google.charts.load("current", {packages:[]});
       //google.charts.setOnLoadCallback(drawChart);
 
-	   function drawChart2() {
+	   /*function drawChart2() {
 	       var dataTable = new google.visualization.DataTable();
 	       dataTable.addColumn({ type: 'date', id: 'Date' });
 	       dataTable.addColumn({ type: 'number', id: 'Won/Loss' });
@@ -81,7 +81,7 @@
 	       };
 
 	       chart.draw(dataTable, options);
-	   }
+	   }*/
 
 			google.load('visualization', '1', {packages:['gauge','calendar']});
 			google.setOnLoadCallback(drawChart);
@@ -382,7 +382,7 @@
 		<hr />
 		<h2>Mural do projeto</h2>
 		<div class="row">
-		<?php if ( have_posts() ) : ?>
+		<?php #if ( have_posts() ) : ?>
 			<ul id="activity-stream" class="activity-list item-list">
 				<?php while (have_posts()) : the_post(); ?>
 				
@@ -454,14 +454,14 @@
 
 			</div-->
 
-		<?php else : ?>
+		<?php /*else : ?>
 
 			<h2 class="center"><?php _e( 'Not Found', 'buddypress' ) ?></h2>
 			<p class="center"><?php _e( 'Sorry, but you are looking for something that isn\'t here.', 'buddypress' ) ?></p>
 
 			<?php locate_template( array( 'searchform.php' ), true ) ?>
 
-		<?php endif; ?>
+		<?php endif;*/ ?>
 	
 	
 	<?php do_action( 'bp_after_blog_home' ) ?>

@@ -9,7 +9,7 @@
 
 get_header( 'buddypress' ); ?>
 
-	<div class="content_nosidebar col-xs-12 col-sm-6" style="width: 104%;left: -2%;" >
+	<div class="content_nosidebar col-md-12">
 		<div class="padder">
 
 			<?php do_action( 'bp_before_member_home_content' ); ?>
@@ -22,66 +22,7 @@ get_header( 'buddypress' ); ?>
 			<div id="item-header" role="complementary">
 				<?php locate_template( array( 'members/single/member-header.php' ), true ); ?>
 			</div><!-- #item-header -->
-			<div>
-				<h3>Projetos <?php //echo count($all_tags); ?></h3>
-				<?php
-				//all_posts = $wpdb->query('SELECT * FROM `wp_posts` WHERE `post_author` = '.$user_id.' GROUP BY DATE (`post_date`)');
-				//$all_posts = query_posts('author=1');
-				//$all_posts = $wpdb->query('SELECT `ID` FROM `wp_posts` WHERE `post_author` = '.$user_id.'');
-				//get_author_post_tags_wpa78489(bp_displayed_user_id());
-				get_projectimer_project_tags(bp_displayed_user_id());
-				#global $wpdb;
-				#$all_posts = $wpdb->get_results('SELECT `ID` FROM `pomodoros_posts` WHERE `post_author` = '.bp_displayed_user_id().'');
-				//var_dump($wpdb);die;
-
-				/*$all_tags = array();
-				foreach ($all_posts as $value) {
-					//var_dump($value->ID)." [ ] ";
-					$tags = wp_get_post_tags($value->ID);
-					$term_slug = $tags[0]->slug;
-					//var_dump(!in_array($term_slug, $all_tags));
-					if(!in_array($term_slug, $all_tags)) {
-						$all_tags[]=$term_slug;
-					}
-					//var_dump($tags[0]->slug);
-					/*
-					slug
-					name
-					
-					foreach ($tags as $value) {
-						echo "<a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>{$tag->name}</a>";
-					}
-				}*/ ?>
-				
-				
-				
-				<?php /*foreach ($all_tags as $slug) {
-					echo "<a href=".get_bloginfo("url")."/projeto/$slug>{$slug}</a>, ";
-				}*/ ?>
-				
-				
-				<?php
-				//var_dump($all_tags);
-				//die;
-
-				/*$html = '<div class="post_tags">';
-				foreach ( $tags as $tag ) {
-					$tag_link = get_tag_link( $tag->term_id );
-							
-					$html .= "<a href='{$tag_link}' title='{$tag->name} Tag' class='{$tag->slug}'>";
-					$html .= "{$tag->name}</a>";
-				}
-				$html .= '</div>';*/
-				?>
-			</div>
-			<div>
-				<h3>Desempenho e Velocidade</h3>
-				<?php
-				//$usuario_alvo = bp_displayed_user_id();
-				//$GLOBALS["alvo"] = $usuario_alvo;
-				get_template_part("part", "gauges"); 
-				?>
-			</div>
+			
 			<div id="item-nav">
 				<div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
 					<ul>
