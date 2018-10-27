@@ -58,7 +58,7 @@ function remove_img_attr ($html)
 #add_filter( 'post_thumbnail_html', 'remove_img_attr' );
 //
 show_admin_bar( false );
-
+add_filter('show_admin_bar', '__return_false');
 //
 add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );//nunca desativar
 #add_filter('login_redirect', 'default_page');
