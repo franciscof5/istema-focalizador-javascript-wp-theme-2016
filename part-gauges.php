@@ -90,11 +90,7 @@ echo "<script>
 	<div class="estats_box">
 		<h3>Mês atual</h3>
 		<ul>
-			<li>Dia atual:<strong>
-				<?php
-				echo $produtividade_usuario["mes"]['totalDias'];
-				?>
-			</strong></li>
+			
 			<li>Dias de trabalho:<strong>
 				<?php
 				echo $produtividade_usuario["mes"]['diasTrabalhados'];
@@ -108,6 +104,11 @@ echo "<script>
 			<li>Fator prod.:<strong>
 				<?php
 				echo $produtividade_usuario["mes"]['fatorProdutividade']*100;
+				?>
+			</strong></li>
+			<li>* Dia atual:<strong>
+				<?php
+				echo $produtividade_usuario["mes"]['totalDias'];
 				?>
 			</strong></li>
 		</ul>
@@ -135,11 +136,7 @@ echo "<script>
 	<div class="estats_box">
 		<h3>Semana atual</h3>
 		<ul>
-			<li>Dia atual:<strong>
-				<?php
-				echo $produtividade_usuario["semana"]['totalDias'];
-				?>
-			</strong></li>
+			
 
 			<li>Dias trabalho:<strong>
 				<?php
@@ -154,6 +151,11 @@ echo "<script>
 			<li>Fator prod.:<strong>
 				<?php
 				echo $produtividade_usuario["semana"]['fatorProdutividade']*100;
+				?>
+			</strong></li>
+			<li>* Dia atual:<strong>
+				<?php
+				echo $produtividade_usuario["semana"]['totalDias'];
 				?>
 			</strong></li>
 		</ul>
