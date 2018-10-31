@@ -1,13 +1,6 @@
-	<div style="text-align: center; margin: -20px 0 20px 0; >
-	<?php if(function_exists("show_lang_options")) show_lang_options(false); ?>
-	<h1 class="forte">The Fun Time Tracker</h1>
-	<p style="font-weight: 600;"">Relax and Focus: Online social time tracker for task and projects, 
-	<br> get you and your team more productive than ever</p>
-	<a class="btn btn-success" href="/register" style="font-weight: 600; padding: 10px 30px"><i class="glyphicon glyphicon-star"></i> Get started for Free</a>
-	</div>
-	
-	<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/pomodoros-app.jpg" id="pomodoros-banner" alt="Pomodoros" class="img-responsive" style="width: 100%;">
-
+<script>
+	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' » ';_e('Blog', 'sis-foca-js'); ?>";
+</script>
 	<?php 
 	#echo do_shortcode('[rev_slider alias="pomo1"]'); 
 
@@ -53,7 +46,7 @@
 				#$wp_query-> set('tag' ,'lang-fr');
 				$user_prefered_language_prefix = substr($user_prefered_language, 0,2);
 				$args = array(
-					"posts_per_page" => 3,
+					"posts_per_page" => 12,
 					"post_type" => "post",
 					'tag' => "lang-".$user_prefered_language_prefix,
 				);
@@ -111,7 +104,7 @@
 					<?php the_posts_pagination(); ?>
 					<?php 
 					#plugin: f5sites-shared-posts-tables-and-uploads-folder
-					if(function_exists("print_blog_nav_links") && !is_home()) print_blog_nav_links($post, "lang-".$user_prefered_language_prefix); ?>
+					#if(function_exists("print_blog_nav_links") && !is_home()) print_blog_nav_links($post, "lang-".$user_prefered_language_prefix); ?>
 
 				<?php else : ?>
 

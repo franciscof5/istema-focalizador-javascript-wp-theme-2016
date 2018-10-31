@@ -187,6 +187,10 @@ function custom_disable_redirect_canonical( $redirect_url ) {
 		return FALSE;
 	} elseif ( preg_match("/members/",$redirect_url) ) {
 		return FALSE;
+	} elseif ( preg_match("/blog/",$redirect_url) ) {
+		#var_dump($redirect_url);
+		#die;
+		return "https://www.pomodoros.com.br/news/";
 	} /*elseif ( preg_match("/register/",$redirect_url) ) {
 		return FALSE;
 	} elseif ( preg_match("register",$redirect_url) ) {
