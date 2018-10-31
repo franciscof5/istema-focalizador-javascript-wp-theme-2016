@@ -55,7 +55,7 @@
 	<nav class="navbar navbar-inverse ">
 		<div class="container-fluid">
 			<div class="navbar-header" style="margin-top: 5px">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#pomoNavbar">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsePommoNabar">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -73,7 +73,7 @@
 				</a>
 			</div>
 
-			<ul class="collapse navbar-collapse pomoNavbar" style="margin: 5px 0 0">
+			<ul class="collapse navbar-collapse pomoNavbar" id="collapsePommoNabar" style="margin: 5px 0 0">
 				<?php if ( is_user_logged_in() ) { ?> 
 				<li>
 					<a title="<?php _e("Start Focus", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus/" class="btn btn-transparent-blue btn-xs btn-expand">
