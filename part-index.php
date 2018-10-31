@@ -164,7 +164,7 @@
 		</div>
 		<div class="col-sm-6 col-md-3 testimonials-container">
 			<div class="thumbnail">
-				<p>Utilizava o Pomodoros.com.br há alguns anos, diariamente. Fiquei feliz de saber que o site voltou, espero que as pessoas voltem a usar, vou tentar pegar o hábito também pq super me ajudava! </p>
+				<p>Utilizava o Pomodoros.com.br há alguns anos, diariamente. Fiquei feliz de saber que o site voltou, espero que as pessoas voltem a usar, vou tentar pegar o hábito também porque "super" me ajudava! </p>
 				<div class="caption">
 					<?php  echo bp_activity_avatar( 'user_id=' . 974 ); ?>
 					<h3><?php  echo bp_core_get_userlink(  974 ); ?></h3>
