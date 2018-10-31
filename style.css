@@ -2583,6 +2583,9 @@ ol.commentlist li {
 	background: #2D2D2D;
 	margin: 0 !important;
 }
+	#footer a {
+		color: #FFF;
+	}
 	#footer a:hover {
 		color: #FFF;
 	}

@@ -11,14 +11,14 @@
 		<div id="footer" class="container-fluid">
 			<div id="footer-content" class="row">
 				<div class="col-sm-3 contem_last_pomodoros">
-					<h3><?php _e("Last pomodoros", "sis-foca-js"); ?></h3>
+					<h3><a href="/activity" alt="Viel all activity"><?php _e("Last pomodoros", "sis-foca-js"); ?></a></h3>
 					<?php 
 					if(function_exists("show_recent_pomodoros"))
 					show_recent_pomodoros(); ?>
 				</div>
 
 				<div class="col-sm-3">
-					<h3><?php _e("Top 7 Users", "sis-foca-js"); ?></h3>
+					<h3><a href="/ranking" alt="Check ranking"><?php _e("Top Users", "sis-foca-js"); ?></a></h3>
 					<?php
 					$instance = array(
 						"title" => "",
@@ -49,7 +49,7 @@
 				</div>
 
 				<div class="col-sm-3">
-					<h3><?php _e("Our blog", "sis-foca-js"); ?></h3>
+					<h3><a href="/blog" alt="Read our blog"><?php _e("Our blog", "sis-foca-js"); ?></a></h3>
 					<?php 
 					if(function_exists("show_recent_posts_georefer"))
 					show_recent_posts_georefer(); ?>
@@ -59,11 +59,13 @@
 					<h3><?php _e("Get it on", "sis-foca-js"); ?></h3>
 					<p><?php echo google_play_link(); ?></p>
 					<h3><?php _e("Sponsored by", "sis-foca-js"); ?></h3>
-					<p><?php echo show_sponsor("box-float-right", true); ?></p>
-					<p>&nbsp;</p>
-					<h3><?php _e("Support", "sis-foca-js"); ?></h3>
-					<p><a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" id="settingsbutton" class="btn btn-link" href="<?php bloginfo('url'); ?>/help" style="padding-top: 10px;"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <?php _e("Open support ticket", "sis-foca-js"); ?></a></p>
+					<p><?php echo show_sponsor("box-float-left", true); ?></p>
+					<br style="clear: both;">
+					
+					<h3><a href="/help" alt="Get help"><?php _e("Support", "sis-foca-js"); ?></a></h3>
+					<p><a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" id="settingsbutton" class="btn  btn-default" href="<?php bloginfo('url'); ?>/help" style="padding-top: 10px; color: #222;"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <?php _e("Open support ticket", "sis-foca-js"); ?></a></p>
 				</div>
+
 				<?php /*
 				JA ELVIS
 				<div id="footer-contact-form" class="col-sm-3">
@@ -84,7 +86,7 @@
 				</div>
 				*/ ?>
 			</div>
-			
+			<br>
 			<div class="row">
 				<div class="col-xs-12" style="text-align: right;">
 					<?php 
