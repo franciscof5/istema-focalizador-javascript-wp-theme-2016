@@ -6,7 +6,8 @@
 		<a class="btn btn-success" href="/register" style="font-weight: 600; padding: 10px 30px"><i class="glyphicon glyphicon-star"></i> Get started for Free</a>
 	</div>
 		<?php
-		$total_users = count_users(); //METHOD 1, only active
+		$user_active_count = count_users(); //METHOD 1, only active
+		#var_dump($user_active_count);
 		$user_count = $wpdb->get_var("SELECT COUNT(`ID`) FROM $wpdb->users;");
 		#$user_count = $wpdb->get_var("SELECT COUNT(*) FROM 2fnetwork_users;"); echo $user_count;
 		revert_database_schema();
@@ -95,8 +96,8 @@
 		<center><h2 class="forte">Stats from Community</h2></center>
 		<ul class="list-group stats-group col-md-6">
 			<li class="list-group-item active">
-				<span class="badge"><?php echo $user_count; ?></span>
-				<i class="glyphicon glyphicon-user" aria-hidden="true"></i> &nbsp; Users
+				<span class="badge"><?php echo /*$user_count." / ".*/$user_active_count["total_users"]; ?></span>
+				<i class="glyphicon glyphicon-user" aria-hidden="true"></i> &nbsp; Active Users
 			</li>
 			<li class="list-group-item active">
 				<span class="badge"><?php echo $total_posts; ?></span>
@@ -121,8 +122,6 @@
 				<i class="glyphicon glyphicon-text-background"></i> &nbsp; Translations
 			</li>
 		</ul>
-		</div>
-		<center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center>
 		<script>
 			jQuery(document).ready(function() {
 				jQuery(".stats-group li").mouseover(function() {
@@ -132,6 +131,50 @@
 				});
 			});
 		</script>
+	</div>
+
+	<div class="row testimonials">
+		<center><h2 class="forte">Testimonials</h2></center>
+		<div class="col-sm-6 col-md-3 testimonials-container">
+			<div class="thumbnail">
+				<p>Vou ser o primeiro do ranking.</p>
+				<div class="caption">
+					<?php  echo bp_activity_avatar( 'user_id=' . 1304 ); ?>
+					<h3><?php  echo bp_core_get_userlink(  1304 ); ?></h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3 testimonials-container">
+			<div class="thumbnail">
+				<p>A aprendizagem é um processo contínuo. Devemos estudar diariamente, analisar os resultados regularmente e aplicar métodos para melhorar os nossos resultados anteriores.</p>
+				<div class="caption">
+					<?php  echo bp_activity_avatar( 'user_id=' . 828 ); ?>
+					<h3><?php  echo bp_core_get_userlink(  828 ); ?></h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3 testimonials-container">
+			<div class="thumbnail">
+				<p>Com o Pomodoros.com.br consigo ter mais controle sobre meu tempo, ser mais produtivo e realizar melhor minhas tarefas.</p>
+				<div class="caption">
+					<?php  echo bp_activity_avatar( 'user_id=' . 2 ); ?>
+					<h3><?php  echo bp_core_get_userlink(  2 ); ?></h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-3 testimonials-container">
+			<div class="thumbnail">
+				<p>Utilizava o Pomodoros.com.br há alguns anos, diariamente. Fiquei feliz de saber que o site voltou, espero que as pessoas voltem a usar, vou tentar pegar o hábito também pq super me ajudava! </p>
+				<div class="caption">
+					<?php  echo bp_activity_avatar( 'user_id=' . 974 ); ?>
+					<h3><?php  echo bp_core_get_userlink(  974 ); ?></h3>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center>
+		
 
 	<?php /*
 	<div style="padding: 0 5%;">
