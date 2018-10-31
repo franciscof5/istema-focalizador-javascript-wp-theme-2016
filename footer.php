@@ -120,6 +120,18 @@
 <script>
 
 jQuery( document ).ready(function() {
+	
+	//jQuery(".btn-expand " ).mouseenter(function() {
+	//	jQuery(this).find( "span" ).removeClass( "hidden-sm hidden-md " );
+	//}).
+	jQuery(".btn-expand " ).mouseover(function() {
+		if(jQuery(this).find( ".icon-leg" ).hasClass( "hidden-sm hidden-md" )) {
+			jQuery(this).find( ".icon-leg" ).removeClass( "hidden-sm hidden-md" );
+			jQuery(this).mouseout(function() {
+				jQuery(this).find( ".icon-leg" ).addClass( "hidden-sm hidden-md " );
+			});
+		}
+	});
 	jQuery(".contem-icone " ).mouseenter(function() {
 		jQuery( ".icone-legenda" ).hide(100);
 		if(!jQuery(this).find( ".icone-legenda" ).is(":animated"))
@@ -185,12 +197,27 @@ jQuery( document ).ready(function() {
 	jQuery(".ul-ranking-footer li:nth-child(3) a").css("color", "#50352F");
 	
 	//**********//
+	/*jQuery(document).click(function(event) { 
+	    if(!jQuery(event.target).closest('.loginlogbox').length) {
+			if(jQuery('.loginlogbox').is(":visible")) {
+				jQuery('.loginlogbox').hide();
+			}
+		}        
+	});*/
 	jQuery( ".abrir_login" ).click(function() {
 		jQuery( "#loginlogbox" ).toggle("slow");
 	});
-	jQuery( "#settings_panel" ).click(function() {
-		jQuery( "#settingsbox" ).toggle("slow");
+	jQuery( window ).click(function() {
+		//alert(jQuery( "#loginlogbox" ).width);
+
+		//NOT MOUSE OVER LOGINLOGBOX
+		if(jQuery( "#loginlogbox" ).is(":visible") && !jQuery( "#loginlogbox" ).is(":animated") && !jQuery( "#loginlogbox" ).is(":hover"))
+		//if(jQuery( "#loginlogbox" ).length>10)
+		jQuery( "#loginlogbox" ).hide("fast");
 	});
+	//jQuery( "#settings_panel" ).click(function() {
+	//	jQuery( "#settingsbox" ).toggle("slow");
+	//});
 });		
 
 </script>

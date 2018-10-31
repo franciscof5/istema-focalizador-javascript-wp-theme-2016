@@ -30,7 +30,7 @@ echo "webv: SI";*/
 //
 $pages = array("focus", "calendar", "ranking", "produtividade", "stats", "csv", "metas", "premios", "game", "invite", "help", "product", "tag");
 //
-$pages_open = array("register", "product", "br", "carrinho", "app");
+$pages_open = array("register", "product", "br", "carrinho", "app", "blog");
 if(!in_array($page, $pages)) {
 	if(!in_array($page, $pages_open))
 		$page = "index";

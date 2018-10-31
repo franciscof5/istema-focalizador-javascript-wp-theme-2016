@@ -1,10 +1,11 @@
 <script>
 	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' >> ';_e('Focus', 'sis-foca-js'); ?>";
 </script>
-<?php locate_template( array( 'sidebar-pomodoro-left.php' ), true ); ?>
+<?php #locate_template( array( 'sidebar-pomodoro-left.php' ), true ); ?>
 
-<div class="content_pomodoro col-xs-12 col-sm-6">
-		
+<!--div class="content_pomodoro col-xs-12 col-sm-6"-->
+
+<div id="center_layout" class="col-sm-6 col-sm-offset-3">
 	<div id="pomodoro-painel">		
 			
 		<div id="pomodoro-relogio">							
@@ -240,4 +241,4 @@
 	</div>
 	
 </div><!-- #content -->
-<?php locate_template( array( 'sidebar-pomodoro-right.php' ), true ); ?>
+<?php #locate_template( array( 'sidebar-pomodoro-right.php' ), true ); ?>

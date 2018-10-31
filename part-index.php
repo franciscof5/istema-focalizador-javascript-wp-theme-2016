@@ -1,8 +1,193 @@
-	<?php echo do_shortcode('[rev_slider alias="pomo1"]'); ?>
+	
+	<div style="text-align: center; margin: -20px 0 20px 0;" >
+		<h1 class="forte">Work & Fun Time Tracker</h1>
+		<p style="font-weight: 600; font-size: 18px;">Relax and Focus: Online social time tracker for task and projects, 
+		<br> get you and your team more productive than ever</p>
+		<a class="btn btn-success" href="/register" style="font-weight: 600; padding: 10px 30px"><i class="glyphicon glyphicon-star"></i> Get started for Free</a>
+	</div>
+		<?php
+		$total_users = count_users(); //METHOD 1, only active
+		$user_count = $wpdb->get_var("SELECT COUNT(`ID`) FROM $wpdb->users;");
+		#$user_count = $wpdb->get_var("SELECT COUNT(*) FROM 2fnetwork_users;"); echo $user_count;
+		revert_database_schema();
+		$projectimer_tags = get_terms( array(
+			'taxonomy' => 'post_tag',
+			'hide_empty' => false,
+		) );
+		$count_posts = wp_count_posts( 'projectimer_focus' );
+		$total_posts = $count_posts->publish+$count_posts->private;
+		//
+		$cities_count = get_meta_values( "post_location_city", "projectimer_focus" );
+		//style="max-width: 400px;margin:0 auto;"
+		?>
+		
+	<!--div class="row">
+		<div class="col-md-7">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/pomodoros-app.jpg" id="pomodoros-banner" alt="Pomodoros" class="img-responsive" style="width: 100%;">
+		</div>
+		<div class="col-md-5">
+			<p>Work and rest</p>
+			<p>with Pomodoro Technique timer</p> 
+		</div>
+	</div-->
+	<center><h2 class="forte">Features</h2></center>
+	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+			<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/timer.jpg" id="pomodoros-banner" alt="Timer" class="img-responsive" style="width: 100%;">
+				<div class="middle-left thumb-display thumb-display-black">
+					<p><i class="glyphicon glyphicon-time"></i> Work and rest with</p>
+					<p>Pomodoro Technique timer</p> 
+				</div>
+			</div>
+			<div class="item">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/calendar.jpg" id="pomodoros-banner" alt="Calendar" class="img-responsive" style="width: 100%;">
+				<div class="middle-right thumb-display thumb-display-black">
+					<p><i class="glyphicon glyphicon-calendar"></i> Calendar shows</p>
+					<p>what you have done</p> 
+				</div>
+			</div>
+			<div class="item">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/ranking.jpg" id="pomodoros-banner" alt="Ranking" class="img-responsive" style="width: 100%;">
+				<div class="middle-left thumb-display thumb-display-black">
+					<p><i class="glyphicon glyphicon-list"></i> Grow in Ranking</p>
+					<p>and get more productive</p> 
+				</div>
+			</div>
+			<div class="item">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/tasks.jpg" id="pomodoros-banner" alt="Tasks" class="img-responsive" style="width: 100%;">
+				<div class="middle-right thumb-display thumb-display-black">
+					<p><i class="glyphicon glyphicon-tags"></i> Mind blown reports</p>
+					<p>to check time usage</p> 
+				</div>
+			</div>
+			<div class="item">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/tickets.jpg" id="pomodoros-banner" alt="Support System" class="img-responsive" style="width: 100%;">
+				<div class="middle-right thumb-display thumb-display-black">
+					<p><i class="glyphicon glyphicon-question-sign"></i> Need help?</p>
+					<p>open an ticket</p> 
+				</div>
+			</div>
+		</div>
+
+		<!-- Controls -->
+		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</div>
+
+	<div style="padding: 0 10px 0 30px ;">
+		<center><h2 class="forte">Stats from Community</h2></center>
+		<ul class="list-group stats-group col-md-6">
+			<li class="list-group-item active">
+				<span class="badge"><?php echo $user_count; ?></span>
+				<i class="glyphicon glyphicon-user" aria-hidden="true"></i> &nbsp; Users
+			</li>
+			<li class="list-group-item active">
+				<span class="badge"><?php echo $total_posts; ?></span>
+				<i class="glyphicon glyphicon-ok"></i> &nbsp; Pomodoros done
+			</li>
+			<li class="list-group-item active">
+				<span class="badge"><?php echo round($total_posts/2); ?> h</span>
+				<i class="glyphicon glyphicon-time"></i> &nbsp; Time tracked
+			</li>
+		</ul>
+		<ul class="list-group stats-group col-md-6">
+			<li class="list-group-item active">
+				<span class="badge"><?php echo count($projectimer_tags); ?></span>
+				<i class="glyphicon glyphicon-tags" aria-hidden="true"></i> &nbsp; Projects tags
+			</li>
+			<li class="list-group-item active">
+				<span class="badge"><?php echo count($cities_count); ?></span>
+				<i class="glyphicon glyphicon-globe"></i> &nbsp; Cities ranked
+			</li>
+			<li class="list-group-item active">
+				<span class="badge">5</span>
+				<i class="glyphicon glyphicon-text-background"></i> &nbsp; Translations
+			</li>
+		</ul>
+		</div>
+		<center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center>
+		<script>
+			jQuery(document).ready(function() {
+				jQuery(".stats-group li").mouseover(function() {
+					jQuery(this).removeClass( "active" );
+				}).mouseout(function() {
+					jQuery(this).addClass( "active " );
+				});
+			});
+		</script>
+
+	<?php /*
+	<div style="padding: 0 5%;">
+		<div class="container-thumb">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/timer.jpg" id="pomodoros-banner" alt="Timer" class="img-responsive" style="width: 100%;">
+			<div class="middle-right thumb-display thumb-display-blue">
+				<p>Work and rest</p>
+				<p>with Pomodoro Technique timer</p> 
+			</div>
+		</div>
+		<br>
+		<div class="container-thumb">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/calendar.jpg" id="pomodoros-banner" alt="Calendar" class="img-responsive" style="width: 100%;">
+			<div class="middle-left thumb-display thumb-display-blue">
+				<p>Calendar shows</p>
+				<p>what you have done</p> 
+			</div>
+		</div>
+		<br>
+		<div class="container-thumb">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/tasks.jpg" id="pomodoros-banner" alt="Calendar" class="img-responsive" style="width: 100%;">
+			<div class="middle-left thumb-display thumb-display-blue">
+				<p>Calendar shows</p>
+				<p>what you have done</p> 
+			</div>
+		</div>
+		<br>
+		<div class="container-thumb">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/ranking.jpg" id="pomodoros-banner" alt="Calendar" class="img-responsive" style="width: 100%;">
+			<div class="middle-left thumb-display thumb-display-blue">
+				<p>Calendar shows</p>
+				<p>what you have done</p> 
+			</div>
+		</div>
+		<br>
+		<div class="container-thumb">
+			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/tickets.jpg" id="pomodoros-banner" alt="Calendar" class="img-responsive" style="width: 100%;">
+			<div class="middle-left thumb-display thumb-display-blue">
+				<p>Calendar shows</p>
+				<p>what you have done</p> 
+			</div>
+		</div>
+		+ Treinamento em Foco
+	</div>
+	<?php 
+	#echo do_shortcode('[rev_slider alias="pomo1"]'); 
+
+	/*<img src="<?php bloginfo('
+	stylesheet_directory'); ?>/images/banners/pomodoros-app.jpg" id="pomodoros-banner" alt="Pomodoros" class="img-responsive" style="width: 100%;">*/
+	?>
+	
 	
 	<?php if(function_exists("show_welcome_message")) show_welcome_message(true); ?>
 
 	<?php
+	/*
 	global $user_prefered_language;
 	#force_database_aditional_tables_share(false);
 	#echo do_shortcode('[product id="5160"]');  
@@ -19,8 +204,6 @@
 		<div class="row">
 			
 			<div class="padder col-md-8">
-			<?php if(function_exists("show_lang_options"))
-			show_lang_options(false); ?>
 			
 			<!--hr /-->
 				
@@ -40,6 +223,7 @@
 				#$wp_query-> set('tag' ,'lang-fr');
 				$user_prefered_language_prefix = substr($user_prefered_language, 0,2);
 				$args = array(
+					"posts_per_page" => 3,
 					"post_type" => "post",
 					'tag' => "lang-".$user_prefered_language_prefix,
 				);
@@ -116,3 +300,4 @@
 			<?php locate_template( array( 'sidebar-index.php' ), true ); ?>
 		</div>
 	</div><!-- #content -->
+	*/

@@ -73,86 +73,84 @@
 				</a>
 			</div>
 
-			<ul class="collapse navbar-collapse" style="margin-top: 5px"  id="pomoNavbar">
-			      <?php if ( is_user_logged_in() ) { ?> 
-			      <li>
-			      	<div class="contem-icone ">
-			      		<a title="<?php _e("Start Focus", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus/">
-			      			<div href="" id="icone-foc"><span class="icone-legenda hidden-lg"><?php _e("Focus", "sis-foca-js"); ?></span></div>
-			      		<span class="hidden-sm hidden-md"><?php _e("Focus", "sis-foca-js"); ?></span>
-			      		</a>
-			      	</div>
-			       </li>
-			       <li>
-			       	<div class="contem-icone ">
-			       		<a title="<?php _e("View Productivity", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/<?php  $current_user = wp_get_current_user(); echo $current_user->user_login  ?>">
-			       			<div href="" id="icone-gauge">
-			       				<span class="icone-legenda hidden-lg"><?php _e("Productivity Factor", "sis-foca-js"); ?></span>
-			       			</div>
-			       			<span class="hidden-sm hidden-md"><?php _e("Productivity", "sis-foca-js"); ?></span>
-			       		</a>
-			       	</div>
-			       </li>
-			      <li>
-			      	<div class="contem-icone ">
-				      	<a title="<?php _e("Colleagues list", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/" alt="Amigos">
-				      		<div href="" id="icone-amigo">
-				      			<span class="icone-legenda hidden-lg"><?php _e("Colleagues", "sis-foca-js"); ?></span>
-				      		</div>
-				      		<span class="hidden-sm hidden-md"><?php _e("Colleagues", "sis-foca-js"); ?></span>
-				      	</a>
-				    </div>
-			      </li>
+			<ul class="collapse navbar-collapse pomoNavbar" style="margin: 5px 0 0">
+				<?php if ( is_user_logged_in() ) { ?> 
+				<li>
+					<a title="<?php _e("Start Focus", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus/" class="btn btn-transparent-blue btn-xs btn-expand">
+						<div id="icone-foc"></div>
+						<span class="hidden-sm hidden-md icon-leg"><?php _e("Focus", "sis-foca-js"); ?></span>
+					</a>
+				</li>
+				<li>
+					<a title="<?php _e("View Productivity", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/<?php  $current_user = wp_get_current_user(); echo $current_user->user_login  ?>" class="btn btn-transparent-blue btn-xs btn-expand">
+						<div id="icone-gauge"></div>
+						<span class="hidden-sm hidden-md icon-leg"><?php _e("Productivity", "sis-foca-js"); ?></span>
+					</a>
+				</li>
+				<li>
+				  	<a title="<?php _e("Colleagues list", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/" alt="Amigos" class="btn btn-transparent-blue btn-xs btn-expand">
+				  		<div id="icone-amigo"></div>
+				  		<span class="hidden-sm hidden-md icon-leg"><?php _e("Colleagues", "sis-foca-js"); ?></span>
+				  	</a>
+				</li>
+				<li>
+					<a title="<?php _e("View the most productive users Ranking", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/ranking/" class="btn btn-transparent-blue btn-xs btn-expand">
+						<div id="icone-rank"></div>
+						<span class="hidden-sm hidden-md icon-leg"><?php _e("Ranking", "sis-foca-js"); ?></span>
+					</a>
+				</li>
 
-			      <li>
-			      	<div class="contem-icone">
-			      	<a title="<?php _e("View the most productive users Ranking", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/ranking/">
-			      		<div href="" id="icone-rank">
-			      			<span class="icone-legenda hidden-lg"><?php _e("Ranking", "sis-foca-js"); ?></span>
-			      		</div>
-			      		<span class="hidden-sm hidden-md"><?php _e("Ranking", "sis-foca-js"); ?></span>
-			      	</a>
-			      	</div>
-				  </li>
-
-			      <li>
-			      	<div class="contem-icone">
-			      	<a title="<?php _e("Perfomance Calendar", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/calendar/">
-			      		<div href="" id="icone-calend">
-			      			<span class="icone-legenda hidden-lg"><?php _e("Calendar", "sis-foca-js"); ?></span>
-			      		</div>
-			      		<span class="hidden-sm hidden-md"><?php _e("Calendar", "sis-foca-js"); ?></span>
-			      	</a>
-			      	</div>
-			      </li>
-			     <?php } ?>
+				<li>
+					<a title="<?php _e("Perfomance Calendar", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/calendar/" class="btn btn-transparent-blue btn-xs btn-expand">
+						<div id="icone-calend"></div>
+						<span class="hidden-sm hidden-md icon-leg"><?php _e("Calendar", "sis-foca-js"); ?></span>
+				  	</a>
+				</li>
+			    <?php } ?>
 			    
-			    <ul class="nav navbar-nav navbar-right">
-			      <?php if ( !is_user_logged_in() ) { ?> 
-			      <li>
-			      	<a title="<?php _e("Login", "sis-foca-js"); ?>" class="btn btn-link abrir_login" id="login_login" tabindex="1" style="padding-top: 10px;"><?php _e("Login", "sis-foca-js"); ?></a>
-			      </li>
-			      <li>
-			      	<a href="/register" class="btn btn-link" role="button" aria-pressed="true" title="<?php _e("Create your free pomodoros.com.br account", "sis-foca-js"); ?>" style="padding-top: 10px;" ><?php _e("Register", "sis-foca-js"); ?></a>
-			      </li>
-			      <?php } else { ?> 
-			      <!--li>
-			      	<a title="Ver Blog" class="btn btn-link" href="/blog" style="padding-top: 10px;">Blog</a>
-			      	</li-->
-			      <!--li>
-			      	<button title="Settings" id="settingsbutton" class="btn btn-link" href="/blog" style="padding-top: 10px;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
-			      </li-->
-			      <li>
-			      		<a title="<?php _e("View your account", "sis-foca-js"); ?>" id="settingsbutton" class="btn btn-link" href="<?php bloginfo('url'); ?>/my-account" style="padding-top: 10px;"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="hidden-sm hidden-md"><?php _e("My Acount", "sis-foca-js"); ?></span></a>
-			      </li>
-			      <li>
-			      		<a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" id="settingsbutton" class="btn btn-link" href="<?php bloginfo('url'); ?>/help" style="padding-top: 10px;"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <span class="hidden-sm hidden-md"><?php _e("Support", "sis-foca-js"); ?></span></a>
-			      </li>
-			      <li>
-			      	<a title="<?php _e("Logout", "sis-foca-js"); ?>" class="btn btn-link" href="<?php echo wp_logout_url(); ?>" style="padding-top: 10px;"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> <span class="hidden-sm hidden-md"><?php _e("Logout", "sis-foca-js"); ?></span></a>
-			      </li>
-			      <?php } ?>
-			    </ul>
+			    <!--ul class="nav navbar-nav navbar-right pomoNavbar" style="padding-top: 5;"-->
+			    <span style="float:right;" class="pomoNavbar-right">
+					<?php if ( !is_user_logged_in() ) { ?> 
+					<li>
+						<a title="<?php _e("Login", "sis-foca-js"); ?>" class="btn btn-transparent-dark btn-xs btn-expand abrir_login" id="login_login" tabindex="1">
+							<i class="glyphicon glyphicon-log-in"></i> 
+							<span class="icon-leg"><?php _e("Login", "sis-foca-js"); ?></span>
+						</a>
+					</li>
+					<li>
+						<a href="/register" class="btn btn-success btn-xs btn-expand " role="button" aria-pressed="true" title="<?php _e("Create your free pomodoros.com.br account", "sis-foca-js"); ?>">
+							<i class="glyphicon glyphicon-star"></i> 
+							<span class="icon-leg"><?php _e("Sign Up", "sis-foca-js"); ?></span>
+						</a>
+					</li>
+					<?php } else { ?> 
+					<!--li>
+						<a title="Ver Blog" class="btn btn-link" href="/blog" style="padding-top: 10px;">Blog</a>
+						</li-->
+					<!--li>
+						<button title="Settings" id="settingsbutton" class="btn btn-link" href="/blog" style="padding-top: 10px;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
+					</li-->
+					<li>
+						<a title="<?php _e("View your account", "sis-foca-js"); ?>"  class="btn btn-transparent-red btn-xs btn-expand" href="<?php bloginfo('url'); ?>/my-account">
+							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+							<span class="hidden-sm hidden-md icon-leg"><?php _e("My Acount", "sis-foca-js"); ?></span>
+						</a>
+					</li>
+					<li>
+						<a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand" href="<?php bloginfo('url'); ?>/help">
+							<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 
+							<span class="hidden-sm hidden-md icon-leg"><?php _e("Support", "sis-foca-js"); ?></span>
+						</a>
+					</li>
+					<li>
+						<a title="<?php _e("Logout", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand" href="<?php echo wp_logout_url(); ?>">
+							<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 
+							<span class="hidden-sm hidden-md icon-leg"><?php _e("Logout", "sis-foca-js"); ?></span>
+						</a>
+					</li>
+					<?php } ?>
+				</span>
+			    <!--/ul-->
 			    
 			</ul>
 		</div>
