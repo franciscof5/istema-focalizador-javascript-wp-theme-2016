@@ -49,7 +49,11 @@
 	var color_rest = "#990000";
 }
 function startTest() {
-	pomodoroTime = 15;restTime = 30;bigRestTime = 180;intervalMiliseconds = 10;
+	alert("Special demonstration configuration loaded")
+	//pomodoroTime = 15;
+	//restTime = 30;
+	//bigRestTime = 180;
+	intervalMiliseconds = 1;
 }
 //With that line jQuery can use the selector ($) and jQuery use the selector (jQuery), without conflict
 //jQuery.noConflict();

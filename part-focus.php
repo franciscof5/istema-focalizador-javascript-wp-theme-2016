@@ -237,7 +237,13 @@
 		<?php //<p><?php _e("You can save your tasks for later", "sis-foca-js"); </p> ?>
 
 		</div>
-		<div class="row"></div>
+		
+		<?php if(current_user_can('administrator')) { ?>
+			<div style="background-color: #EEE; text-align: center;border-radius: 10px;margin-top: 20px; padding: 10px;">
+				<p><strong><?php _e("For admin only:", "sis-foca-js"); ?></strong></p>
+				<button class="btn btn-warning" type="button" onclick="startTest();"><strong><?php _e("Start demo", "sis-foca-js"); ?></strong></button>
+			</div>
+		<?php } ?>
 	</div>
 	
 </div><!-- #content -->
