@@ -599,7 +599,7 @@ filter:alpha(opacity=85); /* For IE8 and earlier */
 	background: #FFF;
 	border: solid 2px #DDD;
 	border-radius: 20px;
-	padding: 10px 50px;
+	/*padding: 10px 50px;*/
 }
 #center_layout .wp-social-login-widget {
 	margin:0 auto;

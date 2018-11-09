@@ -5,7 +5,7 @@
 
 <!--div class="content_pomodoro col-xs-12 col-sm-6"-->
 
-<div id="center_layout" class="col-sm-6 col-sm-offset-3">
+<div id="center_layout" class="col-sm-6 col-sm-offset-3 col-xs-12">
 	<div id="pomodoro-painel">		
 			
 		<div id="pomodoro-relogio">							
