@@ -1,10 +1,11 @@
 	
-	<div style="text-align: center; margin: -20px 0 20px 0;" >
+	<div style="text-align: center;" >
 		<h1 class="forte">Work & Fun Time Tracker</h1>
 		<p style="font-weight: 600; font-size: 18px;">Relax and Focus: Online social time tracker for task and projects, 
 		<br> get you and your team more productive than ever</p>
 		<a class="btn btn-success" href="/register" style="font-weight: 600; padding: 10px 30px"><i class="glyphicon glyphicon-star"></i> Get started for Free</a>
 	</div>
+		
 		<?php
 		$user_active_count = count_users(); //METHOD 1, only active
 		#var_dump($user_active_count);
@@ -92,7 +93,7 @@
 		</a>
 	</div>
 
-	<div style="padding: 0 10px 0 30px ;">
+	<div style="padding: 0 20px 0 30px ;">
 		<center><h2 class="forte">Stats from Community</h2></center>
 		<ul class="list-group stats-group col-md-6">
 			<li class="list-group-item active">
@@ -172,8 +173,33 @@
 			</div>
 		</div>
 	</div>
+	<center><h2 class="forte">Brief History</h2></center>
+	<div class="row brief-history">
+		...
+		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Initial Plans" data-content="Francisco, CEO and founder, tryed a lot of pomodoros softwares and decided to louch it's own">2010</a>
+		...
+		<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Pomodoros Red" data-content="First version, already online, social and async JavaScript timer, based in WordPress and BuddyPress">2011</a>
+		...
+		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="First Growth" data-content="Very promissor period, users growing based in spontaneus users reviews in blogs, no single penny expensed in marketing">2012</a>
+		...
+		<a tabindex="0" class="btn btn-lg btn-success" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Pomodoros Green" data-content="A lot of updates to join in a startup contest, no investors became interested">2013</a>
+		...
+		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Second Growth" data-content="Another promissor period, mouth-to-mouth and organic grow, but founder need to stop develop system and it started became out of date" >2014</a>
+		...
+		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Pomodoros Offline" data-content="Service went offline because founder need to work in other activities, lost all regular users">2016</a>
+		...
+		<a tabindex="0" class="btn btn-lg btn-black" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Pomodoros Black" data-content="After years offline, pomodoros are being remade in a new mobile first version">2018</a>
+		...
+		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Pomodoros Global" data-content="We expect that all translations are 100% ready and people all over the world join the community, first paid ads">2019</a>
+		...
+		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Clear Real Valuation" data-content="For good or for worst, the valuation of the system are clear, investors can join or leave for a just price in options">2020</a>
+		...
+		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Societal Plan" data-content="Plans for multiple single investors to join, options are became more valuable, at this time is expected that founder have about 15% of stock">2021</a>
+		...
 
-		<center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center>
+	</div>
+	<br>
+	<center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center>
 		
 
 	<?php /*
