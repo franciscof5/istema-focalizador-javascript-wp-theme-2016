@@ -186,29 +186,29 @@
 	<div class="row brief-history">
 		<h2 class="forte"><i class="glyphicon glyphicon-road"></i> Brief History</h2>
 		<span>...
-		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Initial Plans" data-content="Francisco, CEO and founder, tryed a lot of pomodoros softwares and decided to louch it's own">2010</a>
+		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Initial Plans" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-offline.jpg'>Francisco, CEO and founder, tried a lot of pomodoros softwares and decided to build it's own">2010</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Pomodoros Red" data-content="First version, already online, social and async JavaScript timer, based in WordPress and BuddyPress">2011</a>
+		<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Pomodoros Red" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-red.jpg'>First version, already online, social and async JavaScript timer, based in WordPress and BuddyPress">2011</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="First Growth" data-content="Very promissor period, users growing based in spontaneus users reviews in blogs, no single penny expensed in marketing">2012</a>
+		<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="First Growth" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-red.jpg'>Very promissor period, users growth based in spontaneous reviews, in blogs, no single penny expensed in marketing">2012</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-success" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Pomodoros Green" data-content="A lot of updates to join in a startup contest, no investors became interested">2013</a>
+		<a tabindex="0" class="btn btn-lg btn-success" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Pomodoros Green" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-green.jpg'>A lot of updates to join in a brazilian startup contest, no investors became interested">2013</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-success" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Second Growth" data-content="Another promissor period, mouth-to-mouth and organic grow, but founder need to stop develop system and it started became out of date" >2014</a>
+		<a tabindex="0" class="btn btn-lg btn-success" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Second Growth" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-green.jpg'>Another promissor period, mouth-to-mouth and organic growth, but founder needed to stop developing system due Master course and it started became out of date" >2014</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-success" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Turbulency" data-content="High maintenance costs, founder have no time for coding, service was still online, with growth in users, but the server was poor configured and unable to update">2015</a>
+		<a tabindex="0" class="btn btn-lg btn-success" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Turbulency" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-green.jpg'>High maintenance costs, founder have no time for coding, service was still online, with growth in users, but the server was poor configured and unable to update regularly">2015</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-warning" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Pomodoros Offline" data-content="Service went offline because founder need to work in other activities, lost all regular users">2016</a>
+		<a tabindex="0" class="btn btn-lg btn-warning" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Pomodoros Offline" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-offline.jpg'>Service went offline because founder needed to work in other activities and trying to finish Master course, lost all regular users">2016</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-warning" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Laboratory" data-content="New server configuration, focused on scalability and shared users information, lot of tools created to speedup development and maintance, a base for future growth. The most important year, a lot of experiences was made, since there was no users, the service constantly ended up broken untill it get on track again">2017</a>
+		<a tabindex="0" class="btn btn-lg btn-warning" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Laboratory" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-offline.jpg'>Founder quited Master course and start full-time operations. New server configuration, focused on scalability and shared users information, lot of tools created to speedup development and maintance, a base for future growth. The most important year, a lot of experiences was made, since there was no users, the service constantly ended up broken untill it get on track again">2017</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-black" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Pomodoros Black" data-content="After years offline, pomodoros are being remade in a new mobile first version">2018</a>
+		<a tabindex="0" class="btn btn-lg btn-black" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Pomodoros Black" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-black.jpg'>After years offline, finally Pomodoros.com.br are back online in a new 'mobile first' version, with app for Android in Google Play Store">2018</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-black" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Pomodoros Global" data-content="We expect that all translations are 100% ready and people all over the world join the community, first paid ads">2019</a>
+		<a tabindex="0" class="btn btn-lg btn-black" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Pomodoros Global" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-black.jpg'>We expect that all translations are 100% ready and people all over the world join the community, first paid ads and gifts sellings in its own built-in donation store">2019</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-black" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Clear Real Valuation" data-content="For good or for worst, the valuation of the system are clear, investors can join or leave for a just price in options">2020</a>
+		<a tabindex="0" class="btn btn-lg btn-black" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Clear Real Valuation" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-black.jpg'>For good or for worst, the valuation of the system are clear, investors can join or leave for a just price in options">2020</a>
 		...
-		<a tabindex="0" class="btn btn-lg btn-black" role="button" data-toggle="popover" data-trigger="hover" data-placement="top" title="Societal Plan" data-content="Plans for multiple single investors to join, options are became more valuable, at this time is expected that founder have about 15% of stock">2021</a>
+		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="Societal Plan" data-content="Plans for multiple single investors to joining, options are become more valuable, at this time is expected that founder have about 15% of stock">2021</a>
 		...
 		</span>
 	</div>
@@ -219,8 +219,6 @@
 		<br> contact us to get an special training for boot focus and productivity</p>
 		<a class="btn btn-success" href="/register" style="font-weight: 600; padding: 10px 30px"><i class="glyphicon glyphicon-education"></i> Contact Teacher</a>
 	</div-->
-	<br>
-	<br>
 	<center><h2 class="forte"><i class="glyphicon glyphicon-comment"></i> Blog</h2></center>
 	<div class="row blog-posts">
 				<?php 

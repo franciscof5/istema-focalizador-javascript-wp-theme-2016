@@ -3435,6 +3435,10 @@ h3.rpwe-title a {
 	background-color: #CCC;
 	padding: 0 20px 20px;
 }
+.brief-history .popover-title {
+	font-weight: 600;
+	font-family: forte;
+}
 .brief-history span {
 	letter-spacing: -6px;
 	font-size: 60px;
