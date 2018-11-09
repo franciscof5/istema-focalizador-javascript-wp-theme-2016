@@ -63,7 +63,7 @@
 					<br style="clear: both;">
 					
 					<h3><a href="/help" alt="Get help"><?php _e("Support", "sis-foca-js"); ?></a></h3>
-					<p><a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" id="settingsbutton" class="btn  btn-default" href="<?php bloginfo('url'); ?>/help" style="padding-top: 10px; color: #222;"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <?php _e("Open support ticket", "sis-foca-js"); ?></a></p>
+					<p><a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" id="settingsbutton" class="btn  btn-black" href="<?php bloginfo('url'); ?>/help" style="padding-top: 10px;"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <?php _e("Open support ticket", "sis-foca-js"); ?></a></p>
 				</div>
 
 				<?php /*

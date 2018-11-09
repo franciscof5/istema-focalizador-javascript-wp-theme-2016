@@ -3030,8 +3030,8 @@ h3.rpwe-title a {
 }
 .contem-thumb img{
 	width:100% !important;
-    /*object-fit: cover;*/
-    object-fit: scale-down;
+    object-fit: cover;
+    /*object-fit: scale-down;*/
     height:auto !important;
     max-height: 200px;
 }
@@ -3366,6 +3366,17 @@ h3.rpwe-title a {
 }
 
 /**/
+.header-desc {
+	text-align: center;
+	background-color: #CCC;
+	padding-bottom: 20px;
+}
+.stats-com {
+	margin-top: 20px;
+	padding: 0 20px 0 30px;
+	background-color: #CCC;
+	padding-bottom: 20px;
+}
 .testimonials {
 	/*padding: 30px;*/
 }
@@ -3421,6 +3432,10 @@ h3.rpwe-title a {
 /**/
 .brief-history {
 	text-align: center;
+	background-color: #CCC;
+	padding: 0 20px 20px;
+}
+.brief-history span {
 	letter-spacing: -6px;
 	font-size: 60px;
 }
@@ -3439,4 +3454,7 @@ h3.rpwe-title a {
     background-color: #333;
     border-color: #333;
     color: #FFF !important;
+}
+h2 i {
+	margin-bottom: -6px;
 }
