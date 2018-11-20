@@ -114,7 +114,7 @@
 				/*<br /> Hosted by <a href="https://www.f5sites.com/pomodoros">F5 Sites</a>*/
 				?>
 				<div class="col-xs-6">
-					<p style="text-align: right;">Project <a href="<?php bloginfo('url'); ?>/tag/pomodoros-2"> Pomodoros</a></p>
+					<p style="text-align: right;"><a href="<?php bloginfo('url'); ?>/tag/pomodoros-2">Project Pomodoros</a> | on <a href="https://angel.co/projects/68620-pomodoros-com-br">AngelList</a> | <a href="http://carreirasolo.org/novas/site-usa-tecnica-dos-pomodoros-para-agilizar-produtividade#.W_PWZ6uQxpg">CarreiraSolo</a></p>
 				</div>
 			</div>
 			<?php do_action( 'bp_footer' ) ?>
