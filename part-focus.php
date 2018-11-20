@@ -200,16 +200,30 @@
 				$taglist = "";
 				$posttags = get_the_tags();
 				  if ($posttags) {
+				  	//alert(jQuery($posttags).size());
+				  	$i=1;
+				  	$c=count($posttags);
+				  	//echo $c;
 				    foreach($posttags as $tag) {
-				    	$taglist.="'".$tag->slug."', ";
+				    	//$taglist.="'".$tag->slug."', ";
+				    	
+				    	if($i<$c)
+				    		$taglist.=$tag->slug.", ";
+				    	else
+				    		$taglist.=$tag->slug." ";
+				    	$i++;
 				    }
 				}
 				?>
 				
 				<div class="model-container" data-modelid="<?php echo $counter ?>">
 				<?php 
-					echo "<strong id=bxtag$counter>".$taglist."</strong>";
+					
+					echo "<span class='glyphicon glyphicon-paste' aria-hidden='true'></span> ";
 					echo "<span id=bxtitle$counter>".get_the_title()."</span>";
+					echo "<br>";
+					echo "<span class='glyphicon glyphicon-tags' aria-hidden='true'></span> &nbsp; ";
+					echo "<strong id=bxtag$counter>".$taglist."</strong>";
 					echo "<p>";
 					echo "<span id=bxcontent$counter>".get_the_content()."</span>";
 					echo "</p>"; ?>

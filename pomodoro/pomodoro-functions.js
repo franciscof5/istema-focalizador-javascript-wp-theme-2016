@@ -6,6 +6,8 @@
 	if(data_from_php.is_admin)
 		var debug = true;
 	//
+	var doing_ajax = false;
+	//
 	var pomodoros_to_big_rest=4;
 
 	var pomodoroTime = 1500;
@@ -132,11 +134,9 @@ jQuery(document).ready(function ($) {
 	
 	//Check updates on task every 15s (if not on focus)
 	listen_changes_on_task_form = setInterval(function() {
-		if(!jQuery("#title_box").is(":focus") && !jQuery("#tags_box").data('select2').isOpen() && !jQuery("#description_box").is(":focus"))
+		if(!jQuery("#title_box").is(":focus") && !jQuery("#tags_box").data('select2').isOpen() && !jQuery("#description_box").is(":focus") && !doing_ajax )
 		load_initial_data();
 	},15000);
-
-	
 });
 function model_task_buttons_functions() {
 	jQuery("#botao-salvar-modelo").off("click").click(function(e) {
@@ -195,11 +195,13 @@ function model_task_buttons_functions() {
 }
 
 function load_initial_data() {
+	doing_ajax = true;
 	var data = {
 		action: 'load_session',
 		//dataType: "json"
 	};
 	jQuery.post(ajaxurl, data, function(response) {
+		doing_ajax = false;
 		if(response=="NOTIN")window.location.href = "/";
 
 		if(response==0 && !stopWarningNoTaskFound) {
@@ -219,6 +221,8 @@ function load_initial_data() {
 			});
 			stopWarningNoTaskFound=true;
 		} else {
+			if(!jQuery("#title_box").is(":focus") && !jQuery("#tags_box").is(":focus") && !jQuery("#description_box").is(":focus") && !doing_ajax) {
+
 			var postReturned = jQuery.parseJSON( response.slice( 0, - 1 ) );
 			
 			//alert(postReturned['ID']);
@@ -234,7 +238,7 @@ function load_initial_data() {
 			//COPY
 			tags = postReturned['post_tags'];
 
-			//alert(jQuery('#tags_box').select2());
+			//
 			jQuery('#tags_box').empty();
 			if(tags) {
 				//
@@ -247,7 +251,7 @@ function load_initial_data() {
 			}
 
 			tags_list = postReturned['tags_total'];
-			//alert(tags_list);
+			///
 			if(tags_list) {
 				jQuery('#tags_box').append('<optgroup label="'+txt_available+'">');
 				jQuery.each(tags_list, function(i) {
@@ -268,7 +272,7 @@ function load_initial_data() {
 				}
 			});
 			//change_status(secundosRemainingFromPHP);
-			//alert(secundosRemainingFromPHP);
+			//
 			//secundosRemainingFromPHP = secundosRemainingFromPHP.substring(rex[5], str.length - 1);
 			
 			
@@ -276,7 +280,7 @@ function load_initial_data() {
 				//It has to be negative, because the PHP logic
 				secundosRemainingFromPHP*=-1;
 			}*/
-			//alert(status_box.value);
+			//
 			if(status_box.value=="draft") {//era pending
 				//alert("secundosRemainingFromPHP"+secundosRemainingFromPHP+" pomodoroTime:"+pomodoroTime);
 				if(secundosRemainingFromPHP) {
@@ -318,6 +322,7 @@ function load_initial_data() {
 			if(artyom_voice!=undefined && volumeLevel>1 )
 				artyom_voice.initialize({volume:volumeLevel/100});
 			//artyom_voice.volume = volumeLevel/100;
+			}
 		}
 		//
 		if(jQuery("#action_button_id").is(':disabled')) {
@@ -342,6 +347,7 @@ function load_initial_data() {
 }
 
 function update_pomodoro_clipboard (post_stts) {
+	doing_ajax = true;
 	var postcat=getRadioCheckedValue("cat_vl");
 	var privornot=getRadioCheckedValue("priv_vl");
 	var data = {
@@ -364,8 +370,7 @@ function update_pomodoro_clipboard (post_stts) {
 	
 	if(post_stts) {
 		data["post_status"] = post_stts;
-	} 
-	
+	}
 
 	volumeLevel = jQuery("#rangeVolume").val();
 	soundManager.setVolume(volumeLevel);
@@ -377,8 +382,10 @@ function update_pomodoro_clipboard (post_stts) {
 	//artyom_voice.volume = volumeLevel/100;
 
 	jQuery.post(ajaxurl, data, function(response) {
+		doing_ajax = false;
 		if(response=="NOTIN")window.location.href = "/";
 		rex = response.split("$^$ ");
+		if(debug)
 		change_status("Os dados foram salvados " + rex[0]);
 		//alert(response['ID']);
 		status_box.value = rex[1];
@@ -888,7 +895,7 @@ function save_model() {
 				htmlTaskModel = ' \
 					<li id="modelo-carregado-'+sessao_atual+'" class="modelo-carregado ui-draggable ui-draggable-handle"> \
 						<div class="model-container" data-modelid="'+sessao_atual+'"> \
-							<strong id="bxtag'+sessao_atual+'">'+tags_box.value+', </strong> \
+							<strong id="bxtag'+sessao_atual+'">\''+data.post_tags+'\', </strong> \
 							<span id="bxtitle'+sessao_atual+'">'+title_box.value+'</span> \
 							<p> \
 							<span id="bxcontent'+sessao_atual+'">'+description_box.value+'</span> \
@@ -939,11 +946,27 @@ function load_model(task_model_id) {
 	change_status(txt_loading_model);
 	jQuery("#title_box").val(jQuery("#bxtitle"+task_model_id).text());
 	jQuery("#description_box").val(jQuery("#bxcontent"+task_model_id).text());
-	valinsert = "["+jQuery("#bxtag"+task_model_id).text()+"]";
+	valinsert_item = jQuery("#bxtag"+task_model_id).text().split(",");
+
+	//valinsert = "["+jQuery("#bxtag"+task_model_id).text()+"]";
+	valinsert = "[";
+	//valinsert = "";
+	i=1;
+	c=valinsert_item.length;
+	valinsert_item.forEach(function(item) {
+		if(i<c)
+			valinsert += "\'"+item.replace(/ /g,'')+"\',";
+		else
+			valinsert += "\'"+item.replace(/ /g,'')+"\'";
+		i++;
+	});
+	valinsert += "]";
+	//valinsert = "['musica', 'teste', 'pomodoros-2']";
+	//alert(valinsert);
 	var has_previous_tags = jQuery("#bxtag"+task_model_id);
 	//alert(has_previous_tags);
 	if(has_previous_tags) {
-		jQuery("#tags_box").val("").trigger('change');;
+		jQuery("#tags_box").val("");//.trigger('change');
 		//jQuery("#tags_box").empty();
 		jQuery("#tags_box").val("").val(eval(valinsert)).trigger('change');
 		//jQuery("#tags_box").val(["itapemapa", "franciscomat"]).trigger('change');;
@@ -954,7 +977,7 @@ function load_model(task_model_id) {
 		//jQuery("#tags_box").value("");
 	}
 	//jQuery("#tags_box").val(['contabilidade', ]).trigger('change');
-	jQuery("#action_button_id").focus();
+	//jQuery("#action_button_id").focus();
 }
 
 //Change the <title> of the document
