@@ -42,6 +42,7 @@
 	var pomodoro_completed_sound;
 	var active_sound;
 	var session_reseted_sound;
+	//
 	var autoAction=false; //if true dont need to click
 	var autoCycle=false;
 	var autoCycleCurrent=1;
@@ -459,6 +460,8 @@ function countdown_clock (){
 //This is the reason of all the code, the time when user complete a pomodoro, these satisfaction!
 function complete() {
 	if(debug)
+	alert(autoCycle);
+	if(debug)
 	console.log("complete()");
 	//alert("complete(), is_pomodoro: "+is_pomodoro+", pomodoro_actual:"+pomodoro_actual);
 	//is_interrupt_button = false;
@@ -807,7 +810,7 @@ function cycle_list_play() {
 
 	if(autoCycle) {
 		//
-		autoCycle=true;
+		autoCycle=false;
 		//jQuery("#pomopainel").hide(2000);
 		change_status(auto_cycle_disabled);
 		//
@@ -817,7 +820,7 @@ function cycle_list_play() {
 		jQuery("#cycle_start").css("color", "#FFF");
 
 	} else {
-		autoCycle=false;
+		autoCycle=true;
 		//jQuery("#pomopainel").show(2000);
 		
 		change_status(auto_cycle_enabled);
@@ -833,9 +836,9 @@ function cycle_list_load_model() {
 	current_model_id = jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").find("div").data("modelid");
 	//jQuery("#contem-ciclo li").each("li").animate({'background-color': "#FFF"}, 2000);
 	jQuery("#contem-ciclo li").each(function(i){
-		jQuery(this).animate({'background-color': "#FFF"}, 2000);
+		jQuery(this).animate({'background-color': "#FFF"}, 500);
 	});
-	jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'background-color': "#5cb85c"}, 2000);
+	jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'background-color': "#5cb85c"}, 500);
 	//autoCyclePrevious = autoCycleCurrent-1;
 	//jQuery("#contem-ciclo li:nth-child("+autoCyclePrevious+")").animate({'background-color': "#FFF"}, 2000);
 	//autoCycleCurrent 
@@ -927,19 +930,23 @@ function delete_model(task_model_id) {
 }
 
 function load_model(task_model_id) {
-	//console.log(jQuery("#bxtitle"+task_model_id).text());
+	if(debug)
+	console.log("load_model(), task_model_id"+task_model_id);
 	change_status(txt_loading_model);
 	jQuery("#title_box").val(jQuery("#bxtitle"+task_model_id).text());
 	jQuery("#description_box").val(jQuery("#bxcontent"+task_model_id).text());
 	valinsert = "["+jQuery("#bxtag"+task_model_id).text()+"]";
-	//alert(valinsert);
-	if(jQuery("#bxtag"+task_model_id)) {
+	var has_previous_tags = jQuery("#bxtag"+task_model_id);
+	//alert(has_previous_tags);
+	if(has_previous_tags) {
 		//jQuery("#tags_box").val("").trigger('change');;
-		jQuery("#tags_box").val(eval(valinsert)).trigger('change');
+		//jQuery("#tags_box").empty();
+		jQuery("#tags_box").val("").val(eval(valinsert)).trigger('change');
 		//jQuery("#tags_box").val(["itapemapa", "franciscomat"]).trigger('change');;
 		//jQuery("#tags_box").value(jQuery("#bxtag"+task_model_id).text());
 	} else {
-		jQuery("#tags_box").val("").trigger('change');
+		//jQuery("#tags_box").empty();
+		jQuery("#tags_box").trigger('change');
 		//jQuery("#tags_box").value("");
 	}
 	//jQuery("#tags_box").val(['contabilidade', ]).trigger('change');
