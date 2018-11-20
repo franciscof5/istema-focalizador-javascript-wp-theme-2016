@@ -1,9 +1,6 @@
-<?php get_header(); 
-locate_template( "part-task.php", true );
-get_footer();
-?>
+<?php #get_header(); ?>
 
-<?php /*
+<?php
 if (!is_user_logged_in()) {
 	locate_template( "part-closed.php", true );
 } else {
@@ -27,6 +24,10 @@ if (!is_user_logged_in()) {
 					<tr>
 						<td><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <?php _e("Name", "sis-foca-js"); ?></td>
 						<td><a href="/members/<?php echo get_the_author_meta( 'user_nicename' ); ?>"><?php the_author(); ?></a></td>
+					</tr>
+					<tr>
+						<td><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <?php _e("Location", "sis-foca-js"); ?></td>
+						<td><!--a href="#"--><?php echo get_post_meta(get_the_ID(), "post_location_city", true).", ".get_post_meta(get_the_ID(), "post_location_region", true).", ".get_post_meta(get_the_ID(), "post_location_country", true); ?><!--/a--></td>
 					</tr>
 					<tr>
 						<td><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> <?php _e("Project tags", "sis-foca-js"); ?></td>
@@ -71,7 +72,7 @@ if (!is_user_logged_in()) {
 	<?php endwhile; // end of the loop. ?>
 	</div>
 <?php } ?>
-<?php get_footer();
+<?php #get_footer();
 	/*
 	<div class="container">
 		<br />

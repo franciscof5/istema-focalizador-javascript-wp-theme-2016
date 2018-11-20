@@ -114,7 +114,7 @@
 				/*<br /> Hosted by <a href="https://www.f5sites.com/pomodoros">F5 Sites</a>*/
 				?>
 				<div class="col-xs-6">
-					<p style="text-align: right;">Project <a href="<?php bloginfo('url'); ?>/projeto/pomodoros-2"> Pomodoros</a></p>
+					<p style="text-align: right;">Project <a href="<?php bloginfo('url'); ?>/tag/pomodoros-2"> Pomodoros</a></p>
 				</div>
 			</div>
 			<?php do_action( 'bp_footer' ) ?>

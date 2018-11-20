@@ -603,11 +603,12 @@ function load_scritps() {
 	wp_register_script("pomodoros-js", get_bloginfo("stylesheet_directory")."/pomodoro/pomodoro-functions.js", __FILE__, time());
 
 	// Localize the script with new data
-	$translation_array = array(
+	$localized_array = array(
 		'php_locale' => $user_prefered_language,
+		'is_admin' => current_user_can("administrator") ? true : false,
 	);
 	
-	wp_localize_script( 'pomodoros-js', 'data_from_php', $translation_array );
+	wp_localize_script( 'pomodoros-js', 'data_from_php', $localized_array );
 
 	// Enqueued script with localized data.
 	//wp_enqueue_script( 'pomodoros-js' );

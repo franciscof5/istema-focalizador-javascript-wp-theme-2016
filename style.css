@@ -618,7 +618,7 @@ margin: 5px 0px;*/
 
 border-radius: 5px;
 }
-#contem-modelos li {
+/*#contem-modelos li {
 	padding: 5px 10px;
 	background: none repeat scroll 0% 0% rgb(255, 255, 255);
 	overflow: hidden;
@@ -632,7 +632,7 @@ border-radius: 5px;
 #contem-modelos p{
 	text-align:center;
 	margin:10px 0 0 0;
-}
+}*/
 .delete-task-model-btn {
     position: absolute;
     right: 4px;
@@ -3123,10 +3123,32 @@ h3.rpwe-title a {
 #contem-ciclo .delete-task-model-btn {
 	display: none;
 }
-.model-container {
-	cursor: move;
+.modelo-carregado {
+	padding: 5px 10px;
+	/*background: none repeat scroll 0% 0% rgb(255, 255, 255);*/
+	background-color: #EEE;
+	overflow: hidden;
+	height: 30px !important;
+	margin-bottom: 5px;
+	position: relative;
+}
+.modelo-carregado:hover {
+	height: inherit !important;
+}
+.modelo-carregado p{
+	text-align:center;
+	margin:10px 0 0 0;
 }
 
+.model-container {
+	cursor: move;
+	float: left;
+	width: 90%;
+}
+.model-container_delete {
+	float: right;
+	width: 10%;
+}
 
 @charset "utf-8";
 /**/

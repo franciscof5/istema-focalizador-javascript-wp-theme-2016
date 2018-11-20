@@ -2,6 +2,10 @@
 
 //SYSTEM VARS
 {
+	var debug = false;
+	if(data_from_php.is_admin)
+		var debug = true;
+	//
 	var pomodoros_to_big_rest=4;
 
 	var pomodoroTime = 1500;
@@ -49,11 +53,11 @@
 	var color_rest = "#990000";
 }
 function startTest() {
-	alert("Special demonstration configuration loaded")
-	//pomodoroTime = 15;
-	//restTime = 30;
-	//bigRestTime = 180;
-	intervalMiliseconds = 1;
+	alertify.success("Special demonstration configuration loaded");
+	pomodoroTime = 5;
+	restTime = 3;
+	bigRestTime = 18;
+	intervalMiliseconds = 0.1;
 }
 //With that line jQuery can use the selector ($) and jQuery use the selector (jQuery), without conflict
 //jQuery.noConflict();
@@ -72,18 +76,6 @@ jQuery(document).ready(function ($) {
 	jQuery("#relogio").click(function(e) {
 		e.preventDefault();
 		action_button()
-	});
-	jQuery("#botao-salvar-modelo").click(function(e) {
-		e.preventDefault();
-		save_model();
-	});
-	jQuery(".delete-task-model-btn").click(function(e) {
-		e.preventDefault();
-		delete_model(jQuery(this).data('modelid'));
-	});
-	jQuery(".model-container").click(function(e) {
-		e.preventDefault();
-		load_model(jQuery(this).data('modelid'));
 	});
 	/*jQuery(".delete-task-model-btn").click(function(e) {
 		e.preventDefault();
@@ -113,6 +105,7 @@ jQuery(document).ready(function ($) {
 		e.preventDefault();
 		cycle_list_next();
 	});
+	model_task_buttons_functions();
 	//
 	qtdd_tasks = jQuery('ul#contem-ciclo li').length;
 	//
@@ -142,6 +135,21 @@ jQuery(document).ready(function ($) {
 		load_initial_data();
 	},15000);
 
+	
+});
+function model_task_buttons_functions() {
+	jQuery("#botao-salvar-modelo").off("click").click(function(e) {
+		e.preventDefault();
+		save_model();
+	});
+	jQuery(".delete-task-model-btn").off("click").click(function(e) {
+		e.preventDefault();
+		delete_model(jQuery(this).data('modelid'));
+	});
+	jQuery(".model-container").off("click").click(function(e) {
+		e.preventDefault();
+		load_model(jQuery(this).data('modelid'));
+	});
 	jQuery( "#contem-ciclo" ).sortable({
 	  revert: true,
 	  	over: function() {
@@ -183,7 +191,7 @@ jQuery(document).ready(function ($) {
 		cursor: "move",
 	});
 	jQuery( "ul, li" ).disableSelection();
-});
+}
 
 function load_initial_data() {
 	var data = {
@@ -425,6 +433,7 @@ function start_clock() {
 		window.onbeforeunload = null;
 	//startContinuousArtyom();
 }
+
 function myConfirmation() {
     return 'Are you sure you want to quit? You have time left on timer';
 }
@@ -449,7 +458,9 @@ function countdown_clock (){
 
 //This is the reason of all the code, the time when user complete a pomodoro, these satisfaction!
 function complete() {
-	//console.log("complete()");
+	alert(autoCycle);
+	if(debug)
+	console.log("complete()");
 	//alert("complete(), is_pomodoro: "+is_pomodoro+", pomodoro_actual:"+pomodoro_actual);
 	//is_interrupt_button = false;
 	pomodoro_completed_sound.stop();
@@ -792,6 +803,9 @@ function cycle_list_update(clean_) {
 }
 
 function cycle_list_play() {
+	if(debug)
+		console.log("cycle_start(), autoCycle="+autoCycle);
+
 	if(autoCycle) {
 		//
 		autoCycle=true;
@@ -799,8 +813,9 @@ function cycle_list_play() {
 		change_status(auto_cycle_disabled);
 		//
 		cycle_list_load_model();
-			jQuery("#cycle_start").css("background-color", "#222");
-	jQuery("#cycle_start").css("color", "#FFF");
+		//
+		jQuery("#cycle_start").css("background-color", "#222");
+		jQuery("#cycle_start").css("color", "#FFF");
 
 	} else {
 		autoCycle=false;
@@ -814,8 +829,8 @@ function cycle_list_play() {
 	}
 	//jQuery("#contem-ciclo")
 }
-function cycle_list_load_model() {
 
+function cycle_list_load_model() {
 	current_model_id = jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").find("div").data("modelid");
 	//jQuery("#contem-ciclo li").each("li").animate({'background-color': "#FFF"}, 2000);
 	jQuery("#contem-ciclo li").each(function(i){
@@ -827,7 +842,10 @@ function cycle_list_load_model() {
 	//autoCycleCurrent 
 	load_model(current_model_id);
 }
+
 function cycle_list_next() {
+	if(debug)
+	console.log("cycle_list_next()");
 	qtdd_tasks = jQuery('ul#contem-ciclo li').length;
 	if(qtdd_tasks==autoCycleCurrent)
 		autoCycleCurrent=1;
@@ -835,6 +853,7 @@ function cycle_list_next() {
 		autoCycleCurrent++;
 	cycle_list_load_model();
 }
+
 function cycle_list_prev() {
 	qtdd_tasks = jQuery('ul#contem-ciclo li').length;
 	if(autoCycleCurrent<=1)
@@ -858,12 +877,28 @@ function save_model() {
 			if(response==0) {
 				change_status(txt_salving_model_task_null);
 			} else {
-				var sessao_atual=response;
-				//primeiro salva o post, para depois pegar o id do mesmo
-				jQuery("#contem-modelos").append('<ul id="modelo-carregado-'+sessao_atual+'"><li><input type="text" value="'+title_box.value+'" disabled="disabled" id="bxtitle'+sessao_atual+'"><br /><input type="text" value="'+description_box.value+'" disabled="disabled" id="bxcontent'+sessao_atual+'"><br /><input type="text" value="'+tags_box.value+'" disabled="disabled" id="bxtag'+sessao_atual+'"><p><input type="button" value="usar modelo" onclick="load_model('+sessao_atual+')"><input type="button" value="apaga" onclick="delete_model('+sessao_atual+')"></p></li></ul>');
+				var sessao_atual=parseInt(response);
+				//primeiro salva o post, para depois pegar o id do mesmo title_box
+				htmlTaskModel = ' \
+					<li id="modelo-carregado-'+sessao_atual+'" class="modelo-carregado ui-draggable ui-draggable-handle"> \
+						<div class="model-container" data-modelid="'+sessao_atual+'"> \
+							<strong id="bxtag'+sessao_atual+'">'+tags_box.value+', </strong> \
+							<span id="bxtitle'+sessao_atual+'">'+title_box.value+'</span> \
+							<p> \
+							<span id="bxcontent'+sessao_atual+'">'+description_box.value+'</span> \
+							</p> \
+						</div> \
+						<div class="model-container_delete"> \
+							<a href="#" class="btn btn-xs btn-danger delete-task-model-btn" data-modelid="'+sessao_atual+'"> \
+								<span class="glyphicon glyphicon-trash"></span> \
+							</a> \
+						</div> \
+					</li>';
+				jQuery("#contem-modelos").append(htmlTaskModel);
 				/*jQuery("#botao-salvar-modelo").val("sessão salvada com sucesso");
 				jQuery("#botao-salvar-modelo").attr('disabled', 'disabled');*/
 				//document.getElementById("bxcontent"+sessao_atual).focus();
+				model_task_buttons_functions();
 				change_status(txt_salving_model_success);
 			}
 		}

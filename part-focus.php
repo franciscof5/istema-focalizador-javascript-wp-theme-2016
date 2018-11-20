@@ -151,6 +151,28 @@
 			});
 		</script> */ ?>
 		<div class="collapse" id="collapseCyle">
+
+		<div>
+			<h3 class="widget-title"><?php _e("Automatic cycle", "sis-foca-js"); ?></h3>
+			<p style="float: right; margin-top: -14px;">
+			<button class="btn btn-small" id="cycle_prev"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button> &nbsp; 
+			<button class="btn btn-small" id="cycle_start"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+			&nbsp; 
+			<button class="btn btn-small" id="cycle_next"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button> &nbsp; 
+			<button class="btn btn-small" id="cycle_empty"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+			</p>
+		
+			<p>
+			<small><?php _e("Volume", "sis-foca-js"); ?><?php _e("Drop tasks below", "sis-foca-js"); ?></small>
+				</p>
+			<ul id="contem-ciclo" style="">
+				<?php
+				echo get_user_meta(get_current_user_id(), "cycle_list", true);
+				?>
+			</ul>
+		</div>
+
+
 		<h3 class="widget-title"><?php _e("TODO list", "sis-foca-js"); ?></h3>
 		<a href="#" class="button btn btn-dark" id="botao-salvar-modelo"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <?php _e("Save Task", "sis-foca-js"); ?></a>
 		<br />
@@ -172,7 +194,7 @@
 			while ( $the_query->have_posts() ) : $the_query->the_post();
 				$counter = $post->ID;
 				#echo '<li id="modelo-carregado-'.$counter.'" class="row">'; ?>
-				<li id="modelo-carregado-<?php echo $counter; ?>">
+				<li class="modelo-carregado" id="modelo-carregado-<?php echo $counter; ?>">
 				
 				<?php
 				$taglist = "";
@@ -188,7 +210,11 @@
 				<?php 
 					echo "<strong id=bxtag$counter>".$taglist."</strong>";
 					echo "<span id=bxtitle$counter>".get_the_title()."</span>";
-					echo "<p><span id=bxcontent$counter>".get_the_content()."</span></p>"; ?>
+					echo "<p>";
+					echo "<span id=bxcontent$counter>".get_the_content()."</span>";
+					echo "</p>"; ?>
+				</div>
+				<div class="model-container_delete">
 					<a href='#' class='btn btn-xs btn-danger delete-task-model-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-trash"></span></a>
 				</div>
 
@@ -215,23 +241,7 @@
 					#echo "<input type='button' class='btn btn-xs btn-primary' value='carregar' onclick='load_model($counter)'><br /> <br /><input type='button' class='btn btn-xs btn-success' value='concluir' onclick='delete_model($counter)'>"; ?>
 		</ul>
 
-		<h3 class="widget-title"><?php _e("Automatic cycle", "sis-foca-js"); ?></h3>
-		<p style="float: right; margin-top: -14px;">
-		<button class="btn btn-small" id="cycle_prev"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button> &nbsp; 
-		<button class="btn btn-small" id="cycle_empty"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button> &nbsp; 
-		<button class="btn btn-small" id="cycle_start"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
-		&nbsp; 
-		<button class="btn btn-small" id="cycle_next"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button>
-		</p>
-	
-		<p>
-		<small><?php _e("Volume", "sis-foca-js"); ?><?php _e("Drop tasks below", "sis-foca-js"); ?></small>
-			</p>
-		<ul id="contem-ciclo" style="">
-			<?php
-			echo get_user_meta(get_current_user_id(), "cycle_list", true);
-			?>
-		</ul>
+
 		<!--li id="draggable" class="ui-state-highlight">Drag me down</li-->
 		
 		<?php //<p><?php _e("You can save your tasks for later", "sis-foca-js"); </p> ?>
