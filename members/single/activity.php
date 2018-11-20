@@ -15,6 +15,7 @@
 				?>
 			</div>
 			<div>
+				<?php #echo "AAAAAAAAAAAAAAA?".bp_displayed_user_id(); ?>
 				<h3>Desempenho e Velocidade</h3>
 				<?php
 				get_template_part("part", "gauges"); 

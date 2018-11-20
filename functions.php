@@ -295,7 +295,7 @@ function user_object_productivity ($user_id) {
 
 	/*It must be splitted because it uses itself values, and it cant be accessed in real time*/
 	$SEMPRE['totalDias'] = floor($datediff/(60*60*24));
-	$SEMPRE['diasTrabalhados'] = $wpdb->query('SELECT ID FROM `pomodoros_posts` WHERE `post_author` = '.$user_id.' GROUP BY DATE (`post_date_gmt`)');
+	$SEMPRE['diasTrabalhados'] = $wpdb->query('SELECT ID FROM `pomodoros_posts` WHERE `post_author` = '.$user_id.' AND `post_status` in ("publish", "private") GROUP BY DATE (`post_date_gmt`)');
 	$SEMPRE['diasFolga'] = $SEMPRE['totalDias'] - $SEMPRE ['diasTrabalhados'];
 	$SEMPRE['fatorProdutividade'] = round($SEMPRE['diasTrabalhados']/$SEMPRE['totalDias'], 2);
 	
@@ -347,7 +347,7 @@ function user_object_productivity_human_time_diff ($user_id) {
 	
 	$totalDias_human = human_time_diff( $data_registro_do_usuario, current_time('timestamp') );
 
-	$diasTrabalhados = $wpdb->query('SELECT * FROM `pomodoros_posts` WHERE `post_author` = '.$user_id.' GROUP BY DATE (`post_date_gmt`)');
+	$diasTrabalhados = $wpdb->query('SELECT * FROM `pomodoros_posts` WHERE `post_author` = '.$user_id.' AND `post_status` in ("publish", "private")  GROUP BY DATE (`post_date_gmt`)');
 
 	$diasTrabalhados_human = human_time_diff( strtotime("+".$diasTrabalhados." days"), current_time('timestamp') );
 	
