@@ -816,16 +816,20 @@ function cycle_list_play() {
 		//
 		cycle_list_load_model();
 		//
-		jQuery("#cycle_start").css("background-color", "#222");
-		jQuery("#cycle_start").css("color", "#FFF");
-
+		jQuery("#cycle_start").html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>');
+		jQuery("#cycle_start").css("background-color", "#CCC");
+		jQuery("#cycle_start").css("color", "#222");
+		//
+		jQuery("#contem-ciclo li").each(function(i){
+			jQuery(this).animate({'background-color': "#FFF"}, 500);
+		});
 	} else {
 		autoCycle=true;
 		//jQuery("#pomopainel").show(2000);
-		
 		change_status(auto_cycle_enabled);
-		jQuery("#cycle_start").css("background-color", "#FFF");
-		jQuery("#cycle_start").css("color", "#222");
+		jQuery("#cycle_start").html('<span class="glyphicon glyphicon-stop" aria-hidden="true"></span>');
+		jQuery("#cycle_start").css("background-color", "#222");
+		jQuery("#cycle_start").css("color", "#CCC");
 		//
 		cycle_list_load_model();
 	}
@@ -939,19 +943,18 @@ function load_model(task_model_id) {
 	var has_previous_tags = jQuery("#bxtag"+task_model_id);
 	//alert(has_previous_tags);
 	if(has_previous_tags) {
-		//jQuery("#tags_box").val("").trigger('change');;
+		jQuery("#tags_box").val("").trigger('change');;
 		//jQuery("#tags_box").empty();
 		jQuery("#tags_box").val("").val(eval(valinsert)).trigger('change');
 		//jQuery("#tags_box").val(["itapemapa", "franciscomat"]).trigger('change');;
 		//jQuery("#tags_box").value(jQuery("#bxtag"+task_model_id).text());
 	} else {
 		//jQuery("#tags_box").empty();
-		jQuery("#tags_box").trigger('change');
+		jQuery("#tags_box").val("").trigger('change');
 		//jQuery("#tags_box").value("");
 	}
 	//jQuery("#tags_box").val(['contabilidade', ]).trigger('change');
 	jQuery("#action_button_id").focus();
-	
 }
 
 //Change the <title> of the document

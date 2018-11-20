@@ -3108,6 +3108,9 @@ h3.rpwe-title a {
 }
 
 /****************** DRAGGABLE DROPABLE ******************/
+#auto_cicler .btn {
+	background-color: #CCC;
+}
 #contem-ciclo {
 	min-height: 40px;
 	background-color: #CCC;

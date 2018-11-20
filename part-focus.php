@@ -152,7 +152,7 @@
 		</script> */ ?>
 		<div class="collapse" id="collapseCyle">
 
-		<div>
+		<div id="auto_cicler">
 			<h3 class="widget-title"><?php _e("Automatic cycle", "sis-foca-js"); ?></h3>
 			<p style="float: right; margin-top: -14px;">
 			<button class="btn btn-small" id="cycle_prev"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button> &nbsp; 
