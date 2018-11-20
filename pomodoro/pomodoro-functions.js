@@ -458,7 +458,6 @@ function countdown_clock (){
 
 //This is the reason of all the code, the time when user complete a pomodoro, these satisfaction!
 function complete() {
-	alert(autoCycle);
 	if(debug)
 	console.log("complete()");
 	//alert("complete(), is_pomodoro: "+is_pomodoro+", pomodoro_actual:"+pomodoro_actual);
