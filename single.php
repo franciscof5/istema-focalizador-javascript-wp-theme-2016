@@ -20,7 +20,7 @@ $user_prefered_language_prefix = substr($user_prefered_language,0,2);
 
 			<?php do_action( 'bp_before_blog_home' ) ?>
 
-			<div class="page" id="blog-latest">
+			<div class="page" id="blog-single">
 
 				<?php 
 				if(function_exists('set_shared_database_schema')) {
