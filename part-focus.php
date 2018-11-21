@@ -222,6 +222,14 @@
 						<?php echo "<span id=bxtag$counter>".$taglist."</span>"; ?>
 					</div>
 				</div>
+				<div class="model-container-extra">
+					<button class='btn btn-xs btn-success delete-task-model-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-ok"></span></button>
+				<!--/div>
+				<div class="model-container-extra"-->
+					<button' class='btn btn-xs btn-none remove-task-from-list-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-remove"></span></button>
+				</div>
+
+				</li>
 				<?php 
 					
 					//echo "<span class='glyphicon glyphicon-move' aria-hidden='true'></span> &nbsp; ";
@@ -240,11 +248,7 @@
 				<!--div class="model-container-extra2">
 					<a href='#' class='btn btn-xs btn-default details-task-model-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-zoom-in"></span></a>
 				</div-->
-				<div class="model-container-extra">
-					<a href='#' class='btn btn-xs btn-success delete-task-model-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-ok"></span></a>
-				</div>
-
-				</li>
+				
 				
 			<?php 
 			endwhile;

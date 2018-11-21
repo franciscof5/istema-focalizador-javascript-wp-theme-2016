@@ -127,8 +127,7 @@ jQuery(document).ready(function ($) {
 	flip_number(true);
 	
 	//listen to changes
-	jQuery("#title_box, #description_box, #tags_box, #rangeVolume").change(function() {
-		change_status(txt_update_current_task);
+	jQuery("#title_box, #description_box, #tags_box, #rangeVolume").change(function() {	
 		update_pomodoro_clipboard();
 	});
 	
@@ -148,9 +147,15 @@ function model_task_buttons_functions() {
 		e.preventDefault();
 		delete_model(jQuery(this).data('modelid'));
 	});
-	jQuery(".model-container").off("click").click(function(e) {
+	jQuery(".remove-task-from-list-btn").off("click").click(function(e) {
 		e.preventDefault();
-		//load_model(jQuery(this).data('modelid'));
+		jQuery(this).parent().parent().remove();
+		//delete_model(jQuery(this).data('modelid'));
+	});
+	
+	jQuery("#contem-modelos .model-container").off("click").click(function(e) {
+		e.preventDefault();
+		load_model(jQuery(this).data('modelid'));
 	});
 	jQuery( "#contem-ciclo" ).sortable({
 	  revert: true,
@@ -349,7 +354,11 @@ function load_initial_data() {
 	//alert(secundosRemainingFromPHP);
 }
 
-function update_pomodoro_clipboard (post_stts) {
+function update_pomodoro_clipboard (post_stts, loud) {
+	//
+	if(loud)
+	change_status(txt_update_current_task);
+	//
 	doing_ajax = true;
 	var postcat=getRadioCheckedValue("cat_vl");
 	var privornot=getRadioCheckedValue("priv_vl");
@@ -966,6 +975,7 @@ function load_model(task_model_id) {
 	if(debug)
 	console.log("load_model(), task_model_id"+task_model_id);
 	change_status(txt_loading_model);
+	
 	jQuery("#title_box").val(jQuery("#bxtitle"+task_model_id).text());
 	jQuery("#description_box").val(jQuery("#bxcontent"+task_model_id).text());
 	tags_value = jQuery("#bxtag"+task_model_id).text();
@@ -990,7 +1000,9 @@ function load_model(task_model_id) {
 	var has_previous_tags = jQuery("#bxtag"+task_model_id);
 	//alert(has_previous_tags);
 	if(has_previous_tags) {
-		jQuery("#tags_box").val(null).trigger('change');
+		jQuery("#tags_box").val(null);//.trigger('change');
+		jQuery("#tags_box").val(null);
+		jQuery("#tags_box").val(null);
 		//jQuery("#tags_box").empty();
 		jQuery("#tags_box").val(eval(valinsert)).trigger('change');
 		//jQuery("#tags_box").val(["itapemapa", "franciscomat"]).trigger('change');;
