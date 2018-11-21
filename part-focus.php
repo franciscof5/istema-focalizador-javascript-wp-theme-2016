@@ -93,9 +93,7 @@
 			</div>
 		</div>	
 		
-		<form name="pomopainel" id="pomopainel">
-			
-			
+		<form name="pomopainel" id="pomopainel">		
 		 	<div class="form-group">
 				<label><span class="glyphicon glyphicon-paste" aria-hidden="true"></span> <?php _e("Task", "sis-foca-js"); ?></label><br />
 				<input type="text" id="title_box" maxlength="70" tabindex="2" name="ti33" class="form-control">

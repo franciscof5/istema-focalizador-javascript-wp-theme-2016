@@ -59,7 +59,7 @@ function startTest() {
 	alertify.success("Special demonstration configuration loaded");
 	pomodoroTime = 5;
 	restTime = 3;
-	bigRestTime = 18;
+	//bigRestTime = 1800;
 	intervalMiliseconds = 0.1;
 }
 //With that line jQuery can use the selector ($) and jQuery use the selector (jQuery), without conflict
@@ -109,8 +109,7 @@ jQuery(document).ready(function ($) {
 		cycle_list_next();
 	});
 	model_task_buttons_functions();
-	//
-	qtdd_tasks = jQuery('ul#contem-ciclo li').length;
+	
 	//
 	jQuery('input[type="range"]').rangeslider();
 	//Voice recon and speech JS
@@ -138,6 +137,7 @@ jQuery(document).ready(function ($) {
 		load_initial_data();
 	},15000);
 });
+
 function model_task_buttons_functions() {
 	jQuery("#botao-salvar-modelo").off("click").click(function(e) {
 		e.preventDefault();
@@ -149,7 +149,7 @@ function model_task_buttons_functions() {
 	});
 	jQuery(".model-container").off("click").click(function(e) {
 		e.preventDefault();
-		load_model(jQuery(this).data('modelid'));
+		//load_model(jQuery(this).data('modelid'));
 	});
 	jQuery( "#contem-ciclo" ).sortable({
 	  revert: true,
@@ -179,7 +179,7 @@ function model_task_buttons_functions() {
         	update_cycle_list();
         },*/
         out: function(event, ui) {
-        	update_cycle_list();
+        	cycle_list_update();
         }
     });
 
@@ -192,6 +192,8 @@ function model_task_buttons_functions() {
 		cursor: "move",
 	});
 	jQuery( "ul, li" ).disableSelection();
+	//
+	qtdd_tasks = jQuery('ul#contem-ciclo li').length;
 }
 
 function load_initial_data() {
@@ -466,8 +468,8 @@ function countdown_clock (){
 
 //This is the reason of all the code, the time when user complete a pomodoro, these satisfaction!
 function complete() {
-	if(debug)
-	alert(autoCycle);
+	//if(debug)
+	//a.lert(autoCycle);
 	if(debug)
 	console.log("complete()");
 	//alert("complete(), is_pomodoro: "+is_pomodoro+", pomodoro_actual:"+pomodoro_actual);
@@ -891,12 +893,16 @@ function save_model() {
 				change_status(txt_salving_model_task_null);
 			} else {
 				var sessao_atual=parseInt(response);
+				valinsert = data.post_tags.explode(", ");
 				//primeiro salva o post, para depois pegar o id do mesmo title_box
 				htmlTaskModel = ' \
 					<li id="modelo-carregado-'+sessao_atual+'" class="modelo-carregado ui-draggable ui-draggable-handle"> \
 						<div class="model-container" data-modelid="'+sessao_atual+'"> \
-							<strong id="bxtag'+sessao_atual+'">\''+data.post_tags+'\', </strong> \
+							<span class="glyphicon glyphicon-paste" aria-hidden="true"></span> \
 							<span id="bxtitle'+sessao_atual+'">'+title_box.value+'</span> \
+							<br> \
+							<span class="glyphicon glyphicon-tags" aria-hidden="true"></span> &nbsp; \
+							<strong id="bxtag'+sessao_atual+'">\''+valinsert[0]+'\', </strong> \
 							<p> \
 							<span id="bxcontent'+sessao_atual+'">'+description_box.value+'</span> \
 							</p> \
@@ -946,7 +952,9 @@ function load_model(task_model_id) {
 	change_status(txt_loading_model);
 	jQuery("#title_box").val(jQuery("#bxtitle"+task_model_id).text());
 	jQuery("#description_box").val(jQuery("#bxcontent"+task_model_id).text());
-	valinsert_item = jQuery("#bxtag"+task_model_id).text().split(",");
+	tags_value = jQuery("#bxtag"+task_model_id).text();
+	//a.lert(tags_value);
+	valinsert_item = tags_value.split(",");
 
 	//valinsert = "["+jQuery("#bxtag"+task_model_id).text()+"]";
 	valinsert = "[";
@@ -966,9 +974,9 @@ function load_model(task_model_id) {
 	var has_previous_tags = jQuery("#bxtag"+task_model_id);
 	//alert(has_previous_tags);
 	if(has_previous_tags) {
-		jQuery("#tags_box").val("");//.trigger('change');
+		jQuery("#tags_box").val(null).trigger('change');
 		//jQuery("#tags_box").empty();
-		jQuery("#tags_box").val("").val(eval(valinsert)).trigger('change');
+		jQuery("#tags_box").val(eval(valinsert)).trigger('change');
 		//jQuery("#tags_box").val(["itapemapa", "franciscomat"]).trigger('change');;
 		//jQuery("#tags_box").value(jQuery("#bxtag"+task_model_id).text());
 	} else {
