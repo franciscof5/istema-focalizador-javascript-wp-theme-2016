@@ -47,7 +47,8 @@
 	//
 	var autoAction=false; //if true dont need to click
 	var autoCycle=false;
-	var autoCycleCurrent=1;
+	//var autoCycleCurrent=jQuery("#current_cycle").val();// 1; //#current_cycle
+	var autoCycleCurrent=1; //#current_cycle
 	var qtdd_tasks;
 
 	//
@@ -789,7 +790,7 @@ function savepomo() {
 
 //Load e save user cycle
 function cycle_list_update(clean_) {
-	content = jQuery( "#contem-ciclo" ).html();
+	content = jQuery("#contem-ciclo").html();
 	var data = {
 		action: 'update_cycle_list',
 		list: content,
@@ -802,7 +803,7 @@ function cycle_list_update(clean_) {
 		if(clean_) {
 			if(response) {
 				alertify.log("Cycle list cleared");
-				jQuery( "#contem-ciclo" ).html("");
+				jQuery("#contem-ciclo").html("");
 			}
 		} else {
 			if(response)
@@ -818,21 +819,31 @@ function cycle_list_play() {
 		console.log("cycle_start(), autoCycle="+autoCycle);
 
 	if(autoCycle) {
+		//THEN PAUSE
+		//jQuery("#pomopainel").show(2000);
 		//
 		autoCycle=false;
 		//jQuery("#pomopainel").hide(2000);
 		change_status(auto_cycle_disabled);
 		//
-		cycle_list_load_model();
+		//cycle_list_load_model();
 		//
-		jQuery("#cycle_start").html('<span class="glyphicon glyphicon-play" aria-hidden="true"></span>');
+		jQuery("#cycle_start").html('<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>');//play
 		jQuery("#cycle_start").css("background-color", "#CCC");
 		jQuery("#cycle_start").css("color", "#222");
 		//
 		jQuery("#contem-ciclo li").each(function(i){
-			jQuery(this).animate({'background-color': "#FFF"}, 500);
+			jQuery(this).animate({'background-color': "#FFF", "color" : "#000"}, 500);
 		});
 	} else {
+		if(!jQuery("#contem-ciclo li").length) {
+			change_status("You must add at least one task", "er");//todo: translate
+			return;
+		}
+
+		//THE START (play)
+		//jQuery("#pomopainel").hide(2000);
+		//
 		autoCycle=true;
 		//jQuery("#pomopainel").show(2000);
 		change_status(auto_cycle_enabled);
@@ -846,12 +857,17 @@ function cycle_list_play() {
 }
 
 function cycle_list_load_model() {
+	//
+	//jQuery("#current_cycle").val(autoCycleCurrent);
+	//cycle_list_update();
+	//
 	current_model_id = jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").find("div").data("modelid");
 	//jQuery("#contem-ciclo li").each("li").animate({'background-color': "#FFF"}, 2000);
 	jQuery("#contem-ciclo li").each(function(i){
-		jQuery(this).animate({'background-color': "#FFF"}, 500);
+		jQuery(this).animate({'background-color': "#FFF", "color" : "#000"}, 500);
 	});
-	jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'background-color': "#5cb85c"}, 500);
+	jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'background-color': "#222",'color': "#CCC"}, 500);//green 5cb85c
+	//jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'color': "#CCC"}, 200);
 	//autoCyclePrevious = autoCycleCurrent-1;
 	//jQuery("#contem-ciclo li:nth-child("+autoCyclePrevious+")").animate({'background-color': "#FFF"}, 2000);
 	//autoCycleCurrent 
@@ -898,7 +914,7 @@ function save_model() {
 				htmlTaskModel = ' \
 					<li id="modelo-carregado-'+sessao_atual+'" class="modelo-carregado ui-draggable ui-draggable-handle"> \
 						<div class="model-container" data-modelid="'+sessao_atual+'"> \
-							<span class="glyphicon glyphicon-paste" aria-hidden="true"></span> \
+							<span class="glyphicon glyphicon-move" aria-hidden="true"></span> \
 							<span id="bxtitle'+sessao_atual+'">'+title_box.value+'</span> \
 							<br> \
 							<span class="glyphicon glyphicon-tags" aria-hidden="true"></span> &nbsp; \

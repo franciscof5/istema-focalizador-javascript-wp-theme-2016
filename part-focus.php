@@ -132,6 +132,7 @@
 				</div>
 			</div>
 			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseCyle" aria-expanded="false" aria-controls="collapseCyle"><strong style="text-transform: uppercase;"><?php _e("TODO", "sis-foca-js"); ?></strong></button>
+			<a href="#" class="button btn btn-dark" id="botao-salvar-modelo"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <?php _e("Save Task", "sis-foca-js"); ?></a>
 		</form>
 
 		
@@ -150,18 +151,18 @@
 		</script> */ ?>
 		<div class="collapse" id="collapseCyle">
 
-		<div id="auto_cicler">
+		<div id="auto_cicler" class="row">
 			<h3 class="widget-title"><?php _e("Automatic cycle", "sis-foca-js"); ?></h3>
 			<p style="float: right; margin-top: -14px;">
-			<button class="btn btn-small" id="cycle_prev"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button> &nbsp; 
-			<button class="btn btn-small" id="cycle_start"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+			<button class="btn btn-small" id="cycle_start"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></button>
 			&nbsp; 
+			<button class="btn btn-small" id="cycle_prev"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button> &nbsp; 
 			<button class="btn btn-small" id="cycle_next"><span class="glyphicon glyphicon-forward" aria-hidden="true"></span></button> &nbsp; 
 			<button class="btn btn-small" id="cycle_empty"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 			</p>
 		
 			<p>
-			<small><?php _e("Volume", "sis-foca-js"); ?><?php _e("Drop tasks below", "sis-foca-js"); ?></small>
+			<small><?php _e("Drop tasks below", "sis-foca-js"); ?></small>
 				</p>
 			<ul id="contem-ciclo" style="">
 				<?php
@@ -171,10 +172,7 @@
 		</div>
 
 
-		<h3 class="widget-title"><?php _e("TODO list", "sis-foca-js"); ?></h3>
-		<a href="#" class="button btn btn-dark" id="botao-salvar-modelo"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <?php _e("Save Task", "sis-foca-js"); ?></a>
-		<br />
-		<br />
+		<h3 class="widget-title"><?php _e("TODO list", "sis-foca-js"); ?></h3>	
 		<ul id="contem-modelos" class="row">
 			<?php
 			if(function_exists("revert_database_schema"))revert_database_schema();
@@ -214,20 +212,36 @@
 				}
 				?>
 				
-				<div class="model-container" data-modelid="<?php echo $counter ?>">
+				<div class="model-container row" data-modelid="<?php echo $counter ?>">
+					<div class="col-md-6">
+						<span class='glyphicon glyphicon-move' aria-hidden='true'></span> &nbsp;
+						<?php echo "<span id=bxtitle$counter>".get_the_title()."</span>"; ?>
+					</div>
+					<div class="col-md-6">
+						<span class='glyphicon glyphicon-tags' aria-hidden='true'></span> &nbsp;
+						<?php echo "<span id=bxtag$counter>".$taglist."</span>"; ?>
+					</div>
+				</div>
 				<?php 
 					
-					echo "<span class='glyphicon glyphicon-paste' aria-hidden='true'></span> ";
-					echo "<span id=bxtitle$counter>".get_the_title()."</span>";
-					echo "<br>";
-					echo "<span class='glyphicon glyphicon-tags' aria-hidden='true'></span> &nbsp; ";
-					echo "<strong id=bxtag$counter>".$taglist."</strong>";
-					echo "<p>";
-					echo "<span id=bxcontent$counter>".get_the_content()."</span>";
-					echo "</p>"; ?>
-				</div>
-				<div class="model-container_delete">
-					<a href='#' class='btn btn-xs btn-danger delete-task-model-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-trash"></span></a>
+					//echo "<span class='glyphicon glyphicon-move' aria-hidden='true'></span> &nbsp; ";
+					//echo "<span id=bxtitle$counter>".get_the_title()."</span>";
+					//echo "<br>";
+					//echo "<span style='float:right'>";
+					//echo "<span class='glyphicon glyphicon-tags' aria-hidden='true'></span> &nbsp; ";
+					//echo "<strong id=bxtag$counter>".$taglist."</strong>";
+					//echo "</span>";
+					//echo "<p>";
+					//echo "<br>";
+					//echo "<span class='glyphicon glyphicon-text-background' aria-hidden='true'></span> &nbsp; ";
+					//echo "<span id=bxcontent$counter>".get_the_content()."</span>";
+					//echo "</p>"; ?>
+				
+				<!--div class="model-container-extra2">
+					<a href='#' class='btn btn-xs btn-default details-task-model-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-zoom-in"></span></a>
+				</div-->
+				<div class="model-container-extra">
+					<a href='#' class='btn btn-xs btn-success delete-task-model-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-ok"></span></a>
 				</div>
 
 				</li>

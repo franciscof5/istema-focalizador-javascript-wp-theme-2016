@@ -3133,24 +3133,29 @@ h3.rpwe-title a {
 	/*background: none repeat scroll 0% 0% rgb(255, 255, 255);*/
 	background-color: #EEE;
 	overflow: hidden;
-	height: 26px !important;
+	height: 26px;
 	margin-bottom: 5px;
 	position: relative;
 }
 .modelo-carregado:hover {
-	height: inherit !important;
+	height: inherit;
+}
+#contem-ciclo .modelo-carregado:hover {
+	height: 26px !important;
 }
 .modelo-carregado p{
 	text-align:center;
 	margin:10px 0 0 0;
 }
-
 .model-container {
+	width: 316px;
+}
+#contem-modelos .model-container {
 	cursor: move;
 	float: left;
-	width: 90%;
+	width: 297px;
 }
-.model-container_delete {
+.model-container-extra {
 	float: right;
 	width: 10%;
 }
