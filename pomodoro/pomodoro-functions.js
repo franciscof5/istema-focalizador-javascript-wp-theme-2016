@@ -150,6 +150,7 @@ function model_task_buttons_functions() {
 	jQuery(".remove-task-from-list-btn").off("click").click(function(e) {
 		e.preventDefault();
 		jQuery(this).parent().parent().remove();
+		cycle_list_update();
 		//delete_model(jQuery(this).data('modelid'));
 	});
 	
@@ -873,9 +874,13 @@ function cycle_list_load_model() {
 	current_model_id = jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").find("div").data("modelid");
 	//jQuery("#contem-ciclo li").each("li").animate({'background-color': "#FFF"}, 2000);
 	jQuery("#contem-ciclo li").each(function(i){
-		jQuery(this).animate({'background-color': "#FFF", "color" : "#000"}, 500);
+		//if(i!=autoCycleCurrent)
+		jQuery(this).removeClass('cycleSelectedTask');
+		jQuery(this).animate({'background-color': "#FFF", "color" : "#000"}, 200);
 	});
-	jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'background-color': "#222",'color': "#CCC"}, 500);//green 5cb85c
+	jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").addClass('cycleSelectedTask', 1000, "easeOutBounce");
+	jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'background-color': "#222",'color': "#CCC"}, 300);//green 5cb85c
+	
 	//jQuery("#contem-ciclo li:nth-child("+autoCycleCurrent+")").animate({'color': "#CCC"}, 200);
 	//autoCyclePrevious = autoCycleCurrent-1;
 	//jQuery("#contem-ciclo li:nth-child("+autoCyclePrevious+")").animate({'background-color': "#FFF"}, 2000);

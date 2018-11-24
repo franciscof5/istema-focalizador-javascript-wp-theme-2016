@@ -3187,7 +3187,10 @@ h3.rpwe-title a {
 	float: right;
 	width: 10%;
 }
-
+.cycleSelectedTask {
+	/*background-color: #222 !important;
+	color: #CCC !important;*/
+}
 @charset "utf-8";
 /**/
 * {list-style: none;}
