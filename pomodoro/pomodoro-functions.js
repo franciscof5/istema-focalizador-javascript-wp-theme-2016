@@ -918,7 +918,7 @@ function save_model() {
 				change_status(txt_salving_model_task_null);
 			} else {
 				var sessao_atual=parseInt(response);
-				valinsert = data.post_tags.explode(", ");
+				valinsert = data.post_tags.toString().split(",");
 				//primeiro salva o post, para depois pegar o id do mesmo title_box
 				htmlTaskModel = ' \
 					<li id="modelo-carregado-'+sessao_atual+'" class="modelo-carregado ui-draggable ui-draggable-handle"> \
