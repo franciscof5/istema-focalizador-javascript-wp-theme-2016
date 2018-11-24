@@ -929,11 +929,11 @@ function save_model() {
 				htmlTaskModel = ' \
 					<li id="modelo-carregado-'+sessao_atual+'" class="modelo-carregado ui-draggable ui-draggable-handle"> \
 						<div class="model-container row" data-modelid="'+sessao_atual+'"> \
-							<div class="col-md-6"> \
+							<div class="col-xs-6"> \
 							<span class="glyphicon glyphicon-move" aria-hidden="true"></span> &nbsp; \
 							<span id="bxtitle'+sessao_atual+'">'+title_box.value+'</span> \
 							</div> \
-							<div class="col-md-6"> \
+							<div class="col-xs-6"> \
 							<span class="glyphicon glyphicon-tags" aria-hidden="true"></span> &nbsp; \
 							<span id="bxtag'+sessao_atual+'">'+valinsert+' </span> \
 							</div> \

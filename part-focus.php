@@ -213,11 +213,11 @@
 				?>
 				
 				<div class="model-container row" data-modelid="<?php echo $counter ?>">
-					<div class="col-md-6">
+					<div class="col-xs-6">
 						<span class='glyphicon glyphicon-move' aria-hidden='true'></span> &nbsp;
 						<?php echo "<span id=bxtitle$counter>".get_the_title()."</span>"; ?>
 					</div>
-					<div class="col-md-6">
+					<div class="col-xs-6">
 						<span class='glyphicon glyphicon-tags' aria-hidden='true'></span> &nbsp;
 						<?php echo "<span id=bxtag$counter>".$taglist."</span>"; ?>
 					</div>
