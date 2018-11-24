@@ -930,7 +930,7 @@ function save_model() {
 							</div> \
 							<div class="col-md-6"> \
 							<span class="glyphicon glyphicon-tags" aria-hidden="true"></span> &nbsp; \
-							<span id="bxtag'+sessao_atual+'">'+valinsert+'</span> \
+							<span id="bxtag'+sessao_atual+'">'+valinsert+' </span> \
 							</div> \
 						</div> \
 						<div class="model-container-extra"><button class="btn btn-xs btn-success delete-task-model-btn" data-modelid="40683"><span class="glyphicon glyphicon-ok"></span></button><button" class="btn btn-xs btn-none remove-task-from-list-btn" data-modelid="40683"><span class="glyphicon glyphicon-remove"></span></button"></div> \
@@ -981,7 +981,7 @@ function load_model(task_model_id) {
 	jQuery("#description_box").val(jQuery("#bxcontent"+task_model_id).text());
 	tags_value = jQuery("#bxtag"+task_model_id).text();
 	//a.lert(tags_value);
-	valinsert_item = tags_value.split(",");
+	valinsert_item = tags_value.split(", ");
 
 	//valinsert = "["+jQuery("#bxtag"+task_model_id).text()+"]";
 	valinsert = "[";
