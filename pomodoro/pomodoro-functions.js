@@ -918,26 +918,27 @@ function save_model() {
 				change_status(txt_salving_model_task_null);
 			} else {
 				var sessao_atual=parseInt(response);
-				valinsert = data.post_tags.toString().split(",");
+				valinsert = data.post_tags.toString().split(",").join(', ');
+				//valinsert = data.post_tags;
 				//primeiro salva o post, para depois pegar o id do mesmo title_box
 				htmlTaskModel = ' \
 					<li id="modelo-carregado-'+sessao_atual+'" class="modelo-carregado ui-draggable ui-draggable-handle"> \
-						<div class="model-container" data-modelid="'+sessao_atual+'"> \
-							<span class="glyphicon glyphicon-move" aria-hidden="true"></span> \
+						<div class="model-container row" data-modelid="'+sessao_atual+'"> \
+							<div class="col-md-6"> \
+							<span class="glyphicon glyphicon-move" aria-hidden="true"></span> &nbsp; \
 							<span id="bxtitle'+sessao_atual+'">'+title_box.value+'</span> \
-							<br> \
+							</div> \
+							<div class="col-md-6"> \
 							<span class="glyphicon glyphicon-tags" aria-hidden="true"></span> &nbsp; \
-							<strong id="bxtag'+sessao_atual+'">\''+valinsert[0]+'\', </strong> \
-							<p> \
-							<span id="bxcontent'+sessao_atual+'">'+description_box.value+'</span> \
-							</p> \
+							<span id="bxtag'+sessao_atual+'">'+valinsert+'</span> \
+							</div> \
 						</div> \
-						<div class="model-container_delete"> \
-							<a href="#" class="btn btn-xs btn-danger delete-task-model-btn" data-modelid="'+sessao_atual+'"> \
-								<span class="glyphicon glyphicon-trash"></span> \
-							</a> \
-						</div> \
+						<div class="model-container-extra"><button class="btn btn-xs btn-success delete-task-model-btn" data-modelid="40683"><span class="glyphicon glyphicon-ok"></span></button><button" class="btn btn-xs btn-none remove-task-from-list-btn" data-modelid="40683"><span class="glyphicon glyphicon-remove"></span></button"></div> \
 					</li>';
+					
+					/*<p> \
+							<span id="bxcontent'+sessao_atual+'">'+description_box.value+'</span> \
+							</p> \*/
 				jQuery("#contem-modelos").append(htmlTaskModel);
 				/*jQuery("#botao-salvar-modelo").val("sessão salvada com sucesso");
 				jQuery("#botao-salvar-modelo").attr('disabled', 'disabled');*/
