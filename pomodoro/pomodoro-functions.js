@@ -1101,7 +1101,7 @@ function startContinuousArtyom(){
 		//
 	    artyom_voice.fatality();// use this to stop any of
 	    //
-	    alert(data_from_php.php_locale);
+	    //a.lert(data_from_php.php_locale);
 	    if(data_from_php.php_locale=="pt_BR" || data_from_php.php_locale=="pt") {
 	    	gcommands = grupoDeComandos;
 	    	artyom_lang = "pt-PT";
@@ -1118,7 +1118,7 @@ function startContinuousArtyom(){
 	    	gcommands = groupOfCommands;
 	    	artyom_lang = "en-US";
 	    }
-	    alert(artyom_lang);
+	    //a.lert(artyom_lang);
 	    //
 	    //setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
 	         artyom_voice.initialize({
