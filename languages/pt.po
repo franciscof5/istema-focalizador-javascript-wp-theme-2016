@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sistema Focalizador JS\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2018-11-26 10:57-0200\n"
+"POT-Creation-Date: 2018-11-26 11:08-0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Francisco Matelli Matulovic <fmatelli@gmail.com>\n"
 "Language-Team: Francisco Mat F5 Sites <francisco@f5sites.com>\n"
@@ -67,102 +67,102 @@ msgstr ""
 msgid "Open support ticket"
 msgstr ""
 
-#: functions.php:734
+#: functions.php:735
 msgid "Warning!"
 msgstr ""
 
-#: functions.php:735
+#: functions.php:736
 msgid ""
 "These content is not avaiable in your language. Original content language "
 "is: "
 msgstr ""
 
-#: functions.php:738
+#: functions.php:739
 msgid "Go to blog homepage"
 msgstr ""
 
-#: functions.php:865
+#: functions.php:866
 msgid "you most recent task is"
 msgstr ""
 
-#: functions.php:867
+#: functions.php:868
 msgid "you never started a task"
 msgstr ""
 
-#: functions.php:869
+#: functions.php:870
 msgid "Hello"
 msgstr ""
 
-#: functions.php:869
+#: functions.php:870
 msgid "go to online app and start focus"
 msgstr ""
 
-#: functions.php:871
+#: functions.php:872
 msgid "Dear visitor"
 msgstr ""
 
-#: functions.php:871
+#: functions.php:872
 msgid "create your free user"
 msgstr ""
 
-#: functions.php:871
+#: functions.php:872
 msgid "and start focus right now"
 msgstr ""
 
-#: functions.php:872
+#: functions.php:873
 msgid "If you already have an account"
 msgstr ""
 
-#: functions.php:872
+#: functions.php:873
 msgid "login"
 msgstr ""
 
-#: functions.php:1160
+#: functions.php:1161
 msgid "Realizar Pagamento"
 msgstr ""
 
-#: functions.php:1600 functions.php:1601 functions.php:1617 header.php:81
+#: functions.php:1601 functions.php:1602 functions.php:1618 header.php:81
 #: part-focus.php:2
 msgid "Focus"
 msgstr ""
 
-#: functions.php:1602
+#: functions.php:1603
 msgid "Add New"
 msgstr ""
 
-#: functions.php:1603
+#: functions.php:1604
 msgid "Add New Focus"
 msgstr ""
 
-#: functions.php:1604
+#: functions.php:1605
 msgid "Edit"
 msgstr ""
 
-#: functions.php:1605
+#: functions.php:1606
 msgid "Edit Focus"
 msgstr ""
 
-#: functions.php:1606
+#: functions.php:1607
 msgid "New Focus"
 msgstr ""
 
-#: functions.php:1607 functions.php:1608
+#: functions.php:1608 functions.php:1609
 msgid "View Focus"
 msgstr ""
 
-#: functions.php:1609
+#: functions.php:1610
 msgid "Search Focus"
 msgstr ""
 
-#: functions.php:1610
+#: functions.php:1611
 msgid "No Focus found"
 msgstr ""
 
-#: functions.php:1611
+#: functions.php:1612
 msgid "No Focus found in Trash"
 msgstr ""
 
-#: functions.php:1612
+#: functions.php:1613
 msgid "Parent Focus"
 msgstr ""
 
@@ -380,11 +380,15 @@ msgstr "Cronômetro de Trabalho & Descanso"
 
 #: part-index.php:4
 msgid "Relax and Focus: Online social time tracker for task and projects"
-msgstr ""
+msgstr "Relaxe e Foca: Cronômetro online para tarefas e projetos"
 
 #: part-index.php:5
 msgid "get you and your team more productive than ever"
-msgstr ""
+msgstr "você e seu time mais produtivos do que nunca"
+
+#: part-index.php:6
+msgid "Get started for Free"
+msgstr "Registre-se Gratuitamente"
 
 #: part-index.php:266 part-news.php:84 part-product.php:41
 #: single-product.php:48 single.php:57

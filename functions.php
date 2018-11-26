@@ -491,6 +491,7 @@ function smart_set_user_language() {
 	#var_dump($user_prefered_language);
 	switch_to_locale($user_prefered_language);
 	define_title_apendix($user_prefered_language);
+	#var_dump($user_prefered_language);die;
 	return $user_prefered_language;
 }
 
@@ -1633,6 +1634,7 @@ function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
 		register_post_type("projectimer_focus", $postTypeFocusParams);
 	}
 }
+
 function add_tags_categories() {
 	register_taxonomy_for_object_type('category', 'projectimer_focus');
 	register_taxonomy_for_object_type('post_tag', 'projectimer_focus');
