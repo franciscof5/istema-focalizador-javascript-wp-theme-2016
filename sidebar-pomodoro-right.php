@@ -51,7 +51,7 @@
 						<td><?php echo $produtividade_usuario["sempre"]['diasTrabalhados']; ?> <?php _e("days", "sis-foca-js"); ?></td>
 					</tr>
 					<tr>
-						<td><?php _e("Not work time", "sis-foca-js"); ?></td>
+						<td><?php _e("Time not worked", "sis-foca-js"); ?></td>
 						<td><?php echo $produtividade_usuario["sempre"]['diasFolga']; ?> <?php _e("days", "sis-foca-js"); ?></td>
 					</tr>
 				</tbody>

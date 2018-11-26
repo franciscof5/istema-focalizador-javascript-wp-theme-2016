@@ -9,7 +9,7 @@
 	<div id="pomodoro-painel">		
 			
 		<div id="pomodoro-relogio">							
-		<form><input type="button" value="loading..." id="action_button_id" tabindex="1" disabled="true" /></form>
+		<form><input type="button" value="<?php _e("loading", "sis-foca-js"); ?>..." id="action_button_id" tabindex="1" disabled="true" /></form>
 
 		<div id="relogio">
 

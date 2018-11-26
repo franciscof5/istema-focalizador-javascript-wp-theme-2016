@@ -867,9 +867,9 @@ function show_welcome_message($alertify=false) {
 		}else{
 		  $title = ", ".__("you never started a task", "sis-foca-js"); #você ainda não começou nenhuma tarefa //No published posts
 		} 
-		$msg_saudacao = __("Hello", "buddypress")." ".$current_user->display_name.$title.", <a href=/focar>".__("go to online app and start focus", "sis-foca-js")."</a>";#acessar aplicativo online e focar
+		$msg_saudacao = __("Hello", "sis-foca-js")." ".$current_user->display_name.$title.", <a href=/focar>".__("go to online app and start focus", "sis-foca-js")."</a>";#acessar aplicativo online e focar
 	} else {
-		$msg_saudacao = __("Dear visitor", "sis-foca-js").", <a href=/register>".__("create your free user", "sis-foca-js")."</a> ".__("and start focus right now", "sis-foca-js");
+		$msg_saudacao = __("Dear visitor", "sis-foca-js").", <a href=/register>".__("register for free", "sis-foca-js")."</a> ".__("and start focus right now", "sis-foca-js");
 		$msg_saudacao2 = __("If you already have an account", "sis-foca-js").", <a id=testes href=# class=abrir_login>".__("login", "sis-foca-js")."</a>";
 	} 
 	if($alertify) {

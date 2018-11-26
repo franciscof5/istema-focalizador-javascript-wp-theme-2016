@@ -106,7 +106,7 @@
 				
 			<div  class="row white-link">
 				<div class="col-xs-6">
-					<p>Developed by <a href="https://www.franciscomat.com">Francisco Mat</a>
+					<p><?php _e("Developed by", "sis-foca-js"); ?> <a href="https://www.franciscomat.com">Francisco Mat</a>
 					<?php /*, Fork us <a href="https://github.com/franciscof5/sistema-focalizador-javascript">on GitHub</a> */ ?>
 					</p>
 				</div>
@@ -114,7 +114,7 @@
 				/*<br /> Hosted by <a href="https://www.f5sites.com/pomodoros">F5 Sites</a>*/
 				?>
 				<div class="col-xs-6">
-					<p style="text-align: right;"><a href="<?php bloginfo('url'); ?>/tag/pomodoros-2">Project Pomodoros</a> | on <a href="https://angel.co/projects/68620-pomodoros-com-br">AngelList</a> | <a href="http://carreirasolo.org/novas/site-usa-tecnica-dos-pomodoros-para-agilizar-produtividade#.W_PWZ6uQxpg">CarreiraSolo</a></p>
+					<p style="text-align: right;"><a href="<?php bloginfo('url'); ?>/tag/pomodoros-2"><?php _e("Project Pomodoros", "sis-foca-js"); ?></a> | <?php _e("on", "sis-foca-js"); ?> <a href="https://angel.co/projects/68620-pomodoros-com-br">AngelList</a> | <a href="http://carreirasolo.org/novas/site-usa-tecnica-dos-pomodoros-para-agilizar-produtividade#.W_PWZ6uQxpg">CarreiraSolo</a></p>
 				</div>
 			</div>
 			<?php do_action( 'bp_footer' ) ?>
