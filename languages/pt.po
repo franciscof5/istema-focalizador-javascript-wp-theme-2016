@@ -1,75 +1,35 @@
 # Blank WordPress Pot
 # Copyright 2014 ...
 # This file is distributed under the GNU General Public License v3 or later.
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: "
-"Sistema Focalizador JS\n"
-"POT-Creation-Date: "
-"2018-11-26 10:55-0200\n"
+"Project-Id-Version: Sistema Focalizador JS\n"
+"Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
+"POT-Creation-Date: 2018-11-26 10:57-0200\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Your "
-"Name <you@example.com>\n"
-"Language-Team: Francisco "
-"Mat F5 Sites "
-"<francisco@f5sites.com>\n"
-"Report-Msgid-Bugs-To: "
-"Translator Name "
-"<translations@example."
-"com>\n"
+"Last-Translator: Francisco Matelli Matulovic <fmatelli@gmail.com>\n"
+"Language-Team: Francisco Mat F5 Sites <francisco@f5sites.com>\n"
+"Language: pt\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/"
-"plain; charset=UTF-8\n"
-"Content-Transfer-"
-"Encoding: 8bit\n"
-"Plural-Forms: "
-"nplurals=2; plural=n != "
-"1;\n"
-"X-Textdomain-Support: "
-"yesX-Generator: Poedit "
-"1.6.4\n"
-"X-Poedit-SourceCharset: "
-"UTF-8\n"
-"X-Poedit-KeywordsList: "
-"__;_e;esc_html_e;"
-"esc_html_x:1,2c;"
-"esc_html__;esc_attr_e;"
-"esc_attr_x:1,2c;"
-"esc_attr__;_ex:1,2c;"
-"_nx:4c,1,2;"
-"_nx_noop:4c,1,2;_x:1,2c;"
-"_n:1,2;_n_noop:1,2;"
-"__ngettext:1,2;"
-"__ngettext_noop:1,2;_c,"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Textdomain-Support: yesX-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html_x:1,2c;esc_html__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;"
+"_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,"
 "_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
-"Language: en_US\n"
-"X-Generator: Poedit "
-"1.8.7.1\n"
-"X-Poedit-"
-"SearchPath-0: .\n"
-"X-Poedit-"
-"SearchPathExcluded-0: "
-"activity\n"
-"X-Poedit-"
-"SearchPathExcluded-1: "
-"members\n"
-"X-Poedit-"
-"SearchPathExcluded-2: "
-"registration\n"
-"X-Poedit-"
-"SearchPathExcluded-3: "
-"archive.php\n"
-"X-Poedit-"
-"SearchPathExcluded-4: "
-"page.php\n"
-"X-Poedit-"
-"SearchPathExcluded-5: t-"
-"nosidebar.php\n"
-"X-Poedit-"
-"SearchPathExcluded-6: "
-"custom-post-type.php\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: activity\n"
+"X-Poedit-SearchPathExcluded-1: members\n"
+"X-Poedit-SearchPathExcluded-2: registration\n"
+"X-Poedit-SearchPathExcluded-3: archive.php\n"
+"X-Poedit-SearchPathExcluded-4: page.php\n"
+"X-Poedit-SearchPathExcluded-5: t-nosidebar.php\n"
+"X-Poedit-SearchPathExcluded-6: custom-post-type.php\n"
 
 #: footer.php:14
 msgid "Last pomodoros"
@@ -87,8 +47,7 @@ msgstr ""
 msgid "Top 3 Countries"
 msgstr ""
 
-#: footer.php:52
-#: sidebar-index.php:22
+#: footer.php:52 sidebar-index.php:22
 msgid "Our blog"
 msgstr ""
 
@@ -96,19 +55,15 @@ msgstr ""
 msgid "Get it on"
 msgstr ""
 
-#: footer.php:61
-#: sidebar-index.php:6
-#: sidebar-pomodoro-right.php:11
+#: footer.php:61 sidebar-index.php:6 sidebar-pomodoro-right.php:11
 msgid "Sponsored by"
 msgstr ""
 
-#: footer.php:65
-#: header.php:142
+#: footer.php:65 header.php:142
 msgid "Support"
 msgstr ""
 
-#: footer.php:66
-#: header.php:140
+#: footer.php:66 header.php:140
 msgid "Open support ticket"
 msgstr ""
 
@@ -118,10 +73,8 @@ msgstr ""
 
 #: functions.php:735
 msgid ""
-"These content is not "
-"avaiable in your "
-"language. Original "
-"content language is: "
+"These content is not avaiable in your language. Original content language "
+"is: "
 msgstr ""
 
 #: functions.php:738
@@ -129,13 +82,11 @@ msgid "Go to blog homepage"
 msgstr ""
 
 #: functions.php:865
-msgid ""
-"you most recent task is"
+msgid "you most recent task is"
 msgstr ""
 
 #: functions.php:867
-msgid ""
-"you never started a task"
+msgid "you never started a task"
 msgstr ""
 
 #: functions.php:869
@@ -143,9 +94,7 @@ msgid "Hello"
 msgstr ""
 
 #: functions.php:869
-msgid ""
-"go to online app and "
-"start focus"
+msgid "go to online app and start focus"
 msgstr ""
 
 #: functions.php:871
@@ -153,19 +102,15 @@ msgid "Dear visitor"
 msgstr ""
 
 #: functions.php:871
-msgid ""
-"create your free user"
+msgid "create your free user"
 msgstr ""
 
 #: functions.php:871
-msgid ""
-"and start focus right now"
+msgid "and start focus right now"
 msgstr ""
 
 #: functions.php:872
-msgid ""
-"If you already have an "
-"account"
+msgid "If you already have an account"
 msgstr ""
 
 #: functions.php:872
@@ -176,10 +121,7 @@ msgstr ""
 msgid "Realizar Pagamento"
 msgstr ""
 
-#: functions.php:1600
-#: functions.php:1601
-#: functions.php:1617
-#: header.php:81
+#: functions.php:1600 functions.php:1601 functions.php:1617 header.php:81
 #: part-focus.php:2
 msgid "Focus"
 msgstr ""
@@ -204,8 +146,7 @@ msgstr ""
 msgid "New Focus"
 msgstr ""
 
-#: functions.php:1607
-#: functions.php:1608
+#: functions.php:1607 functions.php:1608
 msgid "View Focus"
 msgstr ""
 
@@ -218,8 +159,7 @@ msgid "No Focus found"
 msgstr ""
 
 #: functions.php:1611
-msgid ""
-"No Focus found in Trash"
+msgid "No Focus found in Trash"
 msgstr ""
 
 #: functions.php:1612
@@ -227,9 +167,7 @@ msgid "Parent Focus"
 msgstr ""
 
 #: header.php:24
-msgid ""
-"Site Wide Activity RSS "
-"Feed"
+msgid "Site Wide Activity RSS Feed"
 msgstr ""
 
 #: header.php:28
@@ -237,8 +175,7 @@ msgid "Activity RSS Feed"
 msgstr ""
 
 #: header.php:32
-msgid ""
-"Group Activity RSS Feed"
+msgid "Group Activity RSS Feed"
 msgstr ""
 
 #: header.php:35
@@ -246,13 +183,11 @@ msgid "Blog Posts RSS Feed"
 msgstr ""
 
 #: header.php:37
-msgid ""
-"Blog Posts Atom Feed"
+msgid "Blog Posts Atom Feed"
 msgstr ""
 
 #: header.php:71
-msgid ""
-"Go to Pomodoros Blog"
+msgid "Go to Pomodoros Blog"
 msgstr ""
 
 #: header.php:79
@@ -276,13 +211,10 @@ msgid "Colleagues"
 msgstr ""
 
 #: header.php:97
-msgid ""
-"View the most productive "
-"users Ranking"
+msgid "View the most productive users Ranking"
 msgstr ""
 
-#: header.php:99
-#: part-ranking.php:2
+#: header.php:99 part-ranking.php:2
 msgid "Ranking"
 msgstr ""
 
@@ -290,22 +222,16 @@ msgstr ""
 msgid "Perfomance Calendar"
 msgstr ""
 
-#: header.php:106
-#: part-calendar.php:2
+#: header.php:106 part-calendar.php:2
 msgid "Calendar"
 msgstr ""
 
-#: header.php:115
-#: header.php:117
-#: part-closed.php:6
-#: part-underconst.php:8
+#: header.php:115 header.php:117 part-closed.php:6 part-underconst.php:8
 msgid "Login"
 msgstr ""
 
 #: header.php:121
-msgid ""
-"Create your free "
-"pomodoros.com.br account"
+msgid "Create your free pomodoros.com.br account"
 msgstr ""
 
 #: header.php:123
@@ -320,8 +246,7 @@ msgstr ""
 msgid "My Acount"
 msgstr ""
 
-#: header.php:146
-#: header.php:148
+#: header.php:146 header.php:148
 msgid "Logout"
 msgstr ""
 
@@ -346,9 +271,7 @@ msgid "Restrict Area"
 msgstr ""
 
 #: part-closed.php:6
-msgid ""
-"to view the exclusive "
-"content"
+msgid "to view the exclusive content"
 msgstr ""
 
 #: part-csv.php:2
@@ -371,8 +294,7 @@ msgstr ""
 msgid "Task"
 msgstr ""
 
-#: part-focus.php:103
-#: part-task.php:33
+#: part-focus.php:103 part-task.php:33
 msgid "Project tags"
 msgstr ""
 
@@ -380,15 +302,12 @@ msgstr ""
 msgid "Extra"
 msgstr ""
 
-#: part-focus.php:111
-#: part-task.php:45
+#: part-focus.php:111 part-task.php:45
 msgid "Notes"
 msgstr ""
 
 #: part-focus.php:121
-msgid ""
-"What kind of taks is "
-"that?"
+msgid "What kind of taks is that?"
 msgstr ""
 
 #: part-focus.php:123
@@ -408,14 +327,11 @@ msgid "Privacy"
 msgstr ""
 
 #: part-focus.php:129
-msgid ""
-"Public - everyone can see"
+msgid "Public - everyone can see"
 msgstr ""
 
 #: part-focus.php:130
-msgid ""
-"Private - only you can "
-"see"
+msgid "Private - only you can see"
 msgstr ""
 
 #: part-focus.php:134
@@ -447,8 +363,7 @@ msgid "Start demo"
 msgstr ""
 
 #: part-help.php:2
-msgid ""
-"Help & Support System"
+msgid "Help & Support System"
 msgstr ""
 
 #: part-help.php:5
@@ -460,95 +375,61 @@ msgid "Contact Us"
 msgstr ""
 
 #: part-index.php:3
-msgid ""
-"Work & Fun Time Tracker"
-msgstr ""
+msgid "Work & Rest Time Tracker"
+msgstr "Cronômetro de Trabalho & Descanso"
 
 #: part-index.php:4
-msgid ""
-"Relax and Focus: Online "
-"social time tracker for "
-"task and projects"
+msgid "Relax and Focus: Online social time tracker for task and projects"
 msgstr ""
 
 #: part-index.php:5
-msgid ""
-"get you and your team "
-"more productive than ever"
+msgid "get you and your team more productive than ever"
 msgstr ""
 
-#: part-index.php:266
-#: part-news.php:84
-#: part-product.php:41
-#: single-product.php:48
-#: single.php:57
+#: part-index.php:266 part-news.php:84 part-product.php:41
+#: single-product.php:48 single.php:57
 msgid "Permanent Link to"
 msgstr ""
 
-#: part-index.php:275
-#: part-news.php:93
-#: part-product.php:50
-#: single-product.php:57
-#: single.php:67
-msgid ""
-"Read the rest of this "
-"entry &rarr;"
+#: part-index.php:275 part-news.php:93 part-product.php:50
+#: single-product.php:57 single.php:67
+msgid "Read the rest of this entry &rarr;"
 msgstr ""
 
-#: part-index.php:278
-#: part-news.php:96
-#: part-product.php:53
-#: single-product.php:60
-#: single.php:71
+#: part-index.php:278 part-news.php:96 part-product.php:53
+#: single-product.php:60 single.php:71
 msgid "No Comments &#187;"
 msgstr ""
 
-#: part-index.php:278
-#: part-news.php:96
-#: part-product.php:53
-#: single-product.php:60
-#: single.php:71
+#: part-index.php:278 part-news.php:96 part-product.php:53
+#: single-product.php:60 single.php:71
 msgid "1 Comment &#187;"
 msgstr ""
 
-#: part-index.php:278
-#: part-news.php:96
-#: part-product.php:53
-#: single-product.php:60
-#: single.php:71
+#: part-index.php:278 part-news.php:96 part-product.php:53
+#: single-product.php:60 single.php:71
 msgid "% Comments &#187;"
 msgstr ""
 
-#: part-index.php:293
-#: part-news.php:111
-#: part-product.php:68
+#: part-index.php:293 part-news.php:111 part-product.php:68
 #: tag-(now-part-tag).php:391
 msgid "Not Found"
 msgstr ""
 
-#: part-index.php:294
-#: part-news.php:112
-#: part-product.php:69
+#: part-index.php:294 part-news.php:112 part-product.php:69
 #: tag-(now-part-tag).php:392
-msgid ""
-"Sorry, but you are "
-"looking for something "
-"that isn't here."
+msgid "Sorry, but you are looking for something that isn't here."
 msgstr ""
 
 #: part-news.php:2
 msgid "Blog"
 msgstr ""
 
-#: part-news.php:96
-#: part-product.php:53
-#: single-product.php:60
-#: single.php:71
+#: part-news.php:96 part-product.php:53 single-product.php:60 single.php:71
 msgid "Tags: "
 msgstr ""
 
-#: part-tag.php:8
-#: part-tag.php:187
+#: part-tag.php:8 part-tag.php:187
 msgid "Project Tag"
 msgstr ""
 
@@ -560,15 +441,11 @@ msgstr ""
 msgid "Project Details"
 msgstr ""
 
-#: part-tag.php:197
-#: part-tag.php:248
-#: part-task.php:15
+#: part-tag.php:197 part-tag.php:248 part-task.php:15
 msgid "Details"
 msgstr ""
 
-#: part-tag.php:198
-#: part-tag.php:249
-#: part-task.php:16
+#: part-tag.php:198 part-tag.php:249 part-task.php:16
 msgid "Info"
 msgstr ""
 
@@ -576,8 +453,7 @@ msgstr ""
 msgid "Pomodoros done"
 msgstr ""
 
-#: part-tag.php:207
-#: sidebar-pomodoro-right.php:50
+#: part-tag.php:207 sidebar-pomodoro-right.php:50
 msgid "Work time"
 msgstr ""
 
@@ -594,9 +470,7 @@ msgid "Days of work"
 msgstr ""
 
 #: part-tag.php:223
-msgid ""
-"Project productivity "
-"factor"
+msgid "Project productivity factor"
 msgstr ""
 
 #: part-tag.php:227
@@ -612,37 +486,26 @@ msgid "Project Statistics"
 msgstr ""
 
 #: part-tag.php:254
-msgid ""
-"Mean of pomodoros / "
-"total days"
+msgid "Mean of pomodoros / total days"
 msgstr ""
 
 #: part-tag.php:258
-msgid ""
-"Average working hours / "
-"total days"
+msgid "Average working hours / total days"
 msgstr ""
 
 #: part-tag.php:262
-msgid ""
-"Average pomodoros / days "
-"worked"
+msgid "Average pomodoros / days worked"
 msgstr ""
 
 #: part-tag.php:266
-msgid ""
-"Average hours worked / "
-"days worked"
+msgid "Average hours worked / days worked"
 msgstr ""
 
-#: part-tag.php:452
-#: tag-(now-part-tag).php:384
-msgid ""
-"&larr; Previous Entries"
+#: part-tag.php:452 tag-(now-part-tag).php:384
+msgid "&larr; Previous Entries"
 msgstr ""
 
-#: part-tag.php:453
-#: tag-(now-part-tag).php:385
+#: part-tag.php:453 tag-(now-part-tag).php:385
 msgid "Next Entries &rarr;"
 msgstr ""
 
@@ -674,63 +537,47 @@ msgstr ""
 msgid "Total pomodoros"
 msgstr ""
 
-#: part-underconst.php:2
-#: part-underconst.php:5
+#: part-underconst.php:2 part-underconst.php:5
 msgid "Under Construct"
 msgstr ""
 
 #: part-underconst.php:6
-msgid ""
-"Content under "
-"development, come back "
-"soon"
+msgid "Content under development, come back soon"
 msgstr ""
 
-#: sidebar-blog-DISABLED.php:19
-#: sidebar-pomodoro-left.php:24
+#: sidebar-blog-DISABLED.php:19 sidebar-pomodoro-left.php:24
 msgid "Log Out"
 msgstr ""
 
-#: sidebar-blog-DISABLED.php:38
-#: sidebar-pomodoro-left.php:43
+#: sidebar-blog-DISABLED.php:38 sidebar-pomodoro-left.php:43
 #, php-format
 msgid ""
-"Please <a href=\"%s\" "
-"title=\"Create an account"
-"\">create an account</a> "
-"to get started."
+"Please <a href=\"%s\" title=\"Create an account\">create an account</a> to "
+"get started."
 msgstr ""
 
-#: sidebar-blog-DISABLED.php:45
-#: sidebar-pomodoro-left.php:50
+#: sidebar-blog-DISABLED.php:45 sidebar-pomodoro-left.php:50
 msgid "Username"
 msgstr ""
 
-#: sidebar-blog-DISABLED.php:48
-#: sidebar-pomodoro-left.php:53
+#: sidebar-blog-DISABLED.php:48 sidebar-pomodoro-left.php:53
 msgid "Password"
 msgstr ""
 
-#: sidebar-blog-DISABLED.php:51
-#: sidebar-pomodoro-left.php:56
+#: sidebar-blog-DISABLED.php:51 sidebar-pomodoro-left.php:56
 msgid "Remember Me"
 msgstr ""
 
-#: sidebar-blog-DISABLED.php:55
-#: sidebar-pomodoro-left.php:59
+#: sidebar-blog-DISABLED.php:55 sidebar-pomodoro-left.php:59
 msgid "Log In"
 msgstr ""
 
-#: sidebar-blog-DISABLED.php:68
-#: sidebar-pomodoro-left.php:73
+#: sidebar-blog-DISABLED.php:68 sidebar-pomodoro-left.php:73
 msgid "Forum Topic Tags"
 msgstr ""
 
-#: sidebar-index.php:13
-#: sidebar-pomodoro-right.php:18
-msgid ""
-"Buy to support our free "
-"services"
+#: sidebar-index.php:13 sidebar-pomodoro-right.php:18
+msgid "Buy to support our free services"
 msgstr ""
 
 #: sidebar-index.php:36
@@ -742,8 +589,7 @@ msgid "Your Account"
 msgstr ""
 
 #: sidebar-pomodoro-left.php:104
-msgid ""
-"Projects from Community"
+msgid "Projects from Community"
 msgstr ""
 
 #: sidebar-pomodoro-right.php:31
@@ -754,8 +600,7 @@ msgstr ""
 msgid "Time from register"
 msgstr ""
 
-#: sidebar-pomodoro-right.php:51
-#: sidebar-pomodoro-right.php:55
+#: sidebar-pomodoro-right.php:51 sidebar-pomodoro-right.php:55
 msgid "days"
 msgstr ""
 
@@ -775,38 +620,29 @@ msgstr ""
 msgid "Since beggining"
 msgstr ""
 
-#: sidebar-pomodoro-right.php:108
-#: sidebar-pomodoro-right.php:110
+#: sidebar-pomodoro-right.php:108 sidebar-pomodoro-right.php:110
 msgid "Export Calendar"
 msgstr ""
 
 #: sidebar-pomodoro-right.php:109
 msgid ""
-"See your pomodoros in "
-"the calendars of Google, "
-"Apple, Microsoft and "
-"others."
+"See your pomodoros in the calendars of Google, Apple, Microsoft and others."
 msgstr ""
 
-#: sidebar-pomodoro-right.php:113
-#: sidebar-pomodoro-right.php:115
+#: sidebar-pomodoro-right.php:113 sidebar-pomodoro-right.php:115
 msgid "Export Worksheet"
 msgstr ""
 
 #: sidebar-pomodoro-right.php:114
 msgid ""
-"Have control over your "
-"data, view your "
-"pomodoros in Microsoft "
-"Excel, LibreOffice Calc "
-"and others"
+"Have control over your data, view your pomodoros in Microsoft Excel, "
+"LibreOffice Calc and others"
 msgstr ""
 
 #: sidebar-pomodoro-right.php:118
 msgid "Your projects"
 msgstr ""
 
-#: single-product.php:66
-#: single.php:77
+#: single-product.php:66 single.php:77
 msgid "Edit this entry."
 msgstr ""
