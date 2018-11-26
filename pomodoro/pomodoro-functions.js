@@ -1082,11 +1082,14 @@ var groupOfCommands = [{
 var groupSwith = [{
     // note that if you're in spanish for example
     // the command should be instead : "Iniciar en ingles, Iniciar en alemán" etc...
-    indexes:["switch to portuguese","switch to english"],
+    indexes:["switch to english","switch to portuguese","switch to spanish","switch to french","switch to chinese"],
     action: function(i){
         switch(i){
-            case 0: start("pt-PT"); break;
-            case 1: start("en-US"); break;
+            case 0: start("en-US"); break;
+            case 1: start("pt-PT"); break;
+            case 2: start("es-ES"); break;
+            case 2: start("fr-FR"); break;
+            case 2: start("CN"); break;
         }
     }
 }];
@@ -1098,13 +1101,26 @@ function startContinuousArtyom(){
 		//
 	    artyom_voice.fatality();// use this to stop any of
 	    //
-	    //alert(data_from_php.php_locale);
-	    if(data_from_php.php_locale=="pt_BR")
+	    alert(data_from_php.php_locale);
+	    if(data_from_php.php_locale=="pt_BR" || data_from_php.php_locale=="pt") {
+	    	gcommands = grupoDeComandos;
 	    	artyom_lang = "pt-PT";
-	    else
+	    } else if(data_from_php.php_locale=="es_ES" || data_from_php.php_locale=="es") {
+	    	gcommands = groupOfCommands;
+	    	artyom_lang = "es-ES";
+	    } else if(data_from_php.php_locale=="fr_FR" || data_from_php.php_locale=="fr") {
+	    	gcommands = groupOfCommands;
+	    	artyom_lang = "fr-FR";
+	    } else if(data_from_php.php_locale=="zh_CN" || data_from_php.php_locale=="zh") {
+	    	gcommands = groupOfCommands;
+	    	artyom_lang = "CN";
+	    } else {
+	    	gcommands = groupOfCommands;
 	    	artyom_lang = "en-US";
+	    }
+	    alert(artyom_lang);
 	    //
-	    setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
+	    //setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
 	         artyom_voice.initialize({
 	            lang:artyom_lang,// A lot of languages are supported. Read the docs !
 	            continuous:true,// Artyom will listen forever
@@ -1117,12 +1133,12 @@ function startContinuousArtyom(){
 	        }).then(function(){
 	            console.log("Ready to work !");
 	        });
-	    },250);
+	    //},250);
 	    //
-	    if(data_from_php.php_locale=="pt_BR")
-	    	artyom_voice.addCommands(grupoDeComandos);
-	    else
-	    	artyom_voice.addCommands(groupOfCommands);
+	    //if(data_from_php.php_locale=="pt_BR")
+	    	//artyom_voice.addCommands(grupoDeComandos);
+	    //else
+	    	artyom_voice.addCommands(gcommands);
 
 	    artyom_voice.addCommands(groupSwith);
 

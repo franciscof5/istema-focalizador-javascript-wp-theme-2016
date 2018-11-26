@@ -1,7 +1,7 @@
 <script>
 	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' » ';_e('Ranking', 'sis-foca-js'); ?>";
 </script>
-<div class="content_nosidebar col-xs-12">
+<div id="page-ranking" class="content_nosidebar col-xs-12">
 	<?php 
 	#style="width: 104%;left: -2%;"
 	$instance = array(

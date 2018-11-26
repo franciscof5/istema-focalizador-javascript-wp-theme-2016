@@ -2928,13 +2928,17 @@ h3.rpwe-title a {
 
 /***************TOP AUTHORS ***********************/
 	.top-authors-widget ul li {
-		height: 34px;
+		height: 20px;
 		line-height: 20px;
 		border: 1px solid #CCC;
 		border-radius: 10px;
 		margin: 0 0 5px 0;
 
 	}
+	#page-ranking .top-authors-widget ul li {
+		height: 34px;
+	}
+	
 	.top-authors-widget ul li a {
 		color: #666;
 		font-size: 12px;
@@ -2943,6 +2947,9 @@ h3.rpwe-title a {
 		white-space: nowrap;
 		position: absolute;
 		max-width: 75%;
+		
+	}
+	#page-ranking .top-authors-widget ul li a { 
 		line-height: 34px;
 		font-size: 16px;
 	}
@@ -2955,6 +2962,9 @@ h3.rpwe-title a {
 	}*/
 	.top-authors-widget ul li img {
 		border-radius: 10px;
+		margin-right: 5px;
+	}
+	#page-ranking .top-authors-widget ul li img {
 		margin-right: 10px;
 	}
 	.top-authors-widget ul li div:nth-child(2) {
@@ -2971,10 +2981,12 @@ h3.rpwe-title a {
 		max-width: 60% !important;
 	}
 	/*.top-authors-widget ul li:nth-child(odd) {*/
-	.ta-preset li:nth-child(odd),.ul-ranking-footer li:nth-child(odd) {
+	.ul-ranking-page li:nth-child(odd),
+	.ul-ranking-footer li:nth-child(odd) {
 		background: #BBB;
 	}
-	.ta-preset li:nth-child(even), .ul-ranking-footer li:nth-child(even) {
+	.ul-ranking-page li:nth-child(even), 
+	.ul-ranking-footer li:nth-child(even) {
 		background: #EBEBEB;
 	}
 	/*.top-authors-widget ul li span {
@@ -2988,12 +3000,18 @@ h3.rpwe-title a {
 		float: left;
 		margin: 0;
 		padding: 0 1px 0 5px;
-		line-height: 34px;
+		margin-right: 5px;
 		font-weight: bold;
 		color: #666;
-		width: 34px;
+		width: 10px;
 		text-align: center;
+		font-size: 12px;
+
+	}
+	#page-ranking .pos {
+		width: 34px;
 		font-size: 16px;
+		line-height: 34px;
 	}
 	/*.first {
 		background: #983;
