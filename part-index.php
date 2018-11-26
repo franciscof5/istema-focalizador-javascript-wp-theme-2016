@@ -1,4 +1,6 @@
 	<?php #_e("", "sis-foca-js"); ?>
+	<center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center>
+	<br>
 	<div class="row header-desc">
 		<h1 class="forte"><?php _e("Work & Rest Time Tracker", "sis-foca-js"); ?></h1>
 		<p style="font-weight: 600; font-size: 18px;"><?php _e("Relax and Focus: Online social time tracker for task and projects", "sis-foca-js"); ?>, 
@@ -300,7 +302,7 @@
 	<br>
 	<center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center>
 		
-
+	<?php if(function_exists("show_welcome_message")) show_welcome_message(true); ?>
 	<?php /*
 	<div style="padding: 0 5%;">
 		<div class="container-thumb">
@@ -352,7 +354,7 @@
 	?>
 	
 	
-	<?php if(function_exists("show_welcome_message")) show_welcome_message(true); ?>
+	
 
 	<?php
 	/*
