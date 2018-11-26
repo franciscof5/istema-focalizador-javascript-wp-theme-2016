@@ -142,7 +142,7 @@
 	?>
 	<div class="row testimonials">
 		<center><h2 class="forte"><i class="glyphicon glyphicon-bullhorn"></i> <?php _e("Testimonials", "sis-foca-js"); ?></h2></center>
-		<div class="col-sm-6 col-md-3 testimonials-container">
+		<div class="col-xs-6 col-sm-6 col-md-3 testimonials-container">
 			<div class="thumbnail">
 				<p><?php _e("I will be the first in the ranking", "sis-foca-js"); ?>.</p>
 				<div class="caption">
@@ -151,7 +151,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-6 col-md-3 testimonials-container">
+		<div class="col-xs-6 col-sm-6 col-md-3 testimonials-container">
 			<div class="thumbnail">
 				<p><?php _e("Learning is an ongoing process. We should study daily, analyze the results regularly and apply methods to improve our previous results", "sis-foca-js"); ?>.</p>
 				<div class="caption">
@@ -160,7 +160,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-6 col-md-3 testimonials-container">
+		<div class="col-xs-6 col-sm-6 col-md-3 testimonials-container">
 			<div class="thumbnail">
 				<p><?php _e("With Pomodoros.com.br I can have more control over my time, be more productive and perform my tasks better", "sis-foca-js"); ?>.</p>
 				<div class="caption">
@@ -169,7 +169,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-6 col-md-3 testimonials-container">
+		<div class="col-xs-6 col-md-6 col-md-3 testimonials-container">
 			<div class="thumbnail">
 				<p><?php _e("I used Pomodoros.com.br a few years ago, every day. I was happy to know that the website came back, I hope people use it again, I'll try to get into the habit too because 'super' helped me", "sis-foca-js"); ?>! </p>
 				<div class="caption">
