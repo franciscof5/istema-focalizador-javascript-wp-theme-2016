@@ -55,6 +55,9 @@
 	var color_default = "#0F0F0F";
 	var color_focus = "#006633";
 	var color_rest = "#990000";
+	var startedTimer;
+	var tempoCotagem;
+	var tempTimer = 0;
 }
 function startTest() {
 	alertify.success("Special demonstration configuration loaded");
@@ -436,7 +439,11 @@ function start_clock() {
 	if(jQuery("#sound-switcher").is(":checked"))
 	active_sound.play();
 	//TODO: post_status="future;"
-	interval_clock = setInterval('countdown_clock()', intervalMiliseconds);
+	//interval_clock = setInterval('countdown_clock()', intervalMiliseconds);
+	//var tempTimer = 0;
+	startedTimer = Date.now();
+	tempoCotagem = secondsRemaining;
+	setInterval(countdown_clock, 1000)
 
 	//is_pomodoros is when using 25min for focusing
 	if(is_pomodoro) {
@@ -461,19 +468,22 @@ function myConfirmation() {
 
 //Function called every second when pomodoros are running
 function countdown_clock (){
+	tempTimer = Math.floor((Date.now() - startedTimer) / 1000);
+	//alert(tempTimer);
 	//Everty second of pomodoros running these functions are called
-	secondsRemaining--;
+	//secondsRemaining--;
+	tempoCotagem = secondsRemaining - tempTimer;
 	//Function user to convert number, like 140, into clock time, like 2:20
-	convertSeconds(secondsRemaining);
+	convertSeconds(tempoCotagem);
 	//Functions to make the effect of flip on countdown_clock
 	flip_number();
 	//Test the end of the time
-	if(secondsRemaining==0)
+	if(tempoCotagem==0)
 	complete();
 	//Change the title to time
 	changeTitle();
 	//
-	document.getElementById("secondsRemaining_box").value=secondsRemaining + "s";
+	document.getElementById("secondsRemaining_box").value=tempoCotagem + "s";
 }
 
 
