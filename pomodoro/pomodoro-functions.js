@@ -443,7 +443,7 @@ function start_clock() {
 	//var tempTimer = 0;
 	startedTimer = Date.now();
 	tempoCotagem = secondsRemaining;
-	setInterval(countdown_clock, 1000)
+	interval_clock = setInterval(countdown_clock, 1000)
 
 	//is_pomodoros is when using 25min for focusing
 	if(is_pomodoro) {
