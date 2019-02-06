@@ -101,6 +101,9 @@ input[type="range"]::-ms-fill-upper {
 	line-height: 40px;
 	font-size: 14px;
 }
+.btn-expand:focus {
+	color: #FFF !important;
+}
 .posttitle, .widget-title {
 	/*font-family: Forte;**/
 	font-family: "Helvetica Neue",​ Helvetica, ​Arial,​sans-serif;
@@ -404,7 +407,7 @@ img.avatar {
 /**/
 .editfield {width:300px;float:right;}
 
-#loginlogbox {
+#loginlogbox, #settingsbox {
 	display:none;
 	width: 280px;
 	height: 320px;
@@ -416,7 +419,7 @@ img.avatar {
 	right:18%;
 	top: 45px;
 	border-radius: 10px;
-	padding: 30px;
+	padding: 20px;
 	opacity: 0.95;
 	filter:alpha(opacity=95); /* For IE8 and earlier */
 }
@@ -3251,9 +3254,9 @@ h3.rpwe-title a {
 #action_button_id {
 	/*background-color:#222;
 	/*margin:5px 0px 10px 100px;*/
-	margin:5px 0 10px 10px;
-	height:30px;
-	width:242px;
+	margin: 5px 0 10px 15px;
+	height: 30px;
+	width: 238px;
 	color: #FFF;
 	font-weight: 600;
 	background-color: #000;
@@ -3266,6 +3269,7 @@ h3.rpwe-title a {
 	border: none; 
 	float:left;
 	box-shadow: none;
+	color: rgba(0,0,0,0.5);
 }
 .pomoindi {
 	background:url("images/pomodoro-indicator.png");
@@ -3277,7 +3281,11 @@ h3.rpwe-title a {
 	margin:10px auto;
 	border:2px solid transparent;}
 
-#pomolist {margin:0 auto; width:220px;}
+#pomolist {
+	margin:0 auto;
+	width:220px;
+	color: rgba(0,0,0,0.5);
+}
 #pomoindi1 {top:90px;}
 #pomoindi2 {top:120px;}
 #pomoindi3 {top:150px;}
@@ -3536,10 +3544,19 @@ h3.rpwe-title a {
     border-color: #333;
     color: #fff;
 }
+.btn-transparent {
+	background-color: transparent;
+	color: #B8B8B8;
+	border: transparent;
+}
 .btn-black:hover {
     background-color: #333;
     border-color: #333;
     color: #FFF !important;
+}
+.btn-round {
+	padding: 3px 6px;
+	border-radius: 10px;
 }
 h2 i {
 	margin-bottom: -6px;

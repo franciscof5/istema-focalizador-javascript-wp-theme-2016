@@ -209,13 +209,17 @@ jQuery( document ).ready(function() {
 	jQuery( ".abrir_login" ).click(function() {
 		jQuery( "#loginlogbox" ).toggle("slow");
 	});
+	jQuery( ".abrir_settings" ).click(function() {
+		jQuery( "#settingsbox" ).toggle("slow");
+	});
 	jQuery( window ).click(function() {
-		//alert(jQuery( "#loginlogbox" ).width);
-
 		//NOT MOUSE OVER LOGINLOGBOX
 		if(jQuery( "#loginlogbox" ).is(":visible") && !jQuery( "#loginlogbox" ).is(":animated") && !jQuery( "#loginlogbox" ).is(":hover"))
-		//if(jQuery( "#loginlogbox" ).length>10)
 		jQuery( "#loginlogbox" ).hide("fast");
+
+		if(jQuery( "#settingsbox" ).is(":visible") && !jQuery( "#settingsbox" ).is(":animated") && !jQuery( "#settingsbox" ).is(":hover"))
+		jQuery( "#settingsbox" ).hide("fast");
+
 	});
 	//jQuery( "#settings_panel" ).click(function() {
 	//	jQuery( "#settingsbox" ).toggle("slow");

@@ -127,25 +127,27 @@
 					<!--li>
 						<a title="Ver Blog" class="btn btn-link" href="/blog" style="padding-top: 10px;">Blog</a>
 						</li-->
-					<!--li>
-						<button title="Settings" id="settingsbutton" class="btn btn-link" href="/blog" style="padding-top: 10px;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
-					</li-->
+					<li>
+						<a title="<?php _e("Settings", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand abrir_settings" href="#">
+							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="hidden-sm hidden-md icon-leg"> <?php _e("Settings", "sis-foca-js"); ?>
+						</a>
+					</li>
 					<li>
 						<a title="<?php _e("View your account", "sis-foca-js"); ?>"  class="btn btn-transparent-red btn-xs btn-expand" href="<?php bloginfo('url'); ?>/my-account">
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-							<span class="hidden-sm hidden-md icon-leg"><?php _e("My Acount", "sis-foca-js"); ?></span>
+							<span class="hidden-sm hidden-md icon-leg"> <?php _e("My Acount", "sis-foca-js"); ?></span>
 						</a>
 					</li>
 					<li>
 						<a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand" href="<?php bloginfo('url'); ?>/help">
 							<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 
-							<span class="hidden-sm hidden-md icon-leg"><?php _e("Support", "sis-foca-js"); ?></span>
+							<span class="hidden-sm hidden-md icon-leg"> <?php _e("Support", "sis-foca-js"); ?></span>
 						</a>
 					</li>
 					<li>
 						<a title="<?php _e("Logout", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand" href="<?php echo wp_logout_url(); ?>">
 							<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 
-							<span class="hidden-sm hidden-md icon-leg"><?php _e("Logout", "sis-foca-js"); ?></span>
+							<span class="hidden-sm hidden-md icon-leg"> <?php _e("Logout", "sis-foca-js"); ?></span>
 						</a>
 					</li>
 					<?php } ?>
@@ -165,6 +167,56 @@
 				<?php do_action( 'bp_after_sidebar_login_form' ); ?>
 			</div>
 		</div>
+	</div>
+
+	<div id="settingsbox">
+		<h2 class="forte" style="margin-top: -10px;"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <?php _e("Settings", "sis-foca-js"); ?> </h2>
+		<p>Change main volume level</p>
+		<div class="row">
+			<div class="col-xs-4">
+				<label><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> <?php _e("Volume", "sis-foca-js"); ?></label><br />
+			</div>
+			
+		</div>
+
+		<div class="row">
+			<div class="col-xs-1">
+				<span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
+			</div>
+			<div class="col-xs-9">
+				<input type="range" id="rangeVolume">
+			</div>
+			<div class="col-xs-1">
+				<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+			</div>
+		</div>
+		<br>
+		<p>Click to enable/disable sound FX and voice</p>
+			<div class="row">
+				<div class="col-xs-8">
+					<h3><strong>Sound FX</strong></h3>
+				</div>
+				<div class="col-xs-4">
+	                <div class="material-switch pull-right" style="float: right;">
+	                    <input id="sound-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
+	                    <label for="sound-switcher" class="label-success"></label>
+	                </div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-8">
+					 <h3><strong><?php _e("Voice", "sis-foca-js"); ?></strong></h3>
+				</div>
+				<div class="col-xs-4">
+	                <div class="material-switch pull-right" style="float: right;">
+	                    <input id="voice-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
+	                    <label for="voice-switcher" class="label-success"></label>
+	                </div>
+	                
+				</div>
+			</div>
+		
 	</div>
 	<?php 
 	#var_dump(get_locale());

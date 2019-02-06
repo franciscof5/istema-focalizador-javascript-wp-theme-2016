@@ -5,7 +5,7 @@
 
 <!--div class="content_pomodoro col-xs-12 col-sm-6"-->
 
-<div id="center_layout" class="col-sm-6 col-sm-offset-3 col-xs-12">
+<div id="center_layoutDISABLED" class="col-sm-6 col-sm-offset-3 col-xs-12">
 	<div id="pomodoro-painel">		
 			
 		<div id="pomodoro-relogio">							
@@ -48,8 +48,8 @@
 			<li class="pomoindi" id="pomoindi4">4</li>
 		</ul>
 		
-		<button onclick="reset_pomodoro_session()" style="margin: 8px 0 0 12px;padding: 0 2px;"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button>
-		<button onclick="set_continuous_session()" style="margin: 8px 0 0 4px;padding: 0 2px;" id="resetter_btn"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
+		<button onclick="reset_pomodoro_session()" style="margin: 8px 0 0 12px;" class="btn-transparent btn-round"><span class="glyphicon glyphicon-backward" aria-hidden="true"></span></button>
+		<button onclick="set_continuous_session()" style="margin: 8px 0 0 4px;" id="resetter_btn" class="btn-transparent btn-round"><span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span></button>
 		</div><!--fecha pomodoros painel-->
 		<br />
 		
@@ -57,42 +57,7 @@
 		<div id="mascote_float">
 			<div id="div_status"><?php _e("Hello, welcome", "sis-foca-js"); ?></div>
 			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/mascote_foca.png" />
-		</div> */ ?>
-		
-		<br />
-		<br />
-		
-		<div class="row">
-			<div class="col-xs-4">
-				<label><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> <?php _e("Volume", "sis-foca-js"); ?></label><br />
-			</div>
-			<div class="col-xs-4">
-                <div class="material-switch pull-right" style="float: right;">
-                    <input id="sound-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
-                    <label for="sound-switcher" class="label-success"></label>
-                </div>
-                <label style="float:right"><!--span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span--> FX &nbsp; </label>
-			</div>
-			<div class="col-xs-4">
-                <div class="material-switch pull-right" style="float: right;">
-                    <input id="voice-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
-                    <label for="voice-switcher" class="label-success"></label>
-                </div>
-                <label style="float:right"><!--span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span--> <?php _e("Voice", "sis-foca-js"); ?> &nbsp; </label>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-xs-1">
-				<span class="glyphicon glyphicon-volume-off" aria-hidden="true"></span>
-			</div>
-			<div class="col-xs-9">
-				<input type="range" id="rangeVolume">
-			</div>
-			<div class="col-xs-1">
-				<span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
-			</div>
-		</div>	
+		</div> */ ?>	
 		
 		<form name="pomopainel" id="pomopainel">		
 		 	<div class="form-group">
@@ -279,12 +244,12 @@
 
 		</div>
 		
-		<?php if(current_user_can('administrator')) { ?>
+		<?php /* if(current_user_can('administrator')) { ?>
 			<div style="background-color: #EEE; text-align: center;border-radius: 10px;margin-top: 20px; padding: 10px;">
 				<p><strong><?php _e("For admin only:", "sis-foca-js"); ?></strong></p>
 				<button class="btn btn-warning" type="button" onclick="startTest();"><strong><?php _e("Start demo", "sis-foca-js"); ?></strong></button>
 			</div>
-		<?php } ?>
+		<?php } */ ?>
 	</div>
 	
 </div><!-- #content -->
