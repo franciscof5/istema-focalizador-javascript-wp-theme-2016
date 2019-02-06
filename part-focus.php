@@ -53,10 +53,11 @@
 		</div><!--fecha pomodoros painel-->
 		<br />
 		
+		<?php /*
 		<div id="mascote_float">
 			<div id="div_status"><?php _e("Hello, welcome", "sis-foca-js"); ?></div>
 			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/mascote_foca.png" />
-		</div>
+		</div> */ ?>
 		
 		<br />
 		<br />

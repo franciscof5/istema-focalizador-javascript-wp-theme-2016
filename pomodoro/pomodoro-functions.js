@@ -11,7 +11,7 @@
 	var pomodoros_to_big_rest=4;
 
 	var pomodoroTime = 1500;
-	var restTime = 300;
+	var restTime = 250;
 	var bigRestTime = 1800;
 	var intervalMiliseconds = 1000;
 
@@ -579,7 +579,7 @@ function change_status(txt, stts) {
 	else if(stts=="er")
 		alertify.error(txt);
 
-	document.getElementById("div_status").innerHTML=txt;
+	//document.getElementById("div_status").innerHTML=txt;
 }
 
 //Function to change button text and color

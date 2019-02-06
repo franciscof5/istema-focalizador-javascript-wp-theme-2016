@@ -3544,3 +3544,20 @@ h3.rpwe-title a {
 h2 i {
 	margin-bottom: -6px;
 }
+
+.alertify-logs {
+	padding: 2px;
+}
+.alertify-logs article {
+	/*padding-left: 80px;*/
+}
+.alertify-logs article:before {
+	content: "";
+	background: url("images/foca-alert.png") no-repeat;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+	padding-right: 25px;
+	border-radius: 5px;
+}
