@@ -478,7 +478,7 @@ function countdown_clock (){
 	//Functions to make the effect of flip on countdown_clock
 	flip_number();
 	//Test the end of the time
-	if(tempoCotagem==0)
+	if(tempoCotagem<=0)
 	complete();
 	//Change the title to time
 	changeTitle();
