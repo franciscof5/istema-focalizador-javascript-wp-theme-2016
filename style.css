@@ -56,6 +56,8 @@ em {
 	font-style: italic !important;
 }
 #contem-tudo {
+	padding-left: 5px !important;
+	padding-right: 5px !important;
 	/*background-color: #000;*/
 }
 
@@ -363,7 +365,7 @@ img.avatar {
 }
 
 #pomodoro-painel {
-	width:320px;
+	width: 270px;
 	margin:0 auto 30px auto;
 	/*padding: 30px 0 50px 0;*/
 }
@@ -3245,7 +3247,7 @@ h3.rpwe-title a {
 
 /**/
 #pomodoro-relogio {
-	padding:20px;
+	/*padding:20px;*/
 	height:220px;
 	/*width:290px;/*background:#EEE;*/
 	margin:0 auto;
