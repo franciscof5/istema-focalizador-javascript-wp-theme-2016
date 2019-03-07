@@ -1098,7 +1098,7 @@ function save_progress () {
 		'post_status' => $_POST['post_priv'],
 		'post_category' => array(1, $_POST['post_cat']),
 		'post_author' => $current_user->ID,
-		'tags_input' => array($_POST['post_tags']),
+		'tags_input' => ($_POST['post_tags']),
 		'post_date' => $agora,
 		'post_date_gmt' => $agora_gmt
 		//'post_category' => array(0)

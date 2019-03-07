@@ -579,7 +579,7 @@ function change_status(txt, stts) {
 	else if(stts=="er")
 		alertify.error(txt);
 
-	//document.getElementById("div_status").innerHTML=txt;
+	document.getElementById("div_status").innerHTML=txt;
 }
 
 //Function to change button text and color
@@ -786,7 +786,7 @@ function savepomo() {
 		action: 'save_progress',
 		post_titulo: title_box.value,
 		post_descri: description_box.value,
-		post_tags: jQuery("#tags_box").val(),
+		post_tags: tags_box.value,
 		post_cat: postcat,
 		post_priv: privornot,
 		post_local_city: jQuery("#user_location_city").text(),
