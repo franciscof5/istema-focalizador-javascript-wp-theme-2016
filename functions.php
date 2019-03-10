@@ -95,8 +95,14 @@ add_action('init', 'add_tags_categories');
 add_filter('style_loader_tag', 'myplugin_remove_type_attr', 10, 2);
 add_filter('script_loader_tag', 'myplugin_remove_type_attr', 10, 2);
 
+add_filter('login_redirect', 'admin_default_page');
 
 add_shortcode( 'show_sponsor_geo', 'show_sponsor' );
+
+function admin_default_page() {
+  return '/focus';
+}
+
 
 //box-float
 function show_sponsor($type_of="excerpt", $hide_title="false") {
@@ -529,11 +535,7 @@ function define_title_apendix($lang) {
 }
 
 function load_scritps() {	
-	//Theme language, need to be there
-	load_theme_textdomain( 'sis-foca-js', get_template_directory() . '/languages' );
-
-	//THEME CSS FOR IMPROVE SPEED
-	wp_enqueue_style('theme-css', get_bloginfo("stylesheet_directory")."/style.css", __FILE__, time());
+	
 	#wp_enqueue_style('pomodoro-css', get_bloginfo("stylesheet_directory")."/pomodoro/pomodoro.css", __FILE__, time());
 	wp_enqueue_style('fonts-css', get_bloginfo("stylesheet_directory")."/assets/fonts/stylesheet.css", __FILE__);
 
@@ -575,7 +577,11 @@ function load_scritps() {
 	
 	#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
 	//inter8
-	
+	//Theme language, need to be there
+	load_theme_textdomain( 'sis-foca-js', get_template_directory() . '/languages' );
+
+	//THEME CSS FOR IMPROVE SPEED
+	wp_enqueue_style('theme-css', get_bloginfo("stylesheet_directory")."/style.css", __FILE__, time());
 	
 
 	

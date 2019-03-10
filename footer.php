@@ -8,6 +8,8 @@
 
 		<?php do_action( 'bp_before_footer' ) ?>
 
+		<?php if(!is_user_logged_in()) { ?>
+
 		<div id="footer" class="container-fluid">
 			<div id="footer-content" class="row">
 				<div class="col-sm-3 contem_last_pomodoros">
@@ -104,7 +106,69 @@
 			?>
 				
 				
-			<div  class="row white-link">
+			
+			<?php do_action( 'bp_footer' ) ?>
+		</div><!-- #footer -->
+
+<script>
+	jQuery( document ).ready(function() {
+		ranking_footer_first_text = jQuery(".ul-ranking-footer li:nth-child(1)").text();
+		var matches2 = regExpGetValueInParentisi.exec(ranking_footer_first_text);
+		var ranking_footer_first_qtddpomo = parseInt(matches2[1]);
+		var min_width_percentage = 70;
+		var min_width_percentage_negative = 100 - min_width_percentage;
+		//
+		jQuery( ".ul-ranking-footer li").each(function(i, b) {
+			jQuery(this).prepend("<span class=pos>"+(i+1)+"</span>");
+			//
+			inner_text_li_footer = (jQuery(this).text());
+			//alert(inner_text_li_footer);
+			var matches = regExpGetValueInParentisi.exec(inner_text_li_footer);
+			qtddpomo= parseInt(matches[1]);
+			percentage_in_relation_to_first = (qtddpomo/ranking_footer_first_qtddpomo);
+			
+			resizing = min_width_percentage + (percentage_in_relation_to_first*min_width_percentage_negative);
+			//alert(qtddpomo);
+			//resizing = min_width_percentage + ((((qtddpomo/ranking_footer_first_qtddpomo)/10)*2)*100);
+			//alert(res);
+			jQuery( this ).width( (resizing) + "%" );
+			jQuery( this ).find('a').width( (resizing-15) + "%" );
+		});
+		jQuery(".ul-ranking-footer li:nth-child(1)").css({
+				"background":"#FFF379",
+				"color": "#9B7529",
+		});
+		jQuery(".ul-ranking-footer li:nth-child(1) .pos").css({
+			"color": "#9B7529",
+			//"font-size": "30px"
+		});
+		jQuery(".ul-ranking-footer li:nth-child(1) a").css("color", "#9B7529");
+
+		jQuery(".ul-ranking-footer li:nth-child(2)").css({
+				"background":"#98969B",
+				"color": "#D0D8D7"
+		});
+		jQuery(".ul-ranking-footer li:nth-child(2) .pos").css({
+			"color": "#D0D8D7",
+			//"font-size": "26px"
+		});
+		jQuery(".ul-ranking-footer li:nth-child(2) a").css("color", "#D0D8D7");
+
+
+		jQuery(".ul-ranking-footer li:nth-child(3)").css({
+				"background":"#F1AB66",
+				"color": "#50352F"
+		});
+		jQuery(".ta-preset li:nth-child(3) .pos").css({
+			"color": "#50352F",
+			//"font-size": "22px"
+		});
+		jQuery(".ul-ranking-footer li:nth-child(3) a").css("color", "#50352F");
+		});
+		</script>
+		
+		<?php } ?>
+		<div  class="row white-link">
 				<div class="col-xs-6">
 					<p><?php _e("Developed by", "sis-foca-js"); ?> <a href="https://www.franciscomat.com">Francisco Mat</a>
 					<?php /*, Fork us <a href="https://github.com/franciscof5/sistema-focalizador-javascript">on GitHub</a> */ ?>
@@ -117,8 +181,6 @@
 					<p style="text-align: right;"><a href="<?php bloginfo('url'); ?>/tag/pomodoros-2"><?php _e("Project Pomodoros", "sis-foca-js"); ?></a> | <?php _e("on", "sis-foca-js"); ?> <a href="https://angel.co/projects/68620-pomodoros-com-br">AngelList</a> | <a href="http://carreirasolo.org/novas/site-usa-tecnica-dos-pomodoros-para-agilizar-produtividade#.W_PWZ6uQxpg">CarreiraSolo</a></p>
 				</div>
 			</div>
-			<?php do_action( 'bp_footer' ) ?>
-		</div><!-- #footer -->
 <script>
 
 jQuery( document ).ready(function() {
@@ -145,58 +207,6 @@ jQuery( document ).ready(function() {
 	});
 	//RANKING
 	var regExpGetValueInParentisi = /\(([^)]+)\)/;
-	ranking_footer_first_text = jQuery(".ul-ranking-footer li:nth-child(1)").text();
-	var matches2 = regExpGetValueInParentisi.exec(ranking_footer_first_text);
-	var ranking_footer_first_qtddpomo = parseInt(matches2[1]);
-	var min_width_percentage = 70;
-	var min_width_percentage_negative = 100 - min_width_percentage;
-	//
-	jQuery( ".ul-ranking-footer li").each(function(i, b) {
-		jQuery(this).prepend("<span class=pos>"+(i+1)+"</span>");
-		//
-		inner_text_li_footer = (jQuery(this).text());
-		//alert(inner_text_li_footer);
-		var matches = regExpGetValueInParentisi.exec(inner_text_li_footer);
-		qtddpomo= parseInt(matches[1]);
-		percentage_in_relation_to_first = (qtddpomo/ranking_footer_first_qtddpomo);
-		
-		resizing = min_width_percentage + (percentage_in_relation_to_first*min_width_percentage_negative);
-		//alert(qtddpomo);
-		//resizing = min_width_percentage + ((((qtddpomo/ranking_footer_first_qtddpomo)/10)*2)*100);
-		//alert(res);
-		jQuery( this ).width( (resizing) + "%" );
-		jQuery( this ).find('a').width( (resizing-15) + "%" );
-	});
-	jQuery(".ul-ranking-footer li:nth-child(1)").css({
-			"background":"#FFF379",
-			"color": "#9B7529",
-	});
-	jQuery(".ul-ranking-footer li:nth-child(1) .pos").css({
-		"color": "#9B7529",
-		//"font-size": "30px"
-	});
-	jQuery(".ul-ranking-footer li:nth-child(1) a").css("color", "#9B7529");
-
-	jQuery(".ul-ranking-footer li:nth-child(2)").css({
-			"background":"#98969B",
-			"color": "#D0D8D7"
-	});
-	jQuery(".ul-ranking-footer li:nth-child(2) .pos").css({
-		"color": "#D0D8D7",
-		//"font-size": "26px"
-	});
-	jQuery(".ul-ranking-footer li:nth-child(2) a").css("color", "#D0D8D7");
-
-
-	jQuery(".ul-ranking-footer li:nth-child(3)").css({
-			"background":"#F1AB66",
-			"color": "#50352F"
-	});
-	jQuery(".ta-preset li:nth-child(3) .pos").css({
-		"color": "#50352F",
-		//"font-size": "22px"
-	});
-	jQuery(".ul-ranking-footer li:nth-child(3) a").css("color", "#50352F");
 	
 	//**********//
 	/*jQuery(document).click(function(event) { 

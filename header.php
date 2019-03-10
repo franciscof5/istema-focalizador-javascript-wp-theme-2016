@@ -50,9 +50,9 @@
 <!--div id="audio"></div-->
 
 <?php do_action( 'bp_before_header' ) ?>
-<span id='linha-fundo'></span>
+<!--span id='linha-fundo'></span-->
 <div id="contem-tudo" class="container-fluid content">
-	<nav class="navbar navbar-inverse ">
+	<nav class="navbar navbar-inverse navbar-pomodoros">
 		<div class="container-fluid">
 			<div class="navbar-header" style="margin-top: 5px">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsePommoNabar">
@@ -75,37 +75,13 @@
 
 			<ul class="collapse navbar-collapse pomoNavbar" id="collapsePommoNabar" style="margin: 5px 0 0">
 				<?php if ( is_user_logged_in() ) { ?> 
-				<li>
+				<!--li>
 					<a title="<?php _e("Start Focus", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus/" class="btn btn-transparent-blue btn-xs btn-expand">
 						<div id="icone-foc"></div>
 						<span class="hidden-sm hidden-md icon-leg"><?php _e("Focus", "sis-foca-js"); ?></span>
 					</a>
-				</li>
-				<li>
-					<a title="<?php _e("View Productivity", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/<?php  $current_user = wp_get_current_user(); echo $current_user->user_login  ?>" class="btn btn-transparent-blue btn-xs btn-expand">
-						<div id="icone-gauge"></div>
-						<span class="hidden-sm hidden-md icon-leg"><?php _e("Productivity", "sis-foca-js"); ?></span>
-					</a>
-				</li>
-				<li>
-				  	<a title="<?php _e("Colleagues list", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/" alt="Amigos" class="btn btn-transparent-blue btn-xs btn-expand">
-				  		<div id="icone-amigo"></div>
-				  		<span class="hidden-sm hidden-md icon-leg"><?php _e("Colleagues", "sis-foca-js"); ?></span>
-				  	</a>
-				</li>
-				<li>
-					<a title="<?php _e("View the most productive users Ranking", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/ranking/" class="btn btn-transparent-blue btn-xs btn-expand">
-						<div id="icone-rank"></div>
-						<span class="hidden-sm hidden-md icon-leg"><?php _e("Ranking", "sis-foca-js"); ?></span>
-					</a>
-				</li>
-
-				<li>
-					<a title="<?php _e("Perfomance Calendar", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/calendar/" class="btn btn-transparent-blue btn-xs btn-expand">
-						<div id="icone-calend"></div>
-						<span class="hidden-sm hidden-md icon-leg"><?php _e("Calendar", "sis-foca-js"); ?></span>
-				  	</a>
-				</li>
+				</li-->
+				
 			    <?php } ?>
 			    
 			    <!--ul class="nav navbar-nav navbar-right pomoNavbar" style="padding-top: 5;"-->
@@ -127,29 +103,114 @@
 					<!--li>
 						<a title="Ver Blog" class="btn btn-link" href="/blog" style="padding-top: 10px;">Blog</a>
 						</li-->
-					<li>
-						<a title="<?php _e("Settings", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand abrir_settings" href="#">
-							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="hidden-sm hidden-md icon-leg"> <?php _e("Settings", "sis-foca-js"); ?>
-						</a>
+					<li class="dropdown" >
+						<a href="#" class="btn btn-transparent-red btn-xs btn-expand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="glyphicon caret"> </span></a>
+						<ul class="dropdown-menu" style="right: 0;left: inherit;">
+							<li>
+								<a title="<?php _e("Start Focus", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus/">
+								<div id="icone-foc"></div>
+								<?php _e("Focus", "sis-foca-js"); ?>
+								</a>
+							</li>
+							<li>
+								<a title="<?php _e("Settings", "sis-foca-js"); ?>" class="abrir_settings" href="#">
+									<span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <?php _e("Settings", "sis-foca-js"); ?>
+								</a>
+							</li>
+							<li>
+								<a title="<?php _e("View Productivity", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/<?php  $current_user = wp_get_current_user(); echo $current_user->user_login  ?>">
+									<div id="icone-gauge"></div>
+									<?php _e("Productivity", "sis-foca-js"); ?>
+								</a>
+							</li>
+							<li>
+								<a title="<?php _e("Colleagues list", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/" alt="Amigos">
+							  		<div id="icone-amigo"></div>
+							  		<?php _e("Colleagues", "sis-foca-js"); ?>
+							  	</a>
+							</li>
+							<li>
+								<a title="<?php _e("View the most productive users Ranking", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/ranking/">
+								<div id="icone-rank"></div>
+								<?php _e("Ranking", "sis-foca-js"); ?>
+								</a>
+							</li>
+							<li>
+								<a title="<?php _e("Perfomance Calendar", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/calendar/">
+									<div id="icone-calend"></div>
+									<?php _e("Calendar", "sis-foca-js"); ?>
+							  	</a>
+					  		</li>
+							<li role="separator" class="divider"></li>
+							<li>
+								<a title="<?php _e("View your account", "sis-foca-js"); ?>"  href="<?php bloginfo('url'); ?>/my-account">
+								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								<?php _e("My Acount", "sis-foca-js"); ?>
+							</a>
+							</li>
+							<li role="separator" class="divider"></li>
+							<li>
+								<a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/help">
+									<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 
+									<?php _e("Support", "sis-foca-js"); ?>
+								</a>
+							</li>
+							<li>
+								<a title="<?php _e("Logout", "sis-foca-js"); ?>" href="<?php echo wp_logout_url(); ?>">
+								<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 
+								 <?php _e("Logout", "sis-foca-js"); ?>
+							</a>
+							</li>
+						</ul>
 					</li>
-					<li>
+					<!--li>
+						<a title="<?php _e("Settings", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand abrir_settings" href="#">
+							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="hidden-sm hidden-md icon-leg"> <?php _e("Settings", "sis-foca-js"); ?> </span>
+						</a>
+					</li-->
+					<!--li>
+						<a title="<?php _e("View Productivity", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/<?php  $current_user = wp_get_current_user(); echo $current_user->user_login  ?>" class="btn btn-transparent-blue btn-xs btn-expand">
+							<div id="icone-gauge"></div>
+							<span class="hidden-sm hidden-md icon-leg"><?php _e("Productivity", "sis-foca-js"); ?></span>
+						</a>
+					</li-->
+					<!--li>
+					  	<a title="<?php _e("Colleagues list", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/" alt="Amigos" class="btn btn-transparent-blue btn-xs btn-expand">
+					  		<div id="icone-amigo"></div>
+					  		<span class="hidden-sm hidden-md icon-leg"><?php _e("Colleagues", "sis-foca-js"); ?></span>
+					  	</a>
+					</li-->
+					<!--li>
+						<a title="<?php _e("View the most productive users Ranking", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/ranking/" class="btn btn-transparent-blue btn-xs btn-expand">
+							<div id="icone-rank"></div>
+							<span class="hidden-sm hidden-md icon-leg"><?php _e("Ranking", "sis-foca-js"); ?></span>
+						</a>
+					</li-->
+
+					<!--li>
+						<a title="<?php _e("Perfomance Calendar", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/calendar/" class="btn btn-transparent-blue btn-xs btn-expand">
+							<div id="icone-calend"></div>
+							<span class="hidden-sm hidden-md icon-leg"><?php _e("Calendar", "sis-foca-js"); ?></span>
+					  	</a>
+					</li-->
+					<!--li>
 						<a title="<?php _e("View your account", "sis-foca-js"); ?>"  class="btn btn-transparent-red btn-xs btn-expand" href="<?php bloginfo('url'); ?>/my-account">
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 							<span class="hidden-sm hidden-md icon-leg"> <?php _e("My Acount", "sis-foca-js"); ?></span>
 						</a>
-					</li>
-					<li>
+					</li-->
+					<!--li>
 						<a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand" href="<?php bloginfo('url'); ?>/help">
 							<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 
 							<span class="hidden-sm hidden-md icon-leg"> <?php _e("Support", "sis-foca-js"); ?></span>
 						</a>
-					</li>
-					<li>
+					</li-->
+					<!--li>
 						<a title="<?php _e("Logout", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand" href="<?php echo wp_logout_url(); ?>">
 							<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 
 							<span class="hidden-sm hidden-md icon-leg"> <?php _e("Logout", "sis-foca-js"); ?></span>
 						</a>
-					</li>
+					</li-->
 					<?php } ?>
 				</span>
 			    <!--/ul-->

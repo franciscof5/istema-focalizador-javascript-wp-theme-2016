@@ -122,7 +122,7 @@ input[type="range"]::-ms-fill-upper {
 .posttitle a {
 	font-family: Forte;
 	font-weight: 100;
-	color: #333 !important;
+	color: #093 !important;
 }
 .entry {
 	text-align: justify;
@@ -445,6 +445,7 @@ input[type="text"], input[type="password"] {
     -moz-border-radius: 3px;
     padding: 7px;
     outline: none;
+    color: #000;
 
 }
 #loginlogbox input[type="submit"] {
@@ -775,7 +776,8 @@ ul.activity-list > li:first-child {
 body {
 	/*background: url("images/gray-background.jpg") top left;
 	/*background: #CCC;*/
-	background-color: #DDD !important;
+	background-color: #000 !important;
+	color: #FFF;
 }
 
 body {
@@ -973,9 +975,10 @@ margin: 0 auto;
 .pomoNavbar-right .glyphicon {
 	line-height: 30px !important;
 }
-.navbar-inverse {
+.navbar-pomodoros {
 	border:0 !important;
-	background-color: #0F0F0F;
+	background-color: #000;
+	margin-bottom: 0;
 }
 #pomodoros-topo {float:left; /*width:205px;*/ height:40px;}
 .icone-legenda {
@@ -1225,7 +1228,7 @@ div#container {
 	top: 0;
 }
 #content_members {
-	background: rgba(255,255,255,0.9);
+	/*background: rgba(255,255,255,0.9);*/
 	border-radius: 15px;
 	margin-bottom: 20px;
 	padding: 20px;
@@ -1387,8 +1390,8 @@ div.item-list-tabs {
 	clear: left;
 	overflow: auto;
 	margin: 25px -15px 5px -15px;
-	background: #fff;
-        border-bottom: 1px solid #ccc;
+	/*background: #fff;*/
+    /*border-bottom: 1px solid #ccc;*/
 }
 	div.item-list-tabs ul li a {
 		text-decoration: none;
@@ -1488,9 +1491,9 @@ div.dir-search {
 
 div.pagination {
 	margin: 0 -15px 9px -15px;
-	border-bottom: 1px solid #fff;
+	/*border-bottom: 1px solid #fff;*/
 	padding: 10px 15px 10px 15px;
-	color: #333;
+	color: #FFF;
 	font-size: 11px;
 	height: 16px;
 }
@@ -2564,10 +2567,6 @@ ol.commentlist li {
 /* > Footer
 -------------------------------------------------------------- */
 
-#footer {
-	/*height: 420px;*/
-}
-
 #footer .widgettitle {
 	display: none;
 }
@@ -2586,7 +2585,7 @@ ol.commentlist li {
 #footer {
 	color: #bbb;
 	clear: both;
-	background: #2D2D2D;
+	/*background: #2D2D2D;*/
 	margin: 0 !important;
 }
 	#footer a {
@@ -3460,14 +3459,18 @@ h3.rpwe-title a {
 /**/
 .header-desc {
 	text-align: center;
-	background-color: #CCC;
+	/*background-color: #CCC;*/
 	padding-bottom: 20px;
+	color: #FFF;
 }
 .stats-com {
 	margin-top: 20px;
 	padding: 0 20px 0 30px;
-	background-color: #CCC;
+	/*background-color: #CCC;*/
 	padding-bottom: 20px;
+}
+#carousel-home-pomodoros {
+	margin:0 40px;
 }
 .testimonials {
 	/*padding: 30px;*/
@@ -3479,6 +3482,8 @@ h3.rpwe-title a {
 }
 .testimonials .thumbnail {
 	border-radius: 15px !important;
+	background-color: transparent;
+	border:0;
 }
 .testimonials .thumbnail p {
 	border:0;
@@ -3502,7 +3507,7 @@ h3.rpwe-title a {
 	width: 0;
 	height: 0;
 	border: 20px solid transparent;
-	border-top-color: #0b0b0b;
+	border-top-color: #222;
 	border-bottom: 0;
 	border-left: 0;
 	margin-left: -10px;
@@ -3524,7 +3529,7 @@ h3.rpwe-title a {
 /**/
 .brief-history {
 	text-align: center;
-	background-color: #CCC;
+	/*background-color: #CCC;*/
 	padding: 0 20px 20px;
 }
 .brief-history .popover-title {
@@ -3579,4 +3584,13 @@ h2 i {
 	float: left;
 	padding-right: 25px;
 	border-radius: 5px;
+}
+.alertify-log-show {
+	background-color: #FFF;
+	color: #000;
+	text-shadow: none;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+	color: #000;
 }

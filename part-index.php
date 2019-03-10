@@ -1,6 +1,5 @@
 	<?php #_e("", "sis-foca-js"); ?>
-	<center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center>
-	<br>
+	<!--center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center-->
 	<div class="row header-desc">
 		<h1 class="forte"><?php _e("Work & Rest Time Tracker", "sis-foca-js"); ?></h1>
 		<p style="font-weight: 600; font-size: 18px;"><?php _e("Relax and Focus: Online social time tracker for task and projects", "sis-foca-js"); ?>, 
@@ -17,14 +16,14 @@
 		</div>
 	</div-->
 	<center><h2 class="forte"><i class="glyphicon glyphicon-ok-circle"></i> <?php _e("Features", "sis-foca-js"); ?></h2></center>
-	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+	<div id="carousel-home-pomodoros" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
-			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="3"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+			<li data-target="#carousel-home-pomodoros" data-slide-to="0" class="active"></li>
+			<li data-target="#carousel-home-pomodoros" data-slide-to="1"></li>
+			<li data-target="#carousel-home-pomodoros" data-slide-to="2"></li>
+			<li data-target="#carousel-home-pomodoros" data-slide-to="3"></li>
+			<li data-target="#carousel-home-pomodoros" data-slide-to="4"></li>
 		</ol>
 
 		<!-- Wrapper for slides -->
@@ -67,11 +66,11 @@
 		</div>
 
 		<!-- Controls -->
-		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		<a class="left carousel-control" href="#carousel-home-pomodoros" role="button" data-slide="prev">
 			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 			<span class="sr-only"><?php _e("Previous", "sis-foca-js"); ?></span>
 		</a>
-		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+		<a class="right carousel-control" href="#carousel-home-pomodoros" role="button" data-slide="next">
 			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 			<span class="sr-only"><?php _e("Next", "sis-foca-js"); ?></span>
 		</a>
