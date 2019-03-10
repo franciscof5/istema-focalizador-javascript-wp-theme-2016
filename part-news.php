@@ -23,7 +23,8 @@
 	?>
 	<br>
 	
-	<div id="content" class="content_default col col-xs-12 ">
+	<div id="content" class="content_defaultDDD col col-xs-12 ">
+		<center><h2 class="forte"><i class="glyphicon glyphicon-comment"></i> <?php _e("Pomodoros Blog", "sis-foca-js"); ?></h2></center>
 		<div class="row">
 			
 			<div class="padder col-md-8">

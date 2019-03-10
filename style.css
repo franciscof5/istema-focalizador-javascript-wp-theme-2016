@@ -948,7 +948,7 @@ margin: 0 auto;
 	color: #FFF;
 	font-weight: 600;
 }
-.pomoNavbar li {
+.icones-celular li {
 	/*height: 40px;
 	line-height: 40px;
 	float: left;
@@ -962,18 +962,22 @@ margin: 0 auto;
 	float: left;
 	
 }
+.dropdown-menu .divider {
+	background-color: #AAA;
+	float: none !important;
+}
 .pomoNavbar .glyphicon {
 	padding-top: 5px;
 	font-size: 20px;
-	line-height: 40px;
+	/*line-height: 40px;*/
 }
 .pomoNavbar-right .icon-leg {
-	line-height: 30px !important;
+	line-height: 40px !important;
 	position: relative;
     top: -2px;
 }
 .pomoNavbar-right .glyphicon {
-	line-height: 30px !important;
+	/*line-height: 30px !important;*/
 }
 .navbar-pomodoros {
 	border:0;

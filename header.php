@@ -62,7 +62,7 @@
 				</button>
 
 				
-				<a class="" title="<?php _e("Go to Pomodoros Blog", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>">
+				<a class="" title="<?php _e("Go to Pomodoros Blog", "sis-foca-js"); ?>" href="<?php bloginfo('url'); echo is_user_logged_in() ? '/focus' : '/blog'; ?>">
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pomodoro-logo-topo.png" id="pomodoros-topo" alt="Pomodoros">
 				</a>
 			</div>
@@ -97,45 +97,50 @@
 					<!--li>
 						<a title="Ver Blog" class="btn btn-link" href="/blog" style="padding-top: 10px;">Blog</a>
 						</li-->
-					<li class="dropdown hidden-xs">
+					<li class="dropdown hidden-xs icon-leg btn btn-xs">
 						<a href="#" class="btn btn-transparent-red btn-xs btn-expand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="glyphicon caret"> </span></a>
 						<ul class="dropdown-menu" style="right: 0;left: inherit;">
 							<li>
 								<a title="<?php _e("Start Focus", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus/">
-								<div id="icone-foc"></div>
+								<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
 								<?php _e("Focus", "sis-foca-js"); ?>
 								</a>
 							</li>
+							
+							<li>
+								<a title="<?php _e("View Productivity", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/<?php  $current_user = wp_get_current_user(); echo $current_user->user_login  ?>">
+									<span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+									<?php _e("Productivity", "sis-foca-js"); ?>
+								</a>
+							</li>
+
+							<li>
+								<a title="<?php _e("Colleagues list", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/" alt="Amigos">
+							  		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+							  		<?php _e("Colleagues", "sis-foca-js"); ?>
+							  	</a>
+							</li>
+
+							<li>
+								<a title="<?php _e("View the most productive users Ranking", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/ranking/">
+								<span class="glyphicon glyphicon-signal" aria-hidden="true" style="transform: rotate(90deg) scaleX(-1);"></span>
+								<?php _e("Ranking", "sis-foca-js"); ?>
+								</a>
+							</li>
+
+							<li>
+								<a title="<?php _e("Perfomance Calendar", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/calendar/">
+									<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+									<?php _e("Calendar", "sis-foca-js"); ?>
+							  	</a>
+					  		</li>
+							<li role="separator" class="divider"></li>
 							<li>
 								<a title="<?php _e("Settings", "sis-foca-js"); ?>" class="abrir_settings" href="#">
 									<span class="glyphicon glyphicon-cog" aria-hidden="true"></span> <?php _e("Settings", "sis-foca-js"); ?>
 								</a>
 							</li>
-							<li>
-								<a title="<?php _e("View Productivity", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/<?php  $current_user = wp_get_current_user(); echo $current_user->user_login  ?>">
-									<div id="icone-gauge"></div>
-									<?php _e("Productivity", "sis-foca-js"); ?>
-								</a>
-							</li>
-							<li>
-								<a title="<?php _e("Colleagues list", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/members/" alt="Amigos">
-							  		<div id="icone-amigo"></div>
-							  		<?php _e("Colleagues", "sis-foca-js"); ?>
-							  	</a>
-							</li>
-							<li>
-								<a title="<?php _e("View the most productive users Ranking", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/ranking/">
-								<div id="icone-rank"></div>
-								<?php _e("Ranking", "sis-foca-js"); ?>
-								</a>
-							</li>
-							<li>
-								<a title="<?php _e("Perfomance Calendar", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/calendar/">
-									<div id="icone-calend"></div>
-									<?php _e("Calendar", "sis-foca-js"); ?>
-							  	</a>
-					  		</li>
-							<li role="separator" class="divider"></li>
+
 							<li>
 								<a title="<?php _e("View your account", "sis-foca-js"); ?>"  href="<?php bloginfo('url'); ?>/my-account">
 								<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -143,6 +148,14 @@
 							</a>
 							</li>
 							<li role="separator" class="divider"></li>
+
+							<li>
+								<a title="<?php _e("Pomodoros Blog", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/news">
+									<span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 
+									<?php _e("Pomodoros Blog", "sis-foca-js"); ?>
+								</a>
+							</li>
+
 							<li>
 								<a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/help">
 									<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 
@@ -159,10 +172,11 @@
 					</li>
 
 					
-					<span class="hidden-sm hidden-md hidden-lg">
+					<span class="hidden-sm hidden-md hidden-lg icones-celular">
 					<li>
-						<a title="<?php _e("Settings", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand abrir_settings" href="#">
-							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="hidden-sm hidden-md icon-leg"> <?php _e("Settings", "sis-foca-js"); ?> </span>
+						<a title="<?php _e("Start Focus", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus/" class="btn btn-transparent-blue btn-xs btn-expand">
+							<div id="icone-foc"></div>
+							<span class="hidden-sm hidden-md icon-leg"><?php _e("Focus", "sis-foca-js"); ?></span>
 						</a>
 					</li>
 					<li>
@@ -199,6 +213,11 @@
 						<a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand" href="<?php bloginfo('url'); ?>/help">
 							<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> 
 							<span class="hidden-sm hidden-md icon-leg"> <?php _e("Support", "sis-foca-js"); ?></span>
+						</a>
+					</li>
+					<li>
+						<a title="<?php _e("Settings", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand abrir_settings" href="#">
+							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="hidden-sm hidden-md icon-leg"> <?php _e("Settings", "sis-foca-js"); ?> </span>
 						</a>
 					</li>
 					<li>
