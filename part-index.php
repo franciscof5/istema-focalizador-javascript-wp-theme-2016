@@ -94,7 +94,7 @@
 		?>
 	<div class="row stats-com">
 		<center><h2 class="forte"><i class="glyphicon glyphicon-signal"></i> <?php _e("Stats from Community", "sis-foca-js"); ?></h2></center>
-		<ul class="list-group stats-group col-md-6">
+		<ul class="list-group stats-group col-sm-6">
 			<li class="list-group-item active">
 				<span class="badge"><?php echo /*$user_count." / ".*/$user_active_count["total_users"]; ?></span>
 				<i class="glyphicon glyphicon-user" aria-hidden="true"></i> &nbsp; <?php _e("Active Users", "sis-foca-js"); ?>
@@ -108,7 +108,7 @@
 				<i class="glyphicon glyphicon-time"></i> &nbsp; <?php _e("Time tracked", "sis-foca-js"); ?>
 			</li>
 		</ul>
-		<ul class="list-group stats-group col-md-6">
+		<ul class="list-group stats-group col-sm-6">
 			<li class="list-group-item active">
 				<span class="badge"><?php echo count($projectimer_tags); ?></span>
 				<i class="glyphicon glyphicon-tags" aria-hidden="true"></i> &nbsp; <?php _e("Projects tags", "sis-foca-js"); ?>
@@ -242,7 +242,7 @@
 						<?php #if(has_tag("english")){ ?>
 						<?php do_action( 'bp_before_blog_post' ) ?>
 
-						<div class="post col-md-4" id="post-<?php the_ID(); ?>">
+						<div class="post col-sm-4" id="post-<?php the_ID(); ?>">
 
 								<div class="contem-thumb">
 								<center>

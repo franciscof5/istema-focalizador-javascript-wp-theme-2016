@@ -3056,8 +3056,8 @@ h3.rpwe-title a {
 	width:100% !important;
     object-fit: cover;
     /*object-fit: scale-down;*/
-    height:auto !important;
-    max-height: 200px;
+    /*height:auto !important;*/
+    height: 200px;
 }
 .navigation {
 	margin: 0 !important;
@@ -3545,6 +3545,14 @@ h3.rpwe-title a {
 	margin-top: 20px;
 	margin-right: -10px;
     margin-left: -6px;
+}
+
+.blog-posts .post {
+	padding:10px 40px 0;
+	border-right: 1px dashed;
+}
+.blog-posts .post .wp-post-image {
+	border-radius: 20px 20px 0 0;
 }
 .btn-black {
     background-color: #222;
