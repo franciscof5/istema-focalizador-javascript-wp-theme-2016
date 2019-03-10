@@ -52,7 +52,7 @@
 	var qtdd_tasks;
 
 	//
-	var color_default = "#0F0F0F";
+	var color_default = "#000000";
 	var color_focus = "#006633";
 	var color_rest = "#990000";
 	var startedTimer;
@@ -585,13 +585,14 @@ function change_status(txt, stts) {
 //Function to change button text and color
 function change_button (valueset, colorset) {
 	var button = jQuery("#action_button_id");
-	var banner = jQuery(".navbar");
+	//var banner = jQuery(".navbar");
+	//var banner = jQuery(".navbar");
 	//var banner = jQuery("#contem-tudo");
 	
 	//var button = document.getElementById("action_button_id");
 	button.val(valueset);
-	button.animate({'background-color': colorset}, 2000);
-	banner.animate({'background-color': colorset}, 2000);
+	//button.animate({'background-color': colorset}, 2000);
+	jQuery("body").animate({'background-color': colorset}, 2000);
 	//button.set('morph', {duration: 2000});
 	//button.morph({/*'border': '2px solid #F00',*/'background-color': colorset});
 }
@@ -689,7 +690,7 @@ function set_continuous_session() {
 function turn_on_pomodoro_indicator (indicator_number) {
 	//var pomo = ;
 	//console.log("turn_on_pomodoro_indicator:"+indicator_number);
-	jQuery("#pomoindi"+indicator_number).animate({'background-position': '-30px','background-color': '#FFF'});
+	jQuery("#pomoindi"+indicator_number).animate({'background-position': '-30px'});
 }
 
 //Function to restart the pomodoros

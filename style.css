@@ -776,7 +776,7 @@ ul.activity-list > li:first-child {
 body {
 	/*background: url("images/gray-background.jpg") top left;
 	/*background: #CCC;*/
-	background-color: #000 !important;
+	background-color: #000;
 	color: #FFF;
 }
 
@@ -976,8 +976,8 @@ margin: 0 auto;
 	line-height: 30px !important;
 }
 .navbar-pomodoros {
-	border:0 !important;
-	background-color: #000;
+	border:0;
+	background-color: transparent;
 	margin-bottom: 0;
 }
 #pomodoros-topo {float:left; /*width:205px;*/ height:40px;}
@@ -3260,7 +3260,7 @@ h3.rpwe-title a {
 	width: 238px;
 	color: #FFF;
 	font-weight: 600;
-	background-color: #000;
+	background-color: transparent;
 	border:0;
 }
 #secondsRemaining_box{
