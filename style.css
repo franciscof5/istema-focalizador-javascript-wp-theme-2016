@@ -3606,3 +3606,11 @@ h2 i {
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
 	color: #000;
 }
+
+.table-striped > tbody > tr:nth-of-type(2n+1) {
+	background-color: #1A1A1A !important;
+}
+
+.google-visualization-table-td, .google-visualization-table-th {
+	color: #000;
+}
