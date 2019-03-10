@@ -112,6 +112,8 @@
 
 <script>
 	jQuery( document ).ready(function() {
+		//RANKING
+		var regExpGetValueInParentisi = /\(([^)]+)\)/;
 		ranking_footer_first_text = jQuery(".ul-ranking-footer li:nth-child(1)").text();
 		var matches2 = regExpGetValueInParentisi.exec(ranking_footer_first_text);
 		var ranking_footer_first_qtddpomo = parseInt(matches2[1]);
@@ -205,8 +207,7 @@ jQuery( document ).ready(function() {
 	jQuery( ".contem-icone" ).mouseout(function() {
 		jQuery( ".icone-legenda" ).hide(100);
 	});
-	//RANKING
-	var regExpGetValueInParentisi = /\(([^)]+)\)/;
+	
 	
 	//**********//
 	/*jQuery(document).click(function(event) { 

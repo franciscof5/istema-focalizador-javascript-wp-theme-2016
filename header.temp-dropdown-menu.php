@@ -61,7 +61,13 @@
 					<span class="icon-bar"></span>
 				</button>
 
-				
+				<!--div class="contem-icone ">
+					<a class="" title="Blog do Pomodoros" href="<?php bloginfo('url'); ?>">
+						<span class="icone-legenda hidden-lg">Blog</span>
+						<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pomodoro-logo-topo.png" id="pomodoros-topo">
+					</a>
+		      	</div-->
+
 				<a class="" title="<?php _e("Go to Pomodoros Blog", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>">
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pomodoro-logo-topo.png" id="pomodoros-topo" alt="Pomodoros">
 				</a>
@@ -157,9 +163,6 @@
 							</li>
 						</ul>
 					</li>
-
-					
-
 					<!--li>
 						<a title="<?php _e("Settings", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand abrir_settings" href="#">
 							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="hidden-sm hidden-md icon-leg"> <?php _e("Settings", "sis-foca-js"); ?> </span>
