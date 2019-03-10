@@ -162,6 +162,14 @@
 									<?php _e("Support", "sis-foca-js"); ?>
 								</a>
 							</li>
+
+							<li>
+								<a title="<?php _e("Focus Training", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus-training">
+									<span class="glyphicon glyphicon-education" aria-hidden="true"></span> 
+									<?php _e("Focus Training", "sis-foca-js"); ?>
+								</a>
+							</li>
+
 							<li>
 								<a title="<?php _e("Logout", "sis-foca-js"); ?>" href="<?php echo wp_logout_url(); ?>">
 								<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 
@@ -220,6 +228,12 @@
 							<span class="glyphicon glyphicon-cog" aria-hidden="true"></span><span class="hidden-sm hidden-md icon-leg"> <?php _e("Settings", "sis-foca-js"); ?> </span>
 						</a>
 					</li>
+
+					<li>
+						<a title="<?php _e("Focus Training", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand" href="<?php bloginfo('url'); ?>/focus-training">
+							<span class="glyphicon glyphicon-education" aria-hidden="true"></span><span class="hidden-sm hidden-md icon-leg"> <?php _e("Focus Training", "sis-foca-js"); ?> </span>
+							</a>
+						</li>
 					<li>
 						<a title="<?php _e("Logout", "sis-foca-js"); ?>" class="btn btn-transparent-red btn-xs btn-expand" href="<?php echo wp_logout_url(); ?>">
 							<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 

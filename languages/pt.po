@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sistema Focalizador JS\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2018-11-26 13:28-0200\n"
+"POT-Creation-Date: 2019-03-10 20:10-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Francisco Matelli Matulovic <fmatelli@gmail.com>\n"
 "Language-Team: Francisco Mat F5 Sites <francisco@f5sites.com>\n"
@@ -30,237 +30,278 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-5: t-nosidebar.php\n"
 "X-Poedit-SearchPathExcluded-6: custom-post-type.php\n"
 
-#: footer.php:14
+#: footer.php:16
 msgid "Last pomodoros"
 msgstr "Últimos pomodoros"
 
-#: footer.php:21
+#: footer.php:23
 msgid "Top Users"
 msgstr "Top Usuários"
 
-#: footer.php:44
+#: footer.php:46
 msgid "Top 5 Cities"
 msgstr "Top 5 Cidades"
 
-#: footer.php:46
+#: footer.php:48
 msgid "Top 3 Countries"
 msgstr "Top 3 Países"
 
-#: footer.php:52 sidebar-index.php:22
+#: footer.php:54 sidebar-index.php:22
 msgid "Our blog"
 msgstr "Nosso blog"
 
-#: footer.php:59
+#: footer.php:61
 msgid "Get it on"
 msgstr "Faça o download em"
 
-#: footer.php:61 sidebar-index.php:6 sidebar-pomodoro-right.php:11
+#: footer.php:63 sidebar-index.php:6 sidebar-pomodoro-right.php:11
 msgid "Sponsored by"
 msgstr "Patrocinado por"
 
-#: footer.php:65 header.php:142
+#: footer.php:67 header.php:162 header.php:223
+#: header.temp-dropdown-menu.php:155 header.temp-dropdown-menu.php:205
 msgid "Support"
 msgstr "Suporte"
 
-#: footer.php:66 header.php:140
+#: footer.php:68 header.php:160 header.php:221
+#: header.temp-dropdown-menu.php:153 header.temp-dropdown-menu.php:203
 msgid "Open support ticket"
 msgstr "Abrir um ticket de suporte"
 
-#: footer.php:109
+#: footer.php:175
 msgid "Developed by"
 msgstr "Desenvolvido por"
 
-#: footer.php:117
+#: footer.php:183
 msgid "Project Pomodoros"
 msgstr "Projeto Pomodoros"
 
-#: footer.php:117
+#: footer.php:183
 msgid "on"
 msgstr "em"
 
-#: functions.php:735
+#: functions.php:741
 msgid "Warning!"
 msgstr "Atenção!"
 
-#: functions.php:736
+#: functions.php:742
 msgid ""
 "These content is not avaiable in your language. Original content language "
 "is: "
 msgstr ""
 "Esse conteúdo não está disponível no seu idioma. O idioma do conteúdo é:"
 
-#: functions.php:739
+#: functions.php:745
 msgid "Go to blog homepage"
 msgstr "Ir para o BLog"
 
-#: functions.php:866
+#: functions.php:872
 msgid "you most recent task is"
 msgstr "sua tarefa mais recente é"
 
-#: functions.php:868
+#: functions.php:874
 msgid "you never started a task"
 msgstr "você nunca iniciou uma tarefa"
 
-#: functions.php:870
+#: functions.php:876
 msgid "Hello"
 msgstr "Olá"
 
-#: functions.php:870
+#: functions.php:876
 msgid "go to online app and start focus"
 msgstr "ir para o app online e começar a focar"
 
-#: functions.php:872
+#: functions.php:878
 msgid "Dear visitor"
 msgstr "Caro visitante"
 
-#: functions.php:872
+#: functions.php:878
 msgid "register for free"
 msgstr "registrar-se grátis"
 
-#: functions.php:872
+#: functions.php:878
 msgid "and start focus right now"
 msgstr "e comece a focar agora mesmo"
 
-#: functions.php:873
+#: functions.php:879
 msgid "If you already have an account"
 msgstr "Se você já tem uma conta"
 
-#: functions.php:873
+#: functions.php:879
 msgid "login"
 msgstr "entrar"
 
-#: functions.php:1161
+#: functions.php:1167
 msgid "Realizar Pagamento"
 msgstr ""
 
-#: functions.php:1601 functions.php:1602 functions.php:1618 header.php:81
-#: part-focus.php:2
+#: functions.php:1607 functions.php:1608 functions.php:1624 header.php:75
+#: header.php:106 header.php:187 header.temp-dropdown-menu.php:81
+#: header.temp-dropdown-menu.php:112 part-focus.php:2
 msgid "Focus"
 msgstr "Focar"
 
-#: functions.php:1603
+#: functions.php:1609
 msgid "Add New"
 msgstr ""
 
-#: functions.php:1604
+#: functions.php:1610
 msgid "Add New Focus"
 msgstr ""
 
-#: functions.php:1605
+#: functions.php:1611
 msgid "Edit"
 msgstr "Editar"
 
-#: functions.php:1606
+#: functions.php:1612
 msgid "Edit Focus"
 msgstr "Editar foco"
 
-#: functions.php:1607
+#: functions.php:1613
 msgid "New Focus"
 msgstr "Novo Focus"
 
-#: functions.php:1608 functions.php:1609
+#: functions.php:1614 functions.php:1615
 msgid "View Focus"
 msgstr "Ver Foco"
 
-#: functions.php:1610
+#: functions.php:1616
 msgid "Search Focus"
 msgstr ""
 
-#: functions.php:1611
+#: functions.php:1617
 msgid "No Focus found"
 msgstr ""
 
-#: functions.php:1612
+#: functions.php:1618
 msgid "No Focus found in Trash"
 msgstr ""
 
-#: functions.php:1613
+#: functions.php:1619
 msgid "Parent Focus"
 msgstr ""
 
-#: header.php:24
+#: header.php:24 header.temp-dropdown-menu.php:24
 msgid "Site Wide Activity RSS Feed"
 msgstr ""
 
-#: header.php:28
+#: header.php:28 header.temp-dropdown-menu.php:28
 msgid "Activity RSS Feed"
 msgstr ""
 
-#: header.php:32
+#: header.php:32 header.temp-dropdown-menu.php:32
 msgid "Group Activity RSS Feed"
 msgstr ""
 
-#: header.php:35
+#: header.php:35 header.temp-dropdown-menu.php:35
 msgid "Blog Posts RSS Feed"
 msgstr ""
 
-#: header.php:37
+#: header.php:37 header.temp-dropdown-menu.php:37
 msgid "Blog Posts Atom Feed"
 msgstr ""
 
-#: header.php:71
+#: header.php:65 header.temp-dropdown-menu.php:71
 msgid "Go to Pomodoros Blog"
 msgstr "Ir para o Blog do Pomodoros"
 
-#: header.php:79
+#: header.php:73 header.php:104 header.php:185 header.temp-dropdown-menu.php:79
+#: header.temp-dropdown-menu.php:110
 msgid "Start Focus"
 msgstr "Iniciar Foco"
 
-#: header.php:85
-msgid "View Productivity"
-msgstr "Vew Produtividade"
-
-#: header.php:87
-msgid "Productivity"
-msgstr "Produtividade"
-
-#: header.php:91
-msgid "Colleagues list"
-msgstr "Lista de colegas"
-
-#: header.php:93
-msgid "Colleagues"
-msgstr "Colegas"
-
-#: header.php:97
-msgid "View the most productive users Ranking"
-msgstr "Vew os usuários mais produtivos no Ranking"
-
-#: header.php:99 part-ranking.php:2
-msgid "Ranking"
-msgstr "Ranking"
-
-#: header.php:104 part-index.php:40
-msgid "Perfomance Calendar"
-msgstr "Calendário de Desempenho"
-
-#: header.php:106 part-calendar.php:2
-msgid "Calendar"
-msgstr "Calendário"
-
-#: header.php:115 header.php:117 part-closed.php:6 part-underconst.php:8
+#: header.php:85 header.php:87 header.temp-dropdown-menu.php:91
+#: header.temp-dropdown-menu.php:93 part-closed.php:6 part-underconst.php:8
 msgid "Login"
 msgstr "Entrar"
 
-#: header.php:121
+#: header.php:91 header.temp-dropdown-menu.php:97
 msgid "Create your free pomodoros.com.br account"
-msgstr ""
+msgstr "Criari conta grátis"
 
-#: header.php:123
+#: header.php:93 header.temp-dropdown-menu.php:99
 msgid "Sign Up"
 msgstr "Registrar-se"
 
-#: header.php:134
+#: header.php:111 header.php:191 header.temp-dropdown-menu.php:121
+#: header.temp-dropdown-menu.php:172
+msgid "View Productivity"
+msgstr "Vew Produtividade"
+
+#: header.php:113 header.php:193 header.temp-dropdown-menu.php:123
+#: header.temp-dropdown-menu.php:174
+msgid "Productivity"
+msgstr "Produtividade"
+
+#: header.php:118 header.php:197 header.temp-dropdown-menu.php:127
+#: header.temp-dropdown-menu.php:178
+msgid "Colleagues list"
+msgstr "Lista de colegas"
+
+#: header.php:120 header.php:199 header.temp-dropdown-menu.php:129
+#: header.temp-dropdown-menu.php:180
+msgid "Colleagues"
+msgstr "Colegas"
+
+#: header.php:125 header.php:203 header.temp-dropdown-menu.php:133
+#: header.temp-dropdown-menu.php:184
+msgid "View the most productive users Ranking"
+msgstr "Vew os usuários mais produtivos no Ranking"
+
+#: header.php:127 header.php:205 header.temp-dropdown-menu.php:135
+#: header.temp-dropdown-menu.php:186 part-ranking.php:2
+msgid "Ranking"
+msgstr "Ranking"
+
+#: header.php:132 header.php:209 header.temp-dropdown-menu.php:139
+#: header.temp-dropdown-menu.php:191 part-index.php:41
+msgid "Perfomance Calendar"
+msgstr "Calendário de Desempenho"
+
+#: header.php:134 header.php:211 header.temp-dropdown-menu.php:141
+#: header.temp-dropdown-menu.php:193 part-calendar.php:2
+msgid "Calendar"
+msgstr "Calendário"
+
+#: header.php:139 header.php:140 header.php:227 header.php:228 header.php:264
+#: header.temp-dropdown-menu.php:116 header.temp-dropdown-menu.php:117
+#: header.temp-dropdown-menu.php:167 header.temp-dropdown-menu.php:168
+#: header.temp-dropdown-menu.php:234
+msgid "Settings"
+msgstr "Configurações"
+
+#: header.php:145 header.php:215 header.temp-dropdown-menu.php:146
+#: header.temp-dropdown-menu.php:197
 msgid "View your account"
 msgstr "Ver sua conta"
 
-#: header.php:136
+#: header.php:147 header.php:217 header.temp-dropdown-menu.php:148
+#: header.temp-dropdown-menu.php:199
 msgid "My Acount"
 msgstr "Minha Conta"
 
-#: header.php:146 header.php:148
+#: header.php:153 header.php:155 part-news.php:27
+msgid "Pomodoros Blog"
+msgstr "Blog do Pomodoros"
+
+#: header.php:167 header.php:169 header.php:233 header.php:234
+#: part-focus-training.php:5 part-focus-training.php:8
+msgid "Focus Training"
+msgstr "Treinamento em Foco"
+
+#: header.php:174 header.php:176 header.php:238 header.php:240
+#: header.temp-dropdown-menu.php:159 header.temp-dropdown-menu.php:161
+#: header.temp-dropdown-menu.php:209 header.temp-dropdown-menu.php:211
 msgid "Logout"
 msgstr "Sair"
+
+#: header.php:268 header.temp-dropdown-menu.php:238
+msgid "Volume"
+msgstr "Volume"
+
+#: header.php:300 header.temp-dropdown-menu.php:270
+msgid "Voice"
+msgstr "Voz"
 
 #: part-app.php:2
 msgid "Mobile"
@@ -274,7 +315,7 @@ msgstr "Pomodoros Mobile"
 msgid "Login to access app"
 msgstr "Entrar para acessar o app"
 
-#: part-closed.php:2
+#: part-closed.php:2 part-focus-training.php:2
 msgid "Exclusive Content"
 msgstr "Conteúdo exclusivo"
 
@@ -290,93 +331,94 @@ msgstr "para ver o conteúdo exclusivo"
 msgid "CSV"
 msgstr ""
 
+#: part-focus-training.php:7
+msgid ""
+"Pomodoros.com.br are online since 2011, and Francisco Matelli Matulovic, "
+"founder, are using Pomodoros Technique and many other time management "
+"pratices since 2007. With him management bachalor, master course plus "
+"personal experience in time management area, he developed and exclusive "
+"course."
+msgstr ""
+
+#: part-focus-training.php:8
+msgid "Be more productive"
+msgstr "Seja mais produtivo"
+
+#: part-focus-training.php:9
+msgid ""
+"Francisco says that after many years of helping people and mainting "
+"Pomodoros online, he decide opening the exclusive course to get even more "
+"envolved with site users, students and professionals that want to get the "
+"most of their time."
+msgstr ""
+
 #: part-focus.php:12
 msgid "loading"
 msgstr "carregando"
 
-#: part-focus.php:57
-msgid "Hello, welcome"
-msgstr "Olá, bem-vindo"
-
-#: part-focus.php:66
-msgid "Volume"
-msgstr "Volume"
-
-#: part-focus.php:80
-msgid "Voice"
-msgstr "Voz"
-
-#: part-focus.php:98
+#: part-focus.php:64
 msgid "Task"
 msgstr "Tarefa"
 
-#: part-focus.php:103 part-task.php:33
+#: part-focus.php:69 part-task.php:33
 msgid "Project tags"
 msgstr "Tags do projeto"
 
-#: part-focus.php:106
+#: part-focus.php:72
 msgid "Extra"
 msgstr "Extra"
 
-#: part-focus.php:111 part-task.php:45
+#: part-focus.php:77 part-task.php:45
 msgid "Notes"
 msgstr "Notas"
 
-#: part-focus.php:121
+#: part-focus.php:87
 msgid "What kind of taks is that?"
 msgstr "Que tipo de tarefa é essa?"
 
-#: part-focus.php:123
+#: part-focus.php:89
 msgid "Study"
 msgstr "Estudo"
 
-#: part-focus.php:124
+#: part-focus.php:90
 msgid "Work"
 msgstr "Trabalho"
 
-#: part-focus.php:125
+#: part-focus.php:91
 msgid "Personal"
 msgstr "Pessoal"
 
-#: part-focus.php:127
+#: part-focus.php:93
 msgid "Privacy"
 msgstr "Privacidade"
 
-#: part-focus.php:129
+#: part-focus.php:95
 msgid "Public - everyone can see"
 msgstr "Público - todos podem ver"
 
-#: part-focus.php:130
+#: part-focus.php:96
 msgid "Private - only you can see"
 msgstr "Privativo - somente você pode ver"
 
-#: part-focus.php:134
+#: part-focus.php:100
 msgid "TODO"
 msgstr "TODO"
 
-#: part-focus.php:135
+#: part-focus.php:101
 msgid "Save Task"
 msgstr "Salvar"
 
-#: part-focus.php:155
+#: part-focus.php:121
 msgid "Automatic cycle"
 msgstr "Ciclo automático"
 
-#: part-focus.php:165
+#: part-focus.php:131
 msgid "Drop tasks below"
 msgstr "Arraste a tarefa para área abaixo"
 
-#: part-focus.php:175
+#: part-focus.php:141
 msgid "TODO list"
 msgstr "Lista TODO"
-
-#: part-focus.php:283
-msgid "For admin only:"
-msgstr "Para admin somente:"
-
-#: part-focus.php:284
-msgid "Start demo"
-msgstr "Iniciar demo"
 
 #: part-help.php:2
 msgid "Help & Support System"
@@ -390,107 +432,107 @@ msgstr "Sistema de Suporte"
 msgid "Contact Us"
 msgstr "Entre em contato"
 
-#: part-index.php:3
+#: part-index.php:4
 msgid "Work & Rest Time Tracker"
 msgstr "Cronômetro de Trabalho & Descanso"
 
-#: part-index.php:4
+#: part-index.php:5
 msgid "Relax and Focus: Online social time tracker for task and projects"
 msgstr "Relaxe e Foca: Cronômetro online para tarefas e projetos"
 
-#: part-index.php:5
+#: part-index.php:6
 msgid "get you and your team more productive than ever"
 msgstr "você e seu time mais produtivos do que nunca"
 
-#: part-index.php:6
+#: part-index.php:7
 msgid "Get started for Free"
 msgstr "Registre-se Gratuitamente"
 
-#: part-index.php:17
+#: part-index.php:18
 msgid "Features"
 msgstr "Funcionalidades"
 
-#: part-index.php:33
+#: part-index.php:34
 msgid "Work & Rest"
 msgstr "Relaxa e Foca"
 
-#: part-index.php:34
+#: part-index.php:35
 msgid "with Pomodoro Technique"
 msgstr "com a Técnica dos Pomodoros"
 
-#: part-index.php:41
+#: part-index.php:42
 msgid "shows tasks you done"
 msgstr "mostra tarefas que você fez"
 
-#: part-index.php:47
+#: part-index.php:48
 msgid "Grow in Ranking"
 msgstr "Cresça no Ranking"
 
-#: part-index.php:48
+#: part-index.php:49
 msgid "and get more productive"
 msgstr "e se torne mais produtivo"
 
-#: part-index.php:54
+#: part-index.php:55
 msgid "Mind blown reports"
 msgstr "Relatórios incríveis"
 
-#: part-index.php:55
+#: part-index.php:56
 msgid "to check time usage"
 msgstr "para ver o uso do tempo"
 
-#: part-index.php:61
+#: part-index.php:62
 msgid "Open a ticket"
 msgstr "Abra um ticket"
 
-#: part-index.php:62
+#: part-index.php:63
 msgid "and get help"
 msgstr "e obtenha ajuda"
 
-#: part-index.php:70
+#: part-index.php:71
 msgid "Previous"
 msgstr "Anterior"
 
-#: part-index.php:74
+#: part-index.php:75
 msgid "Next"
 msgstr "Próximo"
 
-#: part-index.php:95
+#: part-index.php:96
 msgid "Stats from Community"
 msgstr "Estatísticas da Comunidade"
 
-#: part-index.php:99
+#: part-index.php:100
 msgid "Active Users"
 msgstr "Usuários Ativos"
 
-#: part-index.php:103 part-tag.php:203
+#: part-index.php:104 part-tag.php:203
 msgid "Pomodoros done"
 msgstr "Pomodoros feitos"
 
-#: part-index.php:107
+#: part-index.php:108
 msgid "Time tracked"
 msgstr "Tempo cronometrado"
 
-#: part-index.php:113
+#: part-index.php:114
 msgid "Projects tags"
 msgstr "Tags dos projetos"
 
-#: part-index.php:117
+#: part-index.php:118
 msgid "Cities ranked"
 msgstr "Cidades rankeadas"
 
-#: part-index.php:121
+#: part-index.php:122
 msgid "Translations"
 msgstr "Traduções"
 
-#: part-index.php:144
+#: part-index.php:145
 msgid "Testimonials"
 msgstr "Depoimentos"
 
-#: part-index.php:147
+#: part-index.php:148
 msgid "I will be the first in the ranking"
 msgstr "Vou ser o primeiro do ranking"
 
-#: part-index.php:156
+#: part-index.php:157
 msgid ""
 "Learning is an ongoing process. We should study daily, analyze the results "
 "regularly and apply methods to improve our previous results"
@@ -499,7 +541,7 @@ msgstr ""
 "os resultados regularmente e aplicar métodos para melhorar os nossos "
 "resultados anteriores"
 
-#: part-index.php:165
+#: part-index.php:166
 msgid ""
 "With Pomodoros.com.br I can have more control over my time, be more "
 "productive and perform my tasks better"
@@ -507,7 +549,7 @@ msgstr ""
 "Com o Pomodoros.com.br consigo ter mais controle sobre meu tempo, ser mais "
 "produtivo e realizar melhor minhas tarefas"
 
-#: part-index.php:174
+#: part-index.php:175
 msgid ""
 "I used Pomodoros.com.br a few years ago, every day. I was happy to know that "
 "the website came back, I hope people use it again, I'll try to get into the "
@@ -517,15 +559,15 @@ msgstr ""
 "saber que o site voltou, espero que as pessoas voltem a usar, vou tentar "
 "pegar o hábito também porque \"super\" me ajudava"
 
-#: part-index.php:184
+#: part-index.php:185
 msgid "Brief History"
 msgstr "Breve histórico"
 
-#: part-index.php:186
+#: part-index.php:187
 msgid "Initial Plans"
 msgstr "Planos Iniciais"
 
-#: part-index.php:186
+#: part-index.php:187
 msgid ""
 "Francisco, CEO and founder, tried a lot of pomodoros softwares and decided "
 "to build it's own"
@@ -533,7 +575,7 @@ msgstr ""
 "Francisco, CEO e fundador, testou muitos softwares de pomodoros e decidiu "
 "construir o seu próprio"
 
-#: part-index.php:188
+#: part-index.php:189
 msgid ""
 "First version, already online, social and async JavaScript timer, based in "
 "WordPress and BuddyPress"
@@ -541,11 +583,11 @@ msgstr ""
 "Primeira versão, já online, social e com cronômetro em JavaScript "
 "assíncrono, baseado em WordPress e BuddyPress"
 
-#: part-index.php:190
+#: part-index.php:191
 msgid "First Growth"
 msgstr "Primeiro Crescimento"
 
-#: part-index.php:190
+#: part-index.php:191
 msgid ""
 "Very promissor period, users growth based in spontaneous reviews, in blogs, "
 "no single penny expensed in marketing"
@@ -553,7 +595,7 @@ msgstr ""
 "Período muito promissor, crescimento na base de usuários baseado em reviews "
 "espotâneos em blogs, nem um centavo gastado em marketing"
 
-#: part-index.php:192
+#: part-index.php:193
 msgid ""
 "A lot of updates to join in a brazilian startup contest, no investors became "
 "interested"
@@ -561,11 +603,11 @@ msgstr ""
 "Muitos updates para ingressar em um concurso de startups no Brasil, nenhum "
 "investidor se interessou"
 
-#: part-index.php:194
+#: part-index.php:195
 msgid "Second Growth"
 msgstr "Segundo Crescimento"
 
-#: part-index.php:194
+#: part-index.php:195
 msgid ""
 "Another promissor period, mouth-to-mouth and organic growth, but founder "
 "needed to stop developing system due Master course and it started became out "
@@ -575,11 +617,11 @@ msgstr ""
 "teve que parar o desenvolvimento do sistema para se dedicar ao curso de "
 "Mestrado e logo este ficou desatualizado"
 
-#: part-index.php:196
+#: part-index.php:197
 msgid "Turbulency"
 msgstr "Turbulência"
 
-#: part-index.php:196
+#: part-index.php:197
 msgid ""
 "High maintenance costs, founder have no time for coding, service was still "
 "online, with growth in users, but the server was poor configured and unable "
@@ -589,11 +631,11 @@ msgstr ""
 "serviço permaneceu online, com crescimento na base de usuários, mas o "
 "sevidor estava mal-configurado e incapaz de receber atualizações regulares"
 
-#: part-index.php:198
+#: part-index.php:199
 msgid "Pomodoros Offline"
 msgstr "Pomodoros Ficou Offline"
 
-#: part-index.php:198
+#: part-index.php:199
 msgid ""
 "Service went offline because founder needed to work in other activities and "
 "trying to finish Master course, lost all regular users"
@@ -601,11 +643,11 @@ msgstr ""
 "O serviço caiu porque o fundador precisou trabalhar em outras atividades e "
 "tentar terminar o curso de Mestrado, todos os usuários foram perdidos"
 
-#: part-index.php:200
+#: part-index.php:201
 msgid "Laboratory"
 msgstr "Laboratório"
 
-#: part-index.php:200
+#: part-index.php:201
 msgid ""
 "Founder quited Master course and start full-time operations. New server "
 "configuration, focused on scalability and shared users information, lot of "
@@ -621,7 +663,7 @@ msgstr ""
 "importante, muitas experiências foram feitas já que não havia mais usuários, "
 "o serviço caia constantemente até voltar aos trilhos"
 
-#: part-index.php:202
+#: part-index.php:203
 msgid ""
 "After years offline, finally Pomodoros.com.br are back online in a new "
 "'mobile first' version, with app for Android in Google Play Store"
@@ -629,11 +671,11 @@ msgstr ""
 "Após anos offline, finalmente o Pomodoros.com.br voltou ao ar com uma versão "
 "'mobile first', com um app para Android na loja Google Play"
 
-#: part-index.php:204
+#: part-index.php:205
 msgid "Pomodoros Global"
 msgstr "Pomodoros Global"
 
-#: part-index.php:204
+#: part-index.php:205
 msgid ""
 "We expect that all translations are 100% ready and people all over the world "
 "join the community, first paid ads and gifts sellings in its own built-in "
@@ -643,11 +685,11 @@ msgstr ""
 "entrem para a comunidade, os primeiros anunciantes pagos e vendas na loja "
 "interna de doações"
 
-#: part-index.php:206
+#: part-index.php:207
 msgid "Clear Real Valuation"
 msgstr "Valuation real mais claro"
 
-#: part-index.php:206
+#: part-index.php:207
 msgid ""
 "For good or for worst, the valuation of the system are clear, investors can "
 "join or leave for a just price in options"
@@ -655,11 +697,11 @@ msgstr ""
 "Para o bem ou para o mal, o Valuation do sistema se torna claro, "
 "investidores podem entrar ou sair por preços de opções justos"
 
-#: part-index.php:208
+#: part-index.php:209
 msgid "Societal Plan"
 msgstr "Plano Societal"
 
-#: part-index.php:208
+#: part-index.php:209
 #, php-format
 msgid ""
 "Plans for multiple single investors to joining, options are become more "
@@ -669,37 +711,37 @@ msgstr ""
 "valiosas, é esperado que neste momento o fundador tenha algo próximo a "
 "15% das opções"
 
-#: part-index.php:266 part-news.php:84 part-product.php:41
+#: part-index.php:267 part-news.php:85 part-product.php:41
 #: single-product.php:48 single.php:57
 msgid "Permanent Link to"
 msgstr ""
 
-#: part-index.php:275 part-news.php:93 part-product.php:50
+#: part-index.php:276 part-news.php:94 part-product.php:50
 #: single-product.php:57 single.php:67
 msgid "Read the rest of this entry &rarr;"
 msgstr ""
 
-#: part-index.php:278 part-news.php:96 part-product.php:53
+#: part-index.php:279 part-news.php:97 part-product.php:53
 #: single-product.php:60 single.php:71
 msgid "No Comments &#187;"
 msgstr ""
 
-#: part-index.php:278 part-news.php:96 part-product.php:53
+#: part-index.php:279 part-news.php:97 part-product.php:53
 #: single-product.php:60 single.php:71
 msgid "1 Comment &#187;"
 msgstr ""
 
-#: part-index.php:278 part-news.php:96 part-product.php:53
+#: part-index.php:279 part-news.php:97 part-product.php:53
 #: single-product.php:60 single.php:71
 msgid "% Comments &#187;"
 msgstr ""
 
-#: part-index.php:293 part-news.php:111 part-product.php:68
+#: part-index.php:294 part-news.php:112 part-product.php:68
 #: tag-(now-part-tag).php:391
 msgid "Not Found"
 msgstr ""
 
-#: part-index.php:294 part-news.php:112 part-product.php:69
+#: part-index.php:295 part-news.php:113 part-product.php:69
 #: tag-(now-part-tag).php:392
 msgid "Sorry, but you are looking for something that isn't here."
 msgstr ""
@@ -708,7 +750,7 @@ msgstr ""
 msgid "Blog"
 msgstr ""
 
-#: part-news.php:96 part-product.php:53 single-product.php:60 single.php:71
+#: part-news.php:97 part-product.php:53 single-product.php:60 single.php:71
 msgid "Tags: "
 msgstr ""
 
@@ -839,7 +881,7 @@ msgstr ""
 
 #: sidebar-blog-DISABLED.php:45 sidebar-pomodoro-left.php:50
 msgid "Username"
-msgstr ""
+msgstr "Usuário"
 
 #: sidebar-blog-DISABLED.php:48 sidebar-pomodoro-left.php:53
 msgid "Password"
@@ -930,3 +972,12 @@ msgstr "Seus projetos"
 #: single-product.php:66 single.php:77
 msgid "Edit this entry."
 msgstr ""
+
+#~ msgid "Hello, welcome"
+#~ msgstr "Olá, bem-vindo"
+
+#~ msgid "For admin only:"
+#~ msgstr "Para admin somente:"
+
+#~ msgid "Start demo"
+#~ msgstr "Iniciar demo"

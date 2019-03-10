@@ -678,7 +678,7 @@ li.activity-item  {
 .activity-header p {
 	height: 50px;
 	margin: 2px 0px 0px -10px;
-	background: #DDD;
+	/*background: #DDD;*/
 	overflow: hidden;
 	vertical-align: bottom;
 	padding: 5px 4px;
@@ -734,7 +734,7 @@ ul.activity-list > li:first-child {
 	border: 10px solid #DDD;
 	width: 20%;
 	*/
-	background: #FFF;
+	/*background: #FFF;*/
 	font-size: 13px;
 	
 	width: 20%;
@@ -747,7 +747,7 @@ ul.activity-list > li:first-child {
 	text-align: center !important;
 }
 .estats_box li strong {float: right;}
-.estats_box li:nth-child(odd) {background: #EEE}
+.estats_box li:nth-child(odd) {background: #333}
 #chart_gauges_div table tbody tr td div {margin: 0px auto;}
 
 /* homepage */
@@ -1273,7 +1273,7 @@ div#item-header {
 		line-height: 100%;
 	}
 		div#item-header h2 a {
-			color: #333;
+			color: #FFF;
 			text-decoration: none;
 		}
 
@@ -1356,7 +1356,7 @@ ul.item-list {
 	ul.item-list li {
 		position: relative;
 		padding: 15px 0;
-		border-bottom: 1px solid #eaeaea;
+		/*border-bottom: 1px solid #eaeaea;*/
 	}
 		ul.item-list li img.avatar {
 			float: left;
