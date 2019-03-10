@@ -79,7 +79,7 @@
 			    <?php } ?>
 			    
 			    <!--ul class="nav navbar-nav navbar-right pomoNavbar" style="padding-top: 5;"-->
-			    <span style="float:right;" class="pomoNavbar-right">
+			    <span style="float:right;" class="pomoNavbar-right icones-celular">
 					<?php if ( !is_user_logged_in() ) { ?> 
 					<li>
 						<a title="<?php _e("Login", "sis-foca-js"); ?>" class="btn btn-transparent-dark btn-xs btn-expand abrir_login" id="login_login" tabindex="1">

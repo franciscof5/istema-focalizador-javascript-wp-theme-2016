@@ -70,6 +70,9 @@
 				<select id="tags_box" class="js-example-tags " tabindex="3" multiple="multiple" placeholder="Does not work, use data-placeholder with js trick"  data-placeholder="projeto1, projeto2"></select>
 			</div>
 			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExtra" aria-expanded="false" aria-controls="collapseExtra"><strong style="text-transform: uppercase;"><?php _e("Extra", "sis-foca-js"); ?></strong></button>
+			
+			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseCyle" aria-expanded="false" aria-controls="collapseCyle"><strong style="text-transform: uppercase;"><?php _e("TODO", "sis-foca-js"); ?></strong></button>
+			<a href="#" class="button btn btn-dark" id="botao-salvar-modelo"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <?php _e("Save Task", "sis-foca-js"); ?></a>
 			<div class="collapse" id="collapseExtra">
   				<div class="well">
 					
@@ -97,8 +100,6 @@
 					</ul>
 				</div>
 			</div>
-			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseCyle" aria-expanded="false" aria-controls="collapseCyle"><strong style="text-transform: uppercase;"><?php _e("TODO", "sis-foca-js"); ?></strong></button>
-			<a href="#" class="button btn btn-dark" id="botao-salvar-modelo"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <?php _e("Save Task", "sis-foca-js"); ?></a>
 		</form>
 
 		

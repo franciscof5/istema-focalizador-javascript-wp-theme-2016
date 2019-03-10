@@ -3614,3 +3614,9 @@ h2 i {
 .google-visualization-table-td, .google-visualization-table-th {
 	color: #000;
 }
+
+.well {
+	padding: 0;
+	background-color: transparent;
+	border: none;
+}
