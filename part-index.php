@@ -63,6 +63,15 @@
 					<p class="hidden-xs"><?php _e("and get help", "sis-foca-js"); ?></p> 
 				</div>
 			</div>
+			<div class="item">
+				<a title="<?php _e("Focus Training", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus-training"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/treinamentoemfoco.jpg" id="pomodoros-banner" alt="Treinamento em Foco" class="img-responsive" style="width: 100%;">
+				<div class="middle-right thumb-display thumb-display-black">
+					<p><i class="glyphicon glyphicon-question-sign"></i> <?php _e("Focus Training", "sis-foca-js"); ?></p>
+					<p class="hidden-xs"><?php _e("Be more productive", "sis-foca-js"); ?></p> 
+				</div>
+				</a>
+			</div>
+
 		</div>
 
 		<!-- Controls -->
