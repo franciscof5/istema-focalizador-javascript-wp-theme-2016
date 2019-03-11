@@ -58,6 +58,8 @@ em {
 #contem-tudo {
 	padding-left: 5px !important;
 	padding-right: 5px !important;
+	min-height: 100%;
+	margin-bottom: -60px;
 	/*background-color: #000;*/
 }
 
@@ -133,12 +135,12 @@ input[type="range"]::-ms-fill-upper {
 .wpcf7-display-none {
 	display: none !important;
 }
-/*fot stick footer
+/*fot stick footer*/
 html, body {
   height: 100%;
   margin: 0;
 }
-*/
+
 img.avatar {
 	float: left;
 	font-family: arial;
