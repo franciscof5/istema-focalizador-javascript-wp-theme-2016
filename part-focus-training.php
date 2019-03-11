@@ -11,5 +11,4 @@
 		<?php _e("Focus Training", "sis-foca-js"); ?>: <?php _e("Be more productive", "sis-foca-js"); ?></a>
 	<p>
 	<p style="margin:10px 40px; font-size: 14px; padding:10px;"> <?php _e("Francisco says that after many years of helping people and mainting Pomodoros online, he decide opening the exclusive course to get even more envolved with site users, students and professionals that want to get the most of their time.", "sis-foca-js"); ?></p>
-	<p style="margin:10px 40px; font-size: 14px; padding:10px;"></p>
 </div>
