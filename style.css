@@ -3360,7 +3360,7 @@ h3.rpwe-title a {
 }
 /**/
 .thumb-display-black {
-	background-color: #222;
+	background-color: rgba(0,0,0,0.8);
 	color: #FFF;
 }
 .thumb-display-regular {
@@ -3373,11 +3373,15 @@ h3.rpwe-title a {
 }
 
 .thumb-display {
-	font-size: 18px;
+	font-size: 17px;
 	font-weight: 600;
 	max-width: 40%;
 	padding: 1% 5%;
+	border-radius: 10px;
 	font-family: "Charlie Display",​"Helvetica",​"Arial",​sans-serif;
+}
+.thumb-display p {
+	margin-bottom: 0px;
 }
 /* Container holding the image and the text */
 .container-thumb {
@@ -3387,7 +3391,7 @@ h3.rpwe-title a {
 
 .middle-left {
     position: absolute;
-    top: 38%;
+    top: 58%;
     left: 40px;
     text-align: right;
 }
@@ -3395,7 +3399,7 @@ h3.rpwe-title a {
 /* Top right text */
 .middle-right {
     position: absolute;
-    top: 38%;
+    top: 58%;
     right: 40px;
 }
 
@@ -3475,6 +3479,8 @@ h3.rpwe-title a {
 }
 #carousel-home-pomodoros {
 	margin:0 40px;
+	font-family: forte;
+	font-size: 14px;
 }
 .testimonials {
 	/*padding: 30px;*/

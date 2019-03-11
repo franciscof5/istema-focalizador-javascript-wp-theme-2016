@@ -62,7 +62,7 @@
 				</button>
 
 				
-				<a class="" title="<?php _e("Go to Pomodoros Blog", "sis-foca-js"); ?>" href="<?php bloginfo('url'); echo is_user_logged_in() ? '/focus' : '/blog'; ?>">
+				<a class="" title="<?php _e("Go to Pomodoros Blog", "sis-foca-js"); ?>" href="<?php bloginfo('url'); echo is_user_logged_in() ? '/focus' : '/'; ?>">
 					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pomodoro-logo-topo.png" id="pomodoros-topo" alt="Pomodoros">
 				</a>
 			</div>

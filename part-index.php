@@ -52,7 +52,7 @@
 			<div class="item">
 				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/tasks.jpg" id="pomodoros-banner" alt="Tasks" class="img-responsive" style="width: 100%;">
 				<div class="middle-right thumb-display thumb-display-black">
-					<p><i class="glyphicon glyphicon-tags"></i> <?php _e("Mind blown reports", "sis-foca-js"); ?></p>
+					<p><i class="glyphicon glyphicon-tags"></i> &nbsp;<?php _e("Mind blown reports", "sis-foca-js"); ?></p>
 					<p class="hidden-xs"><?php _e("to check time usage", "sis-foca-js"); ?></p> 
 				</div>
 			</div>
