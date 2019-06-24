@@ -1,23 +1,17 @@
 	<?php #_e("", "sis-foca-js"); ?>
 	<!--center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center-->
 	<div class="row header-desc">
-		<h1 class="forte"><?php _e("Work & Rest Time Tracker", "sis-foca-js"); ?></h1>
-		<p style="font-weight: 600; font-size: 18px;"><?php _e("Relax and Focus: Online social time tracker for task and projects", "sis-foca-js"); ?>, 
-		<br><?php _e("get you and your team more productive than ever", "sis-foca-js"); ?></p>
+		<!--h1 class="f-font-title"><?php _e("Work & Rest Time Tracker", "sis-foca-js"); ?></h1-->
+		<h1 class="f-font-title"><?php _e("Work & Rest", "sis-foca-js"); ?></h1>
+		<p style=""><?php _e("Free online time tracker for task and projects", "sis-foca-js"); ?></p>
+		<!--p style="font-weight: 600; font-size: 18px;"><?php _e("Relax and Focus: Online social time tracker for task and projects", "sis-foca-js"); ?>, 
+		<br><?php _e("get you and your team more productive than ever", "sis-foca-js"); ?></p-->
 		<a class="btn btn-success" href="/register" style="font-weight: 600; padding: 10px 30px"><i class="glyphicon glyphicon-star"></i> <?php _e("Get started for Free", "sis-foca-js"); ?></a>
 	</div>
-	<!--div class="row">
-		<div class="col-md-7">
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/pomodoros-app.jpg" id="pomodoros-banner" alt="Pomodoros" class="img-responsive" style="width: 100%;">
-		</div>
-		<div class="col-md-5">
-			<p>Work and rest</p>
-			<p>with Pomodoro Technique timer</p> 
-		</div>
-	</div-->
-	<center><h2 class="forte"><i class="glyphicon glyphicon-ok-circle"></i> <?php _e("Features", "sis-foca-js"); ?></h2></center>
+
 	<div id="carousel-home-pomodoros" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
+		<center><h2 class="f-font-title"><i class="glyphicon glyphicon-ok-circle"></i> <?php _e("Features", "sis-foca-js"); ?></h2></center>
 		<ol class="carousel-indicators">
 			<li data-target="#carousel-home-pomodoros" data-slide-to="0" class="active"></li>
 			<li data-target="#carousel-home-pomodoros" data-slide-to="1"></li>
@@ -101,8 +95,9 @@
 		$cities_count = get_meta_values( "post_location_city", "projectimer_focus" );
 		//style="max-width: 400px;margin:0 auto;"
 		?>
+
 	<div class="row stats-com">
-		<center><h2 class="forte"><i class="glyphicon glyphicon-signal"></i> <?php _e("Stats from Community", "sis-foca-js"); ?></h2></center>
+		<center><h2 class="f-font-title"><i class="glyphicon glyphicon-signal"></i> <?php _e("Stats from Community", "sis-foca-js"); ?></h2></center>
 		<ul class="list-group stats-group col-sm-6">
 			<li class="list-group-item active">
 				<span class="badge"><?php echo /*$user_count." / ".*/$user_active_count["total_users"]; ?></span>
@@ -138,6 +133,7 @@
 				}).mouseout(function() {
 					jQuery(this).addClass( "active " );
 				});
+				jQuery("[data-toggle=popover]").popover();
 			});
 		</script>
 	</div>
@@ -151,7 +147,7 @@
 	*/
 	?>
 	<div class="row testimonials">
-		<center><h2 class="forte"><i class="glyphicon glyphicon-bullhorn"></i> <?php _e("Testimonials", "sis-foca-js"); ?></h2></center>
+		<center><h2 class="f-font-title"><i class="glyphicon glyphicon-bullhorn"></i> <?php _e("Testimonials", "sis-foca-js"); ?></h2></center>
 		<div class="col-xs-6 col-sm-6 col-md-3 testimonials-container">
 			<div class="thumbnail">
 				<p><?php _e("I will be the first in the ranking", "sis-foca-js"); ?>.</p>
@@ -191,7 +187,7 @@
 	</div>
 	
 	<div class="row brief-history">
-		<h2 class="forte"><i class="glyphicon glyphicon-road"></i> <?php _e("Brief History", "sis-foca-js"); ?></h2>
+		<h2 class="f-font-title"><i class="glyphicon glyphicon-road"></i> <?php _e("Brief History", "sis-foca-js"); ?></h2>
 		<span>...
 		<a tabindex="0" class="btn btn-lg btn-default" role="button" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" title="<?php _e("Initial Plans", "sis-foca-js"); ?>" data-content="<img src='<?php bloginfo('stylesheet_directory');?>/images/pomo-versions/pomodoros-offline.jpg'><?php _e("Francisco, CEO and founder, tried a lot of pomodoros softwares and decided to build it's own", "sis-foca-js"); ?>">2010</a>
 		...
@@ -220,14 +216,14 @@
 		</span>
 	</div>
 	<!--div style="text-align: center;" >
-		<h2 class="forte"><i class="glyphicon glyphicon-education"></i> Focus Training</h2>
+		<h2 class="f-font-title"><i class="glyphicon glyphicon-education"></i> Focus Training</h2>
 		<p style="font-weight: 600; font-size: 18px;">Get the most of the most valuable resource you have
 		<br> YOUR TIME
 		<br> contact us to get an special training for boot focus and productivity</p>
 		<a class="btn btn-success" href="/register" style="font-weight: 600; padding: 10px 30px"><i class="glyphicon glyphicon-education"></i> Contact Teacher</a>
 	</div-->
-	<center><h2 class="forte"><i class="glyphicon glyphicon-comment"></i> Blog</h2></center>
 	<div class="row blog-posts">
+		<center><h2 class="f-font-title"><i class="glyphicon glyphicon-comment"></i> Blog</h2></center>
 				<?php 
 				if(function_exists('set_shared_database_schema')) {
 				    set_shared_database_schema();

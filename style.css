@@ -48,6 +48,19 @@ principal dark color: #096;
 
 @import url(assets/fonts/stylesheet.css);*/
 
+@font-face {
+    font-family: 'lobster';
+    src: url('fonts/lobster/lobster_1.3-webfont.eot');
+    src: url('fonts/lobster/lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lobster/lobster_1.3-webfont.woff2') format('woff2'),
+         url('fonts/lobster/lobster_1.3-webfont.woff') format('woff'),
+         url('fonts/lobster/lobster_1.3-webfont.ttf') format('truetype'),
+         url('fonts/lobster/lobster_1.3-webfont.svg#lobster_1.3regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 @media (min-width: 1200px) {
 
 }
@@ -107,7 +120,7 @@ input[type="range"]::-ms-fill-upper {
 	color: #FFF !important;
 }
 .posttitle, .widget-title {
-	/*font-family: Forte;**/
+	/*font-family: lobster;**/
 	font-family: "Helvetica Neue",​ Helvetica, ​Arial,​sans-serif;
 	
 	font-weight: 700;
@@ -120,7 +133,7 @@ input[type="range"]::-ms-fill-upper {
 	border-top: 1px dotted #BBB;*/
 }
 .posttitle a {
-	font-family: Forte;
+	font-family: lobster;
 	font-weight: 100;
 	color: #093 !important;
 }
@@ -202,7 +215,7 @@ img.avatar {
 	    background-color: #DDD;
 	    border-bottom: 2px solid #BBB;
 	    clear: left;
-	    /*font-family: forte;
+	    /*font-family: lobster;
 	    font-family: 'Lilita One', cursive;*
 	    margin:0 0 10px 0;
 	    padding: 4px;
@@ -347,7 +360,7 @@ img.avatar {
 	text-transform: uppercase  !important;
 	background: #333 !important;
 	color: #FFF !important;
-	/*font-family: Forte;*/
+	/*font-family: lobster;*/
 }
 .woocommerce-breadcrumb, .related {
 	display: none;
@@ -990,7 +1003,7 @@ margin: 0 auto;
 	
 	
 	*/
-	font-family: Forte;
+	font-family: lobster;
 	font-size: 15px;
 	left: 40px;
 	margin-right: 10px;
@@ -2613,7 +2626,7 @@ ol.commentlist li {
 			color:#FFF;
 			/*font-family: 'Lilita One',cursive;*/
 			font-size: 18px !important;
-			font-family: "forte" !important;
+			font-family: "lobster" !important;
 		}
 		/*#footer-content #footer-contact-form {
 			float:right;
@@ -3044,8 +3057,8 @@ h3.rpwe-title a {
 	display: none;
 }
 */
-.forte {
-	font-family: Forte;
+.f-font-title {
+	font-family: lobster;
 	/*padding: 0px 40px;*/
 }
 .semi-transparent {
@@ -3469,21 +3482,53 @@ h3.rpwe-title a {
 	text-align: center;
 	/*background-color: #CCC;*/
 	padding-bottom: 20px;
+	color: #000;
+	background-color: #FFF;
+	padding: 100px 0;
+	/* The image used */
+	background-image: url("images/index/relax_focus.jpg");
+
+	/* Set a specific height */
+	height: 500px;
+
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.header-desc p {
+	font-weight: 600; 
+	font-size: 18px;
+}
+.header-desc p, .header-desc h1 {
+	background-color: rgba(0,0,0,0.8);
 	color: #FFF;
 }
-.stats-com {
-	margin-top: 20px;
-	padding: 0 20px 0 30px;
-	/*background-color: #CCC;*/
-	padding-bottom: 20px;
+
+.btn-success {
+	background-color: #093;
 }
 #carousel-home-pomodoros {
 	margin:0 40px;
-	font-family: forte;
+	font-family: lobster;
 	font-size: 14px;
+	padding: 50px 0;
 }
+
+.stats-com {
+	margin-top: 20px;
+	/*padding: 0 20px 0 30px;
+	background-color: #CCC;
+	padding-bottom: 20px;*/
+	color: #000;
+	background-color: #FFF;
+	padding: 100px 50px;
+}
+
 .testimonials {
 	/*padding: 30px;*/
+	padding: 100px 0;
 }
 .testimonials-container {
 	display: table-cell;
@@ -3531,7 +3576,7 @@ h3.rpwe-title a {
 	margin:10px;
 }
 .testimonials .thumbnail a {
-	font-family: forte;
+	font-family: lobster;
 	font-size: 20px;
 	padding-left: 10px;
 }
@@ -3539,12 +3584,13 @@ h3.rpwe-title a {
 /**/
 .brief-history {
 	text-align: center;
-	/*background-color: #CCC;*/
-	padding: 0 20px 20px;
+	background-color: #FFF;
+	color: #000;
+	padding: 100px 20px;
 }
 .brief-history .popover-title {
 	font-weight: 600;
-	font-family: forte;
+	font-family: lobster;
 }
 .brief-history span {
 	letter-spacing: -6px;
@@ -3556,7 +3602,9 @@ h3.rpwe-title a {
 	margin-right: -10px;
     margin-left: -6px;
 }
-
+.blog-posts {
+	padding: 50px 0;
+}
 .blog-posts .post {
 	padding:10px 40px 0;
 	border-right: 1px dashed;

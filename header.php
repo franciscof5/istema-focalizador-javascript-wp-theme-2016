@@ -83,13 +83,13 @@
 					<?php if ( !is_user_logged_in() ) { ?> 
 					<li>
 						<a title="<?php _e("Login", "sis-foca-js"); ?>" class="btn btn-transparent-dark btn-xs btn-expand abrir_login" id="login_login" tabindex="1">
-							<i class="glyphicon glyphicon-log-in"></i> 
+							<!--i class="glyphicon glyphicon-log-in"></i--> 
 							<span class="icon-leg"><?php _e("Login", "sis-foca-js"); ?></span>
 						</a>
 					</li>
 					<li>
 						<a href="/register" class="btn btn-success btn-xs btn-expand " role="button" aria-pressed="true" title="<?php _e("Create your free pomodoros.com.br account", "sis-foca-js"); ?>">
-							<i class="glyphicon glyphicon-star"></i> 
+							<!--i class="glyphicon glyphicon-star"></i--> 
 							<span class="icon-leg"><?php _e("Sign Up", "sis-foca-js"); ?></span>
 						</a>
 					</li>
@@ -320,4 +320,4 @@
 
 
 
-	<div class="rowDISABLED">
+	<div class="container-fluid">

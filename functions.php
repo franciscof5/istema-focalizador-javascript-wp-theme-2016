@@ -88,7 +88,7 @@ add_action('admin_menu', 'my_remove_menu_pages' );
 add_action('wp_logout','go_home');
 add_action('init', 'create_post_type' );
 add_action('init', 'custom_rewrite_basic');
-add_action('init', 'smart_set_user_language');
+#add_action('init', 'smart_set_user_language');
 add_action('wp_enqueue_scripts', 'load_scritps');
 add_action('init', 'add_tags_categories');
 
@@ -434,108 +434,9 @@ function default_page() {
   return '/focus';
 }
 
-function smart_set_user_language() {
-	global $user_prefered_language;
-	
-	if(class_exists("WC_Geolocation")) {
-		$wclocation = WC_Geolocation::geolocate_ip();
-		$user_location_georefered = $wclocation['country'];
 
-	}
-	if(!$user_location_georefered) {
-		if(function_exists("locale_accept_from_http"))
-			$user_location_georefered = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-		else
-			$user_location_georefered = "en_US";
-	}
-	if($user_location_georefered=="BR")
-		$user_location_georefered="pt_BR";
 
-	#$user_prefered_language = $user_location_georefered;
-	#var_dump($user_location_georefered);
-	
-
-	#$user_lang_pref = get_user_meta(get_current_user_id(), "pomodoros_lang", true);
-	#if($user_lang_pref=="")
-	#	$user_lang_pref="en_US";
-	/*if($user_lang_pref) {
-		if($_GET["lang"]=="pt" || $_GET["lang"]=="pt_BR") {
-			echo update_user_meta( get_current_user_id(), "pomodoros_lang", "pt_BR" );
-		} elseif($_GET["lang"]=="en" || $_GET["lang"]=="en_US") {
-			echo update_user_meta( get_current_user_id(), "pomodoros_lang", "en_US" );
-		}
-	} else {*/
-	$user_prefered_language = $user_location_georefered;
-	session_start();
-	if(!isset($_SESSION["user_prefered_language"]))
-	$_SESSION["user_prefered_language"]=$user_prefered_language;
-	
-	if($_GET && isset($_GET["lang"])) {
-		/*if($_GET["lang"]=="pt" || $_GET["lang"]=="pt_BR") {	
-			$user_lang_on_url="pt_BR";
-			#update_user_meta( get_current_user_id(), "pomodoros_lang", $user_lang_on_url );
-		} elseif($_GET["lang"]=="en" || $_GET["lang"]=="en_US") {
-			$user_lang_on_url="en_US";
-			#update_user_meta( get_current_user_id(), "pomodoros_lang", $user_lang_on_url );
-		}*/
-
-		#if($user_lang_on_url!=$user_prefered_language) {
-			#$user_prefered_language=$user_lang_on_url;
-			$user_prefered_language=$_GET["lang"];
-			$_SESSION["user_prefered_language"]=$user_prefered_language;
-		#}
-	}
-
-	if(isset($_SESSION["user_prefered_language"])) {
-		$user_prefered_language=$_SESSION["user_prefered_language"];
-	} else {
-		$_SESSION["user_prefered_language"]=$user_prefered_language;
-	}
-	if($user_prefered_language=="")
-		$user_prefered_language=="en_US";
-	#var_dump($_SESSION["user_prefered_language"]);
-	#var_dump($user_prefered_language);
-	switch_to_locale($user_prefered_language);
-	define_title_apendix($user_prefered_language);
-	#var_dump($user_prefered_language);die;
-	return $user_prefered_language;
-}
-
-function define_title_apendix($lang) {
-	global $title_apendix;
-	switch ($lang) {
-		case 'notset' :
-		case 'en' :
-		case 'en_US' :
-			$title_apendix = "USA/UK";
-			break;
-		case 'pt' :
-		case 'pt_BR' :
-			$title_apendix = "Brasil";
-			break;
-
-		case 'fr' :
-		case 'fr_FR' :
-			$title_apendix = "France";
-			break;
-
-		case 'es' :
-		case 'es_ES' :
-			$title_apendix = "Espanã/AL";
-			break;
-
-		case 'zh' :
-		case 'zh_CN' :
-			$title_apendix = "中国";
-			break;
-		default:
-			$title_apendix = "Global";
-			break;
-	}
-}
-
-function load_scritps() {	
-	
+function load_scritps() {		
 	#wp_enqueue_style('pomodoro-css', get_bloginfo("stylesheet_directory")."/pomodoro/pomodoro.css", __FILE__, time());
 	wp_enqueue_style('fonts-css', get_bloginfo("stylesheet_directory")."/assets/fonts/stylesheet.css", __FILE__);
 
@@ -634,153 +535,7 @@ function load_scritps() {
 function myplugin_remove_type_attr($tag, $handle) {
     return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
 }
-function show_lang_options($hide_title=false, $current_location="") {
-	global $user_prefered_language;
-	if($current_location=="") {
-		if($user_prefered_language!="")
-			$current_location = $user_prefered_language;
-		else
-			$current_location = "notset";
-	} ?>
 
-		<?php 
-		if(!$hide_title) { ?>
-			<strong>Change Language:</strong>
-		<?php }
-		/*if($showtitle_in_h3) { ?>
-			<h3 class="widget-title">Change Language</h3>
-		<?php } else { ?>
-			<strong>Change Language:</strong>
-		<?php } */ ?>
-
-	<?php
-	#var_dump($user_prefered_language);
-	#var_dump($current_location);die;
-	switch ($current_location) {
-		case 'notset' :
-		case 'en' :
-		case 'en_US' :
-			generate_flag_links_except("en");
-			break;
-		
-		case 'pt' :
-		case 'pt_BR' :
-			generate_flag_links_except("pt");
-			break;
-
-		case 'fr' :
-		case 'fr_FR' :
-			generate_flag_links_except("fr");
-			break;
-
-		case 'es' :
-		case 'es_ES' :
-			generate_flag_links_except("es");
-			break;
-
-		case 'zh' :
-		case 'zh_CN' :
-			generate_flag_links_except("zh");
-			break;
-
-		default:
-			generate_flag_links_except("en");
-			break;
-	}
-	/*
-	if($current_location!="en" && $current_location!="en_US") { ?>
-		<?php if($showtitle_in_h3) { ?>
-			<h3 class="widget-title">Change Language</h3>
-		<?php } else { ?>
-			<strong>Change Language:</strong>
-		<?php } ?>
-		<a href="<?php echo get_bloginfo('url'); ?>/?lang=en_US"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/us.png" alt="Language Flag"> English</a>
-	<?php } else { ?>
-		<?php if($showtitle_in_h3) { ?>
-			<h3 class="widget-title">Mudar Idioma</h3>
-		<?php } else { ?>
-			<strong>Mudar Idioma:</strong>
-		<?php } ?>
-		<a href="<?php echo get_bloginfo('url'); ?>/?lang=pt_BR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/br.png" alt="Bandeira de Idioma"> Português</a>
-	<?php }*/
-}
-
-function generate_flag_links_except($except) { ?>
-	<?php 
-	$base_link = $_SERVER['REQUEST_URI']; 
-	$base_link = preg_replace('/\?.*/', '', $base_link);
-	?>
-	<?php if($except!="en" && $except!="en_US") { ?>
-		<a href="<?php echo $base_link; ?>?lang=en_US"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/us.png" alt="Language Flag"> English</a>
-	<?php } ?>
-	<?php if($except!="fr" && $except!="fr_FR") { ?>
-		<a href="<?php echo $base_link; ?>?lang=fr_FR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/fr.png" alt="Drapeau de langue"> Français</a>
-	<?php } ?>
-	<?php if($except!="pt" && $except!="pt_BR") { ?>
-		<a href="<?php echo $base_link; ?>?lang=pt_BR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/br.png" alt="Bandeira de Idioma"> Português</a>
-	<?php } ?>
-	<?php if($except!="es" && $except!="es_ES") { ?>
-		<a href="<?php echo $base_link; ?>?lang=es_ES"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/es.png" alt="Bandera de Idioma"> Spañol</a>
-	<?php } ?>
-	<?php if($except!="zh" && $except!="zh_CN") { ?>
-		<a href="<?php echo $base_link; ?>?lang=zh_CN"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/cn.png" alt="语言标志"> 中文</a>
-	<?php } ?>
-<?php }
-
-function check_language_user_and_content($tags) {
-	global $user_prefered_language;
-	global $user_prefered_language_prefix;
-	$user_prefered_language_prefix = substr($user_prefered_language,0,2);
-	if($tags) {
-		foreach ($tags as $tag) {
-			# code...
-			if(substr($tag->slug, 0, 5)=="lang-") {
-				$content_lang = substr($tag->slug, 5, 7);
-				if($user_prefered_language_prefix!=$content_lang) { ?>
-					<div class="alert alert-warning">
-					<strong><?php _e("Warning!", "sis-foca-js"); ?></strong> 
-					<?php _e("These content is not avaiable in your language. Original content language is: ", "sis-foca-js");
-					echo "<strong>".$content_lang."</strong>";
-					echo "<br>";
-					echo "<a href='/'>".__("Go to blog homepage", "sis-foca-js")."</a>";
-					#echo "These content is not avaiable in your language";	] ?>
-					</div>
-				<?php }
-			}
-		}
-	}
-	#var_dump($user_prefered_language_prefix);die;
-}
-
-/*function show_most_recent_taskDISABLED() {
-	#echo '<h3 class="widget-title">Tarefa recente</h3>';
-	if(is_user_logged_in()) {
-		$current_user = wp_get_current_user(); 
-		$args = array(
-		              'post_type' => 'projectimer_focus',
-		              'post_status' => 'draft',
-		              'author'   => get_current_user_id(),
-
-		              'posts_per_page' => 1,
-		            );
-		$recent = get_posts($args);
-		if( $recent ){
-		  $title = ", ".__("you most recent task is", "sis-foca-js")." <i>".get_the_title($recent[0]->ID)."</i>";#sua tarefa mais recente é
-		}else{
-		  $title = ", ".__("you never started a task", "sis-foca-js"); #você ainda não começou nenhuma tarefa //No published posts
-		} 
-		$msg_saudacao = __("Hello", "buddypress")." ".$current_user->display_name.$title.", <a href=/focar>".__("go to online app and start focus", "sis-foca-js")."</a>";#acessar aplicativo online e focar
-	} else {
-		#$msg_saudacao = "Caro visitante, <a href=/register>crie sua conta GRÁTIS</a> para acessar o aplicativo online";
-		#$msg_saudacao2 = "Se já possui um usuário, <a id=testes href=# class=abrir_login>acesse sua conta</a>";
-		echo show_welcome_message();
-	} 
-			
-	echo $msg_saudacao;
-	if(isset($msg_saudacao2))
-	echo $msg_saudacao2;
-	#die();
-}*/
 
 function show_recent_pomodoros() {
 	#<h3><script>document.write(txt_foot_last)</script></h3>
@@ -809,46 +564,7 @@ function show_recent_pomodoros() {
 	<?php
 }
 
-function show_recent_posts_georefer() {
-	#<h3><script>document.write(txt_foot_blog)</script></h3>
-	?>
-	<div class="widget widget_recent_entries">
-		<ul>
-		
-			<?php 
-			if(function_exists('set_shared_database_schema'))set_shared_database_schema();
-			
-			$idObj = get_category_by_slug("www.pomodoros.com.br"); 
 
-			global $user_prefered_language;
-			$user_prefered_language_prefix = substr($user_prefered_language, 0,2);
-			
-			$arro = array(
-				'cat' => $idObj->term_id,
-				'posts_per_page' => 6,
-				'tag' => "lang-".$user_prefered_language_prefix,
-			);
-			
-			/*if($user_prefered_language=="en" || $user_prefered_language=="en_US")
-				#$args[] = array("tag"=>"english");
-				$arro["tag"] = "english";
-			else 
-				$arro["tag__not_in"] = 579;*/
-			wp_reset_query();
-			$catquery = new WP_Query( $arro );
-			while($catquery->have_posts()) : $catquery->the_post();
-			?>
-			
-			<li>
-				<?php the_post_thumbnail(array(50,50)); ?>
-				<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a>
-			</li>
-			
-			<?php endwhile;	?>
-		</ul>
-	</div>
-	<?php
-}
 
 function show_welcome_message($alertify=false) {
 	if(is_user_logged_in()) {
@@ -1706,6 +1422,268 @@ function wpse187831_redir_loggedin() {
     ), 302);
     exit;
 }
+
+/*
+function show_lang_options($hide_title=false, $current_location="") {
+	global $user_prefered_language;
+	if($current_location=="") {
+		if($user_prefered_language!="")
+			$current_location = $user_prefered_language;
+		else
+			$current_location = "notset";
+	} ?>
+
+		<?php 
+		if(!$hide_title) { ?>
+			<strong>Change Language:</strong>
+		<?php }
+		/*if($showtitle_in_h3) { ?>
+			<h3 class="widget-title">Change Language</h3>
+		<?php } else { ?>
+			<strong>Change Language:</strong>
+		<?php } * / ?>
+
+	<?php
+	#var_dump($user_prefered_language);
+	#var_dump($current_location);die;
+	switch ($current_location) {
+		case 'notset' :
+		case 'en' :
+		case 'en_US' :
+			generate_flag_links_except("en");
+			break;
+		
+		case 'pt' :
+		case 'pt_BR' :
+			generate_flag_links_except("pt");
+			break;
+
+		case 'fr' :
+		case 'fr_FR' :
+			generate_flag_links_except("fr");
+			break;
+
+		case 'es' :
+		case 'es_ES' :
+			generate_flag_links_except("es");
+			break;
+
+		case 'zh' :
+		case 'zh_CN' :
+			generate_flag_links_except("zh");
+			break;
+
+		default:
+			generate_flag_links_except("en");
+			break;
+	}
+	/*
+	if($current_location!="en" && $current_location!="en_US") { ?>
+		<?php if($showtitle_in_h3) { ?>
+			<h3 class="widget-title">Change Language</h3>
+		<?php } else { ?>
+			<strong>Change Language:</strong>
+		<?php } ?>
+		<a href="<?php echo get_bloginfo('url'); ?>/?lang=en_US"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/us.png" alt="Language Flag"> English</a>
+	<?php } else { ?>
+		<?php if($showtitle_in_h3) { ?>
+			<h3 class="widget-title">Mudar Idioma</h3>
+		<?php } else { ?>
+			<strong>Mudar Idioma:</strong>
+		<?php } ?>
+		<a href="<?php echo get_bloginfo('url'); ?>/?lang=pt_BR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/br.png" alt="Bandeira de Idioma"> Português</a>
+	<?php }* /
+}
+
+/*
+function generate_flag_links_except($except) { ?>
+	<?php 
+	$base_link = $_SERVER['REQUEST_URI']; 
+	$base_link = preg_replace('/\?.*    /', '', $base_link);
+	?>
+	<?php if($except!="en" && $except!="en_US") { ?>
+		<a href="<?php echo $base_link; ?>?lang=en_US"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/us.png" alt="Language Flag"> English</a>
+	<?php } ?>
+	<?php if($except!="fr" && $except!="fr_FR") { ?>
+		<a href="<?php echo $base_link; ?>?lang=fr_FR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/fr.png" alt="Drapeau de langue"> Français</a>
+	<?php } ?>
+	<?php if($except!="pt" && $except!="pt_BR") { ?>
+		<a href="<?php echo $base_link; ?>?lang=pt_BR"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/br.png" alt="Bandeira de Idioma"> Português</a>
+	<?php } ?>
+	<?php if($except!="es" && $except!="es_ES") { ?>
+		<a href="<?php echo $base_link; ?>?lang=es_ES"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/es.png" alt="Bandera de Idioma"> Spañol</a>
+	<?php } ?>
+	<?php if($except!="zh" && $except!="zh_CN") { ?>
+		<a href="<?php echo $base_link; ?>?lang=zh_CN"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/flag-lang/cn.png" alt="语言标志"> 中文</a>
+	<?php } ?>
+<?php }
+
+function check_language_user_and_content($tags) {
+	global $user_prefered_language;
+	global $user_prefered_language_prefix;
+	$user_prefered_language_prefix = substr($user_prefered_language,0,2);
+	if($tags) {
+		foreach ($tags as $tag) {
+			# code...
+			if(substr($tag->slug, 0, 5)=="lang-") {
+				$content_lang = substr($tag->slug, 5, 7);
+				if($user_prefered_language_prefix!=$content_lang) { ?>
+					<div class="alert alert-warning">
+					<strong><?php _e("Warning!", "sis-foca-js"); ?></strong> 
+					<?php _e("These content is not avaiable in your language. Original content language is: ", "sis-foca-js");
+					echo "<strong>".$content_lang."</strong>";
+					echo "<br>";
+					echo "<a href='/'>".__("Go to blog homepage", "sis-foca-js")."</a>";
+					#echo "These content is not avaiable in your language";	] ?>
+					</div>
+				<?php }
+			}
+		}
+	}
+	#var_dump($user_prefered_language_prefix);die;
+}
+
+function smart_set_user_language() {
+	global $user_prefered_language;
+	
+	if(class_exists("WC_Geolocation")) {
+		$wclocation = WC_Geolocation::geolocate_ip();
+		$user_location_georefered = $wclocation['country'];
+
+	}
+	if(!$user_location_georefered) {
+		if(function_exists("locale_accept_from_http"))
+			$user_location_georefered = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+		else
+			$user_location_georefered = "en_US";
+	}
+	if($user_location_georefered=="BR")
+		$user_location_georefered="pt_BR";
+
+	#$user_prefered_language = $user_location_georefered;
+	#var_dump($user_location_georefered);
+	
+
+	#$user_lang_pref = get_user_meta(get_current_user_id(), "pomodoros_lang", true);
+	#if($user_lang_pref=="")
+	#	$user_lang_pref="en_US";
+	/*if($user_lang_pref) {
+		if($_GET["lang"]=="pt" || $_GET["lang"]=="pt_BR") {
+			echo update_user_meta( get_current_user_id(), "pomodoros_lang", "pt_BR" );
+		} elseif($_GET["lang"]=="en" || $_GET["lang"]=="en_US") {
+			echo update_user_meta( get_current_user_id(), "pomodoros_lang", "en_US" );
+		}
+	} else {* /
+	$user_prefered_language = $user_location_georefered;
+	session_start();
+	if(!isset($_SESSION["user_prefered_language"]))
+	$_SESSION["user_prefered_language"]=$user_prefered_language;
+	
+	if($_GET && isset($_GET["lang"])) {
+		/*if($_GET["lang"]=="pt" || $_GET["lang"]=="pt_BR") {	
+			$user_lang_on_url="pt_BR";
+			#update_user_meta( get_current_user_id(), "pomodoros_lang", $user_lang_on_url );
+		} elseif($_GET["lang"]=="en" || $_GET["lang"]=="en_US") {
+			$user_lang_on_url="en_US";
+			#update_user_meta( get_current_user_id(), "pomodoros_lang", $user_lang_on_url );
+		}* /
+
+		#if($user_lang_on_url!=$user_prefered_language) {
+			#$user_prefered_language=$user_lang_on_url;
+			$user_prefered_language=$_GET["lang"];
+			$_SESSION["user_prefered_language"]=$user_prefered_language;
+		#}
+	}
+
+	if(isset($_SESSION["user_prefered_language"])) {
+		$user_prefered_language=$_SESSION["user_prefered_language"];
+	} else {
+		$_SESSION["user_prefered_language"]=$user_prefered_language;
+	}
+	if($user_prefered_language=="")
+		$user_prefered_language=="en_US";
+	#var_dump($_SESSION["user_prefered_language"]);
+	#var_dump($user_prefered_language);
+	switch_to_locale($user_prefered_language);
+	define_title_apendix($user_prefered_language);
+	#var_dump($user_prefered_language);die;
+	return $user_prefered_language;
+}
+
+function define_title_apendix($lang) {
+	global $title_apendix;
+	switch ($lang) {
+		case 'notset' :
+		case 'en' :
+		case 'en_US' :
+			$title_apendix = "USA/UK";
+			break;
+		case 'pt' :
+		case 'pt_BR' :
+			$title_apendix = "Brasil";
+			break;
+
+		case 'fr' :
+		case 'fr_FR' :
+			$title_apendix = "France";
+			break;
+
+		case 'es' :
+		case 'es_ES' :
+			$title_apendix = "Espanã/AL";
+			break;
+
+		case 'zh' :
+		case 'zh_CN' :
+			$title_apendix = "中国";
+			break;
+		default:
+			$title_apendix = "Global";
+			break;
+	}
+}
+
+function show_recent_posts_georefer() {
+	#<h3><script>document.write(txt_foot_blog)</script></h3>
+	?>
+	<div class="widget widget_recent_entries">
+		<ul>
+		
+			<?php 
+			if(function_exists('set_shared_database_schema'))set_shared_database_schema();
+			
+			$idObj = get_category_by_slug("www.pomodoros.com.br"); 
+
+			global $user_prefered_language;
+			$user_prefered_language_prefix = substr($user_prefered_language, 0,2);
+			
+			$arro = array(
+				'cat' => $idObj->term_id,
+				'posts_per_page' => 6,
+				'tag' => "lang-".$user_prefered_language_prefix,
+			);
+			
+			/*if($user_prefered_language=="en" || $user_prefered_language=="en_US")
+				#$args[] = array("tag"=>"english");
+				$arro["tag"] = "english";
+			else 
+				$arro["tag__not_in"] = 579;* /
+			wp_reset_query();
+			$catquery = new WP_Query( $arro );
+			while($catquery->have_posts()) : $catquery->the_post();
+			?>
+			
+			<li>
+				<?php the_post_thumbnail(array(50,50)); ?>
+				<a href="<?php the_permalink() ?>" rel="bookmark"><?php the_title(); ?></a>
+			</li>
+			
+			<?php endwhile;	?>
+		</ul>
+	</div>
+	<?php
+}
+
 /*
 function fbp($d) {
 	
@@ -1725,3 +1703,34 @@ function filter_bp_get_the_profile_field_input_name( $bp_dtheme_add_brackets_to_
 } 
          
 add_filter( 'bp_get_the_profile_field_input_name', 'filter_bp_get_the_profile_field_input_name', 10, 1 );
+
+
+/*function show_most_recent_taskDISABLED() {
+	#echo '<h3 class="widget-title">Tarefa recente</h3>';
+	if(is_user_logged_in()) {
+		$current_user = wp_get_current_user(); 
+		$args = array(
+		              'post_type' => 'projectimer_focus',
+		              'post_status' => 'draft',
+		              'author'   => get_current_user_id(),
+
+		              'posts_per_page' => 1,
+		            );
+		$recent = get_posts($args);
+		if( $recent ){
+		  $title = ", ".__("you most recent task is", "sis-foca-js")." <i>".get_the_title($recent[0]->ID)."</i>";#sua tarefa mais recente é
+		}else{
+		  $title = ", ".__("you never started a task", "sis-foca-js"); #você ainda não começou nenhuma tarefa //No published posts
+		} 
+		$msg_saudacao = __("Hello", "buddypress")." ".$current_user->display_name.$title.", <a href=/focar>".__("go to online app and start focus", "sis-foca-js")."</a>";#acessar aplicativo online e focar
+	} else {
+		#$msg_saudacao = "Caro visitante, <a href=/register>crie sua conta GRÁTIS</a> para acessar o aplicativo online";
+		#$msg_saudacao2 = "Se já possui um usuário, <a id=testes href=# class=abrir_login>acesse sua conta</a>";
+		echo show_welcome_message();
+	} 
+			
+	echo $msg_saudacao;
+	if(isset($msg_saudacao2))
+	echo $msg_saudacao2;
+	#die();
+}*/

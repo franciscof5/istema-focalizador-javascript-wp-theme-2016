@@ -168,7 +168,7 @@
 		</script>
 		
 		<?php } ?>
-		<div  class="row white-link">
+		<div  class="white-link">
 				<div class="col-xs-6">
 					<p><?php _e("Developed by", "sis-foca-js"); ?> <a href="https://www.franciscomat.com">Francisco Mat</a>
 					<?php /*, Fork us <a href="https://github.com/franciscof5/sistema-focalizador-javascript">on GitHub</a> */ ?>

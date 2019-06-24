@@ -42,10 +42,14 @@
 				global $wp_query;
 				$original_query = $wp_query;
 				$wp_query = null;
+				
 				#reset_wp_query();
 				#wp_reset_query();
 				#$wp_query-> set('tag' ,'lang-fr');
-				$user_prefered_language_prefix = substr($user_prefered_language, 0,2);
+
+				
+				#$user_prefered_language_prefix = substr($user_prefered_language, 0,2);
+				global $user_prefered_language_prefix;
 				$args = array(
 					"posts_per_page" => 12,
 					"post_type" => "post",
@@ -53,7 +57,7 @@
 				);
 				#var_dump("lang-".$user_prefered_language_prefix);die;
 				$wp_query = new WP_Query( $args );
-				#var_dump($wp_query);die;
+				#var_dump($wp_query);die;*/
 				if ( have_posts() ) : ?>
 
 					<?php while (have_posts()) : the_post(); ?>
