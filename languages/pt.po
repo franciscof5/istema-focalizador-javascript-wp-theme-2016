@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sistema Focalizador JS\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-06-27 14:16-0300\n"
+"POT-Creation-Date: 2019-06-27 14:19-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Francisco Matelli Matulovic <fmatelli@gmail.com>\n"
 "Language-Team: Francisco Mat F5 Sites <francisco@f5sites.com>\n"
@@ -427,7 +427,6 @@ msgid "Relax and Work"
 msgstr "Relaxa e Foca"
 
 #: part-index.php:6
-#, fuzzy
 msgid "Free online time tracker for task and projects"
 msgstr "Cronômetro online para tarefas e projetos"
 
