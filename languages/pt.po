@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sistema Focalizador JS\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-06-27 14:19-0300\n"
+"POT-Creation-Date: 2019-06-27 14:41-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Francisco Matelli Matulovic <fmatelli@gmail.com>\n"
 "Language-Team: Francisco Mat F5 Sites <francisco@f5sites.com>\n"
@@ -239,7 +239,7 @@ msgid "Ranking"
 msgstr "Ranking"
 
 #: header.php:132 header.php:209 header.temp-dropdown-menu.php:139
-#: header.temp-dropdown-menu.php:191 part-index.php:35
+#: header.temp-dropdown-menu.php:191 part-index.php:37
 msgid "Perfomance Calendar"
 msgstr "Calendário de Desempenho"
 
@@ -270,8 +270,8 @@ msgid "Pomodoros Blog"
 msgstr "Blog do Pomodoros"
 
 #: header.php:167 header.php:169 header.php:233 header.php:234
-#: part-focus-training.php:5 part-focus-training.php:11 part-index.php:61
-#: part-index.php:63
+#: part-focus-training.php:5 part-focus-training.php:11 part-index.php:63
+#: part-index.php:65
 msgid "Focus Training"
 msgstr "Treinamento em Foco"
 
@@ -326,7 +326,7 @@ msgid ""
 "course."
 msgstr ""
 
-#: part-focus-training.php:11 part-index.php:64
+#: part-focus-training.php:11 part-index.php:66
 msgid "Be more productive"
 msgstr "Seja mais produtivo"
 
@@ -427,106 +427,110 @@ msgid "Relax and Work"
 msgstr "Relaxa e Foca"
 
 #: part-index.php:6
-msgid "Free online time tracker for task and projects"
-msgstr "Cronômetro online para tarefas e projetos"
+msgid "The key to success is to invest well your most valuable asset"
+msgstr "A chave para o sucesso é investir bem seu recurso mais valioso"
 
 #: part-index.php:7
+msgid "Your time"
+msgstr "Seu tempo"
+
+#: part-index.php:9
 msgid "Relax and Focus: Online social time tracker for task and projects"
 msgstr "Relaxe e Foca: Cronômetro online para tarefas e projetos"
 
-#: part-index.php:8
+#: part-index.php:10
 msgid "get you and your team more productive than ever"
 msgstr "você e seu time mais produtivos do que nunca"
 
-#: part-index.php:9
+#: part-index.php:11
 msgid "Get started for Free"
 msgstr "Registre-se Gratuitamente"
 
-#: part-index.php:14
+#: part-index.php:16
 msgid "Features"
 msgstr "Funcionalidades"
 
-#: part-index.php:28
+#: part-index.php:30
 msgid "Work & Rest"
 msgstr "Relaxa e Foca"
 
-#: part-index.php:29
+#: part-index.php:31
 msgid "with Pomodoro Technique"
 msgstr "com a Técnica dos Pomodoros"
 
-#: part-index.php:36
+#: part-index.php:38
 msgid "shows tasks you done"
 msgstr "mostra tarefas que você fez"
 
-#: part-index.php:42
+#: part-index.php:44
 msgid "Grow in Ranking"
 msgstr "Cresça no Ranking"
 
-#: part-index.php:43
+#: part-index.php:45
 msgid "and get more productive"
 msgstr "e se torne mais produtivo"
 
-#: part-index.php:49
+#: part-index.php:51
 msgid "Mind blown reports"
 msgstr "Relatórios incríveis"
 
-#: part-index.php:50
+#: part-index.php:52
 msgid "to check time usage"
 msgstr "para ver o uso do tempo"
 
-#: part-index.php:56
+#: part-index.php:58
 msgid "Open a ticket"
 msgstr "Abra um ticket"
 
-#: part-index.php:57
+#: part-index.php:59
 msgid "and get help"
 msgstr "e obtenha ajuda"
 
-#: part-index.php:74
+#: part-index.php:76
 msgid "Previous"
 msgstr "Anterior"
 
-#: part-index.php:78
+#: part-index.php:80
 msgid "Next"
 msgstr "Próximo"
 
-#: part-index.php:100
+#: part-index.php:102
 msgid "Stats from Community"
 msgstr "Estatísticas da Comunidade"
 
-#: part-index.php:104
+#: part-index.php:106
 msgid "Active Users"
 msgstr "Usuários Ativos"
 
-#: part-index.php:108 part-tag.php:203
+#: part-index.php:110 part-tag.php:203
 msgid "Pomodoros done"
 msgstr "Pomodoros feitos"
 
-#: part-index.php:112
+#: part-index.php:114
 msgid "Time tracked"
 msgstr "Tempo cronometrado"
 
-#: part-index.php:118
+#: part-index.php:120
 msgid "Projects tags"
 msgstr "Tags dos projetos"
 
-#: part-index.php:122
+#: part-index.php:124
 msgid "Cities ranked"
 msgstr "Cidades rankeadas"
 
-#: part-index.php:126
+#: part-index.php:128
 msgid "Translations"
 msgstr "Traduções"
 
-#: part-index.php:150
+#: part-index.php:152
 msgid "Testimonials"
 msgstr "Depoimentos"
 
-#: part-index.php:153
+#: part-index.php:155
 msgid "I will be the first in the ranking"
 msgstr "Vou ser o primeiro do ranking"
 
-#: part-index.php:162
+#: part-index.php:164
 msgid ""
 "Learning is an ongoing process. We should study daily, analyze the results "
 "regularly and apply methods to improve our previous results"
@@ -535,7 +539,7 @@ msgstr ""
 "os resultados regularmente e aplicar métodos para melhorar os nossos "
 "resultados anteriores"
 
-#: part-index.php:171
+#: part-index.php:173
 msgid ""
 "With Pomodoros.com.br I can have more control over my time, be more "
 "productive and perform my tasks better"
@@ -543,7 +547,7 @@ msgstr ""
 "Com o Pomodoros.com.br consigo ter mais controle sobre meu tempo, ser mais "
 "produtivo e realizar melhor minhas tarefas"
 
-#: part-index.php:180
+#: part-index.php:182
 msgid ""
 "I used Pomodoros.com.br a few years ago, every day. I was happy to know that "
 "the website came back, I hope people use it again, I'll try to get into the "
@@ -553,15 +557,15 @@ msgstr ""
 "saber que o site voltou, espero que as pessoas voltem a usar, vou tentar "
 "pegar o hábito também porque \"super\" me ajudava"
 
-#: part-index.php:190
+#: part-index.php:192
 msgid "Brief History"
 msgstr "Breve histórico"
 
-#: part-index.php:192
+#: part-index.php:194
 msgid "Initial Plans"
 msgstr "Planos Iniciais"
 
-#: part-index.php:192
+#: part-index.php:194
 msgid ""
 "Francisco, CEO and founder, tried a lot of pomodoros softwares and decided "
 "to build it's own"
@@ -569,7 +573,7 @@ msgstr ""
 "Francisco, CEO e fundador, testou muitos softwares de pomodoros e decidiu "
 "construir o seu próprio"
 
-#: part-index.php:194
+#: part-index.php:196
 msgid ""
 "First version, already online, social and async JavaScript timer, based in "
 "WordPress and BuddyPress"
@@ -577,11 +581,11 @@ msgstr ""
 "Primeira versão, já online, social e com cronômetro em JavaScript "
 "assíncrono, baseado em WordPress e BuddyPress"
 
-#: part-index.php:196
+#: part-index.php:198
 msgid "First Growth"
 msgstr "Primeiro Crescimento"
 
-#: part-index.php:196
+#: part-index.php:198
 msgid ""
 "Very promissor period, users growth based in spontaneous reviews, in blogs, "
 "no single penny expensed in marketing"
@@ -589,7 +593,7 @@ msgstr ""
 "Período muito promissor, crescimento na base de usuários baseado em reviews "
 "espotâneos em blogs, nem um centavo gastado em marketing"
 
-#: part-index.php:198
+#: part-index.php:200
 msgid ""
 "A lot of updates to join in a brazilian startup contest, no investors became "
 "interested"
@@ -597,11 +601,11 @@ msgstr ""
 "Muitos updates para ingressar em um concurso de startups no Brasil, nenhum "
 "investidor se interessou"
 
-#: part-index.php:200
+#: part-index.php:202
 msgid "Second Growth"
 msgstr "Segundo Crescimento"
 
-#: part-index.php:200
+#: part-index.php:202
 msgid ""
 "Another promissor period, mouth-to-mouth and organic growth, but founder "
 "needed to stop developing system due Master course and it started became out "
@@ -611,11 +615,11 @@ msgstr ""
 "teve que parar o desenvolvimento do sistema para se dedicar ao curso de "
 "Mestrado e logo este ficou desatualizado"
 
-#: part-index.php:202
+#: part-index.php:204
 msgid "Turbulency"
 msgstr "Turbulência"
 
-#: part-index.php:202
+#: part-index.php:204
 msgid ""
 "High maintenance costs, founder have no time for coding, service was still "
 "online, with growth in users, but the server was poor configured and unable "
@@ -625,11 +629,11 @@ msgstr ""
 "serviço permaneceu online, com crescimento na base de usuários, mas o "
 "sevidor estava mal-configurado e incapaz de receber atualizações regulares"
 
-#: part-index.php:204
+#: part-index.php:206
 msgid "Pomodoros Offline"
 msgstr "Pomodoros Ficou Offline"
 
-#: part-index.php:204
+#: part-index.php:206
 msgid ""
 "Service went offline because founder needed to work in other activities and "
 "trying to finish Master course, lost all regular users"
@@ -637,11 +641,11 @@ msgstr ""
 "O serviço caiu porque o fundador precisou trabalhar em outras atividades e "
 "tentar terminar o curso de Mestrado, todos os usuários foram perdidos"
 
-#: part-index.php:206
+#: part-index.php:208
 msgid "Laboratory"
 msgstr "Laboratório"
 
-#: part-index.php:206
+#: part-index.php:208
 msgid ""
 "Founder quited Master course and start full-time operations. New server "
 "configuration, focused on scalability and shared users information, lot of "
@@ -657,7 +661,7 @@ msgstr ""
 "importante, muitas experiências foram feitas já que não havia mais usuários, "
 "o serviço caia constantemente até voltar aos trilhos"
 
-#: part-index.php:208
+#: part-index.php:210
 msgid ""
 "After years offline, finally Pomodoros.com.br are back online in a new "
 "'mobile first' version, with app for Android in Google Play Store"
@@ -665,11 +669,11 @@ msgstr ""
 "Após anos offline, finalmente o Pomodoros.com.br voltou ao ar com uma versão "
 "'mobile first', com um app para Android na loja Google Play"
 
-#: part-index.php:210
+#: part-index.php:212
 msgid "Pomodoros Global"
 msgstr "Pomodoros Global"
 
-#: part-index.php:210
+#: part-index.php:212
 msgid ""
 "We expect that all translations are 100% ready and people all over the world "
 "join the community, first paid ads and gifts sellings in its own built-in "
@@ -679,11 +683,11 @@ msgstr ""
 "entrem para a comunidade, os primeiros anunciantes pagos e vendas na loja "
 "interna de doações"
 
-#: part-index.php:212
+#: part-index.php:214
 msgid "Clear Real Valuation"
 msgstr "Valuation real mais claro"
 
-#: part-index.php:212
+#: part-index.php:214
 msgid ""
 "For good or for worst, the valuation of the system are clear, investors can "
 "join or leave for a just price in options"
@@ -691,11 +695,11 @@ msgstr ""
 "Para o bem ou para o mal, o Valuation do sistema se torna claro, "
 "investidores podem entrar ou sair por preços de opções justos"
 
-#: part-index.php:214
+#: part-index.php:216
 msgid "Societal Plan"
 msgstr "Plano Societal"
 
-#: part-index.php:214
+#: part-index.php:216
 #, php-format
 msgid ""
 "Plans for multiple single investors to joining, options are become more "
@@ -705,37 +709,37 @@ msgstr ""
 "valiosas, é esperado que neste momento o fundador tenha algo próximo a "
 "15% das opções"
 
-#: part-index.php:272 part-news.php:89 part-product.php:41
+#: part-index.php:274 part-news.php:89 part-product.php:41
 #: single-product.php:48 single.php:57
 msgid "Permanent Link to"
 msgstr ""
 
-#: part-index.php:281 part-news.php:98 part-product.php:50
+#: part-index.php:283 part-news.php:98 part-product.php:50
 #: single-product.php:57 single.php:67
 msgid "Read the rest of this entry &rarr;"
 msgstr ""
 
-#: part-index.php:284 part-news.php:101 part-product.php:53
+#: part-index.php:286 part-news.php:101 part-product.php:53
 #: single-product.php:60 single.php:71
 msgid "No Comments &#187;"
 msgstr ""
 
-#: part-index.php:284 part-news.php:101 part-product.php:53
+#: part-index.php:286 part-news.php:101 part-product.php:53
 #: single-product.php:60 single.php:71
 msgid "1 Comment &#187;"
 msgstr ""
 
-#: part-index.php:284 part-news.php:101 part-product.php:53
+#: part-index.php:286 part-news.php:101 part-product.php:53
 #: single-product.php:60 single.php:71
 msgid "% Comments &#187;"
 msgstr ""
 
-#: part-index.php:299 part-news.php:116 part-product.php:68
+#: part-index.php:301 part-news.php:116 part-product.php:68
 #: tag-(now-part-tag).php:391
 msgid "Not Found"
 msgstr ""
 
-#: part-index.php:300 part-news.php:117 part-product.php:69
+#: part-index.php:302 part-news.php:117 part-product.php:69
 #: tag-(now-part-tag).php:392
 msgid "Sorry, but you are looking for something that isn't here."
 msgstr ""
@@ -966,6 +970,9 @@ msgstr "Seus projetos"
 #: single-product.php:66 single.php:77
 msgid "Edit this entry."
 msgstr ""
+
+#~ msgid "Free online time tracker for task and projects"
+#~ msgstr "Cronômetro online para tarefas e projetos"
 
 #~ msgid "Warning!"
 #~ msgstr "Atenção!"
