@@ -3534,7 +3534,9 @@ h3.rpwe-title a {
 	text-shadow: 2px 2px 2px #000;
 	color: #E2D693;
 }
-
+.header-desc h1 {
+	font-size: 42px;
+}
 .btn-success {
 	background-color: #093;
 }
