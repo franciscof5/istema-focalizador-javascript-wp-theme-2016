@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Sistema Focalizador JS\n"
 "Report-Msgid-Bugs-To: Translator Name <translations@example.com>\n"
-"POT-Creation-Date: 2019-06-27 14:41-0300\n"
+"POT-Creation-Date: 2019-06-27 14:43-0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Francisco Matelli Matulovic <fmatelli@gmail.com>\n"
 "Language-Team: Francisco Mat F5 Sites <francisco@f5sites.com>\n"
@@ -431,8 +431,8 @@ msgid "The key to success is to invest well your most valuable asset"
 msgstr "A chave para o sucesso é investir bem seu recurso mais valioso"
 
 #: part-index.php:7
-msgid "Your time"
-msgstr "Seu tempo"
+msgid "your time"
+msgstr "seu tempo"
 
 #: part-index.php:9
 msgid "Relax and Focus: Online social time tracker for task and projects"
