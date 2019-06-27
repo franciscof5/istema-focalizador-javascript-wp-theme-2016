@@ -98,7 +98,7 @@
 						<a title="Ver Blog" class="btn btn-link" href="/blog" style="padding-top: 10px;">Blog</a>
 						</li-->
 					<li class="dropdown hidden-xs icon-leg btn btn-xs">
-						<a href="#" class="btn btn-transparent-red btn-xs btn-expand dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="glyphicon caret"> </span></a>
+						<a href="#" class="btn btn-transparent-red btn-xs btn-expand dropdown-toggle dropdown-toggle-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger"></i> <span class="glyphicon caret"> </span></a>
 						<ul class="dropdown-menu" style="right: 0;left: inherit;">
 							<li>
 								<a title="<?php _e("Start Focus", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus/">

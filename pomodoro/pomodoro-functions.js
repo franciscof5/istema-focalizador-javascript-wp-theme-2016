@@ -695,10 +695,10 @@ function turn_on_pomodoro_indicator (indicator_number) {
 
 //Function to restart the pomodoros
 function reset_indicators_display() {
-	jQuery("#pomoindi1").animate({'background-position': '0px','background-color': '#EEEEEE'});
-	jQuery("#pomoindi2").animate({'background-position': '0px','background-color': '#EEEEEE'});
-	jQuery("#pomoindi3").animate({'background-position': '0px','background-color': '#EEEEEE'});
-	jQuery("#pomoindi4").animate({'background-position': '0px','background-color': '#EEEEEE'});
+	jQuery("#pomoindi1").animate({'background-position': '0px'});
+	jQuery("#pomoindi2").animate({'background-position': '0px'});
+	jQuery("#pomoindi3").animate({'background-position': '0px'});
+	jQuery("#pomoindi4").animate({'background-position': '0px'});
 }
 
 //Functions to make the effect on the clock

@@ -2,7 +2,7 @@
 	<!--center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center-->
 	<div class="row header-desc">
 		<!--h1 class="f-font-title"><?php _e("Work & Rest Time Tracker", "sis-foca-js"); ?></h1-->
-		<h1 class="f-font-title"><?php _e("Work & Rest", "sis-foca-js"); ?></h1>
+		<h1 class="f-font-title"><?php _e("Relax and Work", "sis-foca-js"); ?></h1>
 		<p style=""><?php _e("Free online time tracker for task and projects", "sis-foca-js"); ?></p>
 		<!--p style="font-weight: 600; font-size: 18px;"><?php _e("Relax and Focus: Online social time tracker for task and projects", "sis-foca-js"); ?>, 
 		<br><?php _e("get you and your team more productive than ever", "sis-foca-js"); ?></p-->

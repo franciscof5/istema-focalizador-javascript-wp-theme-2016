@@ -23,7 +23,7 @@ if(dirname($uri_parts[0])!="/") {
 
 			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-				<h2 class="pagetitle"><?php the_title(); ?></h2>
+				<h2 class="pagetitle lobster"><?php the_title(); ?></h2>
 
 				<div class="post" id="post-<?php the_ID(); ?>">
 

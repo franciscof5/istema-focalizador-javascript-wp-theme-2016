@@ -56,4 +56,7 @@ wp_enqueue_style('fonts-css');
 
 locate_template( "part-".$page.".php", true );
 
-get_footer();
+if($page=="focus")
+	get_footer("condensed");
+else
+	get_footer();

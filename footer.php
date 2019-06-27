@@ -6,8 +6,6 @@
 
 		<?php do_action( 'bp_before_footer' ) ?>
 
-		<?php if(!is_user_logged_in()) { ?>
-
 		<div id="footer" class="container-fluid">
 			<div id="footer-content" class="row">
 				<div class="col-sm-3 contem_last_pomodoros">
@@ -51,8 +49,8 @@
 				<div class="col-sm-3">
 					<h3><a href="/blog" alt="Read our blog"><?php _e("Our blog", "sis-foca-js"); ?></a></h3>
 					<?php 
-					if(function_exists("show_recent_posts_georefer"))
-					show_recent_posts_georefer(); ?>
+					if(function_exists("smartlang_recent_posts_georefer_widget"))
+					smartlang_recent_posts_georefer_widget(); ?>
 				</div>
 
 				<div class="col-sm-3">
@@ -63,7 +61,7 @@
 					<br style="clear: both;">
 					
 					<h3><a href="/help" alt="Get help"><?php _e("Support", "sis-foca-js"); ?></a></h3>
-					<p><a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" id="settingsbutton" class="btn  btn-black" href="<?php bloginfo('url'); ?>/help" style="padding-top: 10px;"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <?php _e("Open support ticket", "sis-foca-js"); ?></a></p>
+					<p><a title="<?php _e("Open support ticket", "sis-foca-js"); ?>" id="settingsbutton" class="btn  btn-white" href="<?php bloginfo('url'); ?>/help" style="padding-top: 10px;"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <?php _e("Open support ticket", "sis-foca-js"); ?></a></p>
 				</div>
 
 				<?php /*
@@ -164,10 +162,55 @@
 			//"font-size": "22px"
 		});
 		jQuery(".ul-ranking-footer li:nth-child(3) a").css("color", "#50352F");
+		//jQuery(".btn-expand " ).mouseenter(function() {
+		//	jQuery(this).find( "span" ).removeClass( "hidden-sm hidden-md " );
+		//}).
+		jQuery(".btn-expand " ).mouseover(function() {
+			if(jQuery(this).find( ".icon-leg" ).hasClass( "hidden-sm hidden-md" )) {
+				jQuery(this).find( ".icon-leg" ).removeClass( "hidden-sm hidden-md" );
+				jQuery(this).mouseout(function() {
+					jQuery(this).find( ".icon-leg" ).addClass( "hidden-sm hidden-md " );
+				});
+			}
 		});
+		jQuery(".contem-icone " ).mouseenter(function() {
+			jQuery( ".icone-legenda" ).hide(100);
+			if(!jQuery(this).find( ".icone-legenda" ).is(":animated"))
+			jQuery(this).find( ".icone-legenda" ).show(400);
+			/*$(this).*/
+		});
+		jQuery( ".contem-icone" ).mouseout(function() {
+			jQuery( ".icone-legenda" ).hide(100);
+		});
+		
+		
+		//**********//
+		/*jQuery(document).click(function(event) { 
+		    if(!jQuery(event.target).closest('.loginlogbox').length) {
+				if(jQuery('.loginlogbox').is(":visible")) {
+					jQuery('.loginlogbox').hide();
+				}
+			}        
+		});*/
+		jQuery( ".abrir_login" ).click(function() {
+			jQuery( "#loginlogbox" ).toggle("slow");
+		});
+		jQuery( ".abrir_settings" ).click(function() {
+			jQuery( "#settingsbox" ).toggle("slow");
+		});
+		jQuery( window ).click(function() {
+			//NOT MOUSE OVER LOGINLOGBOX
+			if(jQuery( "#loginlogbox" ).is(":visible") && !jQuery( "#loginlogbox" ).is(":animated") && !jQuery( "#loginlogbox" ).is(":hover"))
+			jQuery( "#loginlogbox" ).hide("fast");
+
+			if(jQuery( "#settingsbox" ).is(":visible") && !jQuery( "#settingsbox" ).is(":animated") && !jQuery( "#settingsbox" ).is(":hover"))
+			jQuery( "#settingsbox" ).hide("fast");
+
+		});
+	});
+
 		</script>
 		
-		<?php } ?>
 		<div  class="white-link">
 				<div class="col-xs-6">
 					<p><?php _e("Developed by", "sis-foca-js"); ?> <a href="https://www.franciscomat.com">Francisco Mat</a>
@@ -181,61 +224,7 @@
 					<p style="text-align: right;"><a href="<?php bloginfo('url'); ?>/tag/pomodoros-2"><?php _e("Project Pomodoros", "sis-foca-js"); ?></a> | <?php _e("on", "sis-foca-js"); ?> <a href="https://angel.co/projects/68620-pomodoros-com-br">AngelList</a> | <a href="http://carreirasolo.org/novas/site-usa-tecnica-dos-pomodoros-para-agilizar-produtividade#.W_PWZ6uQxpg">CarreiraSolo</a></p>
 				</div>
 			</div>
-<script>
 
-jQuery( document ).ready(function() {
-	
-	//jQuery(".btn-expand " ).mouseenter(function() {
-	//	jQuery(this).find( "span" ).removeClass( "hidden-sm hidden-md " );
-	//}).
-	jQuery(".btn-expand " ).mouseover(function() {
-		if(jQuery(this).find( ".icon-leg" ).hasClass( "hidden-sm hidden-md" )) {
-			jQuery(this).find( ".icon-leg" ).removeClass( "hidden-sm hidden-md" );
-			jQuery(this).mouseout(function() {
-				jQuery(this).find( ".icon-leg" ).addClass( "hidden-sm hidden-md " );
-			});
-		}
-	});
-	jQuery(".contem-icone " ).mouseenter(function() {
-		jQuery( ".icone-legenda" ).hide(100);
-		if(!jQuery(this).find( ".icone-legenda" ).is(":animated"))
-		jQuery(this).find( ".icone-legenda" ).show(400);
-		/*$(this).*/
-	});
-	jQuery( ".contem-icone" ).mouseout(function() {
-		jQuery( ".icone-legenda" ).hide(100);
-	});
-	
-	
-	//**********//
-	/*jQuery(document).click(function(event) { 
-	    if(!jQuery(event.target).closest('.loginlogbox').length) {
-			if(jQuery('.loginlogbox').is(":visible")) {
-				jQuery('.loginlogbox').hide();
-			}
-		}        
-	});*/
-	jQuery( ".abrir_login" ).click(function() {
-		jQuery( "#loginlogbox" ).toggle("slow");
-	});
-	jQuery( ".abrir_settings" ).click(function() {
-		jQuery( "#settingsbox" ).toggle("slow");
-	});
-	jQuery( window ).click(function() {
-		//NOT MOUSE OVER LOGINLOGBOX
-		if(jQuery( "#loginlogbox" ).is(":visible") && !jQuery( "#loginlogbox" ).is(":animated") && !jQuery( "#loginlogbox" ).is(":hover"))
-		jQuery( "#loginlogbox" ).hide("fast");
-
-		if(jQuery( "#settingsbox" ).is(":visible") && !jQuery( "#settingsbox" ).is(":animated") && !jQuery( "#settingsbox" ).is(":hover"))
-		jQuery( "#settingsbox" ).hide("fast");
-
-	});
-	//jQuery( "#settings_panel" ).click(function() {
-	//	jQuery( "#settingsbox" ).toggle("slow");
-	//});
-});		
-
-</script>
 <!--a class="github-fork-ribbon right-bottom" href="http://url.to-your.repo" title="Fork me on GitHub">Fork me on GitHub</a-->
 	
 <?php do_action( 'bp_after_footer' ) ?>

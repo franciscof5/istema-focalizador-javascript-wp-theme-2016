@@ -68,6 +68,11 @@ em {
 	font-weight: 100 !important;
 	font-style: italic !important;
 }
+
+.lobster, .forte {
+	font-family: lobster;
+}
+
 #contem-tudo {
 	padding-left: 5px !important;
 	padding-right: 5px !important;
@@ -137,7 +142,7 @@ input[type="range"]::-ms-fill-upper {
 .posttitle a {
 	font-family: lobster;
 	font-weight: 100;
-	color: #093 !important;
+	color: #E2D693 !important;
 }
 .entry {
 	text-align: justify;
@@ -163,15 +168,17 @@ img.avatar {
 /*f5sites*/
 .register_div_box {
 	padding:10px 35px;
-	margin:10px auto;
+	/*margin:10px auto;*/
 	min-height:110px;
 }
 .register_div_box:hover {
-	background:#CCC;
+	background:#FFF;
+	color: #333;
 }
 .register_div_box h3{color:#333; text-align:center;}
 .register_div_box h2 {
 	text-align: center;
+	font-family: lobster;
 }
 #div_status {
 	border:3px solid #000;
@@ -389,11 +396,13 @@ img.avatar {
 .content_nosidebar {	
 	/*background:rgba(255,255,255, 0.8);*/
 	/*border-radius:10px;*/
+	background: #FFF;
 	padding:10px 30px !important;
 	font-size:12px;
 	/*width: 90%;*/
 	width: 98%;
 	margin: 0 auto !important;
+	color: #333;
 }
  
 #pomopainel {
@@ -403,7 +412,9 @@ img.avatar {
 	border-radius: 15px;*/
 	margin-top: 10px;
 }
-
+#pomopainel #tags_box, .select2-results__option, .select2-tags_box-results li {
+	color: #000;
+}
 
 .content_estatisticas {padding:40px 300px;}
 #login-text {visibility:hidden;display:none;}
@@ -623,10 +634,12 @@ filter:alpha(opacity=85); /* For IE8 and earlier */
 	filter:alpha(opacity=90); /* For IE8 and earlier *
 }*/
 #center_layout {
-	background: #FFF;
+	background: #000;
+	color: #FFF;
+	/*
 	border: solid 2px #DDD;
 	border-radius: 20px;
-	/*padding: 10px 50px;*/
+	padding: 10px 50px;*/
 }
 #center_layout .wp-social-login-widget {
 	margin:0 auto;
@@ -839,7 +852,7 @@ h4 {
 	color: #888;
 }
 
-a { color: #093; /*#bc1800; f5sites*/ text-decoration: none;}
+a { color: #E2D693; /*#bc1800; f5sites*/ text-decoration: none;}
 
 /*.padder { 
 	width: 73%;
@@ -884,11 +897,11 @@ span.activity, div#message p {
 -------------------------------------------------------------- */
 
 #header {
-/*width: 100%;*/
-height: 40px;
-background: #222;
-top:0;
-left:0;
+	/*width: 100%;*/
+	height: 40px;
+	background: #222;
+	top:0;
+	left:0;
 	/*position: fixed;
 	color: #fff;*/
 	/*background: transparent; /*#eee;  /* url(pomodoro-banner-1250x125-antigo.jpg) repeat-x; /* url(darwin-sample.gif*/
@@ -972,13 +985,19 @@ margin: 0 auto;
 	/*padding-right: 10px;
 	margin:8px 5px 0 0;*
 	height: 40px;
-	padding: 0 4px;*/
+	padding: 0 4px;
+	width: 100%;
+	*/
 	margin: 2px 5px 7px 0px;
 	float: left;
 	
 }
+.dropdown-toggle-menu {
+	padding: 4px 10px;
+}
 .dropdown-menu .divider {
 	background-color: #AAA;
+	width: 100%;
 	float: none !important;
 }
 .pomoNavbar .glyphicon {
@@ -1247,10 +1266,14 @@ div#container {
 	top: 0;
 }
 #content_members {
-	/*background: rgba(255,255,255,0.9);*/
+	/*
+	background: rgba(255,255,255,0.9);
 	border-radius: 15px;
+	*/
+	background: #FFF;
 	margin-bottom: 20px;
 	padding: 20px;
+	color: #333;
 }
 
 div#content .padder {
@@ -1512,7 +1535,7 @@ div.pagination {
 	margin: 0 -15px 9px -15px;
 	/*border-bottom: 1px solid #fff;*/
 	padding: 10px 15px 10px 15px;
-	color: #FFF;
+	/*color: #FFF;*/
 	font-size: 11px;
 	height: 16px;
 }
@@ -3061,6 +3084,9 @@ h3.rpwe-title a {
 */
 .f-font-title {
 	font-family: lobster;
+	color: #E2D693;
+	font-size: 30px;
+	text-shadow: 2px 2px 2px #000;
 	/*padding: 0px 40px;*/
 }
 .semi-transparent {
@@ -3504,8 +3530,9 @@ h3.rpwe-title a {
 	font-size: 18px;
 }
 .header-desc p, .header-desc h1 {
-	background-color: rgba(0,0,0,0.8);
-	color: #FFF;
+	/*background-color: rgba(0,0,0,0.8);*/
+	text-shadow: 2px 2px 2px #000;
+	color: #E2D693;
 }
 
 .btn-success {
@@ -3544,8 +3571,8 @@ h3.rpwe-title a {
 }
 .testimonials .thumbnail p {
 	border:0;
-	background-color: #222 !important;
-	color: #FFF;
+	background-color: #FFF !important;
+	color: #333;
 	border-radius: 15px;
 	/*height: 180px;*/
 	padding: 10px;
@@ -3564,7 +3591,7 @@ h3.rpwe-title a {
 	width: 0;
 	height: 0;
 	border: 20px solid transparent;
-	border-top-color: #222;
+	border-top-color: #FFF;
 	border-bottom: 0;
 	border-left: 0;
 	margin-left: -10px;
@@ -3619,15 +3646,20 @@ h3.rpwe-title a {
     border-color: #333;
     color: #fff;
 }
-.btn-transparent {
-	background-color: transparent;
-	color: #B8B8B8;
-	border: transparent;
-}
 .btn-black:hover {
     background-color: #333;
     border-color: #333;
     color: #FFF !important;
+}
+.btn-white {
+    background-color: #FFF;
+    border-color: #AAA;
+    color: #333 !important;
+}
+.btn-transparent {
+	background-color: transparent;
+	color: #B8B8B8;
+	border: transparent;
 }
 .btn-round {
 	padding: 3px 6px;
@@ -3675,4 +3707,9 @@ h2 i {
 	padding: 0;
 	background-color: transparent;
 	border: none;
+}
+
+.widgettitle {
+	font-family: lobster;
+	color: #333;
 }
