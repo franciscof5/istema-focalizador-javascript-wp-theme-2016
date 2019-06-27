@@ -3,7 +3,9 @@
 	<div class="row header-desc">
 		<!--h1 class="f-font-title"><?php _e("Work & Rest Time Tracker", "sis-foca-js"); ?></h1-->
 		<h1 class="f-font-title"><?php _e("Relax and Work", "sis-foca-js"); ?></h1>
-		<p style=""><?php _e("The key to success is always to take short breaks at work", "sis-foca-js"); ?></p>
+		<p style=""><?php _e("The key to success is to invest well your most valuable asset", "sis-foca-js"); ?>:</p>
+		<p style=""><?php _e("Your time", "sis-foca-js"); ?>!</p>
+		
 		<!--p style="font-weight: 600; font-size: 18px;"><?php _e("Relax and Focus: Online social time tracker for task and projects", "sis-foca-js"); ?>, 
 		<br><?php _e("get you and your team more productive than ever", "sis-foca-js"); ?></p-->
 		<a class="btn btn-success" href="/register" style="font-weight: 600; padding: 10px 30px"><i class="glyphicon glyphicon-star"></i> <?php _e("Get started for Free", "sis-foca-js"); ?></a>
