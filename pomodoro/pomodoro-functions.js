@@ -124,13 +124,15 @@ jQuery(document).ready(function ($) {
 	startSoundMan();
 	//
 	change_status(txt_loading_initial_data);	
-	load_initial_data();//
+	//
+	load_initial_data();
+	//
 	secondsRemaining = pomodoroTime;
 	convertSeconds(secondsRemaining);
 	flip_number(true);
 	
 	//listen to changes
-	jQuery("#title_box, #description_box, #tags_box, #rangeVolume").change(function() {	
+	jQuery("#title_box, #description_box, #tags_box, #rangeVolume, #soundfx_enabled, #voice_enabled").change(function() {	
 		update_pomodoro_clipboard();
 	});
 	
@@ -328,6 +330,12 @@ function load_initial_data() {
 			pomodoro_completed_sound.setVolume(volumeLevel);
 			active_sound.setVolume(volumeLevel);
 			session_reseted_sound.setVolume(volumeLevel);
+
+			senabled=postReturned['soundfx_enabled'];
+			jQuery("#soundfx_enabled").prop("checked", senabled);
+			venabled=postReturned['soundfx_enabled'];
+			jQuery("#voice_enabled").prop("checked", venabled);
+			console.log("venabled", venabled)
 			//alert(volumeLevel);
 			//if(volumeLevel>1)
 				//startContinuousArtyom();
@@ -360,6 +368,7 @@ function load_initial_data() {
 
 function update_pomodoro_clipboard (post_stts, loud) {
 	//
+	console.log("update_pomodoro_clipboard")
 	if(loud)
 	change_status(txt_update_current_task);
 	//
@@ -377,6 +386,8 @@ function update_pomodoro_clipboard (post_stts, loud) {
 		//post_data: data_box.value,
 		post_priv: privornot,
 		range_volume: jQuery('#rangeVolume').val(),
+		soundfx_enabled: jQuery('#soundfx_enabled').prop("checked"),
+		voice_enabled: jQuery('#voice_enabled').prop("checked"),
 	};
 	
 	if(interval_clock) {
@@ -1129,13 +1140,13 @@ function startContinuousArtyom(){
 	    	gcommands = groupOfCommands;
 	    	artyom_lang = "en-US";
 	    }
-	    //a.lert(artyom_lang);
+	    //console.log("artyom_lang" + artyom_voice.recognizingSupported());
 	    //
 	    //setTimeout(function(){// if you use artyom.fatality , wait 250 ms to initialize again.
 	         artyom_voice.initialize({
 	            lang:artyom_lang,// A lot of languages are supported. Read the docs !
 	            continuous:true,// Artyom will listen forever
-	            listen:true, // Start recognizing
+	            listen: artyom_voice.recognizingSupported(), // Start recognizing
 	            debug:true, // Show everything in the console
 	            speed:1, // talk normally
 	            //volume: volumeLevel/100,
@@ -1149,9 +1160,10 @@ function startContinuousArtyom(){
 	    //if(data_from_php.php_locale=="pt_BR")
 	    	//artyom_voice.addCommands(grupoDeComandos);
 	    //else
-	    	artyom_voice.addCommands(gcommands);
-
-	    artyom_voice.addCommands(groupSwith);
+	    if(artyom_voice.recognizingSupported()) {
+		    artyom_voice.addCommands(gcommands);
+		    artyom_voice.addCommands(groupSwith);
+	    }
 
 	    /*artyom_voice.when("COMMAND_RECOGNITION_END",function(status){
 		          startContinuousArtyom();

@@ -67,28 +67,36 @@
 						<div class="post" id="post-<?php the_ID(); ?>">
 
 								<div class="contem-thumb">
-								<center>
-							    <a style="margin:0 auto;" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-							       <?php 
+									<center>
+								    <a style="margin:0 auto;" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+								       <?php 
 
-							       if ( has_post_thumbnail() ) {
-							       		
-										the_post_thumbnail( array(500,200) );
-									}
+								       if ( has_post_thumbnail() ) {
+								       		
+											the_post_thumbnail( array(500,200) );
+										}
 
-							       ?>
-							    </a>
-							    </center>
+								       ?>
+								    </a>
+								    </center>
+								    
+								    <div class="author-box">
+										<?php echo get_avatar( get_the_author_meta( 'user_email' ), '80' ); ?>
+									</div>
+									
+									<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+									</h2>
+
+									<p class="date"><?php the_time("Y-m-d") ?></p>
+
+									<p class="postmetadata"><span class="tags"><?php the_tags( __( 'Tags: ', 'buddypress' ), ', ', '<br />'); ?></span> <span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'buddypress' ), __( '1 Comment &#187;', 'buddypress' ), __( '% Comments &#187;', 'buddypress' ) ); ?></span></p>
+
 							    </div>
 							<?php #endif;  ?>
-							<div class="author-box">
-								<?php echo get_avatar( get_the_author_meta( 'user_email' ), '60' ); ?>
-							</div>
+							
 
 							<div class="post-content">
-								<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'buddypress' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-
-								<p class="date"><?php the_time("Y-m-d") ?></p>
+								
 
 								<div class="entry">
 									<?php 
@@ -98,7 +106,7 @@
 									the_content( __( 'Read the rest of this entry &rarr;', 'buddypress' ) ); ?>
 								</div>
 
-								<p class="postmetadata"><span class="tags"><?php the_tags( __( 'Tags: ', 'buddypress' ), ', ', '<br />'); ?></span> <span class="comments"><?php comments_popup_link( __( 'No Comments &#187;', 'buddypress' ), __( '1 Comment &#187;', 'buddypress' ), __( '% Comments &#187;', 'buddypress' ) ); ?></span></p>
+								
 							</div>
 
 						</div>

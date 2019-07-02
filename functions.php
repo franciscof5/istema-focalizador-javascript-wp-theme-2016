@@ -205,7 +205,7 @@ function custom_disable_redirect_canonical( $redirect_url ) {
 		return $redirect_url;
 	}
 }
-//
+
 function get_projectimer_project_tags($author_id,$taxonomy = 'post_tag'){
     //get author's posts
     if($author_id>0)
@@ -253,7 +253,7 @@ function get_projectimer_project_tags($author_id,$taxonomy = 'post_tag'){
     }*/
     #echo '</ul>';
 }
-//
+
 function get_author_post_tags_wpa78489($author_id,$taxonomy = 'post_tag'){
     //get author's posts
     $posts = get_posts(array(
@@ -626,6 +626,7 @@ function get_meta_values( $meta_key,  $post_type = 'post' ) {
     #return $meta_values;
 
 }
+
 function array_to_rank ($ar, $qtt) { ?>
 	<ul>
 	<?php 
@@ -1017,6 +1018,15 @@ function load_session () {
 		$postReturned['range_volume'] = $vol;
 		//
 
+		$soundfx_enabled = get_user_meta(get_current_user_id(), "soundfx_enabled", true);
+		if($soundfx_enabled=="")
+			$soundfx_enabled=true;
+		$postReturned['soundfx_enabled'] = $soundfx_enabled;
+
+		$voice_enabled = get_user_meta(get_current_user_id(), "voice_enabled", true);
+		if($voice_enabled=="")
+			$voice_enabled=true;
+		$postReturned['voice_enabled'] = $voice_enabled;
 		//header('Content-type: application/json');//CRUCIAL
 		//if($pomodoroAtivo)
 		echo json_encode($postReturned);
@@ -1134,6 +1144,12 @@ function update_session () {
 
 	$postReturned['volume_ok'] = $vok;
 	//
+
+	$soundfx_enabled_ok = update_user_meta(get_current_user_id(), "soundfx_enabled", $_POST['soundfx_enabled']);
+	$postReturned['soundfx_enabled_ok'] = $soundfx_enabled_ok;
+
+	$voice_enabled_ok = update_user_meta(get_current_user_id(), "voice_enabled", $_POST['voice_enabled']);
+	$postReturned['voice_enabled_ok'] = $voice_enabled_ok;
 
 	header('Content-type: application/json');//CRUCIAL
 	echo json_encode($postReturned);

@@ -441,6 +441,7 @@ img.avatar {
 	height: 320px;
 	position: absolute;
 	background: #FFFFFF;
+	color: #333;
 	border: solid 2px #DDD;
 	z-index: 20;
 	/*left: 1070px;*/
@@ -448,8 +449,6 @@ img.avatar {
 	top: 45px;
 	border-radius: 10px;
 	padding: 20px;
-	opacity: 0.95;
-	filter:alpha(opacity=95); /* For IE8 and earlier */
 }
 #loginlogbox p label {
 	color: #333;
@@ -781,8 +780,7 @@ ul.activity-list > li:first-child {
 /* homepage */
 .stats-group {
 	font-size: 16px;
-	text-transform: uppercase;
-
+	font-weight: 600;
 }
 .stats-group li {
 	border: 1px dotted #FFF !important;
@@ -2435,7 +2433,6 @@ div#new-topic-post {
 	padding: 1px 0 0 0;
 }
 
-
 /* > WordPress Blog Styles
 -------------------------------------------------------------- */
 .post-content li {
@@ -2447,19 +2444,17 @@ div#new-topic-post {
 div.post {
 	/*margin: 0 0 60px 0;*/
 }
-	div.post div.author-box, div.comment-avatar-box {
+	div.comment-avatar-box {
 		float: left;
 		margin: 0 5px 0px 0;
 		text-align: center;
 		/*width: 70px;*/
 	}
-		div.post div.author-box img, div.comment-avatar-box img {
+		div.comment-avatar-box img {
 			float: none;
 			border: 4px solid #fff;
 		}
-		.author-box {
-			padding-top: 20px;
-		}
+		
 	div.post div.post-content, div.comment-content {
 		/*margin-left: 105px; f5sites regra lazarenta*/
 	}
@@ -3096,13 +3091,60 @@ h3.rpwe-title a {
 	background: #222;
 	width: 100%;
 	max-width: 100%;
+	position: relative;
+	border: 3px solid #444;
 }
-.contem-thumb img{
+.contem-thumb .wp-post-image{
 	width:100% !important;
     object-fit: cover;
     /*object-fit: scale-down;*/
     /*height:auto !important;*/
     height: 200px;
+}
+div.post {
+	margin-bottom: 20px;
+}
+div.post:hover .post-content {
+	display: block;
+}
+div.post div.author-box {
+	position: absolute;
+	text-align: center;
+	width: 10%;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+}
+div.post div.author-box img, div.comment-avatar-box img {
+	float: none;
+	border: 10px solid #000;
+}
+div.post .posttitle {
+	position: absolute;
+	width: 91%;
+	bottom: 13px;
+	right: 0;
+	padding: 5px;
+	background: rgba(0,0,0,0.9);
+	text-align: center;
+}
+div.post .date {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: rgba(0,0,0,0.9);
+	color: #FFF !important;
+}
+div.post .postmetadata {
+	position: absolute;
+	right: 10px;
+	top: 30px;
+	background: rgba(0,0,0,0.9);
+	color: #FFF !important;
+}
+.post-content {
+	display: none;
+	margin:20px 0 40px;
 }
 .navigation {
 	margin: 0 !important;

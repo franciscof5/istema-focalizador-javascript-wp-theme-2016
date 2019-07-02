@@ -288,10 +288,11 @@
 					<h3><strong>Sound FX</strong></h3>
 				</div>
 				<div class="col-xs-4">
-	                <div class="material-switch pull-right" style="float: right;">
-	                    <input id="sound-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
+					 <input id="soundfx_enabled" name="someSwitchOption001" type="checkbox" checked="checked">
+	                <!--div class="material-switch pull-right" style="float: right;">
+	                    <input id="soundfx_enabled" name="someSwitchOption001" type="checkbox" checked="checked" />
 	                    <label for="sound-switcher" class="label-success"></label>
-	                </div>
+	                </div-->
 				</div>
 			</div>
 			
@@ -300,11 +301,11 @@
 					 <h3><strong><?php _e("Voice", "sis-foca-js"); ?></strong></h3>
 				</div>
 				<div class="col-xs-4">
-	                <div class="material-switch pull-right" style="float: right;">
-	                    <input id="voice-switcher" name="someSwitchOption001" type="checkbox" checked="checked" />
+					<input id="voice_enabled" name="someSwitchOption002" type="checkbox" checked="checked">
+	                <!--div class="material-switch pull-right" style="float: right;">
+	                    <input id="voice_enabled" name="someSwitchOption002" type="checkbox" checked="checked" />
 	                    <label for="voice-switcher" class="label-success"></label>
-	                </div>
-	                
+	                </div-->
 				</div>
 			</div>
 		
