@@ -142,7 +142,7 @@ input[type="range"]::-ms-fill-upper {
 .posttitle a {
 	font-family: lobster;
 	font-weight: 100;
-	color: #E2D693 !important;
+	color: #FFF;
 }
 .entry {
 	text-align: justify;
@@ -3097,9 +3097,8 @@ h3.rpwe-title a {
 .contem-thumb .wp-post-image{
 	width:100% !important;
     object-fit: cover;
-    /*object-fit: scale-down;*/
-    /*height:auto !important;*/
     height: 200px;
+    opacity: 0.5;
 }
 div.post {
 	margin-bottom: 20px;
@@ -3121,8 +3120,9 @@ div.post div.author-box img, div.comment-avatar-box img {
 }
 div.post .posttitle {
 	position: absolute;
-	width: 91%;
-	bottom: 13px;
+	width: 88%;
+	bottom: 0px;
+	height: 60;
 	right: 0;
 	padding: 5px;
 	background: rgba(0,0,0,0.9);
