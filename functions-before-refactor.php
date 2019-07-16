@@ -1,21 +1,25 @@
 <?php
-
 //f5 sites shared posts e tables compatibility plugin
 if(function_exists("set_shared_database_schema")) {
-	//to save contact forms submission in database
 	add_action("wpcf7_init", "set_shared_database_schema", 10, 2);
-	
-	//to delete projectimer_focus posts	
+	#add_action("wp_delete_post", "force_database_aditional_tables_share", 10, 2);
 	add_action("wp_trash_post", "force_revert_f5sites_shared", 10, 2);
-	
-	//to get projectimer_focus
+	#add_action("admin-init", "set_shared_database_schema", 10, 2);
 	add_action('pre_get_posts', 'force_revert_f5sites_shared', 10, 2);
+	#add_action('template_redirect', 'force_revert_f5sites_shared', 10, 2);
 
-	//to force delete projectimer_focus posts (in wp-admin?)
-	add_action( 'check_admin_referer', 'local_revert_database_schema', 10, 2 );
+	#revert_database_schema();
+	#add_action('init', 'force_database_aditional_tables_share');
 }
-
-function local_revert_database_schema($args) {
+/*add_action( 'after_setup_theme', 'yourtheme_setup' );
+ 
+function yourtheme_setup() {
+	add_theme_support( 'buddypress' );
+#add_theme_support( 'wc-product-gallery-zoom' );
+#add_theme_support( 'wc-product-gallery-lightbox' );
+#add_theme_support( 'wc-product-gallery-slider' );
+}*/
+function my_function($args) {
 	if($args) {
 		$is_trashing = substr($args,0,10);
 		$id = substr($args,11);
@@ -31,19 +35,7 @@ function local_revert_database_schema($args) {
 	}
 }
 
-//Not working
-#add_action('template_redirect', 'force_revert_f5sites_shared', 10, 2);
-#add_action("wp_delete_post", "force_database_aditional_tables_share", 10, 2);
-#add_action("admin-init", "set_shared_database_schema", 10, 2);
-#revert_database_schema();
-#add_action('init', 'force_database_aditional_tables_share');
-#add_action( 'after_setup_theme', 'yourtheme_setup' );
-//function yourtheme_setup() {
-//	add_theme_support( 'buddypress' );
-#add_theme_support( 'wc-product-gallery-zoom' );
-#add_theme_support( 'wc-product-gallery-lightbox' );
-#add_theme_support( 'wc-product-gallery-slider' );
-//}
+add_action( 'check_admin_referer', 'my_function', 10, 2 );
 /*
 add_action( 'post_action_trash', 'my_function' );
 #add_action( 'admin_init', 'my_function' );
@@ -58,10 +50,10 @@ add_action('draft_to_trash',   'my_function');
 add_action('future_to_trash',  'my_function');*/
 #date_default_timezone_set('UTC');
 #date_default_timezone_set('America/Sao_Paulo');
-// function remove_img_attr ($html)
-// {
-//     return preg_replace('/(width|height)="\d+"\s/', "", $html);
-// }
+function remove_img_attr ($html)
+{
+    return preg_replace('/(width|height)="\d+"\s/', "", $html);
+}
  
 #add_filter( 'post_thumbnail_html', 'remove_img_attr' );
 //
@@ -105,9 +97,82 @@ add_filter('script_loader_tag', 'myplugin_remove_type_attr', 10, 2);
 
 add_filter('login_redirect', 'admin_default_page');
 
+add_shortcode( 'show_sponsor_geo', 'show_sponsor' );
 
 function admin_default_page() {
   return '/focus';
+}
+
+
+//box-float
+function show_sponsor($type_of="excerpt", $hide_title="false") {
+	global $user_prefered_language;
+	#echo $user_prefered_language;
+	switch ($user_prefered_language) {
+		case 'notset' :
+		case 'en' :
+		case 'en_US' :
+			$post_id = 5985;
+			break;
+		
+		case 'pt' :
+		case 'pt_BR' :
+			$post_id = 5980;
+			break;
+
+		case 'fr' :
+		case 'fr_FR' :
+			$post_id = 5987;
+			break;
+
+		case 'es' :
+		case 'es_ES' :
+			$post_id = 5986;
+			break;
+
+		case 'zh' :
+		case 'zh_CN' :
+			$post_id = 5988;
+			break;
+
+		default:
+			$post_id = 5985;
+			break;
+	}
+	#echo $post_id;
+	set_shared_database_schema();
+	$post_object = get_post( $post_id );
+	#setup_postdata( $post_object );
+	$ctt="";
+	if($type_of=="box-float-right" || $type_of=="box-float-left" )
+		$ctt .= '<div style="border: 1px solid #aaa; padding: 10px; text-align:center;  max-width: 250px;';
+	
+	if($type_of=="box-float-right")
+		$ctt .= 'float: right; margin: 0 10px;">';
+	
+	if($type_of=="box-float-left")
+		$ctt .= 'float: left; margin: 0 20px 10px 0">';
+	//if($type_of=="box-float-right")
+	//	$ctt .= '<div style="border: 1px solid #aaa; float: right; margin: 0 10px; padding: 10px; text-align:center;  max-width: 250px;">';
+		
+
+
+	$ctt .= "<a href=".get_permalink($post_id)." rel='bookmark'>".get_the_post_thumbnail($post_id, 'large', array( 'class' => 'img-responsive' ));
+
+	if(!$hide_title)
+	$ctt .= $post_object->post_title;
+
+	$ctt .= "</a>";
+	
+	if($type_of=="excerpt") {
+		$ctt .= substr($post_object->post_content, 0, 96)."...";	
+	}
+	
+	if($type_of=="box-float-right" || $type_of=="box-float-left" )
+		$ctt .= '</div>';
+
+	revert_database_schema();
+	return $ctt;
 }
 
 function google_play_link() {
@@ -468,6 +533,7 @@ function load_scritps() {
 }
 
 function myplugin_remove_type_attr($tag, $handle) {
+	//Warning: The type attribute for the style element is not needed and should be omitted. o validador W3C raramente retorna como sem erros para sites Wordpress ou qualquer cms popular
     return preg_replace( "/type=['\"]text\/(javascript|css)['\"]/", '', $tag );
 }
 
