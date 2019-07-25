@@ -584,7 +584,9 @@ html {
 }
 #loginform a {
 	/*ESQUECI A SENHA/FORGOT PASS*/
-	font-size: 10px;
+	font-size: 12px;
+	color: #093;
+	font-weight: 600;
 }
 #loginform input[type="checkbox"] {
 	float: left;
@@ -3715,6 +3717,10 @@ h2 i {
 
 .alertify-logs {
 	padding: 2px;
+}
+.alertify-logs a {
+	color: #093;
+	font-weight: 600;
 }
 .alertify-logs article {
 	/*padding-left: 80px;*/
