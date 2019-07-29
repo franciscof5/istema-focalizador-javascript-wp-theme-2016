@@ -20,6 +20,8 @@
 			<li data-target="#carousel-home-pomodoros" data-slide-to="2"></li>
 			<li data-target="#carousel-home-pomodoros" data-slide-to="3"></li>
 			<li data-target="#carousel-home-pomodoros" data-slide-to="4"></li>
+			<li data-target="#carousel-home-pomodoros" data-slide-to="5"></li>
+			<li data-target="#carousel-home-pomodoros" data-slide-to="6"></li>
 		</ol>
 
 		<!-- Wrapper for slides -->
@@ -36,6 +38,13 @@
 				<div class="middle-right thumb-display thumb-display-black">
 					<p><i class="glyphicon glyphicon-calendar"></i> <?php _e("Perfomance Calendar", "sis-foca-js"); ?></p>
 					<p class="hidden-xs"><?php _e("shows tasks you done", "sis-foca-js"); ?></p> 
+				</div>
+			</div>
+			<div class="item">
+				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/gcal.jpg" id="pomodoros-banner" alt="Google Calendar" class="img-responsive" style="width: 100%;">
+				<div class="middle-right thumb-display thumb-display-black">
+					<p><i class="glyphicon glyphicon-calendar"></i> <?php _e("Google Calendar", "sis-foca-js"); ?></p>
+					<p class="hidden-xs"><?php _e("amazing integration", "sis-foca-js"); ?></p> 
 				</div>
 			</div>
 			<div class="item">
@@ -61,7 +70,7 @@
 			</div>
 			<div class="item">
 				<a title="<?php _e("Focus Training", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus-training"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/treinamentoemfoco.jpg" id="pomodoros-banner" alt="Treinamento em Foco" class="img-responsive" style="width: 100%;">
-				<div class="middle-right thumb-display thumb-display-black">
+				<div class="middle-left thumb-display thumb-display-black">
 					<p><i class="glyphicon glyphicon-question-sign"></i> <?php _e("Focus Training", "sis-foca-js"); ?></p>
 					<p class="hidden-xs"><?php _e("Be more productive", "sis-foca-js"); ?></p> 
 				</div>
