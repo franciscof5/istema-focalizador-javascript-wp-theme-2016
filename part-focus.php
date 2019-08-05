@@ -71,7 +71,7 @@
 			</div>
 			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExtra" aria-expanded="false" aria-controls="collapseExtra"><strong style="text-transform: uppercase;"><?php _e("Extra", "sis-foca-js"); ?></strong></button>
 			
-			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseCyle" aria-expanded="false" aria-controls="collapseCyle"><strong style="text-transform: uppercase;"><?php _e("TODO", "sis-foca-js"); ?></strong></button>
+			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTodoList" aria-expanded="false" aria-controls="collapseTodoList"><strong style="text-transform: uppercase;"><?php _e("TODO", "sis-foca-js"); ?></strong></button>
 			<a href="#" class="button btn btn-dark" id="botao-salvar-modelo"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span> <?php _e("Save Task", "sis-foca-js"); ?></a>
 			<div class="collapse" id="collapseExtra">
   				<div class="well">
@@ -116,7 +116,7 @@
 				
 			});
 		</script> */ ?>
-		<div class="collapse" id="collapseCyle">
+		<div class="collapse" id="collapseTodoList">
 
 		<div id="auto_cicler" class="row">
 			<h3 class="widget-title"><?php _e("Automatic cycle", "sis-foca-js"); ?></h3>

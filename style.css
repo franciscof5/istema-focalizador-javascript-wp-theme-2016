@@ -416,6 +416,10 @@ img.avatar {
 	color: #000;
 }
 
+#collapseTodoList .btn {
+	color: #333;
+}
+
 .content_estatisticas {padding:40px 300px;}
 #login-text {visibility:hidden;display:none;}
 .Authors a {height: 36px;overflow: hidden; /*display: inline-block;*/}
@@ -3265,6 +3269,7 @@ div.post .postmetadata {
 	height: 28px;
 	margin-bottom: 5px;
 	position: relative;*/
+	color: #333;
     background-color: #eee;
     height: 19px;
     line-height: 15px;
