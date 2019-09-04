@@ -1,5 +1,4 @@
 <?php
-
 //f5 sites shared posts e tables compatibility plugin
 if(function_exists("set_shared_database_schema")) {
 	//to save contact forms submission in database
