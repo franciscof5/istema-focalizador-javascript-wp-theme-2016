@@ -30,7 +30,7 @@
 
 <div id="fullpage">
 	<div class="section " id="section0">
-		<div class="intro">
+		<div class="header-desc">
 			<h1 class="f-font-title"><?php _e("Relax and Work", "sis-foca-js"); ?></h1>
 			<p style=""><?php _e("The key to success is to invest well your most valuable asset", "sis-foca-js"); ?>:</p>
 			<p style=""><?php _e("your time", "sis-foca-js"); ?>!</p>
@@ -41,8 +41,15 @@
 		</div>
 	</div>
 	<div class="section" id="section1">  
+
+		<div class="slide" id="slide0">
+			<div class="thumb-display thumb-display-black">
+				<p><i class="glyphicon glyphicon-calendar"></i> <?php _e("Google Calendar", "sis-foca-js"); ?></p>
+				<p class="hidden-xs"><?php _e("amazing integration", "sis-foca-js"); ?></p> 
+			</div>
+		</div>
+
 	    <div class="slide" id="slide1">
-			
 			<div class="thumb-display thumb-display-black">
 				<p><i class="glyphicon glyphicon-time"></i> <?php _e("Work & Rest", "sis-foca-js"); ?></p>
 				<p class="hidden-xs"><?php _e("with Pomodoro Technique", "sis-foca-js"); ?></p> 
@@ -329,6 +336,9 @@
 		});
  	
 		jQuery( ".abrir_login" ).click(function() {
+			jQuery( "#loginlogbox" ).toggle("slow");
+		});
+		jQuery( "#fullpage" ).click(function() {
 			jQuery( "#loginlogbox" ).toggle("slow");
 		});
 	});
