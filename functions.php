@@ -410,6 +410,13 @@ function load_scritps() {
 	wp_register_script("artyom-js", get_bloginfo("stylesheet_directory")."/assets/artyom.window.min.js");
 	#wp_enqueue_script("speakW-js", get_bloginfo("stylesheet_directory")."/assets/speakWorker.js");
 	
+	//fullpage.js for home
+	wp_enqueue_script("fullpage-js", get_bloginfo("stylesheet_directory")."/assets/fullpage.min.js");
+	wp_enqueue_style('fullpage-css', get_bloginfo("stylesheet_directory")."/assets/fullpage.min.css", __FILE__);
+	wp_enqueue_style('fullPage_examples_examples.css', get_bloginfo("stylesheet_directory")."/assets/fullPage_examples_examples.css", __FILE__);
+	
+
+
 	#<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.0/gh-fork-ribbon.min.css" />
 	//inter8
 	//Theme language, need to be there

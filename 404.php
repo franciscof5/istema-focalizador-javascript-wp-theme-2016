@@ -26,6 +26,7 @@ $pages_open = array("register", "product", "br", "carrinho", "app", "news", "foc
 //
 if(!in_array($page, $pages)) {
 	if(!in_array($page, $pages_open))
+		
 		$page = "index";
 } else {
 	if (!is_user_logged_in()) {
