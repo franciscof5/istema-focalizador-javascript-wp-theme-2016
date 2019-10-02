@@ -331,11 +331,10 @@ function load_initial_data() {
 			active_sound.setVolume(volumeLevel);
 			session_reseted_sound.setVolume(volumeLevel);
 
-			senabled=postReturned['soundfx_enabled'];
+			senabled = (postReturned['soundfx_enabled'] === 'true');
 			jQuery("#soundfx_enabled").prop("checked", senabled);
-			venabled=postReturned['soundfx_enabled'];
+			venabled = (postReturned['voice_enabled'] === 'true');
 			jQuery("#voice_enabled").prop("checked", venabled);
-			console.log("venabled", venabled)
 			//alert(volumeLevel);
 			//if(volumeLevel>1)
 				//startContinuousArtyom();
@@ -447,7 +446,7 @@ function action_button() {
 }
 //Start countdown
 function start_clock() {
-	if(jQuery("#sound-switcher").is(":checked"))
+	if(jQuery("#soundfx_enabled").is(":checked"))
 	active_sound.play();
 	//TODO: post_status="future;"
 	//interval_clock = setInterval('countdown_clock()', intervalMiliseconds);
@@ -507,7 +506,7 @@ function complete() {
 	//alert("complete(), is_pomodoro: "+is_pomodoro+", pomodoro_actual:"+pomodoro_actual);
 	//is_interrupt_button = false;
 	pomodoro_completed_sound.stop();
-	if(jQuery("#sound-switcher").is(":checked"))
+	if(jQuery("#soundfx_enabled").is(":checked"))
 	pomodoro_completed_sound.play();
 	//
 	window.onbeforeunload = null;
@@ -579,7 +578,7 @@ function change_status(txt, stts) {
 	if(artyom_voice) {
 		artyom_voice.shutUp();
 		//artyom_voice.initialize({volume:0.1});
-		if(volumeLevel>1 && jQuery("#voice-switcher").is(":checked"))
+		if(volumeLevel>1 && jQuery("#voice_enabled").is(":checked"))
 		artyom_voice.say(txt, {onStart() {window.artyom_voice.dontObey();},onEnd() {window.artyom_voice.obey();}});
 	}
 	
@@ -677,7 +676,7 @@ function reset_pomodoro_session() {
 	interrupt();
 	pomodoro_actual=1;
 	change_status(txt_session_reseted);
-	if(jQuery("#sound-switcher").is(":checked"))
+	if(jQuery("#soundfx_enabled").is(":checked"))
 	session_reseted_sound.play();
 	reset_indicators_display();
 	//changeTitle("Sessão de pomodoros reiniciada...");
