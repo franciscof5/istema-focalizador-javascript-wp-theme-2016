@@ -338,5 +338,8 @@
 		jQuery( ".abrir_login" ).click(function() {
 			jQuery( "#loginlogbox" ).toggle("slow");
 		});
+		jQuery( "#fullpage" ).click(function() {
+			jQuery( "#loginlogbox" ).toggle("slow");
+		});
 	});
 </script>
