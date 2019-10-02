@@ -813,12 +813,17 @@ ul.activity-list > li:first-child {
 .stats-group li {
 	border: 1px dotted #FFF !important;
 	border-radius: 10px;
+	background-color: rgba(255,255,255,0.7);
 }
 .stats-group .badge {
 	font-size: 18px;
 }
 .stats-group .active {
-	background-color: #222 !important;
+	color: #FFF;
+	background-color: #173D43;
+}
+.stats-group {
+	color: #173D43;
 }
 .stats-group .active .badge {
 	color: #222 !important;
@@ -3597,6 +3602,8 @@ div.post .postmetadata {
 	margin-right: -10px;
     margin-left: -6px;
 }
+
+
 .blog-posts {
 	padding: 50px 0;
 }
