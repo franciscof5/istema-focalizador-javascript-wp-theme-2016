@@ -1311,6 +1311,8 @@ function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
 		);
 
 		register_post_type("projectimer_focus", $postTypeFocusParams);
+		register_taxonomy_for_object_type("post_tags", "projectimer_focus");
+		register_taxonomy_for_object_type("categories", "projectimer_focus");
 	}
 }
 
