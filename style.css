@@ -3516,6 +3516,23 @@ div.post .postmetadata {
 .btn-success {
 	background-color: #093;
 }
+
+.header-desc p {
+	font-weight: 600; 
+	font-size: 18px;
+}
+.header-desc h1 {
+	text-shadow: 2px 2px 2px #000;
+	color: #E2D693;
+}
+.header-desc p {
+	text-shadow: 2px 2px 2px #000;
+	color: #FFF;
+}
+.header-desc h1 {
+	font-size: 42px;
+}
+
 .stats-com {
 	margin-top: 20px;
 	/*padding: 0 20px 0 30px;

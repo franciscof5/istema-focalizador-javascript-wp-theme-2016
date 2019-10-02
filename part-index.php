@@ -30,7 +30,7 @@
 
 <div id="fullpage">
 	<div class="section " id="section0">
-		<div class="intro">
+		<div class="header-desc">
 			<h1 class="f-font-title"><?php _e("Relax and Work", "sis-foca-js"); ?></h1>
 			<p style=""><?php _e("The key to success is to invest well your most valuable asset", "sis-foca-js"); ?>:</p>
 			<p style=""><?php _e("your time", "sis-foca-js"); ?>!</p>
