@@ -33,8 +33,6 @@
 			<a class="btn btn-success" href="/register" style="font-weight: 600; padding: 10px 30px"><i class="glyphicon glyphicon-star"></i> <?php _e("Get started for Free", "sis-foca-js"); ?></a>
 		</div>
 	</div>
-
-<<<<<<< HEAD
 	<div class="section" id="section1">  
 	    <div class="slide" id="slide1">
 			
@@ -48,50 +46,6 @@
 			<div class="thumb-display thumb-display-black">
 				<p><i class="glyphicon glyphicon-calendar"></i> <?php _e("Perfomance Calendar", "sis-foca-js"); ?></p>
 				<p class="hidden-xs"><?php _e("shows tasks you done", "sis-foca-js"); ?></p> 
-=======
-	<div id="carousel-home-pomodoros" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		<center><h2 class="f-font-title"><i class="glyphicon glyphicon-ok-circle"></i> <?php _e("Features", "sis-foca-js"); ?></h2></center>
-		<ol class="carousel-indicators">
-			<li data-target="#carousel-home-pomodoros" data-slide-to="0" class="active"></li>
-			<li data-target="#carousel-home-pomodoros" data-slide-to="1"></li>
-			<li data-target="#carousel-home-pomodoros" data-slide-to="2"></li>
-			<li data-target="#carousel-home-pomodoros" data-slide-to="3"></li>
-			<li data-target="#carousel-home-pomodoros" data-slide-to="4"></li>
-			<li data-target="#carousel-home-pomodoros" data-slide-to="5"></li>
-			<li data-target="#carousel-home-pomodoros" data-slide-to="6"></li>
-		</ol>
-
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner" role="listbox">
-			<div class="item active">
-				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/timer.jpg" id="pomodoros-banner" alt="Timer" class="img-responsive" style="width: 100%;">
-				<div class="middle-left thumb-display thumb-display-black">
-					<p><i class="glyphicon glyphicon-time"></i> <?php _e("Work & Rest", "sis-foca-js"); ?></p>
-					<p class="hidden-xs"><?php _e("with Pomodoro Technique", "sis-foca-js"); ?></p> 
-				</div>
-			</div>
-			<div class="item">
-				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/calendar.jpg" id="pomodoros-banner" alt="Calendar" class="img-responsive" style="width: 100%;">
-				<div class="middle-right thumb-display thumb-display-black">
-					<p><i class="glyphicon glyphicon-calendar"></i> <?php _e("Perfomance Calendar", "sis-foca-js"); ?></p>
-					<p class="hidden-xs"><?php _e("shows tasks you done", "sis-foca-js"); ?></p> 
-				</div>
-			</div>
-			<div class="item">
-				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/gcal.jpg" id="pomodoros-banner" alt="Google Calendar" class="img-responsive" style="width: 100%;">
-				<div class="middle-right thumb-display thumb-display-black">
-					<p><i class="glyphicon glyphicon-calendar"></i> <?php _e("Google Calendar", "sis-foca-js"); ?></p>
-					<p class="hidden-xs"><?php _e("amazing integration", "sis-foca-js"); ?></p> 
-				</div>
-			</div>
-			<div class="item">
-				<img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/ranking.jpg" id="pomodoros-banner" alt="Ranking" class="img-responsive" style="width: 100%;">
-				<div class="middle-left thumb-display thumb-display-black">
-					<p><i class="glyphicon glyphicon-list"></i> <?php _e("Grow in Ranking", "sis-foca-js"); ?></p>
-					<p class="hidden-xs"><?php _e("and get more productive", "sis-foca-js"); ?></p> 
-				</div>
->>>>>>> cac08e2b4fa5b424cb10cf24f32f2a64fe188194
 			</div>
 		</div>
 
@@ -107,22 +61,12 @@
 				<p><i class="glyphicon glyphicon-tags"></i> &nbsp;<?php _e("Mind blown reports", "sis-foca-js"); ?></p>
 				<p class="hidden-xs"><?php _e("to check time usage", "sis-foca-js"); ?></p> 
 			</div>
-<<<<<<< HEAD
 		</div>
 
 		<div class="slide" id="slide5">
 			<div class="thumb-display thumb-display-black">
 				<p><i class="glyphicon glyphicon-question-sign"></i> <?php _e("Open a ticket", "sis-foca-js"); ?></p>
 				<p class="hidden-xs"><?php _e("and get help", "sis-foca-js"); ?></p> 
-=======
-			<div class="item">
-				<a title="<?php _e("Focus Training", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus-training"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/banners/treinamentoemfoco.jpg" id="pomodoros-banner" alt="Treinamento em Foco" class="img-responsive" style="width: 100%;">
-				<div class="middle-left thumb-display thumb-display-black">
-					<p><i class="glyphicon glyphicon-question-sign"></i> <?php _e("Focus Training", "sis-foca-js"); ?></p>
-					<p class="hidden-xs"><?php _e("Be more productive", "sis-foca-js"); ?></p> 
-				</div>
-				</a>
->>>>>>> cac08e2b4fa5b424cb10cf24f32f2a64fe188194
 			</div>
 		</div>
 
