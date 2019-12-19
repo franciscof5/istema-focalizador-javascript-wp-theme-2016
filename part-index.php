@@ -161,8 +161,8 @@
 			<div class="thumbnail">
 				<p><?php _e("I will be the first in the ranking", "sis-foca-js"); ?>.</p>
 				<div class="caption">
-					<?php  echo bp_activity_avatar( 'user_id=' . 1304 ); ?>
-					<h3><?php  echo bp_core_get_userlink(  1304 ); ?></h3>
+					<?php #echo bp_core_fetch_avatar( array( 'item_id' => 1304, 'type' => 'full' ) ) ); ?>
+					<h3><?php  echo bp_core_get_userlink( array('user_id' => 1304 )); ?></h3>
 				</div>
 			</div>
 		</div>
@@ -170,7 +170,7 @@
 			<div class="thumbnail">
 				<p><?php _e("Learning is an ongoing process. We should study daily, analyze the results regularly and apply methods to improve our previous results", "sis-foca-js"); ?>.</p>
 				<div class="caption">
-					<?php  echo bp_activity_avatar( 'user_id=' . 828 ); ?>
+					<?php  #echo bp_activity_avatar( 'user_id=' . 828 ); ?>
 					<h3><?php  echo bp_core_get_userlink(  828 ); ?></h3>
 				</div>
 			</div>
@@ -179,7 +179,7 @@
 			<div class="thumbnail">
 				<p><?php _e("With Pomodoros.com.br I can have more control over my time, be more productive and perform my tasks better", "sis-foca-js"); ?>.</p>
 				<div class="caption">
-					<?php  echo bp_activity_avatar( 'user_id=' . 2 ); ?>
+					<?php  #echo bp_activity_avatar( 'user_id=' . 2 ); ?>
 					<h3><?php  echo bp_core_get_userlink(  2 ); ?></h3>
 				</div>
 			</div>
@@ -188,7 +188,7 @@
 			<div class="thumbnail">
 				<p><?php _e("I used Pomodoros.com.br a few years ago, every day. I was happy to know that the website came back, I hope people use it again, I'll try to get into the habit too because 'super' helped me", "sis-foca-js"); ?>! </p>
 				<div class="caption">
-					<?php  echo bp_activity_avatar( 'user_id=' . 974 ); ?>
+					<?php  #echo bp_activity_avatar( 'user_id=' . 974 ); ?>
 					<h3><?php  echo bp_core_get_userlink(  974 ); ?></h3>
 				</div>
 			</div>
@@ -318,6 +318,7 @@
 <script type="text/javascript">
 	jQuery( document ).ready(function() {
 		jQuery( "#loginlogbox" ).show("fast");
+		
 		var myFullpage = new fullpage('#fullpage', {
 			afterLoad: function(anchorLink, index){
 				
