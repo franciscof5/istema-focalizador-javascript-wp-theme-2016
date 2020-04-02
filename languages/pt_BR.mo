@@ -1,1 +1,1 @@
-/var/www/composer/vendor/wp/wp-content/themes/sistema-focalizador-javascript/languages/pt.mo
+/var/www/html/wp-content/themes/sistema-focalizador-javascript/languages/pt.mo
