@@ -431,9 +431,12 @@ function load_scritps() {
 	if(isset($_SESSION["user_prefered_language"])) {
 		$user_prefered_language==$_SESSION["user_prefered_language"];
 	} else {
-		if($user_prefered_language=="" || $user_prefered_language || $user_prefered_language=="US")
+		if($user_prefered_language=="" || $user_prefered_language)
 			$user_prefered_language=="en_US";
 	}
+	if($user_prefered_language=="US")
+		$user_prefered_language="en_US";
+	
 	$filelang = $user_prefered_language.".js";
 	//var_dump($filelang);die;
 	//if(qtranxf_getLanguage() == "en")
