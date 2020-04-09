@@ -431,7 +431,7 @@ function load_scritps() {
 	if(isset($_SESSION["user_prefered_language"])) {
 		$user_prefered_language==$_SESSION["user_prefered_language"];
 	} else {
-		if($user_prefered_language=="" || $user_prefered_language)
+		if($user_prefered_language=="" || $user_prefered_language || $user_prefered_language=="US")
 			$user_prefered_language=="en_US";
 	}
 	$filelang = $user_prefered_language.".js";
@@ -445,7 +445,7 @@ function load_scritps() {
 		//$filelang="pt-br.js";
 	//}
 	$filelang = ($filelang=="" || !isset($filelang)) ? "pt_BR.js" : $filelang;
-	var_dump($filelang);die;
+	
 	wp_enqueue_script("pomodoros-language", get_bloginfo("stylesheet_directory")."/languages/js/".$filelang, __FILE__, time());
 	#var_dump(get_bloginfo("stylesheet_directory")."/languages/".$filelang);die;
 	// Register the script
