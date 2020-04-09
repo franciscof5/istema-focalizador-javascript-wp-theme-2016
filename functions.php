@@ -445,6 +445,7 @@ function load_scritps() {
 		//$filelang="pt-br.js";
 	//}
 	$filelang = ($filelang=="" || !isset($filelang)) ? "pt_BR.js" : $filelang;
+	var_dump($filelang);die;
 	wp_enqueue_script("pomodoros-language", get_bloginfo("stylesheet_directory")."/languages/js/".$filelang, __FILE__, time());
 	#var_dump(get_bloginfo("stylesheet_directory")."/languages/".$filelang);die;
 	// Register the script
