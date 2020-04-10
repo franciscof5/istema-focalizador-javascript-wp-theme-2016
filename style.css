@@ -2664,10 +2664,11 @@ ol.commentlist li {
 #footer {
 	color: #bbb;
 	clear: both;
-	/*background: #2D2D2D;*/
 	margin: 0 !important;
-	    background: rgb(89,88,85);
-background: linear-gradient(0deg, rgba(89,88,85,1) 0%, rgba(0,0,0,1) 3%, rgba(51,50,50,1) 45%, rgba(54,53,53,1) 90%, rgba(0,0,0,1) 95%); 
+	background: #000;
+	margin-top: -500px !important;
+	/*background: rgb(89,88,85);
+	background: linear-gradient(0deg, rgba(89,88,85,1) 0%, rgba(0,0,0,1) 3%, rgba(51,50,50,1) 45%, rgba(54,53,53,1) 90%, rgba(0,0,0,1) 95%); */
 }
 	#footer a {
 		color: #FFF;
@@ -2740,12 +2741,25 @@ background: linear-gradient(0deg, rgba(89,88,85,1) 0%, rgba(0,0,0,1) 3%, rgba(51
 			line-height: 24px;
 			padding: 3px 5px;
 			margin-bottom: 3px;
-			background: #222;
+			/*background: #222;*/
 			border-radius: 5px;
 			position: relative;
+			height: 30px;
+			width: 36px;
+			float: left;
+		}
+		.contem_last_pomodoros li:hover a {
+			display: block;
 		}
 		.contem_last_pomodoros li a {
-			color:#999;
+			color: #222 !important;
+			display: none;
+			background: #FFF;
+			z-index: 99;
+			padding: 6px;
+			position: absolute;
+			margin-left: -4px;
+			margin-top: 30px;
 		}
 		.contem_last_pomodoros img {
 			margin-right: 5px;
@@ -2756,6 +2770,13 @@ background: linear-gradient(0deg, rgba(89,88,85,1) 0%, rgba(0,0,0,1) 3%, rgba(51
 			font-size: 10px;
 			position: absolute;
 			right: 4px;
+		}
+		.smartlang_recent_posts_widget li {
+			padding-bottom: 12px;
+			line-height: 15px;
+		}
+		.smartlang_recent_posts_widget li img {
+			display: none;
 		}
 .wprss-feed-meta {
 	display: none;

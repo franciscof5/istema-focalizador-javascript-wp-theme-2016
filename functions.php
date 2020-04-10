@@ -486,7 +486,7 @@ function show_recent_pomodoros() {
 	?>
 		<ul>
 			<?php 
-			$args = array( 'post_type' => 'projectimer_focus', 'posts_per_page' => 11, 'post_status' => 'publish' ); 
+			$args = array( 'post_type' => 'projectimer_focus', 'posts_per_page' => 80, 'post_status' => 'publish' ); 
 			$recent_posts = get_posts( $args );
 			foreach( $recent_posts as $recent ) { ?>
 				<li>

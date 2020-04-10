@@ -13,8 +13,8 @@
 					<?php 
 					if(function_exists("show_recent_pomodoros"))
 					show_recent_pomodoros(); ?>
+					<br style="clear: both;">
 				</div>
-
 				<div class="col-sm-3">
 					<h3><a href="/ranking" alt="Check ranking"><?php _e("Top Users", "sis-foca-js"); ?></a></h3>
 					<?php
