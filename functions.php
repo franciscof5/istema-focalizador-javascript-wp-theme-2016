@@ -1,6 +1,7 @@
 <?php
 //f5 sites shared posts e tables compatibility plugin
 if(function_exists("set_shared_database_schema")) {
+	#var_dump("set_shared_database_schema");die;
 	//to save contact forms submission in database
 	add_action("wpcf7_init", "set_shared_database_schema", 10, 2);
 	
@@ -12,72 +13,25 @@ if(function_exists("set_shared_database_schema")) {
 
 	//to force delete projectimer_focus posts (in wp-admin?)
 	add_action( 'check_admin_referer', 'local_revert_database_schema', 10, 2 );
-}
-
-function local_revert_database_schema($args) {
-	if($args) {
-		$is_trashing = substr($args,0,10);
-		$id = substr($args,11);
-		if($is_trashing) {
-			if(function_exists("revert_database_schema")) {
-				revert_database_schema();
-				$foi = wp_trash_post($id);
-				if($foi)
-					wp_redirect("/wp-admin/edit.php?post_type=projectimer_focus");	
+	function local_revert_database_schema($args) {
+		if($args) {
+			$is_trashing = substr($args,0,10);
+			$id = substr($args,11);
+			if($is_trashing) {
+				if(function_exists("revert_database_schema")) {
+					revert_database_schema();
+					$foi = wp_trash_post($id);
+					if($foi)
+						wp_redirect("/wp-admin/edit.php?post_type=projectimer_focus");	
+				}
+				
 			}
-			
 		}
 	}
 }
 
-//Not working
-#add_action('template_redirect', 'force_revert_f5sites_shared', 10, 2);
-#add_action("wp_delete_post", "force_database_aditional_tables_share", 10, 2);
-#add_action("admin-init", "set_shared_database_schema", 10, 2);
-#revert_database_schema();
-#add_action('init', 'force_database_aditional_tables_share');
-#add_action( 'after_setup_theme', 'yourtheme_setup' );
-//function yourtheme_setup() {
-//	add_theme_support( 'buddypress' );
-#add_theme_support( 'wc-product-gallery-zoom' );
-#add_theme_support( 'wc-product-gallery-lightbox' );
-#add_theme_support( 'wc-product-gallery-slider' );
-//}
-/*
-add_action( 'post_action_trash', 'my_function' );
-#add_action( 'admin_init', 'my_function' );
-add_action( 'before_delete_post', 'my_function' );
-add_action( 'before_trash_post', 'my_function' );
-add_action("trash_projectimer_focus", "my_function", 10, 2);
-add_action("wp_delete_post", "my_function", 10, 2);
-add_action("wp_trash_post_projectimer_focus", "my_function", 10, 2);
-add_action("wp_trash_post", "my_function", 10, 2);
-add_action('publish_to_trash', 'my_function');
-add_action('draft_to_trash',   'my_function');
-add_action('future_to_trash',  'my_function');*/
-#date_default_timezone_set('UTC');
-#date_default_timezone_set('America/Sao_Paulo');
-// function remove_img_attr ($html)
-// {
-//     return preg_replace('/(width|height)="\d+"\s/', "", $html);
-// }
- 
-#add_filter( 'post_thumbnail_html', 'remove_img_attr' );
 //
-show_admin_bar( false );
-add_filter('show_admin_bar', '__return_false');
-//
-add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );//nunca desativar
-#add_filter('login_redirect', 'default_page');
-add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' ); 
-add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
-//
-#add_action( 'init', 'blockusers_from_wp_admin' ); //BLOCO ADMIN ALSO
-add_action( 'login_form_middle', 'add_lost_password_link' );
-#add_action( 'admin_menu', 'edit_admin_menus' ); 
-#add_action('init', 'myStartSession', 1);
-#add_action('wp_logout', 'myEndSession');
-#add_action('wp_login', 'myEndSession');
+add_action('login_form_middle', 'add_lost_password_link' );
 add_action('wp_ajax_save_progress', 'save_progress');
 add_action('wp_ajax_nopriv_save_progress', 'save_progress');
 add_action('wp_ajax_load_session', 'load_session');
@@ -88,20 +42,17 @@ add_action('wp_ajax_save_or_delete_model', 'save_or_delete_model');
 add_action('wp_ajax_nopriv_save_or_delete_model', 'save_or_delete_model');
 add_action('wp_ajax_update_cycle_list', 'update_cycle_list');
 add_action('wp_ajax_nopriv_update_cycle_list', 'update_cycle_list');
-#add_action('wp_ajax_update_cycle_list', 'load_cycle_list');
-#add_action('wp_ajax_nopriv_update_cycle_list', 'load_cycle_list');
-//add_action('login_init', 'wpse187831_redir_loggedin'); //is redirecting admin to admin area (?)
 add_action('admin_menu', 'my_remove_menu_pages' );
 add_action('wp_logout','go_home');
 add_action('init', 'create_post_type' );
 add_action('init', 'custom_rewrite_basic');
-#add_action('init', 'smart_set_user_language');
 add_action('wp_enqueue_scripts', 'load_scritps');
-add_action('init', 'add_tags_categories');
-
+//
+add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );//nunca desativar
+add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' ); 
+add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
 add_filter('style_loader_tag', 'myplugin_remove_type_attr', 10, 2);
 add_filter('script_loader_tag', 'myplugin_remove_type_attr', 10, 2);
-
 add_filter('login_redirect', 'admin_default_page');
 
 
@@ -1277,8 +1228,7 @@ function create_post_type() {
 }
 
 function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
-	
-	if ( ! post_type_exists( "projectimer_focus" ) ) {
+	#if ( ! post_type_exists( "projectimer_focus" ) ) {
 		$labelFocus = array(
 			'name'  => __( 'Focus',' projectimer-plugin' ), 
 			'singular_name' => __( 'Focus',    ' projectimer-plugin' ),
@@ -1313,15 +1263,14 @@ function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
 			'supports'   => array( 'title', 'content', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' )
 		);
 
+		#var_dump($postTypeFocusParams);die;
 		register_post_type("projectimer_focus", $postTypeFocusParams);
-		register_taxonomy_for_object_type("post_tags", "projectimer_focus");
-		register_taxonomy_for_object_type("categories", "projectimer_focus");
-	}
-}
-
-function add_tags_categories() {
-	register_taxonomy_for_object_type('category', 'projectimer_focus');
-	register_taxonomy_for_object_type('post_tag', 'projectimer_focus');
+		
+		#register_taxonomy_for_object_type("post_tags", "projectimer_focus");
+		#register_taxonomy_for_object_type("categories", "projectimer_focus");
+		#register_taxonomy_for_object_type('category', 'projectimer_focus');
+		#register_taxonomy_for_object_type('post_tag', 'projectimer_focus');
+	#}
 }
 
 /*function get_user_subscription($user_id, $domain) {
