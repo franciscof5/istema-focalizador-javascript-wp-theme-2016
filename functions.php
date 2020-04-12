@@ -1,6 +1,6 @@
 <?php
 //f5 sites shared posts e tables compatibility plugin
-if(function_exists("set_shared_database_schema")) {
+/*if(function_exists("set_shared_database_schema")) {
 	#var_dump("set_shared_database_schema");die;
 	//to save contact forms submission in database
 	add_action("wpcf7_init", "set_shared_database_schema", 10, 2);
@@ -28,7 +28,7 @@ if(function_exists("set_shared_database_schema")) {
 			}
 		}
 	}
-}
+}*/
 
 //
 add_action('login_form_middle', 'add_lost_password_link' );
@@ -1228,7 +1228,7 @@ function create_post_type() {
 }
 
 function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
-	#if ( ! post_type_exists( "projectimer_focus" ) ) {
+	if ( ! post_type_exists( "projectimer_focus" ) ) {
 		$labelFocus = array(
 			'name'  => __( 'Focus',' projectimer-plugin' ), 
 			'singular_name' => __( 'Focus',    ' projectimer-plugin' ),
@@ -1270,7 +1270,7 @@ function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
 		#register_taxonomy_for_object_type("categories", "projectimer_focus");
 		#register_taxonomy_for_object_type('category', 'projectimer_focus');
 		#register_taxonomy_for_object_type('post_tag', 'projectimer_focus');
-	#}
+	}
 }
 
 /*function get_user_subscription($user_id, $domain) {
