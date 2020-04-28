@@ -1070,6 +1070,8 @@ function getRadioCheckedValue(radio_name){
 //Sound configuration
 function startSoundMan() {
 	soundManager.url = 'https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/assets/soundmanager2.swf';
+	soundManager.preferFlash = false;
+	soundManager.useHTML5Audio = true;
 	soundManager.onready(function() {
 		// Ready to use; soundManager.createSound() etc. can now be called.
 		active_sound = soundManager.createSound({id: 'mySound2',url: 'https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/crank-2.mp3',});

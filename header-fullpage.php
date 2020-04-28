@@ -47,6 +47,10 @@
 			.row-container {
 				display: none;
 			}
+			.navbar-f5sites-bar {
+				position: absolute;
+				margin-left: 250px;
+			}
 		</style>
 		
 	</head>
