@@ -5,9 +5,20 @@
 
 <!--div class="content_pomodoro col-xs-12 col-sm-6"-->
 
+<audio id="active_sound" src="https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/crank-2.mp3" preload="auto"></audio>
+<audio id="pomodoro_completed_sound" src="https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/23193__kaponja__10trump-tel.mp3" preload="auto"></audio>
+<audio id="session_reseted_sound" src="https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/magic-chime-02.mp3" preload="auto"></audio>
+
+<!--div>
+  <button onclick="document.getElementById('demo').play()">Reproduzir o áudio</button>
+  <button onclick="document.getElementById('demo').pause()">Pausar o áudio</button>
+  <button onclick="document.getElementById('demo').volume+=0.1">Aumentar o volume</button>
+  <button onclick="document.getElementById('demo').volume-=0.1">Diminuir o volume</button>
+</div--> 
+
+
 <div id="center_layoutDISABLED" class="col-sm-6 col-sm-offset-3 col-xs-12">
 	<div id="pomodoro-painel">		
-			
 		<div id="pomodoro-relogio">							
 		<form><input type="button" value="<?php _e("loading", "sis-foca-js"); ?>..." id="action_button_id" tabindex="1" disabled="true" /></form>
 

@@ -44,6 +44,9 @@
 	var pomodoro_completed_sound;
 	var active_sound;
 	var session_reseted_sound;
+	active_sound = document.getElementById('active_sound');
+	pomodoro_completed_sound = document.getElementById('pomodoro_completed_sound');
+	session_reseted_sound =  document.getElementById('session_reseted_sound');
 	//
 	var autoAction=false; //if true dont need to click
 	var autoCycle=false;
@@ -121,7 +124,8 @@ jQuery(document).ready(function ($) {
 	//
 	startNoSleepWakeLock();
 	//Sound library for Sound FX 
-	startSoundMan();
+	//startSoundMan();
+
 	//
 	change_status(txt_loading_initial_data);	
 	//
@@ -1070,10 +1074,11 @@ function getRadioCheckedValue(radio_name){
 //Sound configuration
 function startSoundMan() {
 	console.log("startSoundMan()");
-	soundManager.url = 'https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/assets/soundmanager2.swf';
+	/*soundManager.url = 'https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/assets/soundmanager2.swf';
 	soundManager.preferFlash = false;
 	soundManager.useHTML5Audio = true;
 	soundManager.onready(function() {
+		console.log("soundManager.onready()");
 		// Ready to use; soundManager.createSound() etc. can now be called.
 		active_sound = soundManager.createSound({id: 'mySound2',url: 'https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/crank-2.mp3',});
 		//active_sound = soundManager.createSound({id: 'mySound2',url: 'https://pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/77711__sorohanro__solo-trumpet-06in-f-90bpm.mp3',});
@@ -1081,9 +1086,11 @@ function startSoundMan() {
 		session_reseted_sound = soundManager.createSound({id:'mySound4',url: 'https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/magic-chime-02.mp3',});
 	});
 	//soundManager.setVolume(volumeLevel);
-	soundManager.onerror = function() {alert(txt_sound_error+"...");}
+	soundManager.onerror = function() {alert(txt_sound_error+"...");}*/
+	active_sound = document.getElementById('active_sound').play();
+	pomodoro_completed_sound = document.getElementById('pomodoro_completed_sound').play();
+	session_reseted_sound =  document.getElementById('session_reseted_sound').play();
 }
-//
 //
 var grupoDeComandos = [{
 	    indexes:["iniciar", "focar", "começar", "interromper"], // These spoken words will trigger the execution of the command
