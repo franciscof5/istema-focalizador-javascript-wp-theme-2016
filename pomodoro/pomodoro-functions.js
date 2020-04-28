@@ -1069,7 +1069,8 @@ function getRadioCheckedValue(radio_name){
 
 //Sound configuration
 function startSoundMan() {
-	soundManager.url = 'https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/assets/soundmanager2.swf';
+	console.log("startSoundMan()");
+	soundManager.url = 'https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/assets/soundmanager2.swf';
 	soundManager.preferFlash = false;
 	soundManager.useHTML5Audio = true;
 	soundManager.onready(function() {
