@@ -330,10 +330,10 @@ function load_initial_data() {
 			//
 			volumeLevel=postReturned['range_volume'];
 			jQuery("#rangeVolume").val(volumeLevel);
-			soundManager.setVolume(volumeLevel);
-			pomodoro_completed_sound.setVolume(volumeLevel);
-			active_sound.setVolume(volumeLevel);
-			session_reseted_sound.setVolume(volumeLevel);
+			soundManager.volume(volumeLevel);
+			pomodoro_completed_sound.volume(volumeLevel);
+			active_sound.volume(volumeLevel);
+			session_reseted_sound.volume(volumeLevel);
 
 			senabled = (postReturned['soundfx_enabled'] === 'true');
 			jQuery("#soundfx_enabled").prop("checked", senabled);
@@ -403,10 +403,10 @@ function update_pomodoro_clipboard (post_stts, loud) {
 	}
 
 	volumeLevel = jQuery("#rangeVolume").val();
-	soundManager.setVolume(volumeLevel);
-	pomodoro_completed_sound.setVolume(volumeLevel);
-	active_sound.setVolume(volumeLevel);
-	session_reseted_sound.setVolume(volumeLevel);
+	soundManager.volume(volumeLevel);
+	pomodoro_completed_sound.volume(volumeLevel);
+	active_sound.volume(volumeLevel);
+	session_reseted_sound.volume(volumeLevel);
 	if(artyom_voice!=undefined && volumeLevel>1)
 		artyom_voice.initialize({volume:volumeLevel/100});
 	//artyom_voice.volume = volumeLevel/100;
@@ -1085,7 +1085,7 @@ function startSoundMan() {
 		pomodoro_completed_sound = soundManager.createSound({id:'mySound3',url: 'https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/23193__kaponja__10trump-tel.mp3',});
 		session_reseted_sound = soundManager.createSound({id:'mySound4',url: 'https://www.pomodoros.com.br/wp-content/themes/sistema-focalizador-javascript/pomodoro/sounds/magic-chime-02.mp3',});
 	});
-	//soundManager.setVolume(volumeLevel);
+	//soundManager.volume(volumeLevel);
 	soundManager.onerror = function() {alert(txt_sound_error+"...");}*/
 	active_sound = document.getElementById('active_sound').play();
 	pomodoro_completed_sound = document.getElementById('pomodoro_completed_sound').play();
