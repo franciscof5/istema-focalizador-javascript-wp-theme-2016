@@ -509,7 +509,7 @@ function complete() {
 	console.log("complete()");
 	//alert("complete(), is_pomodoro: "+is_pomodoro+", pomodoro_actual:"+pomodoro_actual);
 	//is_interrupt_button = false;
-	pomodoro_completed_sound.stop();
+	pomodoro_completed_sound.pause();
 	if(jQuery("#soundfx_enabled").is(":checked"))
 	pomodoro_completed_sound.play();
 	//
