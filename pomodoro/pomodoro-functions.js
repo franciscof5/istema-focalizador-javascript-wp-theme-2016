@@ -331,9 +331,9 @@ function load_initial_data() {
 			volumeLevel=postReturned['range_volume'];
 			jQuery("#rangeVolume").val(volumeLevel);
 			//soundManager.volume(volumeLevel);
-			pomodoro_completed_sound.volume = volumeLevel;
-			active_sound.volume = volumeLevel;
-			session_reseted_sound.volume = volumeLevel;
+			//pomodoro_completed_sound.volume = volumeLevel;
+			//active_sound.volume = volumeLevel;
+			//session_reseted_sound.volume = volumeLevel;
 
 			senabled = (postReturned['soundfx_enabled'] === 'true');
 			jQuery("#soundfx_enabled").prop("checked", senabled);
@@ -403,9 +403,9 @@ function update_pomodoro_clipboard (post_stts, loud) {
 
 	volumeLevel = jQuery("#rangeVolume").val();
 	//soundManager.volume(volumeLevel);
-	pomodoro_completed_sound.volume = volumeLevel;
-	active_sound.volume = volumeLevel;
-	session_reseted_sound.volume = volumeLevel;
+	//pomodoro_completed_sound.volume = volumeLevel;
+	//active_sound.volume = volumeLevel;
+	//session_reseted_sound.volume = volumeLevel;
 	if(artyom_voice!=undefined && volumeLevel>1)
 		artyom_voice.initialize({volume:volumeLevel/100});
 	//artyom_voice.volume = volumeLevel/100;
