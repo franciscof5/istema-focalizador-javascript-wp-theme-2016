@@ -3731,3 +3731,7 @@ h2 i {
 	font-family: lobster;
 	color: #333;
 }
+
+.navbar-f5sites-bar {
+	display: none;
+}
