@@ -74,7 +74,7 @@
 				</a>
 			</div-->
 
-		<div class="collapse navbar-collapse" id="collapsePommoNabar" style="margin: 15px 0 0; border-top: 1px dotted #FFF; background:#191919">
+		<div class="collapse navbar-collapse" id="collapsePommoNabar" style="margin: 15px 0 0; border-top: 1px dotted #FFF; background:#222">
 			<ul class="pomoNavbar">
 				<?php if ( is_user_logged_in() ) { ?> 
 				<!--li>
