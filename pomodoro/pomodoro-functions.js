@@ -226,17 +226,6 @@ function load_initial_data() {
 			//alertify.error("Tarefa não encontrada");
 			change_status(txt_no_task_found);
 
-			jQuery('#tags_box').select2({
-				tags: true,
-				//closeOnSelect: false,
-				//maximumSelectionLength: 3,
-				//createSearchChoice: true,
-				width: '100%',
-				tokenSeparators: [","],
-				placeholder: function() {
-					jQuery(this).data('placeholder');
-				}
-			});
 			stopWarningNoTaskFound=true;
 		} else {
 			if(!jQuery("#title_box").is(":focus") && !jQuery("#tags_box").is(":focus") && !jQuery("#description_box").is(":focus") && !doing_ajax) {
@@ -278,26 +267,7 @@ function load_initial_data() {
 				});
 				jQuery('#tags_box').append('</optgroup>');
 			}
-			jQuery('#tags_box').select2({
-				tags: true,
-				//closeOnSelect: false,
-				//maximumSelectionLength: 3,
-				//createSearchChoice: true,
-				width: '100%',
-				tokenSeparators: [","],
-				placeholder: function() {
-					jQuery(this).data('placeholder');
-				}
-			});
-			//change_status(secundosRemainingFromPHP);
-			//
-			//secundosRemainingFromPHP = secundosRemainingFromPHP.substring(rex[5], str.length - 1);
 			
-			
-			/*if(secundosRemainingFromPHP<0) {
-				//It has to be negative, because the PHP logic
-				secundosRemainingFromPHP*=-1;
-			}*/
 			//
 			if(status_box.value=="draft") {//era pending
 				//alert("secundosRemainingFromPHP"+secundosRemainingFromPHP+" pomodoroTime:"+pomodoroTime);
@@ -356,6 +326,18 @@ function load_initial_data() {
 		//change_status(response);
 		//alert(secundosRemainingFromPHP);
 		//secondsRemaining -= secundosRemainingFromPHP;
+	});
+
+	jQuery('#tags_box').select2({
+		tags: true,
+		//closeOnSelect: false,
+		//maximumSelectionLength: 3,
+		//createSearchChoice: true,
+		width: '100%',
+		tokenSeparators: [","],
+		placeholder: function() {
+			jQuery(this).data('placeholder');
+		}
 	});
 	/*if(secondsRemaining==0)
 	secondsRemaining = pomodoroTime;
