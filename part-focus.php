@@ -166,8 +166,7 @@
 			$the_query = new WP_Query( $args );
 			
 			while ( $the_query->have_posts() ) : $the_query->the_post();
-				$counter = $post->ID;
-				#echo '<li id="modelo-carregado-'.$counter.'" class="row">'; ?>
+				$counter = $post->ID; ?>
 				<li class="modelo-carregado" id="modelo-carregado-<?php echo $counter; ?>">
 				
 				<?php
@@ -202,30 +201,10 @@
 				</div>
 				<div class="model-container-extra">
 					<button class='btn btn-xs btn-success delete-task-model-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-ok"></span></button>
-				<!--/div>
-				<div class="model-container-extra"-->
 					<button' class='btn btn-xs btn-none remove-task-from-list-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-remove"></span></button>
 				</div>
 
 				</li>
-				<?php 
-					
-					//echo "<span class='glyphicon glyphicon-move' aria-hidden='true'></span> &nbsp; ";
-					//echo "<span id=bxtitle$counter>".get_the_title()."</span>";
-					//echo "<br>";
-					//echo "<span style='float:right'>";
-					//echo "<span class='glyphicon glyphicon-tags' aria-hidden='true'></span> &nbsp; ";
-					//echo "<strong id=bxtag$counter>".$taglist."</strong>";
-					//echo "</span>";
-					//echo "<p>";
-					//echo "<br>";
-					//echo "<span class='glyphicon glyphicon-text-background' aria-hidden='true'></span> &nbsp; ";
-					//echo "<span id=bxcontent$counter>".get_the_content()."</span>";
-					//echo "</p>"; ?>
-				
-				<!--div class="model-container-extra2">
-					<a href='#' class='btn btn-xs btn-default details-task-model-btn' data-modelid="<?php echo $counter ?>"><span class="glyphicon glyphicon-zoom-in"></span></a>
-				</div-->
 				
 				
 			<?php 

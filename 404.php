@@ -10,6 +10,7 @@ if(dirname($uri_parts[0])!="/") {
 } else {
 	$page = basename($uri_parts[0]);
 }
+define("PAGE", $page);
 //
 $isWebView = false;
 if((strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile/') !== false) && (strpos($_SERVER['HTTP_USER_AGENT'], 'Safari/') == false)) :
@@ -26,7 +27,6 @@ $pages_open = array("register", "product", "br", "carrinho", "app", "news", "foc
 //
 if(!in_array($page, $pages)) {
 	if(!in_array($page, $pages_open))
-		
 		$page = "index";
 } else {
 	if (!is_user_logged_in()) {
@@ -57,7 +57,7 @@ wp_enqueue_style('fonts-css');
 
 locate_template( "part-".$page.".php", true );
 
-if($page=="focus")
+if(PAGE=="focus")
 	get_footer("condensed");
 else
 	get_footer();
