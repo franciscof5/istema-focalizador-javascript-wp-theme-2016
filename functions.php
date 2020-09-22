@@ -31,6 +31,7 @@
 }*/
 
 //
+add_action('wp_enqueue_scripts', 'load_scritps');
 add_action('login_form_middle', 'add_lost_password_link' );
 add_action('wp_ajax_save_progress', 'save_progress');
 add_action('wp_ajax_nopriv_save_progress', 'save_progress');
@@ -46,7 +47,6 @@ add_action('admin_menu', 'my_remove_menu_pages' );
 add_action('wp_logout','go_home');
 add_action('init', 'create_post_type' );
 add_action('init', 'custom_rewrite_basic');
-add_action('wp_enqueue_scripts', 'load_scritps');
 //
 add_filter( 'redirect_canonical','custom_disable_redirect_canonical' );//nunca desativar
 add_filter( 'woocommerce_order_button_text', 'woo_custom_order_button_text' ); 
@@ -338,8 +338,9 @@ function load_scritps() {
 	wp_dequeue_script('bootstrap-scripts');
 	wp_dequeue_style('bootstrap-js');
 	wp_dequeue_style('bootstrap-style');*/
-	wp_enqueue_script("bootstrap-js", get_bloginfo("stylesheet_directory")."/assets/bootstrap.min.js");
-	wp_enqueue_style('bootstrap-css', get_bloginfo("stylesheet_directory")."/assets/bootstrap.min.css", __FILE__);
+	#JA CARREGADO EM SMART LANG
+	#wp_enqueue_script("bootstrap-js", get_bloginfo("stylesheet_directory")."/assets/bootstrap.min.js");
+	#wp_enqueue_style('bootstrap-css', get_bloginfo("stylesheet_directory")."/assets/bootstrap.min.css", __FILE__);
 	
 	//select2
 	wp_register_script("select2-js", get_bloginfo("stylesheet_directory")."/assets/select2/select2.full.min.js");
@@ -364,7 +365,7 @@ function load_scritps() {
 	//fullpage.js for home
 	wp_enqueue_script("fullpage-js", get_bloginfo("stylesheet_directory")."/assets/fullpage.min.js");
 	wp_enqueue_style('fullpage-css', get_bloginfo("stylesheet_directory")."/assets/fullpage.min.css", __FILE__);
-	wp_enqueue_style('fullPage_examples_examples.css', get_bloginfo("stylesheet_directory")."/assets/fullPage_examples_examples.css", __FILE__);
+	wp_enqueue_style('fullpage_homepage.css', get_bloginfo("stylesheet_directory")."/assets/fullpage_homepage.css", __FILE__, time()*rand());
 	
 
 
@@ -374,7 +375,7 @@ function load_scritps() {
 	load_theme_textdomain( 'sis-foca-js', get_template_directory() . '/languages' );
 
 	//THEME CSS FOR IMPROVE SPEED
-	wp_enqueue_style('theme-css', get_bloginfo("stylesheet_directory")."/style.css", __FILE__, time());
+	wp_enqueue_style('theme-css', get_bloginfo("stylesheet_directory")."/style.css", __FILE__, time()*rand());
 	
 
 	

@@ -115,34 +115,36 @@
 		?>
 
 		<center><h2 class="f-font-title"><i class="glyphicon glyphicon-signal"></i> <?php _e("Stats from Community", "sis-foca-js"); ?></h2></center>
-		<ul class="list-group stats-group col-sm-6">
-			<li class="list-group-item active">
-				<span class="badge"><?php echo /*$user_count." / ".*/$user_active_count["total_users"]; ?></span>
-				<i class="glyphicon glyphicon-user" aria-hidden="true"></i> &nbsp; <?php _e("Active Users", "sis-foca-js"); ?>
-			</li>
-			<li class="list-group-item active">
-				<span class="badge"><?php echo $total_posts; ?></span>
-				<i class="glyphicon glyphicon-ok"></i> &nbsp; <?php _e("Pomodoros done", "sis-foca-js"); ?>
-			</li>
-			<li class="list-group-item active">
-				<span class="badge"><?php echo round($total_posts/2); ?> h</span>
-				<i class="glyphicon glyphicon-time"></i> &nbsp; <?php _e("Time tracked", "sis-foca-js"); ?>
-			</li>
-		</ul>
-		<ul class="list-group stats-group col-sm-6">
-			<li class="list-group-item active">
-				<span class="badge"><?php echo count($projectimer_tags); ?></span>
-				<i class="glyphicon glyphicon-tags" aria-hidden="true"></i> &nbsp; <?php _e("Projects tags", "sis-foca-js"); ?>
-			</li>
-			<li class="list-group-item active">
-				<span class="badge"><?php echo count($cities_count); ?></span>
-				<i class="glyphicon glyphicon-globe"></i> &nbsp; <?php _e("Cities ranked", "sis-foca-js"); ?>
-			</li>
-			<li class="list-group-item active">
-				<span class="badge">5</span>
-				<i class="glyphicon glyphicon-text-background"></i> &nbsp; <?php _e("Translations", "sis-foca-js"); ?>
-			</li>
-		</ul>
+		<div class="row" style="padding:40px;">
+			<ul class="list-group stats-group col-sm-6">
+				<li class="list-group-item active">
+					<span class="badge"><?php echo /*$user_count." / ".*/$user_active_count["total_users"]; ?></span>
+					<i class="glyphicon glyphicon-user" aria-hidden="true"></i> &nbsp; <?php _e("Active Users", "sis-foca-js"); ?>
+				</li>
+				<li class="list-group-item active">
+					<span class="badge"><?php echo $total_posts; ?></span>
+					<i class="glyphicon glyphicon-ok"></i> &nbsp; <?php _e("Pomodoros done", "sis-foca-js"); ?>
+				</li>
+				<li class="list-group-item active">
+					<span class="badge"><?php echo round($total_posts/2); ?> h</span>
+					<i class="glyphicon glyphicon-time"></i> &nbsp; <?php _e("Time tracked", "sis-foca-js"); ?>
+				</li>
+			</ul>
+			<ul class="list-group stats-group col-sm-6">
+				<li class="list-group-item active">
+					<span class="badge"><?php echo count($projectimer_tags); ?></span>
+					<i class="glyphicon glyphicon-tags" aria-hidden="true"></i> &nbsp; <?php _e("Projects tags", "sis-foca-js"); ?>
+				</li>
+				<li class="list-group-item active">
+					<span class="badge"><?php echo count($cities_count); ?></span>
+					<i class="glyphicon glyphicon-globe"></i> &nbsp; <?php _e("Cities ranked", "sis-foca-js"); ?>
+				</li>
+				<li class="list-group-item active">
+					<span class="badge">5</span>
+					<i class="glyphicon glyphicon-text-background"></i> &nbsp; <?php _e("Translations", "sis-foca-js"); ?>
+				</li>
+			</ul>
+		</div>
 		<script>
 			jQuery(document).ready(function() {
 				jQuery(".stats-group li").mouseover(function() {
@@ -162,7 +164,7 @@
 				<p><?php _e("I will be the first in the ranking", "sis-foca-js"); ?>.</p>
 				<div class="caption">
 					<?php #echo bp_core_fetch_avatar( array( 'item_id' => 1304, 'type' => 'full' ) ) ); ?>
-					<h3><?php  echo bp_core_get_userlink( array('user_id' => 1304 )); ?></h3>
+					<h3><a href="#">Sérgio Rodrigues Amorin</a><?php #if(function_exists("bp_core_get_userlink")) echo bp_core_get_userlink( array('user_id' => 1304 )); ?></h3>
 				</div>
 			</div>
 		</div>
@@ -227,6 +229,7 @@
 		</div>
 	</div>
 
+	<? /*
 	<div class="section" id="section5">
 		<center><h2 class="f-font-title"><i class="glyphicon glyphicon-comment"></i> Blog</h2></center>
 				<?php 
@@ -308,7 +311,7 @@
 
 				<?php endif; ?>
 	</div>
-
+	*/ ?>
 </div>
 
 <center><?php if(function_exists("show_lang_options")) show_lang_options(false); ?></center>
@@ -327,7 +330,7 @@
 				jQuery( "#loginlogbox" ).hide("slow");
 
 			},
-			sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000', '#000'],
+			sectionsColor: ['#000', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000', '#000'],
 			anchors: ['home', 'Funcionalidades', 'estatisticas', 'depoimentos', 'historia', 'blog'],
 			menu: '#menu',
 			navigation: true,

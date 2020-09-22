@@ -52,16 +52,8 @@
 <?php do_action( 'bp_before_header' ) ?>
 <!--span id='linha-fundo'></span-->
 <div id="contem-tudo" class="container-fluid content">
-	<!--nav class="navbar navbar-inverse navbar-pomodoros"-->
-	<nav class="navbar navbar-dark">
-		<a class="navbar-brand" title="<?php _e("Go to Pomodoros Blog", "sis-foca-js"); ?>" href="<?php bloginfo('url'); echo is_user_logged_in() ? '/focus' : '/'; ?>">
-			<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pomodoro-logo-topo.png" id="pomodoros-topo" alt="Pomodoros">
-		</a>
-		
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsePommoNabar" aria-controls="collapsePommoNabar" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<!--div class="DDDcontainer-fluid">
+	<nav class="navbar navbar-inverse navbar-pomodoros">
+		<!--div class="DDDcontainer-fluid"-->
 			<div class="navbar-header" style="margin-top: 5px; width: 100%;">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsePommoNabar">
 					<span class="icon-bar"></span>
@@ -70,12 +62,12 @@
 				</button>
 
 				
-				
+				<a class="" title="<?php _e("Go to Pomodoros Blog", "sis-foca-js"); ?>" href="<?php bloginfo('url'); echo is_user_logged_in() ? '/focus' : '/'; ?>">
+					<img src="<?php bloginfo('stylesheet_directory'); ?>/images/pomodoro-logo-topo.png" id="pomodoros-topo" alt="Pomodoros">
 				</a>
-			</div-->
+			</div>
 
-		<div class="collapse navbar-collapse" id="collapsePommoNabar" style="margin: 15px 0 0; border-top: 1px dotted #FFF; background:#191919">
-			<ul class="pomoNavbar">
+			<ul class="collapse navbar-collapse pomoNavbar" id="collapsePommoNabar" style="margin: 5px 0 0">
 				<?php if ( is_user_logged_in() ) { ?> 
 				<!--li>
 					<a title="<?php _e("Start Focus", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus/" class="btn btn-transparent-blue btn-xs btn-expand">
@@ -87,7 +79,7 @@
 			    <?php } ?>
 			    
 			    <!--ul class="nav navbar-nav navbar-right pomoNavbar" style="padding-top: 5;"-->
-			    <span class="pomoNavbar-right icones-celular">
+			    <span style="float:right;" class="pomoNavbar-right icones-celular">
 					<?php if ( !is_user_logged_in() ) { ?> 
 					<li>
 						<a title="<?php _e("Login", "sis-foca-js"); ?>" class="btn btn-transparent-dark btn-xs btn-expand abrir_login" id="login_login" tabindex="1">
@@ -106,7 +98,7 @@
 						<a title="Ver Blog" class="btn btn-link" href="/blog" style="padding-top: 10px;">Blog</a>
 						</li-->
 					<li class="dropdown hidden-xs icon-leg btn btn-xs">
-						<!--a href="#" class="btn btn-transparent-red btn-xs btn-expand dropdown-toggle dropdown-toggle-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger"></i> <span class="glyphicon caret"> </span></a-->
+						<a href="#" class="btn btn-transparent-red btn-xs btn-expand dropdown-toggle dropdown-toggle-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-menu-hamburger"></i> <span class="glyphicon caret"> </span></a>
 						<ul class="dropdown-menu" style="right: 0;left: inherit;">
 							<li>
 								<a title="<?php _e("Start Focus", "sis-foca-js"); ?>" href="<?php bloginfo('url'); ?>/focus/">
@@ -251,9 +243,9 @@
 					</span>
 					<?php } ?>
 				</span>
-			<ul>
+			    <!--/ul-->
 			    
-		</div>
+			</ul>
 		<!--/div-->
 	</nav>
 	<?php /**/ ?>

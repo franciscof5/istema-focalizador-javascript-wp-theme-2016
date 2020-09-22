@@ -1,7 +1,7 @@
 <script>
 	document.title = "Pomodoros <?php global $title_apendix; echo $title_apendix.' » ';_e('Exclusive Content', 'sis-foca-js'); ?>";
 </script>
-<div class="content_nosidebar col-xs-12 col-sm-6" style="width: 104%;left: -2%;" >
+<div class="content_nosidebar col-sm-12 col-md-8 offset-md-2">
 	<h2 class="forte" style="margin:20px 50px;text-align: center;"><i class="glyphicon glyphicon-education"></i> <?php _e("Focus Training", "sis-foca-js"); ?></h2>
 
 	<p style="margin:10px 40px; font-size: 14px; padding:10px;"><?php _e("Pomodoros.com.br are online since 2011, and Francisco Matelli Matulovic, founder, are using Pomodoros Technique and many other time management pratices since 2007. With him management bachalor, master course plus personal experience in time management area, he developed and exclusive course.", "sis-foca-js"); ?><p>

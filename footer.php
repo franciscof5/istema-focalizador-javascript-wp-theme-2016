@@ -8,13 +8,7 @@
 
 		<div id="footer" class="container-fluid">
 			<div id="footer-content" class="row">
-				<div class="col-sm-3 contem_last_pomodoros">
-					<h3><a href="/activity" alt="Viel all activity"><?php _e("Last pomodoros", "sis-foca-js"); ?></a></h3>
-					<?php 
-					if(function_exists("show_recent_pomodoros"))
-					show_recent_pomodoros(); ?>
-					<br style="clear: both;">
-				</div>
+				
 				<div class="col-sm-3">
 					<h3><a href="/ranking" alt="Check ranking"><?php _e("Top Users", "sis-foca-js"); ?></a></h3>
 					<?php
@@ -46,11 +40,19 @@
 					<?php } ?>
 				</div>
 
+				<div class="col-sm-3 contem_last_pomodoros">
+					<h3><a href="/activity" alt="Viel all activity"><?php _e("Last pomodoros", "sis-foca-js"); ?></a></h3>
+					<?php 
+					if(function_exists("show_recent_pomodoros"))
+					show_recent_pomodoros(); ?>
+					<br style="clear: both;">
+				</div>
+				
 				<div class="col-sm-3">
 					<h3><a href="/blog" alt="Read our blog"><?php _e("Our blog", "sis-foca-js"); ?></a></h3>
 					<?php 
 					if(function_exists("smartlang_recent_posts_georefer_widget"))
-					smartlang_recent_posts_georefer_widget(); ?>
+					smartlang_recent_posts_georefer_widget(6); ?>
 				</div>
 
 				<div class="col-sm-3">
