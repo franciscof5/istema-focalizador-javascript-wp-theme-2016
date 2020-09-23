@@ -339,8 +339,8 @@ function load_scritps() {
 	wp_dequeue_style('bootstrap-js');
 	wp_dequeue_style('bootstrap-style');*/
 	#JA CARREGADO EM SMART LANG
-	#wp_enqueue_script("bootstrap-js", get_bloginfo("stylesheet_directory")."/assets/bootstrap.min.js");
-	#wp_enqueue_style('bootstrap-css', get_bloginfo("stylesheet_directory")."/assets/bootstrap.min.css", __FILE__);
+	wp_enqueue_script("bootstrap-js", get_bloginfo("stylesheet_directory")."/assets/bootstrap.min.js");
+	wp_enqueue_style('bootstrap-css', get_bloginfo("stylesheet_directory")."/assets/bootstrap.min.css", __FILE__);
 	
 	//select2
 	wp_register_script("select2-js", get_bloginfo("stylesheet_directory")."/assets/select2/select2.full.min.js");
