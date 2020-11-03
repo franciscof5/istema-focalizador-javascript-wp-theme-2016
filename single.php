@@ -83,8 +83,6 @@ $user_prefered_language_prefix = substr($user_prefered_language,0,2);
 					#plugin: f5sites-shared-posts-tables-and-uploads-folder
 					if(function_exists("print_blog_nav_links") && !is_home()) print_blog_nav_links($post, "lang-".$user_prefered_language_prefix); ?>
 					<?php
-					if(function_exists("revert_database_schema"))
-						revert_database_schema();
 					?>
 			</div>
 

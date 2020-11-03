@@ -45,7 +45,6 @@ if (!is_user_logged_in()) {
 						<td><?php the_content(); ?></td>
 					</tr>
 					<?php
-						if(function_exists('revert_database_schema'))revert_database_schema();
 						global $wpdb;
 
 						$title = get_the_title();
@@ -55,7 +54,6 @@ if (!is_user_logged_in()) {
 						foreach ($posts as $post) {
 						     $posts_ids[] = $post->ID;
 						}
-						#if(function_exists('revert_database_schema'))revert_database_schema();
 					?>
 					<tr>
 						<td><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <?php _e("Durantion", "sis-foca-js"); ?></td>
@@ -116,7 +114,6 @@ if (!is_user_logged_in()) {
 					</div>
 					<div class="col-sm-4">
 						<?php
-						if(function_exists('revert_database_schema'))revert_database_schema();
 						global $wpdb;
 
 						$title = get_the_title();
@@ -126,7 +123,6 @@ if (!is_user_logged_in()) {
 						foreach ($posts as $post) {
 						     $posts_ids[] = $post->ID;
 						}
-						#if(function_exists('revert_database_schema'))revert_database_schema();
 						?>
 
 						<p> <?php echo count($posts_ids)/2; ?>h &nbsp;</p>

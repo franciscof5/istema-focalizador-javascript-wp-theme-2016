@@ -1,6 +1,6 @@
 <?php global $user_prefered_language_prefix; ?>
 <!DOCTYPE html>
-	<head lang="<?php echo isset($user_prefered_language) ? $user_prefered_language: $user_prefered_language_prefix; ?>">
+	<head lang="<?php echo isset($user_prefered_language) ? $user_prefered_language: "pt_BR"; ?>">
 		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
 		<?php

@@ -17,10 +17,8 @@
 		<li>
 			<h3><?php _e("Buy to support our free services", "sis-foca-js"); ?></h3>
 			<?php 
-			set_shared_database_schema();
 			echo do_shortcode('[product id="5912"]'); 
-			revert_database_schema();
-			#echo do_shortcode("[woocommerce_my_account]"); ?>
+			?>
 		</li>
 		
 		<li>

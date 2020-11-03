@@ -99,10 +99,7 @@
 	<div class="section" id="section2">
 		<?php
 		$user_active_count = count_users(); //METHOD 1, only active
-		#var_dump($user_active_count);
 		$user_count = $wpdb->get_var("SELECT COUNT(`ID`) FROM $wpdb->users;");
-		#$user_count = $wpdb->get_var("SELECT COUNT(*) FROM 2fnetwork_users;"); echo $user_count;
-		revert_database_schema();
 		$projectimer_tags = get_terms( array(
 			'taxonomy' => 'post_tag',
 			'hide_empty' => false,
@@ -111,7 +108,6 @@
 		$total_posts = $count_posts->publish+$count_posts->private;
 		//
 		$cities_count = get_meta_values( "post_location_city", "projectimer_focus" );
-		//style="max-width: 400px;margin:0 auto;"
 		?>
 
 		<center><h2 class="f-font-title"><i class="glyphicon glyphicon-signal"></i> <?php _e("Stats from Community", "sis-foca-js"); ?></h2></center>

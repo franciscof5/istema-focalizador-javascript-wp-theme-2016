@@ -1,35 +1,4 @@
 <?php
-//f5 sites shared posts e tables compatibility plugin
-/*if(function_exists("set_shared_database_schema")) {
-	#var_dump("set_shared_database_schema");die;
-	//to save contact forms submission in database
-	add_action("wpcf7_init", "set_shared_database_schema", 10, 2);
-	
-	//to delete projectimer_focus posts	
-	add_action("wp_trash_post", "force_revert_f5sites_shared", 10, 2);
-	
-	//to get projectimer_focus
-	add_action('pre_get_posts', 'force_revert_f5sites_shared', 10, 2);
-
-	//to force delete projectimer_focus posts (in wp-admin?)
-	add_action( 'check_admin_referer', 'local_revert_database_schema', 10, 2 );
-	function local_revert_database_schema($args) {
-		if($args) {
-			$is_trashing = substr($args,0,10);
-			$id = substr($args,11);
-			if($is_trashing) {
-				if(function_exists("revert_database_schema")) {
-					revert_database_schema();
-					$foi = wp_trash_post($id);
-					if($foi)
-						wp_redirect("/wp-admin/edit.php?post_type=projectimer_focus");	
-				}
-				
-			}
-		}
-	}
-}*/
-
 //
 add_action('wp_enqueue_scripts', 'load_scritps');
 add_action('login_form_middle', 'add_lost_password_link' );
@@ -304,16 +273,6 @@ function blockusers_from_wp_admin() {
     // or...
 });*/
 
-function force_revert_f5sites_shared() {
-	if(is_tag()) {
-	#echo $_SERVER['SERVER_NAME'];
-	#if($_SERVER['SERVER_NAME']=="www.pomodoros.com.br")
-		if(is_home() || is_singular()) {
-			if(function_exists("revert_database_schema"))
-			revert_database_schema();	
-		}
-	}
-}
 
 function default_page() {
   return '/focus';
@@ -323,7 +282,7 @@ function default_page() {
 
 function load_scritps() {		
 	#wp_enqueue_style('pomodoro-css', get_bloginfo("stylesheet_directory")."/pomodoro/pomodoro.css", __FILE__, time());
-	wp_enqueue_style('fonts-css', get_bloginfo("stylesheet_directory")."/assets/fonts/stylesheet.css", __FILE__);
+	#ERROR CONSOLE wp_enqueue_style('fonts-css', get_bloginfo("stylesheet_directory")."/assets/fonts/stylesheet.css", __FILE__);
 
 
 	//jquery colors
@@ -544,7 +503,6 @@ function array_to_rank ($ar, $qtt) { ?>
 #get_projectimer_tags_COPY();
 function get_projectimer_tags_COPY($excludeTags=NULL) {
 	
-	if(function_exists('revert_database_schema'))revert_database_schema();
 	global $please_dont_change_wpdb_woo_separated_tables;
 	$please_dont_change_wpdb_woo_separated_tables=true;
 
@@ -658,54 +616,12 @@ function checkLogin() {
 
 function save_progress () {
 	checkLogin();
-	//$pomo_completed = date("Y-m-d H:i")."|".$_POST['descri'];
-	//$save_progress = add_user_meta(get_current_user_id(), "pomodoro_completed", $pomo_completed);
-	
-	/*if($save_progress) {
-		echo "true";
-	} else {
-		echo "false";
-	}*/
-
-	/*$args = array(
-	    'post_type' => 'projectimer_focus',
-	    'post_status' => 'draft',
-	    'author'   => get_current_user_id(),
-	    //'orderby'   => 'title',
-	    //'order'     => 'ASC',
-	    'posts_per_page' => 1,
-	);
-	$post = get_posts($args); #new WP_Query( $args );
-	echo $post[0]->ID;*/
-	#revert_database_schema();
-	#global $wpdb;
-	#global $table_prefix;
-	#$prefix=$table_prefix;
-	
-	#
-	/*$wpdb->posts=$prefix."posts";
-	$wpdb->postmeta=$prefix."postmeta";
-	$wpdb->terms=$prefix."terms";
-	$wpdb->term_taxonomy=$prefix."term_taxonomy";
-	$wpdb->term_relationships=$prefix."term_relationships";
-	$wpdb->termmeta=$prefix."termmeta";
-	$wpdb->taxonomy=$prefix."taxonomy";*/
-	#force_database_aditional_tables_share();
-	//
-	#define(FORCE_NOT_PUBLISH_SHARED, true);
 	global $force_publish_post_not_shared;
 	$force_publish_post_not_shared = true;
 	if(!$_POST['post_priv'])
 		$_POST['post_priv']="publish";
 	$tagsinput = explode(" ", $_POST['post_tags']);
-	
-	
 	date_default_timezone_set('America/Sao_Paulo');
-	#$agora = current_time("Y-m-d H:i:s");
-	#date_default_timezone_set('UTC');
-	#$agora_gmt = current_time("Y-m-d H:i:s");
-
-
 
 	$agora = current_time('Y-m-d H:i:s');#current_time("mysql");
 	$agora_gmt = current_time("mysql", true);
@@ -1142,8 +1058,6 @@ function update_pomo_active () {
 
 function save_or_delete_model () {
 	checkLogin();
-	if(function_exists("revert_database_schema"))revert_database_schema();
-
 	//header('Content-type: application/json');//CRUCIAL
 	if(isset($_POST['post_para_deletar'])) {
 		#echo "deletando: ".$_POST['post_para_deletar'];
@@ -1169,7 +1083,6 @@ function save_or_delete_model () {
 
 function update_cycle_list() {
 	checkLogin();
-	if(function_exists("revert_database_schema"))revert_database_schema();
 	//
 	if(isset($_POST["clean"])) {
 		$ok = update_user_meta(get_current_user_id(), "cycle_list", "");
@@ -1184,46 +1097,6 @@ function update_cycle_list() {
 	}
 	
 }
-/*register_sidebar( array(
-	'name' => __( 'blog'),
-	'id' => 'blog',
-	'description' => __( 'blog sidebar'),
-	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-	'after_widget' => '</li>',
-	'before_title' => '<h3 class="widget-title">',
-	'after_title' => '</h3>',
-) );
-/*
-register_sidebar( array(
-	'name' => __( 'Geral Esquerda'),
-	'id' => 'geral',
-	'description' => __( 'Sidebar geral, fica na esquerda'),
-	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-	'after_widget' => '</li>',
-	'before_title' => '<h3 class="widget-title">',
-	'after_title' => '</h3>',
-) );
-
-register_sidebar( array(
-	'name' => __( 'Pomodoros Direita'),
-	'id' => 'pomodoros',
-	'description' => __( 'Fica na DIREITA em focus'),
-	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-	'after_widget' => '</li>',
-	'before_title' => '<h3 class="widget-title">',
-	'after_title' => '</h3>',
-) );
-
-register_sidebar( array(
-	'name' => __( 'Ranking'),
-	'id' => 'ranking',
-	'description' => __( 'apenas mostra o ranking'),
-	'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-	'after_widget' => '</li>',
-	'before_title' => '<h3 class="widget-title">',
-	'after_title' => '</h3>',
-) );
-*/
 function create_post_type() {
 	createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN();
 }

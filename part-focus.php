@@ -153,8 +153,6 @@
 		<h3 class="widget-title"><?php _e("TODO list", "sis-foca-js"); ?></h3>	
 		<ul id="contem-modelos" class="row">
 			<?php
-			if(function_exists("revert_database_schema"))revert_database_schema();
-
 			$args = array(
 		              'post_type' => 'projectimer_focus',
 		              'post_status' => 'pending',

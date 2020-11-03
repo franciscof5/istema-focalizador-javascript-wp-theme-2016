@@ -102,29 +102,14 @@
 		</li>*/?>
 		<li>
 			<h3 class="widget-title"><?php _e("Projects from Community", "sis-foca-js"); ?></h3>
-			<?php if(function_exists("revert_database_schema"))
-				revert_database_schema();
+			<?php
 				$args = array(
         			'exclude' => "261,13,533", #fsites=14, itapemapa=13,mestrado=261, cttfase2=533, franciscomat=553
         		);
         		wp_tag_cloud($args);
-				#the_widget( 'WP_Widget_Tag_Cloud', "title=Projetos da Comunidade", 'before_title=<h3 class="widget-title">&after_title=</h3>', $args );
+
 			 ?>
 		</li>
-		
-	<?php
-		#dynamic_sidebar( 'geral' ); 
-		#global $reverter_filtro_de_categoria_pra_forcar_funcionamento;
-		#$reverter_filtro_de_categoria_pra_forcar_funcionamento = true;
-		
-		#echo '<h3 class="widget-title">Colabore</h3>';
-		#force_database_aditional_tables_share();
-		#echo do_shortcode('[product id="4530"]');  
-		#revert_database_schema();
-		//global $reverter_filtro_de_categoria_pra_forcar_funcionamento;
-		#$reverter_filtro_de_categoria_pra_forcar_funcionamento = false;
-		//unset($reverter_filtro_de_categoria_pra_forcar_funcionamento);
-		?>
 
 		<?php do_action( 'bp_inside_after_sidebar' ); ?>
 

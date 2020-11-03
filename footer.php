@@ -94,16 +94,6 @@
 					show_lang_options(false); ?>
 				</div>
 			</div>
-
-			<?php
-			#<div  class="row white-link">
-			#force_database_aditional_tables_share();
-			#echo do_shortcode('[product id="4530"]');  
-			#revert_database_schema();
-			#</div>
-			?>
-				
-				
 			
 			<?php do_action( 'bp_footer' ) ?>
 		</div><!-- #footer -->
