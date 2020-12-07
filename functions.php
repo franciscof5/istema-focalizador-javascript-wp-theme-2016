@@ -62,6 +62,7 @@ function custom_disable_redirect_canonical( $redirect_url ) {
 
 function get_projectimer_project_tags($author_id,$taxonomy = 'post_tag'){
     //get author's posts
+    $exclude_adm=="";
     if($author_id>0)
     	$exclude_adm=="";
     else {
@@ -1133,6 +1134,7 @@ function createPostTypeCOPY_FROM_PROJECTIMER_PLUGIN() {
 			'rewrite' => array( 'slug' => 'done'),//, 'with_front' => false ),
 			'has_archive' => true,
 			'query_var'  => true,
+			'show_in_rest' => true,
 			'taxonomies' => array('post_tag', 'category'),
 			'supports'   => array( 'title', 'content', 'editor', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields' )
 		);
