@@ -2,7 +2,7 @@
 
 //SYSTEM VARS
 {
-	var debug = false;
+	var debug = true;
 	if(data_from_php.is_admin)
 		var debug = true;
 	//
@@ -832,7 +832,7 @@ function cycle_list_update(clean_) {
 
 function cycle_list_play() {
 	if(debug)
-		console.log("cycle_start(), autoCycle="+autoCycle);
+		console.log("cycle_start(), autoCycle!="+autoCycle);
 
 	if(autoCycle) {
 		//THEN PAUSE
@@ -985,7 +985,8 @@ function delete_model(task_model_id) {
 
 function load_model(task_model_id) {
 	if(debug)
-	console.log("load_model(), task_model_id"+task_model_id);
+		console.log("load_model(), task_model_id"+task_model_id);
+	
 	change_status(txt_loading_model);
 	
 	jQuery("#title_box").val(jQuery("#bxtitle"+task_model_id).text());

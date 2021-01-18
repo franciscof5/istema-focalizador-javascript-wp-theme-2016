@@ -127,7 +127,7 @@
 				
 			});
 		</script> */ ?>
-		<div class="collapse" id="collapseTodoList">
+		<div DDDclass="collapse" id="collapseTodoList">
 
 		<div id="auto_cicler" class="row">
 			<h3 class="widget-title"><?php _e("Automatic cycle", "sis-foca-js"); ?></h3>
