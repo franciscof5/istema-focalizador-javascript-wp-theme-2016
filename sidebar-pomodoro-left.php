@@ -78,7 +78,7 @@
 		
 		<li>
 			<h3 class="widget-title">Change Language</h3>
-			<?php show_lang_options(true); ?>
+			<?php if(function_exists("show_lang_options")) show_lang_options(true); ?>
 		</li>
 		
 		<?php

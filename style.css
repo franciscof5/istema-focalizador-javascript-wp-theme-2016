@@ -249,9 +249,10 @@ img.avatar {
 	width: 110%;
 }*/
 .sidebar li {
+    /*
 	background-color: #fff;
+    display: table;*/
     clear: both;
-    /*display: table;*/
     margin-bottom: 16px;
     padding: 2px 4px 10px;
     width: 100%;
@@ -261,22 +262,24 @@ img.avatar {
 }
 .sidebar h3 {
 	/*background: rgba(255,255,255, 0.5);
-	background-color: #FFF;*/
+	background-color: #FFF;
 	background-color: #f6f6f6;
-	color: #222;
 	border-bottom: 2px solid #BBB;
+	*/
+	color: #FFF;
 	clear: left;
     margin:0 0 10px 0;
     padding: 4px;
     font-weight: 600;
 }
+	/*
 #sidebar-pomodoro-right {
 	margin-left: -40px;
 }
 #sidebar-pomodoro-left {
 	margin-left: 20px;
 }
-/*.sidebar {background: rgba(255,255,255, 0.8);/*border-radius:15px !important;*/}
+.sidebar {background: rgba(255,255,255, 0.8);/*border-radius:15px !important;*/}
 /*.sidebar li {width: 100%;clear: both;}*/
 .content_pomodoro {
 	/*border-radius:15px !important;*/

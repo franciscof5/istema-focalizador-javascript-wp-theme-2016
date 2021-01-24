@@ -230,7 +230,7 @@ function load_initial_data() {
 		} else {
 			if(!jQuery("#title_box").is(":focus") && !jQuery("#tags_box").is(":focus") && !jQuery("#description_box").is(":focus") && !doing_ajax) {
 
-			var postReturned = jQuery.parseJSON( response.slice( 0, - 1 ) );
+			var postReturned = jQuery.parseJSON( response.slice( 0 ) );
 			
 			//alert(postReturned['ID']);
 			title_box.value = postReturned['post_title'];

@@ -707,8 +707,8 @@ date_default_timezone_set('UTC');
 #
 function load_session () {
 	checkLogin();
-	//checa se já existe um rascunho, caso não cria o primeiro
 	
+	//checa se já existe um rascunho, caso não cria o primeiro
 	
 	/*if($pomodoroAtivo=="") {
 		
@@ -825,6 +825,7 @@ function load_session () {
 			$postReturned['agora'] = $agora;
 			$postReturned['tags_total'] = get_projectimer_tags_COPY();	
 		}
+
 		$vol = get_user_meta(get_current_user_id(), "rangeVolume", true);
 		if($vol<0 || $vol>100 || $vol=="")
 			$vol=100;
@@ -840,9 +841,11 @@ function load_session () {
 		if($voice_enabled=="")
 			$voice_enabled=true;
 		$postReturned['voice_enabled'] = $voice_enabled;
+
 		//header('Content-type: application/json');//CRUCIAL
 		//if($pomodoroAtivo)
 		echo json_encode($postReturned);
+		die();
 		#echo "Carreguei sua última tarefa, basta acionar o botão FOCAR! e arregaçar as mangas."."$^$ ".$post->post_title."$^$ ".$tags[0]->name."$^$ ".$post->post_content."$^$ ".$post->post_date."$^$ ".$post->post_status."$^$ ".$post->ID."$^$ ".$secs;
 		//}
 	//}
